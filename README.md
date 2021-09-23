@@ -1,2 +1,2 @@
-# multi-module-architecture-android-ios
-Multi module architecture android &amp; ios
+# multi-module-architecture
+Multi module architecture android/ios
