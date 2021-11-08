@@ -28,7 +28,10 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     dynamicFeatures = [
-            ':features:navigation:login', ':modules:journey:home', ':modules:journey:profile', ':modules:structural:networking:implementation'
+            ':modules:journey:login',
+            ':modules:journey:home',
+            ':modules:journey:profile',
+            ':modules:structural:networking:implementation'
     ]
 }
 
