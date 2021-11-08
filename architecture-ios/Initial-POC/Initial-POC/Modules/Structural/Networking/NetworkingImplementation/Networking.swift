@@ -8,20 +8,23 @@
 import Foundation
 import NetworkingProtocol
 
-class Networking: HTTPClient {
-    func get() -> String {
+open class Networking: HTTPClient {
+    
+    public init() {}
+    
+    public func get() -> String {
         return "GET"
     }
     
-    func post() -> String {
+    public func post() -> String {
         return "POST"
     }
     
-    func put() -> String {
+    public func put() -> String {
         return "PUT"
     }
     
-    func delete() -> String {
+    public func delete() -> String {
         return "DELETE"
     }
 }
