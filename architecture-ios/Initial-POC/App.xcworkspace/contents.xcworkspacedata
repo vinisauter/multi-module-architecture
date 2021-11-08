@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "container:/Users/nykolasmayko/Documents/multi-module-architecture/architecture-ios/Initial-POC/App.xcodeproj">
+   </FileRef>
+   <Group
+      location = "container:"
+      name = "Modules">
+      <Group
+         location = "container:"
+         name = "Journey">
+         <FileRef
+            location = "group:Modules/Journey/Login/Login.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Modules/Journey/Home/Home.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Modules/Journey/Profile/Profile.xcodeproj">
+         </FileRef>
+      </Group>
+      <Group
+         location = "container:"
+         name = "Structural">
+         <FileRef
+            location = "group:Modules/Structural/Networking/Networking.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Modules/Structural/Storage/Storage.xcodeproj">
+         </FileRef>
+      </Group>
+   </Group>
+</Workspace>
