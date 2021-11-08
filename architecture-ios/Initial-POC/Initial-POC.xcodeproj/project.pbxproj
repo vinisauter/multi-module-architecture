@@ -81,10 +81,13 @@
 		421ED3FA27397DE800BD353C /* StorageImplementation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 421ED05D2739744100BD353C /* StorageImplementation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		421ED3FD27397DE800BD353C /* StorageProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 421ED0492739742F00BD353C /* StorageProtocol.framework */; };
 		421ED3FE27397DE800BD353C /* StorageProtocol.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 421ED0492739742F00BD353C /* StorageProtocol.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5971A1DF2739B1ED008DD1CD /* StorageProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 421ED0492739742F00BD353C /* StorageProtocol.framework */; };
+		5971A1E02739B1ED008DD1CD /* StorageProtocol.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 421ED0492739742F00BD353C /* StorageProtocol.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5971A1F52739B259008DD1CD /* NetworkingProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 421ED0362739741800BD353C /* NetworkingProtocol.framework */; };
+		5971A1F62739B259008DD1CD /* NetworkingProtocol.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 421ED0362739741800BD353C /* NetworkingProtocol.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5981A0C32739B19300BFBAA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5981A0C22739B19300BFBAA5 /* SceneDelegate.swift */; };
 		59F38E7B2739A73C00CB05CA /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F38E7A2739A73C00CB05CA /* HTTPClient.swift */; };
 		59F38E842739A7A200CB05CA /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F38E832739A7A200CB05CA /* Networking.swift */; };
-		59F38E8C2739A7BF00CB05CA /* NetworkingProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 421ED0362739741800BD353C /* NetworkingProtocol.framework */; };
-		59F38E8D2739A7BF00CB05CA /* NetworkingProtocol.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 421ED0362739741800BD353C /* NetworkingProtocol.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -242,7 +245,14 @@
 			remoteGlobalIDString = 421ED0482739742F00BD353C;
 			remoteInfo = StorageProtocol;
 		};
-		59F38E8E2739A7BF00CB05CA /* PBXContainerItemProxy */ = {
+		5971A1E12739B1ED008DD1CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 421ECFB527396FBA00BD353C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 421ED0482739742F00BD353C;
+			remoteInfo = StorageProtocol;
+		};
+		5971A1F72739B259008DD1CD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 421ECFB527396FBA00BD353C /* Project object */;
 			proxyType = 1;
@@ -314,13 +324,24 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		59F38E902739A7C000CB05CA /* Embed Frameworks */ = {
+		5971A1E32739B1ED008DD1CD /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				59F38E8D2739A7BF00CB05CA /* NetworkingProtocol.framework in Embed Frameworks */,
+				5971A1E02739B1ED008DD1CD /* StorageProtocol.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5971A1F92739B259008DD1CD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5971A1F62739B259008DD1CD /* NetworkingProtocol.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,6 +401,7 @@
 		421ED37627397D1500BD353C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		421ED37927397D1500BD353C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		421ED37B27397D1500BD353C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5981A0C22739B19300BFBAA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		59F38E7A2739A73C00CB05CA /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		59F38E832739A7A200CB05CA /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -403,7 +425,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59F38E8C2739A7BF00CB05CA /* NetworkingProtocol.framework in Frameworks */,
+				5971A1F52739B259008DD1CD /* NetworkingProtocol.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +447,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5971A1DF2739B1ED008DD1CD /* StorageProtocol.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +542,7 @@
 			isa = PBXGroup;
 			children = (
 				421ECFC027396FBA00BD353C /* AppDelegate.swift */,
+				5981A0C22739B19300BFBAA5 /* SceneDelegate.swift */,
 				421ECFC427396FBA00BD353C /* ViewController.swift */,
 				421ECFC627396FBA00BD353C /* Main.storyboard */,
 				421ECFC927396FBC00BD353C /* Assets.xcassets */,
@@ -814,12 +838,12 @@
 				421ED01E273973E500BD353C /* Sources */,
 				421ED01F273973E500BD353C /* Frameworks */,
 				421ED020273973E500BD353C /* Resources */,
-				59F38E902739A7C000CB05CA /* Embed Frameworks */,
+				5971A1F92739B259008DD1CD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				59F38E8F2739A7BF00CB05CA /* PBXTargetDependency */,
+				5971A1F82739B259008DD1CD /* PBXTargetDependency */,
 			);
 			name = NetworkingImplementation;
 			productName = NetworkingImplementation;
@@ -870,10 +894,12 @@
 				421ED0592739744100BD353C /* Sources */,
 				421ED05A2739744100BD353C /* Frameworks */,
 				421ED05B2739744100BD353C /* Resources */,
+				5971A1E32739B1ED008DD1CD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5971A1E22739B1ED008DD1CD /* PBXTargetDependency */,
 			);
 			name = StorageImplementation;
 			productName = StorageImplementation;
@@ -1176,6 +1202,7 @@
 			files = (
 				421ECFC527396FBA00BD353C /* ViewController.swift in Sources */,
 				421ECFC127396FBA00BD353C /* AppDelegate.swift in Sources */,
+				5981A0C32739B19300BFBAA5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1373,10 +1400,15 @@
 			target = 421ED0482739742F00BD353C /* StorageProtocol */;
 			targetProxy = 421ED3FF27397DE800BD353C /* PBXContainerItemProxy */;
 		};
-		59F38E8F2739A7BF00CB05CA /* PBXTargetDependency */ = {
+		5971A1E22739B1ED008DD1CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 421ED0482739742F00BD353C /* StorageProtocol */;
+			targetProxy = 5971A1E12739B1ED008DD1CD /* PBXContainerItemProxy */;
+		};
+		5971A1F82739B259008DD1CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 421ED0352739741800BD353C /* NetworkingProtocol */;
-			targetProxy = 59F38E8E2739A7BF00CB05CA /* PBXContainerItemProxy */;
+			targetProxy = 5971A1F72739B259008DD1CD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
