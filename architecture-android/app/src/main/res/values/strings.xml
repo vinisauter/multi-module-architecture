@@ -4,4 +4,8 @@
     <string name="title_home">Home</string>
     <string name="title_profile">Profile</string>
     <string name="title_implementation">Networking-Implementation</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome_message">Bem vindo ao app</string>
 </resources>
