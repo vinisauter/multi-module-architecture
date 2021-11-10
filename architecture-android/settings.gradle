@@ -6,7 +6,8 @@ pluginManagement {
     }
 }
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+//    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
     repositories {
         google()
         mavenCentral()
@@ -23,9 +24,18 @@ include ':modules'
 include ':modules:structural'
 include ':modules:structural:networking'
 include ':modules:structural:storage'
+//include ':modules:structural:flutter:interface'
+include ':modules:structural:flutter'
+include ':modules:structural:flutter:implementation'
 include ':modules:journey'
 include ':modules:journey:login'
 include ':modules:journey:home'
 include ':modules:journey:profile'
-include ':modules:structural:networking:interface'
-include ':modules:structural:networking:implementation'
+//include ':modules:structural:networking:interface'
+//include ':modules:structural:networking:implementation'
+
+setBinding(new Binding([gradle: this]))
+evaluate(new File(
+        settingsDir.parentFile,
+        './multiple_flutters_module/.android/include_flutter.groovy'
+))
