@@ -14,7 +14,6 @@
 		59D006D2273C398300BFC574 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D006D1273C398300BFC574 /* BaseViewModel.swift */; };
 		59D006D5273C3D1600BFC574 /* BaseViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D006D4273C3D1600BFC574 /* BaseViewControllerFactory.swift */; };
 		59D006D8273C3D3E00BFC574 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D006D7273C3D3E00BFC574 /* UIViewController+Extensions.swift */; };
-		59D006E4273C665600BFC574 /* WeakRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D006E3273C665600BFC574 /* WeakRef.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +26,6 @@
 		59D006D1273C398300BFC574 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		59D006D4273C3D1600BFC574 /* BaseViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerFactory.swift; sourceTree = "<group>"; };
 		59D006D7273C3D3E00BFC574 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
-		59D006E3273C665600BFC574 /* WeakRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRef.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +69,6 @@
 		59C82C32273BFF2200E84149 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				59D006E3273C665600BFC574 /* WeakRef.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -184,7 +181,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59D006E4273C665600BFC574 /* WeakRef.swift in Sources */,
 				59D006D5273C3D1600BFC574 /* BaseViewControllerFactory.swift in Sources */,
 				59C82C4B273C011100E84149 /* BaseFlowDelegate.swift in Sources */,
 				59D006D2273C398300BFC574 /* BaseViewModel.swift in Sources */,
