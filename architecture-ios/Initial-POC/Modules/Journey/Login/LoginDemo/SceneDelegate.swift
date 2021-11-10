@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Login
+import Networking
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -18,13 +20,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-//        let mainVC = UIViewController()
-//        let networking = Networking()
-//        debugPrint(networking.get())
-//
-//        window = UIWindow(windowScene: windowScene)
-//        window?.rootViewController = UINavigationController(rootViewController: mainVC)
-//        window?.makeKeyAndVisible()
+        let networking = Networking()
+        let mainVC = LoginLauncher.start(baseFlowDelegate: nil, loginFlowDelegate: nil, httpClient: networking)
+        
+        window = UIWindow(windowScene: windowScene)
+        window?.rootViewController = UINavigationController(rootViewController: mainVC)
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

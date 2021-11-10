@@ -15,8 +15,19 @@
 		594380ED2739DE180001D840 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 594380EB2739DE180001D840 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		594380EF2739DE1B0001D840 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594380EE2739DE1B0001D840 /* Storage.framework */; };
 		594380F02739DE1B0001D840 /* Storage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 594380EE2739DE1B0001D840 /* Storage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5958557A273A8F50008E587C /* LoginLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59585579273A8F50008E587C /* LoginLauncher.swift */; };
+		5958557C273A8F69008E587C /* LoginBusinessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5958557B273A8F69008E587C /* LoginBusinessModel.swift */; };
+		5958557E273A8F7C008E587C /* LoginFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5958557D273A8F7C008E587C /* LoginFlow.swift */; };
+		59585580273A8FA2008E587C /* LoginRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5958557F273A8FA2008E587C /* LoginRepositoryProtocol.swift */; };
+		59585582273A8FB1008E587C /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59585581273A8FB1008E587C /* LoginAPI.swift */; };
+		59585584273A8FCA008E587C /* LoginBusinessModel+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59585583273A8FCA008E587C /* LoginBusinessModel+Analytics.swift */; };
+		59585587273A9130008E587C /* LoginIndexViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59585586273A9130008E587C /* LoginIndexViewModel.swift */; };
+		5958558A273A9141008E587C /* LoginIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59585589273A9141008E587C /* LoginIndexViewController.swift */; };
+		5958558C273A924E008E587C /* LoginViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5958558B273A924E008E587C /* LoginViewControllerFactory.swift */; };
 		59A9DA722739DC9A003FA91D /* StorageInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A9DA712739DC9A003FA91D /* StorageInterfaces.framework */; };
 		59A9DA732739DC9A003FA91D /* StorageInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59A9DA712739DC9A003FA91D /* StorageInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		59C82C3F273BFF7B00E84149 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C82C3E273BFF7B00E84149 /* Core.framework */; };
+		59C82C40273BFF7B00E84149 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59C82C3E273BFF7B00E84149 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59DC835E2739D35D00466A21 /* Login.h in Headers */ = {isa = PBXBuildFile; fileRef = 59DC835C2739D35D00466A21 /* Login.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		59DC836C2739D37000466A21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DC836B2739D37000466A21 /* AppDelegate.swift */; };
 		59DC836E2739D37000466A21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DC836D2739D37000466A21 /* SceneDelegate.swift */; };
@@ -57,6 +68,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				59A9DA732739DC9A003FA91D /* StorageInterfaces.framework in Embed Frameworks */,
+				59C82C40273BFF7B00E84149 /* Core.framework in Embed Frameworks */,
 				593F26382739D58C00B34547 /* NetworkingInterfaces.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -69,8 +81,18 @@
 		593F26362739D58C00B34547 /* NetworkingInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkingInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		594380EB2739DE180001D840 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		594380EE2739DE1B0001D840 /* Storage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Storage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59585579273A8F50008E587C /* LoginLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginLauncher.swift; sourceTree = "<group>"; };
+		5958557B273A8F69008E587C /* LoginBusinessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBusinessModel.swift; sourceTree = "<group>"; };
+		5958557D273A8F7C008E587C /* LoginFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFlow.swift; sourceTree = "<group>"; };
+		5958557F273A8FA2008E587C /* LoginRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepositoryProtocol.swift; sourceTree = "<group>"; };
+		59585581273A8FB1008E587C /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
+		59585583273A8FCA008E587C /* LoginBusinessModel+Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginBusinessModel+Analytics.swift"; sourceTree = "<group>"; };
+		59585586273A9130008E587C /* LoginIndexViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginIndexViewModel.swift; sourceTree = "<group>"; };
+		59585589273A9141008E587C /* LoginIndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginIndexViewController.swift; sourceTree = "<group>"; };
+		5958558B273A924E008E587C /* LoginViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerFactory.swift; sourceTree = "<group>"; };
 		59A9DA712739DC9A003FA91D /* StorageInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StorageInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59A9DA742739DCA4003FA91D /* Storage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Storage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59C82C3E273BFF7B00E84149 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59DC83592739D35D00466A21 /* Login.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Login.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59DC835C2739D35D00466A21 /* Login.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Login.h; sourceTree = "<group>"; };
 		59DC835D2739D35D00466A21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,6 +112,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59A9DA722739DC9A003FA91D /* StorageInterfaces.framework in Frameworks */,
+				59C82C3F273BFF7B00E84149 /* Core.framework in Frameworks */,
 				593F26372739D58C00B34547 /* NetworkingInterfaces.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,6 +133,7 @@
 		593F25AC2739D3E000B34547 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				59C82C3E273BFF7B00E84149 /* Core.framework */,
 				594380EE2739DE1B0001D840 /* Storage.framework */,
 				594380EB2739DE180001D840 /* Networking.framework */,
 				59A9DA742739DCA4003FA91D /* Storage.framework */,
@@ -118,6 +142,57 @@
 				593F26332739D58500B34547 /* Networking.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		59585574273A8EB7008E587C /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				5958557B273A8F69008E587C /* LoginBusinessModel.swift */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		59585575273A8EEF008E587C /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				59585583273A8FCA008E587C /* LoginBusinessModel+Analytics.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		59585576273A8EFB008E587C /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				5958557F273A8FA2008E587C /* LoginRepositoryProtocol.swift */,
+				59585581273A8FB1008E587C /* LoginAPI.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		59585577273A8F17008E587C /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				5958557D273A8F7C008E587C /* LoginFlow.swift */,
+				5958558B273A924E008E587C /* LoginViewControllerFactory.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		59585578273A8F1D008E587C /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				59585585273A911F008E587C /* Login */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		59585585273A911F008E587C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				59585586273A9130008E587C /* LoginIndexViewModel.swift */,
+				59585589273A9141008E587C /* LoginIndexViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		59DC834F2739D35D00466A21 = {
@@ -142,6 +217,12 @@
 		59DC835B2739D35D00466A21 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				59585579273A8F50008E587C /* LoginLauncher.swift */,
+				59585575273A8EEF008E587C /* Analytics */,
+				59585576273A8EFB008E587C /* Repository */,
+				59585577273A8F17008E587C /* Flow */,
+				59585574273A8EB7008E587C /* Business */,
+				59585578273A8F1D008E587C /* Presentation */,
 				59DC835C2739D35D00466A21 /* Login.h */,
 				59DC835D2739D35D00466A21 /* Info.plist */,
 			);
@@ -225,6 +306,7 @@
 				TargetAttributes = {
 					59DC83582739D35D00466A21 = {
 						CreatedOnToolsVersion = 12.1;
+						LastSwiftMigration = 1210;
 					};
 					59DC83682739D37000466A21 = {
 						CreatedOnToolsVersion = 12.1;
@@ -275,6 +357,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5958557A273A8F50008E587C /* LoginLauncher.swift in Sources */,
+				5958557C273A8F69008E587C /* LoginBusinessModel.swift in Sources */,
+				59585584273A8FCA008E587C /* LoginBusinessModel+Analytics.swift in Sources */,
+				5958558C273A924E008E587C /* LoginViewControllerFactory.swift in Sources */,
+				59585582273A8FB1008E587C /* LoginAPI.swift in Sources */,
+				5958558A273A9141008E587C /* LoginIndexViewController.swift in Sources */,
+				5958557E273A8F7C008E587C /* LoginFlow.swift in Sources */,
+				59585580273A8FA2008E587C /* LoginRepositoryProtocol.swift in Sources */,
+				59585587273A9130008E587C /* LoginIndexViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +534,7 @@
 		59DC83622739D35D00466A21 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CWQ8X44CMX;
@@ -459,6 +551,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = nykolas.Login;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -467,6 +560,7 @@
 		59DC83632739D35D00466A21 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CWQ8X44CMX;
@@ -491,6 +585,7 @@
 		59DC837B2739D37200466A21 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -510,6 +605,7 @@
 		59DC837C2739D37200466A21 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;

@@ -23,6 +23,17 @@
 		59A9DA6D2739DC86003FA91D /* Storage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59A9DA6B2739DC86003FA91D /* Storage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59A9DA6F2739DC91003FA91D /* StorageInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A9DA6E2739DC91003FA91D /* StorageInterfaces.framework */; };
 		59A9DA702739DC91003FA91D /* StorageInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59A9DA6E2739DC91003FA91D /* StorageInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		59AECDEB273AB3CB00252E87 /* ProfileLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AECDEA273AB3CB00252E87 /* ProfileLauncher.swift */; };
+		59AECDEE273AB3FF00252E87 /* ProfileHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AECDED273AB3FF00252E87 /* ProfileHomeViewModel.swift */; };
+		59AECDF0273AB40B00252E87 /* ProfileHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AECDEF273AB40A00252E87 /* ProfileHomeViewController.swift */; };
+		59AECDF2273AB42100252E87 /* ProfileBusinessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AECDF1273AB42100252E87 /* ProfileBusinessModel.swift */; };
+		59AECDF4273AB42D00252E87 /* ProfileBusinessModel+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AECDF3273AB42D00252E87 /* ProfileBusinessModel+Analytics.swift */; };
+		59AECDF6273AB44D00252E87 /* ProfileRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AECDF5273AB44D00252E87 /* ProfileRepositoryProtocol.swift */; };
+		59AECDF8273AB45A00252E87 /* ProfileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AECDF7273AB45A00252E87 /* ProfileAPI.swift */; };
+		59AECDFA273AB46600252E87 /* ProfileFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AECDF9273AB46600252E87 /* ProfileFlow.swift */; };
+		59AECDFC273AB47C00252E87 /* ProfileViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AECDFB273AB47C00252E87 /* ProfileViewControllerFactory.swift */; };
+		59C82C39273BFF6D00E84149 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C82C38273BFF6D00E84149 /* Core.framework */; };
+		59C82C3A273BFF6D00E84149 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59C82C38273BFF6D00E84149 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59DC838E2739D38A00466A21 /* Profile.h in Headers */ = {isa = PBXBuildFile; fileRef = 59DC838C2739D38A00466A21 /* Profile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -57,6 +68,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				59A9DA702739DC91003FA91D /* StorageInterfaces.framework in Embed Frameworks */,
+				59C82C3A273BFF6D00E84149 /* Core.framework in Embed Frameworks */,
 				593F26302739D56F00B34547 /* NetworkingInterfaces.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -78,6 +90,16 @@
 		593F262E2739D56F00B34547 /* NetworkingInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkingInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59A9DA6B2739DC86003FA91D /* Storage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Storage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59A9DA6E2739DC91003FA91D /* StorageInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StorageInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59AECDEA273AB3CB00252E87 /* ProfileLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLauncher.swift; sourceTree = "<group>"; };
+		59AECDED273AB3FF00252E87 /* ProfileHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHomeViewModel.swift; sourceTree = "<group>"; };
+		59AECDEF273AB40A00252E87 /* ProfileHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHomeViewController.swift; sourceTree = "<group>"; };
+		59AECDF1273AB42100252E87 /* ProfileBusinessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBusinessModel.swift; sourceTree = "<group>"; };
+		59AECDF3273AB42D00252E87 /* ProfileBusinessModel+Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileBusinessModel+Analytics.swift"; sourceTree = "<group>"; };
+		59AECDF5273AB44D00252E87 /* ProfileRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepositoryProtocol.swift; sourceTree = "<group>"; };
+		59AECDF7273AB45A00252E87 /* ProfileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPI.swift; sourceTree = "<group>"; };
+		59AECDF9273AB46600252E87 /* ProfileFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFlow.swift; sourceTree = "<group>"; };
+		59AECDFB273AB47C00252E87 /* ProfileViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewControllerFactory.swift; sourceTree = "<group>"; };
+		59C82C38273BFF6D00E84149 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59DC83892739D38A00466A21 /* Profile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Profile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59DC838C2739D38A00466A21 /* Profile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
 		59DC838D2739D38A00466A21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,6 +121,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59A9DA6F2739DC91003FA91D /* StorageInterfaces.framework in Frameworks */,
+				59C82C39273BFF6D00E84149 /* Core.framework in Frameworks */,
 				593F262F2739D56F00B34547 /* NetworkingInterfaces.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,6 +146,7 @@
 		593F25A62739D3D300B34547 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				59C82C38273BFF6D00E84149 /* Core.framework */,
 				59A9DA6E2739DC91003FA91D /* StorageInterfaces.framework */,
 				59A9DA6B2739DC86003FA91D /* Storage.framework */,
 				593F262E2739D56F00B34547 /* NetworkingInterfaces.framework */,
@@ -130,6 +154,57 @@
 				593F26282739D55600B34547 /* NetworkingInterfaces.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		59AECDE5273AB39F00252E87 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				59AECDEC273AB3DB00252E87 /* Home */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		59AECDE6273AB3A500252E87 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				59AECDF1273AB42100252E87 /* ProfileBusinessModel.swift */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		59AECDE7273AB3AD00252E87 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				59AECDF9273AB46600252E87 /* ProfileFlow.swift */,
+				59AECDFB273AB47C00252E87 /* ProfileViewControllerFactory.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		59AECDE8273AB3B200252E87 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				59AECDF5273AB44D00252E87 /* ProfileRepositoryProtocol.swift */,
+				59AECDF7273AB45A00252E87 /* ProfileAPI.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		59AECDE9273AB3B800252E87 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				59AECDF3273AB42D00252E87 /* ProfileBusinessModel+Analytics.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		59AECDEC273AB3DB00252E87 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				59AECDED273AB3FF00252E87 /* ProfileHomeViewModel.swift */,
+				59AECDEF273AB40A00252E87 /* ProfileHomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		59DC837F2739D38A00466A21 = {
@@ -154,6 +229,12 @@
 		59DC838B2739D38A00466A21 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				59AECDEA273AB3CB00252E87 /* ProfileLauncher.swift */,
+				59AECDE9273AB3B800252E87 /* Analytics */,
+				59AECDE8273AB3B200252E87 /* Repository */,
+				59AECDE7273AB3AD00252E87 /* Flow */,
+				59AECDE6273AB3A500252E87 /* Business */,
+				59AECDE5273AB39F00252E87 /* Presentation */,
 				59DC838C2739D38A00466A21 /* Profile.h */,
 				59DC838D2739D38A00466A21 /* Info.plist */,
 			);
@@ -226,6 +307,7 @@
 					};
 					59DC83882739D38A00466A21 = {
 						CreatedOnToolsVersion = 12.1;
+						LastSwiftMigration = 1210;
 					};
 				};
 			};
@@ -283,6 +365,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59AECDEB273AB3CB00252E87 /* ProfileLauncher.swift in Sources */,
+				59AECDF4273AB42D00252E87 /* ProfileBusinessModel+Analytics.swift in Sources */,
+				59AECDFC273AB47C00252E87 /* ProfileViewControllerFactory.swift in Sources */,
+				59AECDEE273AB3FF00252E87 /* ProfileHomeViewModel.swift in Sources */,
+				59AECDF6273AB44D00252E87 /* ProfileRepositoryProtocol.swift in Sources */,
+				59AECDF0273AB40B00252E87 /* ProfileHomeViewController.swift in Sources */,
+				59AECDFA273AB46600252E87 /* ProfileFlow.swift in Sources */,
+				59AECDF8273AB45A00252E87 /* ProfileAPI.swift in Sources */,
+				59AECDF2273AB42100252E87 /* ProfileBusinessModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +410,7 @@
 		593F259F2739D3C700B34547 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -338,6 +430,7 @@
 		593F25A02739D3C700B34547 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -479,6 +572,7 @@
 		59DC83922739D38A00466A21 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CWQ8X44CMX;
@@ -495,6 +589,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = nykolas.Profile;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -503,6 +598,7 @@
 		59DC83932739D38A00466A21 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CWQ8X44CMX;

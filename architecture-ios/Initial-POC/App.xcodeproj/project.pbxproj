@@ -22,11 +22,15 @@
 		593F26462739D63000B34547 /* NetworkingInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 593F263D2739D63000B34547 /* NetworkingInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		593F26472739D63000B34547 /* Profile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 593F263E2739D63000B34547 /* Profile.framework */; };
 		593F26482739D63000B34547 /* Profile.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 593F263E2739D63000B34547 /* Profile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		59644E20273AA16600B3A865 /* AppNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59644E1F273AA16600B3A865 /* AppNavigation.swift */; };
+		59644E22273AA19000B3A865 /* DependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59644E21273AA19000B3A865 /* DependencyProvider.swift */; };
 		5981A0C32739B19300BFBAA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5981A0C22739B19300BFBAA5 /* SceneDelegate.swift */; };
 		59A9DA792739DCB6003FA91D /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A9DA772739DCB6003FA91D /* Storage.framework */; };
 		59A9DA7A2739DCB6003FA91D /* Storage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59A9DA772739DCB6003FA91D /* Storage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59A9DA7B2739DCB6003FA91D /* StorageInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A9DA782739DCB6003FA91D /* StorageInterfaces.framework */; };
 		59A9DA7C2739DCB6003FA91D /* StorageInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59A9DA782739DCB6003FA91D /* StorageInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		59C82C45273BFF8D00E84149 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C82C44273BFF8D00E84149 /* Core.framework */; };
+		59C82C46273BFF8D00E84149 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59C82C44273BFF8D00E84149 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +43,7 @@
 				59A9DA7C2739DCB6003FA91D /* StorageInterfaces.framework in Embed Frameworks */,
 				593F26402739D63000B34547 /* Home.framework in Embed Frameworks */,
 				593F26482739D63000B34547 /* Profile.framework in Embed Frameworks */,
+				59C82C46273BFF8D00E84149 /* Core.framework in Embed Frameworks */,
 				59A9DA7A2739DCB6003FA91D /* Storage.framework in Embed Frameworks */,
 				593F26462739D63000B34547 /* NetworkingInterfaces.framework in Embed Frameworks */,
 				593F26422739D63000B34547 /* Login.framework in Embed Frameworks */,
@@ -62,9 +67,12 @@
 		593F263C2739D63000B34547 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		593F263D2739D63000B34547 /* NetworkingInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkingInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		593F263E2739D63000B34547 /* Profile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Profile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59644E1F273AA16600B3A865 /* AppNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigation.swift; sourceTree = "<group>"; };
+		59644E21273AA19000B3A865 /* DependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyProvider.swift; sourceTree = "<group>"; };
 		5981A0C22739B19300BFBAA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		59A9DA772739DCB6003FA91D /* Storage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Storage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59A9DA782739DCB6003FA91D /* StorageInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StorageInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59C82C44273BFF8D00E84149 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +83,7 @@
 				59A9DA7B2739DCB6003FA91D /* StorageInterfaces.framework in Frameworks */,
 				593F263F2739D63000B34547 /* Home.framework in Frameworks */,
 				593F26472739D63000B34547 /* Profile.framework in Frameworks */,
+				59C82C45273BFF8D00E84149 /* Core.framework in Frameworks */,
 				59A9DA792739DCB6003FA91D /* Storage.framework in Frameworks */,
 				593F26452739D63000B34547 /* NetworkingInterfaces.framework in Frameworks */,
 				593F26412739D63000B34547 /* Login.framework in Frameworks */,
@@ -112,6 +121,8 @@
 				421ECFC927396FBC00BD353C /* Assets.xcassets */,
 				421ECFCB27396FBC00BD353C /* LaunchScreen.storyboard */,
 				421ECFCE27396FBC00BD353C /* Info.plist */,
+				59644E1F273AA16600B3A865 /* AppNavigation.swift */,
+				59644E21273AA19000B3A865 /* DependencyProvider.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -119,6 +130,7 @@
 		421ED0C12739758400BD353C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				59C82C44273BFF8D00E84149 /* Core.framework */,
 				59A9DA772739DCB6003FA91D /* Storage.framework */,
 				59A9DA782739DCB6003FA91D /* StorageInterfaces.framework */,
 				593F263A2739D63000B34547 /* Home.framework */,
@@ -201,9 +213,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59644E22273AA19000B3A865 /* DependencyProvider.swift in Sources */,
 				421ECFC527396FBA00BD353C /* ViewController.swift in Sources */,
 				421ECFC127396FBA00BD353C /* AppDelegate.swift in Sources */,
 				5981A0C32739B19300BFBAA5 /* SceneDelegate.swift in Sources */,
+				59644E20273AA16600B3A865 /* AppNavigation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

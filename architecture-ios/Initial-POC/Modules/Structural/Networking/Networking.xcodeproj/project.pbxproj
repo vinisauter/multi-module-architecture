@@ -91,8 +91,7 @@
 		593F25F92739D47900B34547 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				593F25FA2739D47900B34547 /* Networking.h */,
-				593F25FB2739D47900B34547 /* Info.plist */,
+				59C82C4E273C02C900E84149 /* Config */,
 				593F261C2739D4ED00B34547 /* Networking.swift */,
 			);
 			path = Networking;
@@ -101,8 +100,7 @@
 		593F26092739D4A500B34547 /* NetworkingInterfaces */ = {
 			isa = PBXGroup;
 			children = (
-				593F260A2739D4A500B34547 /* NetworkingInterfaces.h */,
-				593F260B2739D4A500B34547 /* Info.plist */,
+				59C82C51273C02D500E84149 /* Config */,
 				593F26192739D4CC00B34547 /* HTTPClient.swift */,
 			);
 			path = NetworkingInterfaces;
@@ -113,6 +111,24 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		59C82C4E273C02C900E84149 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				593F25FA2739D47900B34547 /* Networking.h */,
+				593F25FB2739D47900B34547 /* Info.plist */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		59C82C51273C02D500E84149 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				593F260A2739D4A500B34547 /* NetworkingInterfaces.h */,
+				593F260B2739D4A500B34547 /* Info.plist */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,7 +405,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Networking/Info.plist;
+				INFOPLIST_FILE = Networking/Config/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -415,7 +431,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Networking/Info.plist;
+				INFOPLIST_FILE = Networking/Config/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -440,7 +456,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = NetworkingInterfaces/Info.plist;
+				INFOPLIST_FILE = NetworkingInterfaces/Config/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -466,7 +482,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = NetworkingInterfaces/Info.plist;
+				INFOPLIST_FILE = NetworkingInterfaces/Config/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

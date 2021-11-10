@@ -6,10 +6,8 @@
 //
 
 import UIKit
-import Networking
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
     var window: UIWindow?
 
 
@@ -19,13 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        //        let mainVC = UIViewController()
-                let networking = Networking()
-                debugPrint(networking.get())
-        //
-        //        window = UIWindow(windowScene: windowScene)
-        //        window?.rootViewController = UINavigationController(rootViewController: mainVC)
-        //        window?.makeKeyAndVisible()
+        let mainVC = AppNavigation.shared.startLogin(loginFlowDelegate: AppNavigation.shared)
+        AppNavigation.shared.setRootViewController(mainVC)
+        
+        window = UIWindow(windowScene: windowScene)
+        window?.rootViewController = AppNavigation.shared.navigationController
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -55,8 +52,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
 
 
