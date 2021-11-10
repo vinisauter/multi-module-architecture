@@ -6,16 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart' as launcher;
 
-void main() => runApp(const MyApp(color: Colors.blue));
+void main() => runApp(const ProfileHomeApp(color: Colors.blue));
 
-@pragma('vm:entry-point')
-void topMain() => runApp(const MyApp(color: Colors.green));
-
-@pragma('vm:entry-point')
-void bottomMain() => runApp(const MyApp(color: Colors.purple));
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key, required this.color}) : super(key: key);
+class ProfileHomeApp extends StatelessWidget {
+  const ProfileHomeApp({Key? key, required this.color}) : super(key: key);
 
   final MaterialColor color;
 
@@ -26,20 +20,20 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: color,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const ProfileHome(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+class ProfileHome extends StatefulWidget {
+  const ProfileHome({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _ProfileHomeState createState() => _ProfileHomeState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _ProfileHomeState extends State<ProfileHome> {
   int? _counter = 0;
   late MethodChannel _channel;
 

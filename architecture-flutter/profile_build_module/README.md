@@ -1,4 +1,4 @@
-# multiple_flutters_module
+# Profile build module
 
 This is the Flutter module that is embedded in the `multiple_flutters` projects.
 
