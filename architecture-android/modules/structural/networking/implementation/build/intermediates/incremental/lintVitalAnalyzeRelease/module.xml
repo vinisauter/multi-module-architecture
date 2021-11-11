@@ -1,0 +1,19 @@
+<lint-module
+    format="1"
+    dir="/Users/mperucelo/flutter-training/multi-module-architecture/architecture-android/modules/structural/networking/implementation"
+    name=":modules:structural:networking:implementation"
+    type="DYNAMIC_FEATURE"
+    maven="ModularFeatureArchitecture.modules.structural.networking:implementation:"
+    gradle="7.0.3"
+    buildFolder="build"
+    bootClassPath="/Users/mperucelo/Library/Android/sdk/platforms/android-31/android.jar:/Users/mperucelo/Library/Android/sdk/build-tools/30.0.2/core-lambda-stubs.jar"
+    javaSourceLevel="1.8"
+    compileTarget="android-31"
+    neverShrinking="true">
+  <lintOptions
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true"/>
+  <variant name="release"/>
+</lint-module>

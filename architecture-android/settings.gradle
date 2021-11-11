@@ -22,17 +22,17 @@ include ':libraries:bug-finder'
 
 include ':modules'
 include ':modules:structural'
+include ':modules:structural:networking-interface'
 include ':modules:structural:networking'
+include ':modules:structural:storage-interface'
 include ':modules:structural:storage'
-//include ':modules:structural:flutter:interface'
 include ':modules:structural:flutter'
 include ':modules:structural:flutter:implementation'
+
 include ':modules:journey'
 include ':modules:journey:login'
 include ':modules:journey:home'
 include ':modules:journey:profile'
-//include ':modules:structural:networking:interface'
-//include ':modules:structural:networking:implementation'
 
 setBinding(new Binding([gradle: this]))
 evaluate(new File(
