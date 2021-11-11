@@ -4,7 +4,7 @@
 
     <dist:module
         dist:instant="false"
-        dist:title="Flutter Structural Module">
+        dist:title="@string/app_name">
         <dist:delivery>
             <dist:on-demand />
         </dist:delivery>

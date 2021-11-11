@@ -2,8 +2,8 @@ package com.example.app
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
 
 private const val HOME_CLASSNAME = "com.example.home.HomeActivity"
 private const val PROFILE_CLASSNAME = "com.example.profile.ProfileActivity"
@@ -17,10 +17,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        btn_home.setOnClickListener {
+        findViewById<Button>(R.id.btn_home).setOnClickListener {
             onSuccessfulLoad(moduleHome)
         }
-        btn_profile.setOnClickListener {
+        findViewById<Button>(R.id.btn_profile).setOnClickListener {
             onSuccessfulLoad(moduleProfile)
         }
     }
