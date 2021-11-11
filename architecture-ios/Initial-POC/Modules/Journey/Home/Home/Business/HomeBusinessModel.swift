@@ -5,7 +5,7 @@
 //  Created by Nykolas Mayko Maia Barbosa on 09/11/21.
 //
 
-import Foundation
+import AnalyticsInterfaces
 
 public protocol HomeUseCaseProtocol: HomeIndexUseCaseProtocol {
     var repository: HomeRepositoryProtocol { get }
@@ -13,9 +13,9 @@ public protocol HomeUseCaseProtocol: HomeIndexUseCaseProtocol {
 
 class HomeBusinessModel: HomeUseCaseProtocol {
     internal var repository: HomeRepositoryProtocol
-    internal var analytics: String
+    internal var analytics: AnalyticsProtocol
     
-    init(repository: HomeRepositoryProtocol, analytics: String) {
+    init(repository: HomeRepositoryProtocol, analytics: AnalyticsProtocol) {
         self.repository = repository
         self.analytics = analytics
     }

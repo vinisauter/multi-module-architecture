@@ -5,15 +5,17 @@
 //  Created by Nykolas Mayko Maia Barbosa on 09/11/21.
 //
 
+import NetworkingInterfaces
 import Networking
-import Storage
+import AnalyticsInterfaces
+import Analytics
 
 class DependencyProvider {
     static var networking: Networking = {
         return Networking()
     }()
     
-    static var storage: String = {
-        return "Módulo de Storage"
+    static var analytics: AnalyticsProtocol = {
+        return Analytics()
     }()
 }

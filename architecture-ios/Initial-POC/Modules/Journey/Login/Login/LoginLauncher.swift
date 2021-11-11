@@ -7,11 +7,12 @@
 
 import UIKit
 import NetworkingInterfaces
+import AnalyticsInterfaces
 import Core
 
 public class LoginLauncher {
-    static public func start(baseFlowDelegate: BaseFlowDelegate?, httpClient: HTTPClient) -> UIViewController {
-        let businessModel = LoginBusinessModel(repository: LoginAPI(httpClient: httpClient), analytics: "")
+    static public func start(baseFlowDelegate: BaseFlowDelegate?, httpClient: HTTPClient, analytics: AnalyticsProtocol) -> UIViewController {
+        let businessModel = LoginBusinessModel(repository: LoginAPI(httpClient: httpClient), analytics: analytics)
         let factory = LoginViewControllerFactory(businessModel: businessModel, analytics: businessModel)
         let mainFlow = LoginFlow(factory: factory)
         mainFlow.baseFlowDelegate = baseFlowDelegate

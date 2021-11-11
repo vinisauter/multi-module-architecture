@@ -37,15 +37,15 @@ class AppNavigation {
     // MARK: - Start Functions
     
     func startLogin(baseFlowDelegate: BaseFlowDelegate? = nil) -> UIViewController {
-        return LoginLauncher.start(baseFlowDelegate: baseFlowDelegate, httpClient: DependencyProvider.networking)
+        return LoginLauncher.start(baseFlowDelegate: baseFlowDelegate, httpClient: DependencyProvider.networking, analytics: DependencyProvider.analytics)
     }
     
     func startHome(baseFlowDelegate: BaseFlowDelegate? = nil) -> UIViewController {
-        return HomeLauncher.start(baseFlowDelegate: baseFlowDelegate, httpClient: DependencyProvider.networking)
+        return HomeLauncher.start(baseFlowDelegate: baseFlowDelegate, httpClient: DependencyProvider.networking, analytics: DependencyProvider.analytics)
     }
     
     func startProfile(baseFlowDelegate: BaseFlowDelegate? = nil, baseFlowDataSource: BaseFlowDataSource? = nil) -> UIViewController {
-        return ProfileLauncher.start(baseFlowDelegate: baseFlowDelegate, baseFlowDataSource: baseFlowDataSource, httpClient: DependencyProvider.networking)
+        return ProfileLauncher.start(baseFlowDelegate: baseFlowDelegate, baseFlowDataSource: baseFlowDataSource, httpClient: DependencyProvider.networking, analytics: DependencyProvider.analytics)
     }
 }
 

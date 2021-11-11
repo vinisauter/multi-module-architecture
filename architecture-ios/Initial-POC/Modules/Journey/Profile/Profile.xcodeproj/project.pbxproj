@@ -19,10 +19,6 @@
 		593F262D2739D55F00B34547 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 593F262B2739D55F00B34547 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		593F262F2739D56F00B34547 /* NetworkingInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 593F262E2739D56F00B34547 /* NetworkingInterfaces.framework */; };
 		593F26302739D56F00B34547 /* NetworkingInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 593F262E2739D56F00B34547 /* NetworkingInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		59A9DA6C2739DC86003FA91D /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A9DA6B2739DC86003FA91D /* Storage.framework */; };
-		59A9DA6D2739DC86003FA91D /* Storage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59A9DA6B2739DC86003FA91D /* Storage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		59A9DA6F2739DC91003FA91D /* StorageInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A9DA6E2739DC91003FA91D /* StorageInterfaces.framework */; };
-		59A9DA702739DC91003FA91D /* StorageInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59A9DA6E2739DC91003FA91D /* StorageInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59AECDEB273AB3CB00252E87 /* ProfileLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AECDEA273AB3CB00252E87 /* ProfileLauncher.swift */; };
 		59AECDEE273AB3FF00252E87 /* ProfileHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AECDED273AB3FF00252E87 /* ProfileHomeViewModel.swift */; };
 		59AECDF0273AB40B00252E87 /* ProfileHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AECDEF273AB40A00252E87 /* ProfileHomeViewController.swift */; };
@@ -35,6 +31,10 @@
 		59C82C39273BFF6D00E84149 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C82C38273BFF6D00E84149 /* Core.framework */; };
 		59C82C3A273BFF6D00E84149 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59C82C38273BFF6D00E84149 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59DC838E2739D38A00466A21 /* Profile.h in Headers */ = {isa = PBXBuildFile; fileRef = 59DC838C2739D38A00466A21 /* Profile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		59FAED83273D9E5300C18E6E /* Analytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED82273D9E5300C18E6E /* Analytics.framework */; };
+		59FAED84273D9E5300C18E6E /* Analytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED82273D9E5300C18E6E /* Analytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		59FAED8F273D9EB100C18E6E /* AnalyticsInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED8E273D9EB100C18E6E /* AnalyticsInterfaces.framework */; };
+		59FAED90273D9EB100C18E6E /* AnalyticsInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED8E273D9EB100C18E6E /* AnalyticsInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +56,7 @@
 			files = (
 				593F262D2739D55F00B34547 /* Networking.framework in Embed Frameworks */,
 				593F25A82739D3D300B34547 /* Profile.framework in Embed Frameworks */,
-				59A9DA6D2739DC86003FA91D /* Storage.framework in Embed Frameworks */,
+				59FAED84273D9E5300C18E6E /* Analytics.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,8 +67,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				59A9DA702739DC91003FA91D /* StorageInterfaces.framework in Embed Frameworks */,
 				59C82C3A273BFF6D00E84149 /* Core.framework in Embed Frameworks */,
+				59FAED90273D9EB100C18E6E /* AnalyticsInterfaces.framework in Embed Frameworks */,
 				593F26302739D56F00B34547 /* NetworkingInterfaces.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -103,6 +103,8 @@
 		59DC83892739D38A00466A21 /* Profile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Profile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59DC838C2739D38A00466A21 /* Profile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
 		59DC838D2739D38A00466A21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59FAED82273D9E5300C18E6E /* Analytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Analytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59FAED8E273D9EB100C18E6E /* AnalyticsInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AnalyticsInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +114,7 @@
 			files = (
 				593F262C2739D55F00B34547 /* Networking.framework in Frameworks */,
 				593F25A72739D3D300B34547 /* Profile.framework in Frameworks */,
-				59A9DA6C2739DC86003FA91D /* Storage.framework in Frameworks */,
+				59FAED83273D9E5300C18E6E /* Analytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,8 +122,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59A9DA6F2739DC91003FA91D /* StorageInterfaces.framework in Frameworks */,
 				59C82C39273BFF6D00E84149 /* Core.framework in Frameworks */,
+				59FAED8F273D9EB100C18E6E /* AnalyticsInterfaces.framework in Frameworks */,
 				593F262F2739D56F00B34547 /* NetworkingInterfaces.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,6 +148,8 @@
 		593F25A62739D3D300B34547 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				59FAED8E273D9EB100C18E6E /* AnalyticsInterfaces.framework */,
+				59FAED82273D9E5300C18E6E /* Analytics.framework */,
 				59C82C38273BFF6D00E84149 /* Core.framework */,
 				59A9DA6E2739DC91003FA91D /* StorageInterfaces.framework */,
 				59A9DA6B2739DC86003FA91D /* Storage.framework */,

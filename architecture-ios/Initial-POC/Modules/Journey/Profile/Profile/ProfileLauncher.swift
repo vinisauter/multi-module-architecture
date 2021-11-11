@@ -8,10 +8,11 @@
 import UIKit
 import Core
 import NetworkingInterfaces
+import AnalyticsInterfaces
 
 public class ProfileLauncher {
-    static public func start(baseFlowDelegate: BaseFlowDelegate?, baseFlowDataSource: BaseFlowDataSource?, httpClient: HTTPClient) -> UIViewController {
-        let businessModel = ProfileBusinessModel(repository: ProfileAPI(httpClient: httpClient), analytics: "")
+    static public func start(baseFlowDelegate: BaseFlowDelegate?, baseFlowDataSource: BaseFlowDataSource?, httpClient: HTTPClient, analytics: AnalyticsProtocol) -> UIViewController {
+        let businessModel = ProfileBusinessModel(repository: ProfileAPI(httpClient: httpClient), analytics: analytics)
         let factory = ProfileViewControllerFactory(businessModel: businessModel, analytics: businessModel)
         let mainFlow = ProfileFlow(factory: factory)
         mainFlow.baseFlowDelegate = baseFlowDelegate

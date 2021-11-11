@@ -28,12 +28,12 @@
 		5993F7A9273D852E00B3A695 /* AppNavigation+LoginFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5993F7A8273D852E00B3A695 /* AppNavigation+LoginFlow.swift */; };
 		5993F7AB273D856C00B3A695 /* AppNavigation+HomeFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5993F7AA273D856C00B3A695 /* AppNavigation+HomeFlow.swift */; };
 		5993F7AD273D85BE00B3A695 /* AppNavigation+ProfileFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5993F7AC273D85BE00B3A695 /* AppNavigation+ProfileFlow.swift */; };
-		59A9DA792739DCB6003FA91D /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A9DA772739DCB6003FA91D /* Storage.framework */; };
-		59A9DA7A2739DCB6003FA91D /* Storage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59A9DA772739DCB6003FA91D /* Storage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		59A9DA7B2739DCB6003FA91D /* StorageInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A9DA782739DCB6003FA91D /* StorageInterfaces.framework */; };
-		59A9DA7C2739DCB6003FA91D /* StorageInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59A9DA782739DCB6003FA91D /* StorageInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59C82C45273BFF8D00E84149 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C82C44273BFF8D00E84149 /* Core.framework */; };
 		59C82C46273BFF8D00E84149 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59C82C44273BFF8D00E84149 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		59FAED78273D9E2B00C18E6E /* Analytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED76273D9E2B00C18E6E /* Analytics.framework */; };
+		59FAED79273D9E2B00C18E6E /* Analytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED76273D9E2B00C18E6E /* Analytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		59FAED7A273D9E2B00C18E6E /* AnalyticsInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED77273D9E2B00C18E6E /* AnalyticsInterfaces.framework */; };
+		59FAED7B273D9E2B00C18E6E /* AnalyticsInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED77273D9E2B00C18E6E /* AnalyticsInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,12 +43,12 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				59A9DA7C2739DCB6003FA91D /* StorageInterfaces.framework in Embed Frameworks */,
 				593F26402739D63000B34547 /* Home.framework in Embed Frameworks */,
 				593F26482739D63000B34547 /* Profile.framework in Embed Frameworks */,
 				59C82C46273BFF8D00E84149 /* Core.framework in Embed Frameworks */,
-				59A9DA7A2739DCB6003FA91D /* Storage.framework in Embed Frameworks */,
+				59FAED79273D9E2B00C18E6E /* Analytics.framework in Embed Frameworks */,
 				593F26462739D63000B34547 /* NetworkingInterfaces.framework in Embed Frameworks */,
+				59FAED7B273D9E2B00C18E6E /* AnalyticsInterfaces.framework in Embed Frameworks */,
 				593F26422739D63000B34547 /* Login.framework in Embed Frameworks */,
 				593F26442739D63000B34547 /* Networking.framework in Embed Frameworks */,
 			);
@@ -79,6 +79,8 @@
 		59A9DA772739DCB6003FA91D /* Storage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Storage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59A9DA782739DCB6003FA91D /* StorageInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StorageInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59C82C44273BFF8D00E84149 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59FAED76273D9E2B00C18E6E /* Analytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Analytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59FAED77273D9E2B00C18E6E /* AnalyticsInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AnalyticsInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,12 +88,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59A9DA7B2739DCB6003FA91D /* StorageInterfaces.framework in Frameworks */,
 				593F263F2739D63000B34547 /* Home.framework in Frameworks */,
 				593F26472739D63000B34547 /* Profile.framework in Frameworks */,
 				59C82C45273BFF8D00E84149 /* Core.framework in Frameworks */,
-				59A9DA792739DCB6003FA91D /* Storage.framework in Frameworks */,
+				59FAED78273D9E2B00C18E6E /* Analytics.framework in Frameworks */,
 				593F26452739D63000B34547 /* NetworkingInterfaces.framework in Frameworks */,
+				59FAED7A273D9E2B00C18E6E /* AnalyticsInterfaces.framework in Frameworks */,
 				593F26412739D63000B34547 /* Login.framework in Frameworks */,
 				593F26432739D63000B34547 /* Networking.framework in Frameworks */,
 			);
@@ -136,6 +138,8 @@
 		421ED0C12739758400BD353C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				59FAED76273D9E2B00C18E6E /* Analytics.framework */,
+				59FAED77273D9E2B00C18E6E /* AnalyticsInterfaces.framework */,
 				59C82C44273BFF8D00E84149 /* Core.framework */,
 				59A9DA772739DCB6003FA91D /* Storage.framework */,
 				59A9DA782739DCB6003FA91D /* StorageInterfaces.framework */,

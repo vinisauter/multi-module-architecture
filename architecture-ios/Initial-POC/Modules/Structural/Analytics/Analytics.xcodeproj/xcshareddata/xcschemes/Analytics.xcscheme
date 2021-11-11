@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5961F82F2739D9C1007780C9"
-               BuildableName = "Storage.framework"
-               BlueprintName = "Storage"
-               ReferencedContainer = "container:Storage.xcodeproj">
+               BuildableName = "Analytics.framework"
+               BlueprintName = "Analytics"
+               ReferencedContainer = "container:Analytics.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -51,9 +51,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5961F82F2739D9C1007780C9"
-            BuildableName = "Storage.framework"
-            BlueprintName = "Storage"
-            ReferencedContainer = "container:Storage.xcodeproj">
+            BuildableName = "Analytics.framework"
+            BlueprintName = "Analytics"
+            ReferencedContainer = "container:Analytics.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

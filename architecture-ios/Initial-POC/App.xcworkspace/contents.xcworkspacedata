@@ -30,7 +30,7 @@
             location = "group:Modules/Structural/Networking/Networking.xcodeproj">
          </FileRef>
          <FileRef
-            location = "group:Modules/Structural/Storage/Storage.xcodeproj">
+            location = "group:Modules/Structural/Analytics/Analytics.xcodeproj">
          </FileRef>
       </Group>
    </Group>

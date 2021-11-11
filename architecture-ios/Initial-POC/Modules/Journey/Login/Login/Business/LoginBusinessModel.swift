@@ -5,7 +5,7 @@
 //  Created by Nykolas Mayko Maia Barbosa on 09/11/21.
 //
 
-import Foundation
+import AnalyticsInterfaces
 
 public protocol LoginUseCaseProtocol: LoginIndexUseCaseProtocol {
     var repository: LoginRepositoryProtocol { get }
@@ -13,9 +13,9 @@ public protocol LoginUseCaseProtocol: LoginIndexUseCaseProtocol {
 
 class LoginBusinessModel: LoginUseCaseProtocol {
     internal var repository: LoginRepositoryProtocol
-    internal var analytics: String
+    internal var analytics: AnalyticsProtocol
     
-    init(repository: LoginRepositoryProtocol, analytics: String) {
+    init(repository: LoginRepositoryProtocol, analytics: AnalyticsProtocol) {
         self.repository = repository
         self.analytics = analytics
     }

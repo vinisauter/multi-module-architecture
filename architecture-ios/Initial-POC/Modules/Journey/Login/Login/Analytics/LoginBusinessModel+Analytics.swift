@@ -5,14 +5,14 @@
 //  Created by Nykolas Mayko Maia Barbosa on 09/11/21.
 //
 
-import Foundation
+import AnalyticsInterfaces
 
 public protocol LoginAnalyticsProtocol: LoginIndexAnalyticsProtocol {
-    var analytics: String { get }
+    var analytics: AnalyticsProtocol { get }
 }
 
 extension LoginBusinessModel: LoginAnalyticsProtocol {
     func onLoginClick() {
-        debugPrint("LOGIN: onLoginClick track")
+        analytics.track(tag: "LOGIN - onLoginClick track")
     }
 }
