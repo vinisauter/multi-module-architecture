@@ -20,6 +20,7 @@ class SuperApplication : Application(), Application.ActivityLifecycleCallbacks {
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
         // MultiDex.install(this)
+        SplitCompat.install(this)
     }
 
     override fun onCreate() {
