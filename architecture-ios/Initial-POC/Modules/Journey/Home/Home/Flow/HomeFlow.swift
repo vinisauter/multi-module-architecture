@@ -17,7 +17,7 @@ protocol HomeFlowProtocol: AnyObject {
 }
 
 public protocol HomeFlowDelegate: AnyObject {
-    func goToLogin()
+    func goToLoginFromHome()
 }
 
 public protocol HomeFlowDataSource: AnyObject {
@@ -44,7 +44,7 @@ class HomeFlow: HomeFlowProtocol {
 
 extension HomeFlow: HomeIndexFlowDelegate {
     func logout(in controller: HomeIndexViewController) {
-        delegate?.goToLogin()
+        delegate?.goToLoginFromHome()
     }
     
     func openProfile(in controller: HomeIndexViewController) {

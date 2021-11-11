@@ -45,11 +45,8 @@ class ProfileFlow: ProfileFlowProtocol {
 
 extension ProfileFlow: ProfileHomeFlowDelegate {
     func goToHome(in controller: ProfileHomeViewController) {
-        if let baseFlowDelegate = baseFlowDelegate {
-            baseFlowDelegate.didFinish(.profile, in: controller, with: nil)
-            return
-        }
         delegate?.goToHomeFromProfile(in: controller)
+        baseFlowDelegate?.didFinish(.profile, in: controller, with: nil)
     }
     
     func callLogin(in controller: ProfileHomeViewController) {

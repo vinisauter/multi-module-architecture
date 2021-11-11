@@ -38,10 +38,7 @@ class LoginFlow: LoginFlowProtocol {
 
 extension LoginFlow: LoginIndexFlowDelegate {
     func onLoginSuccess(in controller: LoginIndexViewController) {
-        if let baseFlowDelegate = baseFlowDelegate {
-            baseFlowDelegate.didFinish(.login, in: controller, with: nil)
-            return
-        }
         delegate?.goToHomeFromLogin(in: controller)
+        baseFlowDelegate?.didFinish(.login, in: controller, with: nil)
     }
 }

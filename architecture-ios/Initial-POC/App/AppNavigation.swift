@@ -61,7 +61,7 @@ extension AppNavigation: LoginFlowDelegate {
 // MARK: - HomeFlow
 
 extension AppNavigation: HomeFlowDelegate {
-    func goToLogin() {
+    func goToLoginFromHome() {
         setRootViewController(startLogin(loginFlowDelegate: self))
     }
 }
