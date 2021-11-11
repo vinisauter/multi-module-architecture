@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let mainVC = AppNavigation.shared.startLogin(loginFlowDelegate: AppNavigation.shared)
+        let mainVC = AppNavigation.shared.startLogin(baseFlowDelegate: AppNavigation.shared)
         AppNavigation.shared.setRootViewController(mainVC)
         
         window = UIWindow(windowScene: windowScene)

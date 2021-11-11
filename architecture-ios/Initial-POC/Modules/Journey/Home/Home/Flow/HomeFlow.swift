@@ -11,25 +11,13 @@ import Core
 protocol HomeFlowProtocol: AnyObject {
     var factory: HomeViewControllerFactory { get }
     var baseFlowDelegate: BaseFlowDelegate? { get set }
-    var delegate: HomeFlowDelegate? { get set }
-    var dataSource: HomeFlowDataSource? { get set }
     func start(useCase: HomeUseCaseProtocol, analytics: HomeAnalyticsProtocol) -> UIViewController
-}
-
-public protocol HomeFlowDelegate: AnyObject {
-    func goToLogin()
-}
-
-public protocol HomeFlowDataSource: AnyObject {
-    func getProfile() -> UIViewController
 }
 
 class HomeFlow: HomeFlowProtocol {
     var factory: HomeViewControllerFactory
     
     weak var baseFlowDelegate: BaseFlowDelegate?
-    weak var delegate: HomeFlowDelegate?
-    weak var dataSource: HomeFlowDataSource?
     
     init(factory: HomeViewControllerFactory) {
         self.factory = factory
@@ -40,15 +28,15 @@ class HomeFlow: HomeFlowProtocol {
     }
 }
 
-// MARK: - LoginViewControllerFlowDelegate
+// MARK: - HomeIndexFlowDelegate
 
 extension HomeFlow: HomeIndexFlowDelegate {
     func logout(in controller: HomeIndexViewController) {
-        delegate?.goToLogin()
+        baseFlowDelegate?.go(to: .login, from: .home, in: controller, with: nil)
+        baseFlowDelegate?.didFinish(.home, in: controller, with: nil)
     }
     
     func openProfile(in controller: HomeIndexViewController) {
-        guard let profileVC =  dataSource?.getProfile() else { return }
-        controller.show(profileVC, sender: nil)
+        baseFlowDelegate?.go(to: .profile, from: .home, in: controller, with: nil)
     }
 }

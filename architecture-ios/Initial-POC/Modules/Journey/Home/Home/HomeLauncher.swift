@@ -10,13 +10,11 @@ import Core
 import NetworkingInterfaces
 
 public class HomeLauncher {
-    static public func start(baseFlowDelegate: BaseFlowDelegate?, homeFlowDelegate: HomeFlowDelegate?, homeFlowDataSource: HomeFlowDataSource?, httpClient: HTTPClient) -> UIViewController {
+    static public func start(baseFlowDelegate: BaseFlowDelegate?, httpClient: HTTPClient) -> UIViewController {
         let businessModel = HomeBusinessModel(repository: HomeAPI(httpClient: httpClient), analytics: "")
         let factory = HomeViewControllerFactory(businessModel: businessModel, analytics: businessModel)
         let mainFlow = HomeFlow(factory: factory)
         mainFlow.baseFlowDelegate = baseFlowDelegate
-        mainFlow.delegate = homeFlowDelegate
-        mainFlow.dataSource = homeFlowDataSource
         factory.flow = mainFlow
         
         return mainFlow.start(useCase: businessModel, analytics: businessModel)

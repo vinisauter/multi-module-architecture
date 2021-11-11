@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		59C82C2A273BFEF400E84149 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 59C82C28273BFEF400E84149 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		59C82C36273BFF4F00E84149 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C82C35273BFF4F00E84149 /* UINavigationController+Extensions.swift */; };
-		59C82C4B273C011100E84149 /* BaseFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C82C4A273C011100E84149 /* BaseFlowDelegate.swift */; };
+		59C82C4B273C011100E84149 /* BaseFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C82C4A273C011100E84149 /* BaseFlow.swift */; };
 		59D006CE273C397500BFC574 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D006CD273C397500BFC574 /* BaseViewController.swift */; };
 		59D006D2273C398300BFC574 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D006D1273C398300BFC574 /* BaseViewModel.swift */; };
 		59D006D5273C3D1600BFC574 /* BaseViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D006D4273C3D1600BFC574 /* BaseViewControllerFactory.swift */; };
@@ -21,7 +21,7 @@
 		59C82C28273BFEF400E84149 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		59C82C29273BFEF400E84149 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59C82C35273BFF4F00E84149 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
-		59C82C4A273C011100E84149 /* BaseFlowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFlowDelegate.swift; sourceTree = "<group>"; };
+		59C82C4A273C011100E84149 /* BaseFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFlow.swift; sourceTree = "<group>"; };
 		59D006CD273C397500BFC574 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		59D006D1273C398300BFC574 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		59D006D4273C3D1600BFC574 /* BaseViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerFactory.swift; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 		59C82C33273BFF2A00E84149 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				59C82C4A273C011100E84149 /* BaseFlowDelegate.swift */,
+				59C82C4A273C011100E84149 /* BaseFlow.swift */,
 				59D006CD273C397500BFC574 /* BaseViewController.swift */,
 				59D006D1273C398300BFC574 /* BaseViewModel.swift */,
 				59D006D4273C3D1600BFC574 /* BaseViewControllerFactory.swift */,
@@ -182,7 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59D006D5273C3D1600BFC574 /* BaseViewControllerFactory.swift in Sources */,
-				59C82C4B273C011100E84149 /* BaseFlowDelegate.swift in Sources */,
+				59C82C4B273C011100E84149 /* BaseFlow.swift in Sources */,
 				59D006D2273C398300BFC574 /* BaseViewModel.swift in Sources */,
 				59C82C36273BFF4F00E84149 /* UINavigationController+Extensions.swift in Sources */,
 				59D006D8273C3D3E00BFC574 /* UIViewController+Extensions.swift in Sources */,
