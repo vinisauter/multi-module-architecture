@@ -27,12 +27,12 @@
         <activity
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
-            android:name=".SingleFlutterActivity"
+            android:name=".ProfileSingleFlutterActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
-            android:name=".DoubleFlutterActivity"
+            android:name=".ProfileDoubleFlutterActivity"
             android:windowSoftInputMode="adjustResize" />
 
     </application>

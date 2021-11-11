@@ -5,63 +5,52 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.flutter.DataModel
-import com.example.flutter.DataModelObserver
-import io.flutter.embedding.engine.FlutterEngineGroup
+import com.example.flutter.FlutterEngineExecutor
 
-/**
- * The activity that uses standard platform UI APIs.
- *
- * This doesn't talk directly to or render Flutter content and represents a part of your app that
- * would potentially already be written that wants to interface with Flutter.
- */
-class ProfileActivity : AppCompatActivity(), DataModelObserver {
+class ProfileActivity : AppCompatActivity(), ProfileDataModelObserver {
 
     private lateinit var countView: TextView
-    private val mainActivityIdentifier: Int
+    private val mainActivityIdentifier: Int = mainActivityCount
 
     private companion object {
-        /** A count that makes every other MainActivity have 1 or 2 Flutter instances. */
         var mainActivityCount = 0
     }
 
     init {
-        mainActivityIdentifier = mainActivityCount
         mainActivityCount += 1
     }
 
-    /** Implemented from AppCompactActivity. */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
+
+        FlutterEngineExecutor.start(this)
+
         supportActionBar?.title = "Perfil e configurações"
 
-        DataModel.instance.addObserver(this)
-        DataModel.instance.engines = FlutterEngineGroup(this)
+        ProfileDataModel.instance.addObserver(this)
         countView = findViewById(R.id.count)
-        countView.text = DataModel.instance.counter.toString()
+        countView.text = ProfileDataModel.instance.counter.toString()
     }
 
-    /** Implemented from AppCompactActivity. */
     override fun onDestroy() {
         super.onDestroy()
-        DataModel.instance.removeObserver(this)
+        ProfileDataModel.instance.removeObserver(this)
+
+        FlutterEngineExecutor.stop()
     }
 
-    /** Event from `activity_main.xml`. */
     fun onClickNext(view: View) {
         val nextClass =
-            if (mainActivityIdentifier % 2 == 0) SingleFlutterActivity::class.java else DoubleFlutterActivity::class.java
+            if (mainActivityIdentifier % 2 == 0) ProfileSingleFlutterActivity::class.java else ProfileDoubleFlutterActivity::class.java
         val flutterIntent = Intent(this, nextClass)
         startActivity(flutterIntent)
     }
 
-    /** Event from `activity_main.xml`. */
     fun onClickAdd(view: View) {
-        DataModel.instance.counter = DataModel.instance.counter + 1
+        ProfileDataModel.instance.counter += 1
     }
 
-    /** Implemented from DataModelObserver. */
     override fun onCountUpdate(newCount: Int) {
         countView.text = newCount.toString()
     }

@@ -6,30 +6,24 @@ import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
-import com.example.flutter.EngineBindings
-import com.example.flutter.EngineBindingsDelegate
 import io.flutter.embedding.android.FlutterFragment
 import io.flutter.embedding.engine.FlutterEngineCache
 
-/**
- * An activity that displays 2 FlutterFragments vertically.
- */
-class DoubleFlutterActivity : FragmentActivity(), EngineBindingsDelegate {
-    private val topBindings: EngineBindings by lazy {
-        EngineBindings(activity = this, delegate = this, entrypoint = "homeTopRoute")
+class HomeDoubleFlutterActivity : FragmentActivity(), HomeBindingsDelegate {
+    private val topBindings: HomeBindings by lazy {
+        HomeBindings(context = this, delegate = this, entrypoint = "homeTopRoute")
     }
-    private val bottomBindings: EngineBindings by lazy {
-        EngineBindings(activity = this, delegate = this, entrypoint = "homeBottomRoute")
+    private val bottomBindings: HomeBindings by lazy {
+        HomeBindings(context = this, delegate = this, entrypoint = "homeBottomRoute")
     }
     private val numberOfFlutters = 2
-    private val engineCountStart: Int
+    private val engineCountStart: Int = engineCounter
 
     private companion object {
         var engineCounter = 0
     }
 
     init {
-        engineCountStart = engineCounter
         engineCounter += numberOfFlutters
     }
 
@@ -58,7 +52,8 @@ class DoubleFlutterActivity : FragmentActivity(), EngineBindingsDelegate {
                 FrameLayout.LayoutParams.MATCH_PARENT,
                 1.0f
             )
-            val engine = if (i == 0) topBindings.engine else bottomBindings.engine
+            val engine =
+                if (i == 0) topBindings.engineExecutor.engine else bottomBindings.engineExecutor.engine
             FlutterEngineCache.getInstance().put(engineId.toString(), engine)
             val flutterFragment =
                 FlutterFragment.withCachedEngine(engineId.toString()).build<FlutterFragment>()
