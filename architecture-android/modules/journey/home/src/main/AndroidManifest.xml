@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:dist="http://schemas.android.com/apk/distribution"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.home">
 
     <dist:module
@@ -10,4 +12,29 @@
         </dist:delivery>
         <dist:fusing dist:include="true" />
     </dist:module>
+
+    <application tools:ignore="AllowBackup,GoogleAppIndexingWarning,MissingApplicationIcon">
+
+        <activity
+            android:exported="true"
+            android:name=".HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:name=".SingleFlutterActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:name=".DoubleFlutterActivity"
+            android:windowSoftInputMode="adjustResize" />
+
+    </application>
+
 </manifest>

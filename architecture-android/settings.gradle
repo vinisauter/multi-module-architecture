@@ -37,5 +37,5 @@ include ':modules:journey:profile'
 setBinding(new Binding([gradle: this]))
 evaluate(new File(
         settingsDir.parentFile,
-        './architecture-flutter/profile_build_module/.android/include_flutter.groovy'
+        './architecture-flutter/launcher_build_module/.android/include_flutter.groovy'
 ))

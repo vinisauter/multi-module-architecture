@@ -16,10 +16,10 @@ import io.flutter.embedding.engine.FlutterEngineCache
  */
 class DoubleFlutterActivity : FragmentActivity(), EngineBindingsDelegate {
     private val topBindings: EngineBindings by lazy {
-        EngineBindings(activity = this, delegate = this, entrypoint = "topMain")
+        EngineBindings(activity = this, delegate = this, entrypoint = "profileTopRoute")
     }
     private val bottomBindings: EngineBindings by lazy {
-        EngineBindings(activity = this, delegate = this, entrypoint = "bottomMain")
+        EngineBindings(activity = this, delegate = this, entrypoint = "profileBottomRoute")
     }
     private val numberOfFlutters = 2
     private val engineCountStart: Int
@@ -88,7 +88,7 @@ class DoubleFlutterActivity : FragmentActivity(), EngineBindingsDelegate {
     }
 
     override fun onNext() {
-        val flutterIntent = Intent(this, ProfileHomeActivity::class.java)
+        val flutterIntent = Intent(this, ProfileActivity::class.java)
         startActivity(flutterIntent)
     }
 }

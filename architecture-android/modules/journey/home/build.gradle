@@ -6,7 +6,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        minSdk 21
+        minSdk 24
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -20,6 +20,7 @@ android {
 
 dependencies {
     implementation project(":app")
+    implementation project(":modules:structural:flutter:implementation")
     implementation 'androidx.core:core-ktx:1.7.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

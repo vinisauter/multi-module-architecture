@@ -1,5 +1,5 @@
-name: profile_build_module
-description: Profile build module
+name: launcher_build_module
+description: Module Launcher build module
 
 version: 1.0.0+1
 
@@ -17,6 +17,9 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^1.0.4
 
+  home_business_module:
+    path: ../home_business_module
+
   profile_business_module:
     path: ../profile_business_module
 
@@ -25,5 +28,5 @@ flutter:
 
   module:
     androidX: true
-    androidPackage: com.example.profile_build_module
-    iosBundleIdentifier: com.example.profile_build_module
+    androidPackage: com.example.launcher_build_module
+    iosBundleIdentifier: com.example.launcher_build_module

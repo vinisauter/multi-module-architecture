@@ -6,34 +6,34 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart' as launcher;
 
-void main() => runApp(const ProfileHomeApp(color: Colors.blue));
+void main() => runApp(const ProfileApp(color: Colors.orange));
 
-class ProfileHomeApp extends StatelessWidget {
-  const ProfileHomeApp({Key? key, required this.color}) : super(key: key);
+class ProfileApp extends StatelessWidget {
+  const ProfileApp({Key? key, required this.color}) : super(key: key);
 
   final MaterialColor color;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Perfil e Configurações',
       theme: ThemeData(
         primarySwatch: color,
       ),
-      home: const ProfileHome(title: 'Flutter Demo Home Page'),
+      home: const Profile(title: 'Perfil e Configurações'),
     );
   }
 }
 
-class ProfileHome extends StatefulWidget {
-  const ProfileHome({Key? key, required this.title}) : super(key: key);
+class Profile extends StatefulWidget {
+  const Profile({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
-  _ProfileHomeState createState() => _ProfileHomeState();
+  _ProfileState createState() => _ProfileState();
 }
 
-class _ProfileHomeState extends State<ProfileHome> {
+class _ProfileState extends State<Profile> {
   int? _counter = 0;
   late MethodChannel _channel;
 

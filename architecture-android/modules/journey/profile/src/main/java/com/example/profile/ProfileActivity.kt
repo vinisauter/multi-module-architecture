@@ -15,7 +15,7 @@ import io.flutter.embedding.engine.FlutterEngineGroup
  * This doesn't talk directly to or render Flutter content and represents a part of your app that
  * would potentially already be written that wants to interface with Flutter.
  */
-class ProfileHomeActivity : AppCompatActivity(), DataModelObserver {
+class ProfileActivity : AppCompatActivity(), DataModelObserver {
 
     private lateinit var countView: TextView
     private val mainActivityIdentifier: Int
@@ -33,7 +33,7 @@ class ProfileHomeActivity : AppCompatActivity(), DataModelObserver {
     /** Implemented from AppCompactActivity. */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profile_home)
+        setContentView(R.layout.activity_profile)
         supportActionBar?.title = "Perfil e configurações"
 
         DataModel.instance.addObserver(this)

@@ -17,7 +17,7 @@
 
         <activity
             android:exported="true"
-            android:name=".ProfileHomeActivity">
+            android:name=".ProfileActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -20,7 +20,6 @@ android {
 
 dependencies {
     implementation project(":app")
-    implementation project(':flutter')
     implementation project(":modules:structural:flutter:implementation")
     implementation 'androidx.core:core-ktx:1.7.0'
     testImplementation 'junit:junit:4.13.2'

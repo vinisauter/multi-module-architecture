@@ -79,6 +79,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  home_business_module:
+    dependency: "direct dev"
+    description:
+      path: "../home_business_module"
+      relative: true
+    source: path
+    version: "1.0.0+1"
   js:
     dependency: transitive
     description:

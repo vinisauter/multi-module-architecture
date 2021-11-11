@@ -15,7 +15,7 @@ import io.flutter.embedding.engine.FlutterEngine
  */
 class SingleFlutterActivity : FlutterActivity(), EngineBindingsDelegate {
     private val engineBindings: EngineBindings by lazy {
-        EngineBindings(activity = this, delegate = this, entrypoint = "main")
+        EngineBindings(activity = this, delegate = this, entrypoint = "profileSingleRoute")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +33,7 @@ class SingleFlutterActivity : FlutterActivity(), EngineBindingsDelegate {
     }
 
     override fun onNext() {
-        val flutterIntent = Intent(this, ProfileHomeActivity::class.java)
+        val flutterIntent = Intent(this, ProfileActivity::class.java)
         startActivity(flutterIntent)
     }
 }
