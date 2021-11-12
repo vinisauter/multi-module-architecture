@@ -1,8 +1,7 @@
-package com.example.home
+package com.example.flutter
 
 import android.content.Context
 import android.os.Bundle
-import com.example.flutter.BaseBindings
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 

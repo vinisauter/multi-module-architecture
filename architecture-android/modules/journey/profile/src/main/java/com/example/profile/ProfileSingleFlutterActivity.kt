@@ -2,7 +2,7 @@ package com.example.profile
 
 import android.content.Intent
 import com.example.flutter.BaseBindings
-import com.example.home.BaseFlutterActivity
+import com.example.flutter.BaseFlutterActivity
 
 class ProfileSingleFlutterActivity : BaseFlutterActivity(), ProfileBindingsDelegate {
     private val singleBindings: ProfileBindings by lazy {
