@@ -4,11 +4,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/app_navigation"
-    tools:context=".MainActivity"
     app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.example.app.SplashFragment"
-        android:label="SplashFragment" />
+        android:label="SplashFragment"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_login"
+            app:destination="@id/login_navigation" />
+        <action
+            android:id="@+id/action_splashFragment_to_firstFragment"
+            app:destination="@id/firstFragment" />
+    </fragment>
+
+    <include-dynamic
+        android:id="@+id/login_navigation"
+        app:moduleName="login"
+        app:graphResName="login_navigation"
+        app:graphPackage="${applicationId}.login"/>
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.example.login.FirstFragment"
+        app:moduleName="login"
+        android:label="fragment_first"
+        tools:layout="@layout/fragment_first" />
 </navigation>
