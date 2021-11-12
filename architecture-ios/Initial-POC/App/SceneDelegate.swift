@@ -23,9 +23,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         AppNavigation.shared.setRootViewController(mainVCFromSimpleStart)
         AppNavigation.shared.setRootViewController(mainVCFromDeeplinkStart)
         
-        let aux = URLComponents(string: "app://login/algumFlow?userId=teste%20Teste")
-        print(aux ?? "")
-        
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = AppNavigation.shared.navigationController
         window?.makeKeyAndVisible()
