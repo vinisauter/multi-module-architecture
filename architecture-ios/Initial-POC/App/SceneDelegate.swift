@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Core
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
@@ -17,8 +18,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let mainVC = AppNavigation.shared.startLogin(baseFlowDelegate: AppNavigation.shared)
-        AppNavigation.shared.setRootViewController(mainVC)
+        let mainVCFromSimpleStart = AppNavigation.shared.startLogin(baseFlowDelegate: AppNavigation.shared)
+        let mainVCFromDeeplinkStart = AppNavigation.shared.start(from: "app://login", with: AppNavigation.shared, baseFlowDataSource: AppNavigation.shared)
+        AppNavigation.shared.setRootViewController(mainVCFromSimpleStart)
+        AppNavigation.shared.setRootViewController(mainVCFromDeeplinkStart)
+        
+        let aux = URLComponents(string: "app://login/algumFlow?userId=teste%20Teste")
+        print(aux ?? "")
         
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = AppNavigation.shared.navigationController

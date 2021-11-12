@@ -13,6 +13,6 @@ public class Analytics: AnalyticsProtocol {
     public init() {}
     
     public func track(tag: String) {
-        debugPrint("+++++ TRACKING TAG: \(tag)")
+        debugPrint("+++++ FROM ANALYTICS: \(tag)")
     }
 }

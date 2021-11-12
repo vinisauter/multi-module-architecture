@@ -8,9 +8,17 @@
 import UIKit
 
 public enum JourneyModule: String, CaseIterable {
+    case unknown = "unknown"
     case login = "login"
     case home = "home"
     case profile = "profile"
+    
+    public static func from(_ deeplink: String) -> JourneyModule {
+        let urlComponents = URLComponents(string: deeplink)
+        guard let host = urlComponents?.host else { return .unknown }
+        
+        return JourneyModule.allCases.first{ $0.rawValue == host } ?? .unknown
+    }
 }
 
 public protocol BaseFlowDelegate: AnyObject {

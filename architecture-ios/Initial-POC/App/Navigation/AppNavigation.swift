@@ -7,9 +7,6 @@
 
 import UIKit
 import Core
-import Login
-import Home
-import Profile
 
 class AppNavigation {
     static let shared: AppNavigation = AppNavigation()
@@ -30,22 +27,27 @@ class AppNavigation {
         navigationController.pushViewController(viewController, animated: animated)
     }
     
+    func popViewController(animated: Bool = true) {
+        navigationController.popViewController(animated: animated)
+    }
+    
+    @discardableResult func popToViewControllerWithType<T: UIViewController>(_ type: T.Type) -> Array<UIViewController>? {
+        return navigationController.popToViewControllerWithType(T.self)
+    }
+    
     func present(_ viewController: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil) {
         navigationController.present(viewController, animated: animated, completion: completion)
     }
     
-    // MARK: - Start Functions
-    
-    func startLogin(baseFlowDelegate: BaseFlowDelegate? = nil) -> UIViewController {
-        return LoginLauncher.start(baseFlowDelegate: baseFlowDelegate, httpClient: DependencyProvider.networking, analytics: DependencyProvider.analytics)
-    }
-    
-    func startHome(baseFlowDelegate: BaseFlowDelegate? = nil) -> UIViewController {
-        return HomeLauncher.start(baseFlowDelegate: baseFlowDelegate, httpClient: DependencyProvider.networking, analytics: DependencyProvider.analytics)
-    }
-    
-    func startProfile(baseFlowDelegate: BaseFlowDelegate? = nil, baseFlowDataSource: BaseFlowDataSource? = nil) -> UIViewController {
-        return ProfileLauncher.start(baseFlowDelegate: baseFlowDelegate, baseFlowDataSource: baseFlowDataSource, httpClient: DependencyProvider.networking, analytics: DependencyProvider.analytics)
+    func start(from deeplink: String, with baseFlowDelegate: BaseFlowDelegate, baseFlowDataSource: BaseFlowDataSource) -> UIViewController {
+        let journey = JourneyModule.from(deeplink)
+        
+        switch journey {
+        case .unknown: return UIViewController()
+        case .login: return startLogin(baseFlowDelegate: baseFlowDelegate)
+        case .home: return startHome(baseFlowDelegate: baseFlowDelegate)
+        case .profile: return startProfile(baseFlowDelegate: baseFlowDelegate, baseFlowDataSource: baseFlowDataSource)
+        }
     }
 }
 
@@ -54,6 +56,7 @@ class AppNavigation {
 extension AppNavigation: BaseFlowDelegate {
     func go(to destinationJourney: JourneyModule, from currentJourney: JourneyModule, in viewController: UIViewController, with value: Any?) {
         switch currentJourney {
+        case .unknown: break
         case .login:
             handleLoginFlowGo(to: destinationJourney, in: viewController, with: value)
             break
@@ -74,14 +77,10 @@ extension AppNavigation: BaseFlowDelegate {
 extension AppNavigation: BaseFlowDataSource {
     func get(_ journey: JourneyModule, from currentJourney: BaseFlowDelegate) -> UIViewController {
         switch journey {
-        case .login:
-            return handleGetLoginFlow(from: currentJourney)
-        
-        case .home:
-            return handleGetHomeFlow(from: currentJourney)
-            
-        case .profile:
-            return handleGetProfileFlow(from: currentJourney)
+        case .unknown: return UIViewController()
+        case .login: return handleGetLoginFlow(from: currentJourney)
+        case .home: return handleGetHomeFlow(from: currentJourney)
+        case .profile: return handleGetProfileFlow(from: currentJourney)
         }
     }
 }

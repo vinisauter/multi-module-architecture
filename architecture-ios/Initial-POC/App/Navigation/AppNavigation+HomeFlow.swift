@@ -7,8 +7,13 @@
 
 import UIKit
 import Core
+import Home
 
 extension AppNavigation {
+    func startHome(baseFlowDelegate: BaseFlowDelegate? = nil) -> UIViewController {
+        return HomeLauncher.start(baseFlowDelegate: baseFlowDelegate, httpClient: DependencyProvider.networking, analytics: DependencyProvider.analytics)
+    }
+    
     func handleHomeFlowGo(to journey: JourneyModule, in viewController: UIViewController, with value: Any?) {
         switch journey {
         case .profile:

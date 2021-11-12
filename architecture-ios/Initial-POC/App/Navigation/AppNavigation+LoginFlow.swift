@@ -7,8 +7,13 @@
 
 import UIKit
 import Core
+import Login
 
 extension AppNavigation {
+    func startLogin(baseFlowDelegate: BaseFlowDelegate? = nil) -> UIViewController {
+        return LoginLauncher.start(baseFlowDelegate: baseFlowDelegate, httpClient: DependencyProvider.networking, analytics: DependencyProvider.analytics)
+    }
+    
     func handleLoginFlowGo(to journey: JourneyModule, in viewController: UIViewController, with value: Any?) {
         switch journey {
         case .home:
