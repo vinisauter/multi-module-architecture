@@ -46,7 +46,7 @@ class AppNavigation {
         case .unknown: return UIViewController()
         case .login: return startLogin(from: url, baseFlowDelegate: baseFlowDelegate)
         case .home: return startHome(from: url, baseFlowDelegate: baseFlowDelegate)
-        case .profile: return startProfile(baseFlowDelegate: baseFlowDelegate, baseFlowDataSource: baseFlowDataSource)
+        case .profile: return startProfile(from: url, baseFlowDelegate: baseFlowDelegate, baseFlowDataSource: baseFlowDataSource)
         }
     }
 }
