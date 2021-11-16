@@ -1,4 +1,4 @@
-package com.app.logger
+package com.core.logger
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -9,7 +9,6 @@ import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Build
 import android.provider.Settings
-import android.telephony.TelephonyManager
 import androidx.core.app.ActivityCompat
 import androidx.core.content.FileProvider
 import java.io.BufferedWriter
@@ -159,21 +158,22 @@ class LoggerFileHandler(
             ) {
                 return "READ_PHONE_STATE NOT_GRANTED"
             }
-            val mTelephonyManager =
-                app.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
-            val networkType = mTelephonyManager.networkType
-            if (networkType == TelephonyManager.NETWORK_TYPE_GPRS || networkType == TelephonyManager.NETWORK_TYPE_EDGE || networkType == TelephonyManager.NETWORK_TYPE_CDMA || networkType == TelephonyManager.NETWORK_TYPE_1xRTT || networkType == TelephonyManager.NETWORK_TYPE_IDEN) {
-                return "2G"
-            } else if (networkType == TelephonyManager.NETWORK_TYPE_UMTS || networkType == TelephonyManager.NETWORK_TYPE_EVDO_0 || networkType == TelephonyManager.NETWORK_TYPE_EVDO_A || networkType == TelephonyManager.NETWORK_TYPE_HSDPA || networkType == TelephonyManager.NETWORK_TYPE_HSUPA || networkType == TelephonyManager.NETWORK_TYPE_HSPA || networkType == TelephonyManager.NETWORK_TYPE_EVDO_B || networkType == TelephonyManager.NETWORK_TYPE_EHRPD || networkType == TelephonyManager.NETWORK_TYPE_HSPAP) {
-                return "3G"
-            } else if (networkType == TelephonyManager.NETWORK_TYPE_LTE) {
-                return "4G"
-            } else if (networkType == TelephonyManager.NETWORK_TYPE_NR) {
-                return "5G"
-            } else if (networkType == TelephonyManager.NETWORK_TYPE_GSM) {
-                return "GSM"
-            }
-            return "Unknown - $networkType"
+//            val mTelephonyManager =
+//                app.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
+//            val networkType = mTelephonyManager.networkType
+//            if (networkType == TelephonyManager.NETWORK_TYPE_GPRS || networkType == TelephonyManager.NETWORK_TYPE_EDGE || networkType == TelephonyManager.NETWORK_TYPE_CDMA || networkType == TelephonyManager.NETWORK_TYPE_1xRTT || networkType == TelephonyManager.NETWORK_TYPE_IDEN) {
+//                return "2G"
+//            } else if (networkType == TelephonyManager.NETWORK_TYPE_UMTS || networkType == TelephonyManager.NETWORK_TYPE_EVDO_0 || networkType == TelephonyManager.NETWORK_TYPE_EVDO_A || networkType == TelephonyManager.NETWORK_TYPE_HSDPA || networkType == TelephonyManager.NETWORK_TYPE_HSUPA || networkType == TelephonyManager.NETWORK_TYPE_HSPA || networkType == TelephonyManager.NETWORK_TYPE_EVDO_B || networkType == TelephonyManager.NETWORK_TYPE_EHRPD || networkType == TelephonyManager.NETWORK_TYPE_HSPAP) {
+//                return "3G"
+//            } else if (networkType == TelephonyManager.NETWORK_TYPE_LTE) {
+//                return "4G"
+//            } else if (networkType == TelephonyManager.NETWORK_TYPE_NR) {
+//                return "5G"
+//            } else if (networkType == TelephonyManager.NETWORK_TYPE_GSM) {
+//                return "GSM"
+//            }
+//            return "Unknown - $networkType"
+            return "Unknown"
         }
 
     @get:SuppressLint("MissingPermission")
@@ -195,25 +195,25 @@ class LoggerFileHandler(
                     activeNetwork = capabilities?.toString() ?: "UNKNOWN"
                 }
             } else {
-                val networkInfo = cm.activeNetworkInfo
-                activeNetwork = if (networkInfo != null) {
-                    when (val type = networkInfo.type) {
-                        ConnectivityManager.TYPE_WIFI -> {
-                            "WIFI"
-                        }
-                        ConnectivityManager.TYPE_MOBILE -> {
-                            "MOBILE"
-                        }
-                        ConnectivityManager.TYPE_VPN -> {
-                            "VPN"
-                        }
-                        else -> {
-                            "UNKNOWN - $type"
-                        }
-                    }
-                } else {
-                    "UNKNOWN"
-                }
+//                val networkInfo = cm.activeNetworkInfo
+//                activeNetwork = if (networkInfo != null) {
+//                    when (val type = networkInfo.type) {
+//                        ConnectivityManager.TYPE_WIFI -> {
+//                            "WIFI"
+//                        }
+//                        ConnectivityManager.TYPE_MOBILE -> {
+//                            "MOBILE"
+//                        }
+//                        ConnectivityManager.TYPE_VPN -> {
+//                            "VPN"
+//                        }
+//                        else -> {
+//                            "UNKNOWN - $type"
+//                        }
+//                    }
+//                } else {
+//                    "UNKNOWN"
+//                }
             }
             return activeNetwork
         }

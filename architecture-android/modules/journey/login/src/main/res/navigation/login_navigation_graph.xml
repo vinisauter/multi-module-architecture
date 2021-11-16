@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:moduleName="login"
+    app:startDestination="@+id/login_fragment">
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="com.example.login.presentation.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_login_succeed"
+            app:destination="@id/home_navigation_graph"
+            app:popUpTo="@id/app_navigation_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_login_failed"
+            app:destination="@id/profile_navigation_graph" />
+        <action
+            android:id="@+id/action_forgot_password"
+            app:destination="@id/forgot_password_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/forgot_password_fragment"
+        android:name="com.example.login.presentation.forgotpassword.ForgotPasswordFragment"
+        android:label="forgot_password"
+        tools:layout="@layout/fragment_forgot_password">
+        <action
+            android:id="@+id/action_exit"
+            app:destination="@id/mainFragment" />
+    </fragment>
+</navigation>

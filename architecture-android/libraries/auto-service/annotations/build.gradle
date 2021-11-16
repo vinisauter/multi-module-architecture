@@ -1,0 +1,10 @@
+plugins {
+    id 'kotlin'
+}
+
+group = "com.auto.service"
+version = "1.0-SNAPSHOT"
+
+sourceSets {
+    main.java.srcDirs += 'src/main/kotlin'
+}
