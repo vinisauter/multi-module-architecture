@@ -14,9 +14,6 @@
         <action
             android:id="@+id/action_splashFragment_to_login"
             app:destination="@id/login_navigation" />
-        <action
-            android:id="@+id/action_splashFragment_to_firstFragment"
-            app:destination="@id/firstFragment" />
     </fragment>
 
     <include-dynamic
@@ -24,10 +21,4 @@
         app:moduleName="login"
         app:graphResName="login_navigation"
         app:graphPackage="${applicationId}.login"/>
-    <fragment
-        android:id="@+id/firstFragment"
-        android:name="com.example.login.FirstFragment"
-        app:moduleName="login"
-        android:label="fragment_first"
-        tools:layout="@layout/fragment_first" />
 </navigation>
