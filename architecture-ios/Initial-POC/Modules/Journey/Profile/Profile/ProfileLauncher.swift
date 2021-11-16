@@ -11,10 +11,10 @@ import NetworkingInterfaces
 import AnalyticsInterfaces
 
 public class ProfileLauncher {
-    static public func start(baseFlowDelegate: BaseFlowDelegate?, baseFlowDataSource: BaseFlowDataSource?, httpClient: HTTPClient, analytics: AnalyticsProtocol) -> UIViewController {
+    static public func start(from deeplink: URL?, baseFlowDelegate: BaseFlowDelegate?, baseFlowDataSource: BaseFlowDataSource?, httpClient: HTTPClient, analytics: AnalyticsProtocol) -> UIViewController {
         let businessModel = ProfileBusinessModel(repository: ProfileAPI(httpClient: httpClient), analytics: analytics)
         let factory = ProfileViewControllerFactory(businessModel: businessModel, analytics: businessModel)
-        let mainFlow = ProfileFlow(factory: factory)
+        let mainFlow = ProfileFlow(factory: factory, deeplink: Deeplink(screen: ProfileDeeplink(rawValue: deeplink?.path ?? "/"), url: deeplink))
         mainFlow.baseFlowDelegate = baseFlowDelegate
         mainFlow.baseFlowDataSource = baseFlowDataSource
         factory.flow = mainFlow
@@ -23,3 +23,6 @@ public class ProfileLauncher {
     }
 }
 
+enum ProfileDeeplink: String, CaseIterable {
+    case index = "/"
+}

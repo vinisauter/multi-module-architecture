@@ -9,4 +9,5 @@ import Foundation
 
 public protocol LoginRepositoryProtocol {
     func login(with username: String, and password: String, completion: @escaping (_ success: Bool) -> Void)
+    func changePassword(with newPassword: String, completion: @escaping (Bool) -> Void)
 }

@@ -6,6 +6,7 @@
 //
 
 public protocol BaseViewModelProtocol {
+    var isIndex: Bool { get set }
     func getUseCase<UseCase>() -> UseCase?
     func getAnalytics<AnalyticsModel>() -> AnalyticsModel?
 }
@@ -17,16 +18,19 @@ public protocol ViewModelProtocol: BaseViewModelProtocol {
     var analytics: AnalyticsModel? { get }
 }
 
-open class BaseViewModel<U, A>: ViewModelProtocol {
+open class BaseViewModel<U, A, D>: ViewModelProtocol {
     public typealias UseCase = U
     public typealias AnalyticsModel = A
     
     public var useCase: UseCase?
     public var analytics: AnalyticsModel?
+    public var isIndex: Bool = false
+    public var deeplink: D?
     
-    public init(useCase: UseCase?, analytics: AnalyticsModel?) {
+    public init(useCase: UseCase?, analytics: AnalyticsModel?, isIndex: Bool = false) {
         self.useCase = useCase
         self.analytics = analytics
+        self.isIndex = isIndex
     }
     
     public func getUseCase<UseCase>() -> UseCase? {

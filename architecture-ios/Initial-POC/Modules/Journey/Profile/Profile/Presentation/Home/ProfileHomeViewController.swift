@@ -27,6 +27,12 @@ open class ProfileHomeViewController: BaseViewController<ProfileHomeViewModelPro
         setupUI()
     }
     
+    public override func checkDeeplinkIfNeeded() {
+        if let flowDelegate = flowDelegate as? Deeplinkable {
+            flowDelegate.resolveDeeplinkIfNeeded(from: self)
+        }
+    }
+    
     // MARK: - Setup Functions
     
     private func setupUI() {

@@ -40,12 +40,12 @@ class AppNavigation {
     }
     
     func start(from deeplink: String, with baseFlowDelegate: BaseFlowDelegate, baseFlowDataSource: BaseFlowDataSource) -> UIViewController {
-        let journey = JourneyModule.from(deeplink)
+        let (journey, url) = JourneyModule.from(deeplink)
         
         switch journey {
         case .unknown: return UIViewController()
-        case .login: return startLogin(baseFlowDelegate: baseFlowDelegate)
-        case .home: return startHome(baseFlowDelegate: baseFlowDelegate)
+        case .login: return startLogin(from: url, baseFlowDelegate: baseFlowDelegate)
+        case .home: return startHome(from: url, baseFlowDelegate: baseFlowDelegate)
         case .profile: return startProfile(baseFlowDelegate: baseFlowDelegate, baseFlowDataSource: baseFlowDataSource)
         }
     }

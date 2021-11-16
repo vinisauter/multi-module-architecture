@@ -11,20 +11,33 @@ import Core
 protocol HomeFlowProtocol: AnyObject {
     var factory: HomeViewControllerFactory { get }
     var baseFlowDelegate: BaseFlowDelegate? { get set }
+    var deeplink: Deeplink<HomeDeeplink>? { get set }
     func start(useCase: HomeUseCaseProtocol, analytics: HomeAnalyticsProtocol) -> UIViewController
 }
 
-class HomeFlow: HomeFlowProtocol {
+class HomeFlow: HomeFlowProtocol, Deeplinkable {
     var factory: HomeViewControllerFactory
+    
+    var deeplink: Deeplink<HomeDeeplink>?
     
     weak var baseFlowDelegate: BaseFlowDelegate?
     
-    init(factory: HomeViewControllerFactory) {
+    init(factory: HomeViewControllerFactory, deeplink: Deeplink<HomeDeeplink>?) {
         self.factory = factory
+        self.deeplink = deeplink
     }
     
     func start(useCase: HomeUseCaseProtocol, analytics: HomeAnalyticsProtocol) -> UIViewController {
         return factory.makeHomeIndexViewController()
+    }
+    
+    func resolveDeeplinkIfNeeded(from controller: UIViewController) {
+        guard let deeplink = deeplink, let screen = deeplink.screen else { return }
+        self.deeplink = nil
+        
+        switch screen {
+        case .index: break
+        }
     }
 }
 

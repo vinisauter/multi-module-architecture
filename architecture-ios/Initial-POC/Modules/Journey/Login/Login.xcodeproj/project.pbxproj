@@ -22,6 +22,8 @@
 		59585587273A9130008E587C /* LoginIndexViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59585586273A9130008E587C /* LoginIndexViewModel.swift */; };
 		5958558A273A9141008E587C /* LoginIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59585589273A9141008E587C /* LoginIndexViewController.swift */; };
 		5958558C273A924E008E587C /* LoginViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5958558B273A924E008E587C /* LoginViewControllerFactory.swift */; };
+		59B3B1BC273EC36B00CEA77C /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B3B1BB273EC36B00CEA77C /* ForgotPasswordViewModel.swift */; };
+		59B3B1BE273EC39400CEA77C /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B3B1BD273EC39400CEA77C /* ForgotPasswordViewController.swift */; };
 		59C82C3F273BFF7B00E84149 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C82C3E273BFF7B00E84149 /* Core.framework */; };
 		59C82C40273BFF7B00E84149 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59C82C3E273BFF7B00E84149 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59DC835E2739D35D00466A21 /* Login.h in Headers */ = {isa = PBXBuildFile; fileRef = 59DC835C2739D35D00466A21 /* Login.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -92,6 +94,8 @@
 		5958558B273A924E008E587C /* LoginViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerFactory.swift; sourceTree = "<group>"; };
 		59A9DA712739DC9A003FA91D /* StorageInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StorageInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59A9DA742739DCA4003FA91D /* Storage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Storage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59B3B1BB273EC36B00CEA77C /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
+		59B3B1BD273EC39400CEA77C /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		59C82C3E273BFF7B00E84149 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59DC83592739D35D00466A21 /* Login.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Login.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59DC835C2739D35D00466A21 /* Login.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Login.h; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				59585585273A911F008E587C /* Login */,
+				59B3B1BA273EC34900CEA77C /* ForgotPassword */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -197,6 +202,15 @@
 				59585589273A9141008E587C /* LoginIndexViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		59B3B1BA273EC34900CEA77C /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				59B3B1BB273EC36B00CEA77C /* ForgotPasswordViewModel.swift */,
+				59B3B1BD273EC39400CEA77C /* ForgotPasswordViewController.swift */,
+			);
+			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
 		59DC834F2739D35D00466A21 = {
@@ -361,7 +375,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59B3B1BC273EC36B00CEA77C /* ForgotPasswordViewModel.swift in Sources */,
 				5958557A273A8F50008E587C /* LoginLauncher.swift in Sources */,
+				59B3B1BE273EC39400CEA77C /* ForgotPasswordViewController.swift in Sources */,
 				5958557C273A8F69008E587C /* LoginBusinessModel.swift in Sources */,
 				59585584273A8FCA008E587C /* LoginBusinessModel+Analytics.swift in Sources */,
 				5958558C273A924E008E587C /* LoginViewControllerFactory.swift in Sources */,

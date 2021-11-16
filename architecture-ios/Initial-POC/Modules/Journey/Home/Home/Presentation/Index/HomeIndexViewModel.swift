@@ -19,7 +19,7 @@ public protocol HomeIndexViewModelProtocol {
     func onOpenProfileButtonClick()
 }
 
-class HomeIndexViewModel: BaseViewModel<HomeIndexUseCaseProtocol, HomeIndexAnalyticsProtocol>, HomeIndexViewModelProtocol {
+class HomeIndexViewModel: BaseViewModel<HomeIndexUseCaseProtocol, HomeIndexAnalyticsProtocol, HomeDeeplink>, HomeIndexViewModelProtocol {
     func onOpenProfileButtonClick() {
         analytics?.onOpenProfileClick()
     }

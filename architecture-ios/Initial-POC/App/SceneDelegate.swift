@@ -18,14 +18,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let mainVCFromSimpleStart = AppNavigation.shared.startLogin(baseFlowDelegate: AppNavigation.shared)
-        let mainVCFromDeeplinkStart = AppNavigation.shared.start(from: "app://login", with: AppNavigation.shared, baseFlowDataSource: AppNavigation.shared)
-        AppNavigation.shared.setRootViewController(mainVCFromSimpleStart)
-        AppNavigation.shared.setRootViewController(mainVCFromDeeplinkStart)
+        AppNavigation.shared.setRootViewController(UIViewController.instantiateViewController(ofType: WelcomeViewController.self) ?? UIViewController())
         
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = AppNavigation.shared.navigationController
         window?.makeKeyAndVisible()
+    }
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        let deeplinkContext = URLContexts.first{ $0.url.scheme == "app"}
+        guard let deeplink = deeplinkContext?.url.absoluteString else { return }
+        
+        let mainVCFromDeeplink = AppNavigation.shared.start(from: deeplink, with: AppNavigation.shared, baseFlowDataSource: AppNavigation.shared)
+        AppNavigation.shared.setRootViewController(mainVCFromDeeplink)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -19,7 +19,7 @@ public protocol ProfileHomeViewModelProtocol {
     func onGoToMenuClick()
 }
 
-class ProfileHomeViewModel: BaseViewModel<ProfileHomeUseCaseProtocol, ProfileHomeAnalyticsProtocol>, ProfileHomeViewModelProtocol {
+class ProfileHomeViewModel: BaseViewModel<ProfileHomeUseCaseProtocol, ProfileHomeAnalyticsProtocol, ProfileDeeplink>, ProfileHomeViewModelProtocol {
     func onGoToMenuClick() {
         analytics?.onGoToMenuClick()
     }

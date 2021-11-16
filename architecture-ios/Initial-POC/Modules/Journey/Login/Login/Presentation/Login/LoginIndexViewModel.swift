@@ -15,11 +15,9 @@ public protocol LoginIndexAnalyticsProtocol {
     func onLoginClick()
 }
 
-public protocol LoginIndexViewModelProtocol {
-    func login(with username: String, and password: String, completion: @escaping (_ success: Bool) -> Void)
-}
+public protocol LoginIndexViewModelProtocol: LoginIndexUseCaseProtocol {}
 
-class LoginIndexViewModel: BaseViewModel<LoginIndexUseCaseProtocol, LoginIndexAnalyticsProtocol>, LoginIndexViewModelProtocol {
+class LoginIndexViewModel: BaseViewModel<LoginIndexUseCaseProtocol, LoginIndexAnalyticsProtocol, LoginDeeplink>, LoginIndexViewModelProtocol {
     func login(with username: String, and password: String, completion: @escaping (Bool) -> Void) {
         analytics?.onLoginClick()
         useCase?.login(with: username, and: password, completion: completion)

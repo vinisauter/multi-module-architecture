@@ -8,25 +8,39 @@
 import UIKit
 import Core
 
-public protocol ProfileFlowProtocol: AnyObject {
+protocol ProfileFlowProtocol: AnyObject {
     var factory: ProfileViewControllerFactory { get }
+    var deeplink: Deeplink<ProfileDeeplink>? { get set }
     var baseFlowDelegate: BaseFlowDelegate? { get set }
     var baseFlowDataSource: BaseFlowDataSource? { get set }
     func start(useCase: ProfileUseCaseProtocol, analytics: ProfileAnalyticsProtocol) -> UIViewController
 }
 
-class ProfileFlow: ProfileFlowProtocol {
+class ProfileFlow: ProfileFlowProtocol, Deeplinkable {
     var factory: ProfileViewControllerFactory
     
+    var deeplink: Deeplink<ProfileDeeplink>?
+    
     weak var baseFlowDelegate: BaseFlowDelegate?
+    
     weak var baseFlowDataSource: BaseFlowDataSource?
     
-    init(factory: ProfileViewControllerFactory) {
+    init(factory: ProfileViewControllerFactory, deeplink: Deeplink<ProfileDeeplink>?) {
         self.factory = factory
+        self.deeplink = deeplink
     }
     
     func start(useCase: ProfileUseCaseProtocol, analytics: ProfileAnalyticsProtocol) -> UIViewController {
         return factory.makeProfileHomeViewController()
+    }
+    
+    func resolveDeeplinkIfNeeded(from controller: UIViewController) {
+        guard let deeplink = deeplink, let screen = deeplink.screen else { return }
+        self.deeplink = nil
+        
+        switch screen {
+        case .index: break
+        }
     }
 }
 
@@ -41,9 +55,11 @@ extension ProfileFlow: ProfileHomeFlowDelegate {
     func callLogin(in controller: ProfileHomeViewController) {
         guard let loginVC = baseFlowDataSource?.get(.login, from: self) else { return }
         
-        loginVC.modalPresentationStyle = .fullScreen
         
-        controller.present(loginVC, animated: true)
+        let navigationController = UINavigationController(rootViewController: loginVC)
+        navigationController.modalPresentationStyle = .fullScreen
+        
+        controller.present(navigationController, animated: true)
     }
 }
 

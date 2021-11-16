@@ -10,8 +10,8 @@ import Core
 import Login
 
 extension AppNavigation {
-    func startLogin(baseFlowDelegate: BaseFlowDelegate? = nil) -> UIViewController {
-        return LoginLauncher.start(baseFlowDelegate: baseFlowDelegate, httpClient: DependencyProvider.networking, analytics: DependencyProvider.analytics)
+    func startLogin(from deeplink: URL? = nil, baseFlowDelegate: BaseFlowDelegate? = nil) -> UIViewController {
+        return LoginLauncher.start(from: deeplink, baseFlowDelegate: baseFlowDelegate, httpClient: DependencyProvider.networking, analytics: DependencyProvider.analytics)
     }
     
     func handleLoginFlowGo(to journey: JourneyModule, in viewController: UIViewController, with value: Any?) {

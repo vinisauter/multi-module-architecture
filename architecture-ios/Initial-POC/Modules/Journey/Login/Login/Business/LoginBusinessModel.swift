@@ -7,7 +7,7 @@
 
 import AnalyticsInterfaces
 
-public protocol LoginUseCaseProtocol: LoginIndexUseCaseProtocol {
+public protocol LoginUseCaseProtocol: LoginIndexUseCaseProtocol, ForgotPasswordUseCaseProtocol {
     var repository: LoginRepositoryProtocol { get }
 }
 
@@ -22,5 +22,9 @@ class LoginBusinessModel: LoginUseCaseProtocol {
     
     func login(with username: String, and password: String, completion: @escaping (Bool) -> Void) {
         repository.login(with: username, and: password, completion: completion)
+    }
+    
+    func changePassword(with newPassword: String, completion: @escaping (Bool) -> Void) {
+        repository.changePassword(with: newPassword, completion: completion)
     }
 }

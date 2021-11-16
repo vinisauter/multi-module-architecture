@@ -30,5 +30,16 @@ open class BaseViewController<T, F>: UIViewController, BaseViewControllerProtoco
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let viewModel = viewModel as? BaseViewModelProtocol, viewModel.isIndex { checkDeeplinkIfNeeded() }
+    }
+    
+    open func checkDeeplinkIfNeeded() {
+        if let flowDelegate = flowDelegate as? Deeplinkable {
+            flowDelegate.resolveDeeplinkIfNeeded(from: self)
+        }
+    }
 }
 
