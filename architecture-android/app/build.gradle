@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -49,17 +51,17 @@ android {
 }
 
 dependencies {
+    def nav_version = "2.4.0-beta02"
     api project(path: ':libraries:bug-finder')
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    def nav_version = "2.4.0-alpha01"
 
     api 'com.google.android.play:core-ktx:1.8.1'
     api 'androidx.core:core-ktx:1.7.0'
     api 'androidx.appcompat:appcompat:1.3.1'
     api 'com.google.android.material:material:1.4.0'
     api 'androidx.constraintlayout:constraintlayout:2.1.1'
-    implementation "androidx.fragment:fragment-ktx:1.3.1"
+    implementation "androidx.fragment:fragment-ktx:1.3.6"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
