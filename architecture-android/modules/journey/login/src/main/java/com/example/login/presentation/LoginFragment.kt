@@ -20,7 +20,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        viewModel.onLoginViewCreated()
         viewBinding.also {
             // TODO setOnClickListener via xml
             it.loginButton.setOnClickListener { viewModel.onLoginClicked() }
@@ -31,6 +31,5 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 navigate(navDirection)
             }
         }
-
     }
 }

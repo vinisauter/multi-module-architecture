@@ -5,7 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavDirections
 import com.core.extensions.onCpu
-import com.example.login.business.LoginBusinessModel
+import com.example.login.LoginLauncher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 
@@ -17,25 +17,34 @@ class LoginFragmentViewModel(app: Application) : AndroidViewModel(app) {
     //flow { ... } builder function to construct arbitrary flows from sequential calls to emit function.
     //channelFlow { ... } builder function to construct arbitrary flows from potentially concurrent calls to the send function.
     //MutableStateFlow and MutableSharedFlow define the corresponding constructor functions to create a hot flow that can be directly updated.
-    private val onActionCompletedLiveData = MutableSharedFlow<NavDirections>()
+    private val onActionCompletedFlow = MutableSharedFlow<NavDirections>()
 
-    private val useCase: LoginFragmentUseCase = LoginBusinessModel()
+    private val useCase: LoginFragmentUseCase = LoginLauncher.loginFragmentUseCase
+    private val tracking: LoginFragmentTracking = LoginLauncher.loginFragmentTracking
+
+    fun onLoginViewCreated() {
+        tracking.onLoginViewCreated()
+    }
 
     fun onLoginClicked() = viewModelScope.onCpu {
+        tracking.onLoginClicked()
         try {
             useCase.login("user", "password")
 
-            onActionCompletedLiveData.emit(LoginFragmentDirections.actionLoginSucceed())
+            onActionCompletedFlow.emit(LoginFragmentDirections.actionLoginSucceed())
+            tracking.onLoginSucceed()
         } catch (t: Throwable) {
-            onActionCompletedLiveData.emit(LoginFragmentDirections.actionLoginFailed())
+            onActionCompletedFlow.emit(LoginFragmentDirections.actionLoginFailed())
+            tracking.onLoginFailed()
         }
     }
 
     fun onForgotPasswordClicked() = viewModelScope.onCpu {
-        onActionCompletedLiveData.emit(LoginFragmentDirections.actionForgotPassword())
+        tracking.onForgotPasswordClicked()
+        onActionCompletedFlow.emit(LoginFragmentDirections.actionForgotPassword())
     }
 
     fun onActionCompleted(): Flow<NavDirections> {
-        return onActionCompletedLiveData
+        return onActionCompletedFlow
     }
 }
