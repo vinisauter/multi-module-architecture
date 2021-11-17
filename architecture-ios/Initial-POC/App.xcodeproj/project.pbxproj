@@ -24,7 +24,6 @@
 		593F26482739D63000B34547 /* Profile.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 593F263E2739D63000B34547 /* Profile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59644E20273AA16600B3A865 /* AppNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59644E1F273AA16600B3A865 /* AppNavigation.swift */; };
 		59644E22273AA19000B3A865 /* DependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59644E21273AA19000B3A865 /* DependencyProvider.swift */; };
-		5981A0C32739B19300BFBAA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5981A0C22739B19300BFBAA5 /* SceneDelegate.swift */; };
 		5993F7A9273D852E00B3A695 /* AppNavigation+LoginFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5993F7A8273D852E00B3A695 /* AppNavigation+LoginFlow.swift */; };
 		5993F7AB273D856C00B3A695 /* AppNavigation+HomeFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5993F7AA273D856C00B3A695 /* AppNavigation+HomeFlow.swift */; };
 		5993F7AD273D85BE00B3A695 /* AppNavigation+ProfileFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5993F7AC273D85BE00B3A695 /* AppNavigation+ProfileFlow.swift */; };
@@ -72,7 +71,6 @@
 		593F263E2739D63000B34547 /* Profile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Profile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59644E1F273AA16600B3A865 /* AppNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigation.swift; sourceTree = "<group>"; };
 		59644E21273AA19000B3A865 /* DependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyProvider.swift; sourceTree = "<group>"; };
-		5981A0C22739B19300BFBAA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5993F7A8273D852E00B3A695 /* AppNavigation+LoginFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppNavigation+LoginFlow.swift"; sourceTree = "<group>"; };
 		5993F7AA273D856C00B3A695 /* AppNavigation+HomeFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppNavigation+HomeFlow.swift"; sourceTree = "<group>"; };
 		5993F7AC273D85BE00B3A695 /* AppNavigation+ProfileFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppNavigation+ProfileFlow.swift"; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				421ECFC027396FBA00BD353C /* AppDelegate.swift */,
-				5981A0C22739B19300BFBAA5 /* SceneDelegate.swift */,
 				421ECFC427396FBA00BD353C /* WelcomeViewController.swift */,
 				421ECFC627396FBA00BD353C /* Main.storyboard */,
 				421ECFC927396FBC00BD353C /* Assets.xcassets */,
@@ -247,7 +244,6 @@
 				5993F7AB273D856C00B3A695 /* AppNavigation+HomeFlow.swift in Sources */,
 				421ECFC527396FBA00BD353C /* WelcomeViewController.swift in Sources */,
 				421ECFC127396FBA00BD353C /* AppDelegate.swift in Sources */,
-				5981A0C32739B19300BFBAA5 /* SceneDelegate.swift in Sources */,
 				59644E20273AA16600B3A865 /* AppNavigation.swift in Sources */,
 				5993F7AD273D85BE00B3A695 /* AppNavigation+ProfileFlow.swift in Sources */,
 			);
