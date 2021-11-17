@@ -26,8 +26,8 @@ class SuperApplication : Application(), Application.ActivityLifecycleCallbacks {
                 penaltyDialog = true,
                 enableForThirdParties = false,
                 classInstanceLimit = mapOf(
-//                    Pair(SingleInstance::class.java, 1)
-//                    Pair(Cache::class.java, 1)
+                //Pair(SingleInstance::class.java, 1)
+                //Pair(Cache::class.java, 1)
                 )
             )
         }

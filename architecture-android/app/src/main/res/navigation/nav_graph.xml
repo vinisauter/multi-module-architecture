@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment"
+    app:progressDestination="@+id/progressFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.app.SplashFragment"
+        tools:layout="@layout/splash_fragment"
+        android:label="Splash Fragment" />
+
+    <!--<dialog
+        android:id="@+id/donutEntryDialogFragment"
+        android:name="com.android.samples.donuttracker.DonutEntryDialogFragment"
+        android:label="DonutEntryDialogFragment">
+        <deepLink app:uri="myapp://navdonutcreator.com/donutcreator" />
+        <argument
+            android:name="itemId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+    </dialog>-->
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.app.MainFragment"
+        android:label="Main Fragment"
+        tools:layout="@layout/main_fragment"/>
+
+
+    <!--modulos negociales-->
+    <include-dynamic
+        android:id="@+id/loginGraph"
+        android:label="Login Graph"
+        app:graphResName="login_graph"
+        app:moduleName="login" />
+
+    <!--<include-dynamic
+        android:id="@+id/coffeeGraph"
+        app:moduleName="coffee"
+        app:graphResName="coffee_graph"/>-->
+
+    <include-dynamic
+        android:id="@+id/homeGraph"
+        android:label="Home Graph"
+        app:graphResName="home_graph"
+        app:moduleName="home" />
+
+    <include-dynamic
+        android:id="@+id/profileGraph"
+        android:label="Profile Graph"
+        app:graphResName="profile_graph"
+        app:moduleName="profile" />
+
+
+    <action
+        android:id="@+id/action_global_loginGraph"
+        app:destination="@id/loginGraph" />
+    <action
+        android:id="@+id/action_global_homeGraph"
+        app:destination="@id/homeGraph" />
+    <action
+        android:id="@+id/action_global_profileGraph"
+        app:destination="@id/profileGraph" />
+    <action
+        android:id="@+id/action_global_splashFragment"
+        app:destination="@id/splashFragment" />
+
+</navigation>

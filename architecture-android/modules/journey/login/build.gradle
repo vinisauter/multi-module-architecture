@@ -4,7 +4,9 @@ plugins {
 }
 android {
     compileSdk 31
-
+    buildFeatures {
+        viewBinding = true
+    }
     defaultConfig {
         minSdk 21
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -24,4 +26,10 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     androidTestImplementation 'androidx.annotation:annotation:1.3.0'
+
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+
+    api "androidx.navigation:navigation-dynamic-features-fragment:$navigationVersion"
+
 }
