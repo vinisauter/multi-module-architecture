@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentExtensions.navigate
+import androidx.fragment.app.FragmentExtensions.dynamicNavigate
 import com.example.app.databinding.FragmentSplashBinding
 
 class SplashFragment : Fragment() {
@@ -21,7 +21,7 @@ class SplashFragment : Fragment() {
     ): View {
         _binding = FragmentSplashBinding.inflate(inflater, container, false)
         binding.buttonContinue.setOnClickListener {
-            navigate(goLogin)
+            dynamicNavigate(goLogin)
         }
         return binding.root
     }

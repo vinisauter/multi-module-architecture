@@ -4,26 +4,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     app:moduleName="login"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/LoginFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.login.FirstFragment"
+        android:id="@+id/LoginFragment"
+        android:name="com.example.login.view.LoginFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.login.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+        tools:layout="@layout/fragment_login">
+        <deepLink
+            android:id="@+id/dl_recurring_login"
+            app:uri="@string/recurring_login_deeplink" />
+        <deepLink
+            android:id="@+id/dl_logout"
+            app:uri="@string/logout_deeplink" />
     </fragment>
 </navigation>
