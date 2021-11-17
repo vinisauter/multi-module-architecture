@@ -36,7 +36,7 @@ open class ForgotPasswordViewController: BaseViewController<ForgotPasswordViewMo
     
     private func setupView() {
         title = "Forgot Password"
-        view.backgroundColor = .red
+        view.backgroundColor = .white
     }
     
     private func setupNavigation() {

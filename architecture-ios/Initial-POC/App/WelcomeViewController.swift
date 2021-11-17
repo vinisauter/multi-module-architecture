@@ -21,7 +21,7 @@ class WelcomeViewController: UIViewController {
     }
     
     @IBAction func goToLogin(_ sender: Any) {
-        show(AppNavigation.shared.startLogin(baseFlowDelegate: AppNavigation.shared), sender: nil)
+        show(AppNavigation.shared.start(.login), sender: nil)
     }
     
 }

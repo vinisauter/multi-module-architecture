@@ -18,15 +18,24 @@ public struct Deeplink<T> {
 }
 
 public enum JourneyModule: String, CaseIterable {
-    case unknown = "unknown"
+    case welcome = "welcome"
     case login = "login"
     case home = "home"
     case profile = "profile"
     
+    public var shouldBeLogInToOpen: Bool {
+        switch self {
+        case .welcome: return false
+        case .login: return false
+        case .home: return true
+        case .profile: return true
+        }
+    }
+    
     public static func from(_ deeplink: String) -> (jorney: JourneyModule, urlComponents: URL?) {
-        guard  let url = URL(string: deeplink), let host = url.host else { return (.unknown, nil) }
+        guard  let url = URL(string: deeplink), let host = url.host else { return (.welcome, nil) }
                 
-        return (JourneyModule(rawValue: host) ?? .unknown, url)
+        return (JourneyModule(rawValue: host) ?? .welcome, url)
     }
 }
 
@@ -45,6 +54,6 @@ public extension BaseFlowDelegate {
 }
 
 public protocol BaseFlowDataSource: AnyObject {
-    func get(_ journey: JourneyModule, from currentJourney: BaseFlowDelegate) -> UIViewController
+    func get(_ journey: JourneyModule, from currentJourney: JourneyModule, with baseFlowDelegate: BaseFlowDelegate) -> UIViewController
 }
 

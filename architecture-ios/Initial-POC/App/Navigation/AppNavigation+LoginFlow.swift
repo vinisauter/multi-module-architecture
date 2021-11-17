@@ -15,16 +15,12 @@ extension AppNavigation {
     }
     
     func handleLoginFlowGo(to journey: JourneyModule, in viewController: UIViewController, with value: Any?) {
-        switch journey {
-        case .home:
-            setRootViewController(startHome(baseFlowDelegate: self), animated: true)
-            break
-            
-        default: break
-        }
+        isUserLoggedIn = journey == .home
+        setRootViewController(start(journey), from: viewController, animated: true)
+        resolveDeeplinkIfNeeded()
     }
     
-    func handleGetLoginFlow(from journey: BaseFlowDelegate) -> UIViewController {
-        return startLogin(baseFlowDelegate: journey)
+    func handleGetLoginFlow(from journey: JourneyModule, with baseFlowDelegate: BaseFlowDelegate) -> UIViewController {
+        return start(.login, from: journey, baseFlowDelegate: baseFlowDelegate)
     }
 }

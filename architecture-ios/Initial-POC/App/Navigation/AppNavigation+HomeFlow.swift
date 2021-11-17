@@ -17,18 +17,19 @@ extension AppNavigation {
     func handleHomeFlowGo(to journey: JourneyModule, in viewController: UIViewController, with value: Any?) {
         switch journey {
         case .profile:
-            push(startProfile(baseFlowDelegate: self, baseFlowDataSource: self))
+            push(start(.profile, baseFlowDelegate: self, baseFlowDataSource: self), from: viewController)
             break
             
         case .login:
-            setRootViewController(startLogin(baseFlowDelegate: self))
+            setRootViewController(start(.login, baseFlowDelegate: self), from: viewController)
+            isUserLoggedIn = false
             break
             
         default: break
         }
     }
     
-    func handleGetHomeFlow(from journey: BaseFlowDelegate) -> UIViewController {
-        return startHome(baseFlowDelegate: journey)
+    func handleGetHomeFlow(from journey: JourneyModule, with baseFlowDelegate: BaseFlowDelegate) -> UIViewController {
+        return start(.home, from: journey, baseFlowDelegate: baseFlowDelegate)
     }
 }

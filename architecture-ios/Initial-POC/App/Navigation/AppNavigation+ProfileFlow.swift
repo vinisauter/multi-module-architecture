@@ -18,17 +18,14 @@ extension AppNavigation {
     func handleProfileFlowGo(to journey: JourneyModule, in viewController: UIViewController, with value: Any?) {
         switch journey {
         case .home:
-            guard (popToViewControllerWithType(HomeIndexViewController.self) != nil) else {
-                setRootViewController(startHome(baseFlowDelegate: self), animated: true)
-                return
-            }
+            setRootViewController(start(.home, baseFlowDelegate: self), from: viewController, animated: true)
             break
             
         default: break
         }
     }
     
-    func handleGetProfileFlow(from journey: BaseFlowDelegate) -> UIViewController {
-        return startProfile(baseFlowDelegate: journey, baseFlowDataSource: self)
+    func handleGetProfileFlow(from journey: JourneyModule, with baseFlowDelegate: BaseFlowDelegate) -> UIViewController {
+        return start(.profile, from: journey, baseFlowDelegate: baseFlowDelegate, baseFlowDataSource: self)
     }
 }

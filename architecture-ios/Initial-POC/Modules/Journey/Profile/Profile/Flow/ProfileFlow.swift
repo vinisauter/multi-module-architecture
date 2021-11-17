@@ -53,7 +53,7 @@ extension ProfileFlow: ProfileHomeFlowDelegate {
     }
     
     func callLogin(in controller: ProfileHomeViewController) {
-        guard let loginVC = baseFlowDataSource?.get(.login, from: self) else { return }
+        guard let loginVC = baseFlowDataSource?.get(.login, from: .profile, with: self) else { return }
         
         
         let navigationController = UINavigationController(rootViewController: loginVC)
