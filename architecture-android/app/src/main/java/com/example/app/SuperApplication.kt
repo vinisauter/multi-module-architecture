@@ -13,6 +13,9 @@ import android.os.Looper
 import android.os.StrictModeManager.enableStrictMode
 import android.widget.Toast
 import com.app.logger.Logger
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.startKoin
 import java.text.MessageFormat
 
 class SuperApplication : Application(), Application.ActivityLifecycleCallbacks {
@@ -37,6 +40,11 @@ class SuperApplication : Application(), Application.ActivityLifecycleCallbacks {
         }
         super.onCreate()
         registerActivityLifecycleCallbacks(this)
+
+        startKoin {
+            androidLogger()
+            androidContext(this@SuperApplication)
+        }
 
 //        val logsFolder = File(filesDir, "logs")
 //        if (!logsFolder.exists()) {

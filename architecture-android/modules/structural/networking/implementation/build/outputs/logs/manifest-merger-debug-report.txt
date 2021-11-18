@@ -1,0 +1,52 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml:2:1-13:12
+INJECTED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml:2:1-13:12
+INJECTED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml:2:1-13:12
+INJECTED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml:2:1-13:12
+MERGED from [:modules:structural:networking:interface] /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/interface/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+INJECTED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml:2:1-13:12
+INJECTED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml:2:1-13:12
+INJECTED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml:2:1-13:12
+	package
+		ADDED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml:3:5-37
+		INJECTED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml
+		INJECTED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml
+		ADDED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml:2:1-13:12
+		INJECTED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml
+	xmlns:dist
+		ADDED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml:2:11-67
+	xmlns:android
+		ADDED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml:2:1-13:12
+	android:versionCode
+		INJECTED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml
+		ADDED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml:2:1-13:12
+		INJECTED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml
+dist:module
+ADDED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml:5:5-12:19
+	dist:instant
+		ADDED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml:6:9-29
+	dist:title
+		ADDED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml:7:9-50
+dist:delivery
+ADDED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml:8:9-10:25
+dist:on-demand
+ADDED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml:9:13-31
+dist:fusing
+ADDED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml:11:9-44
+	dist:include
+		ADDED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml:11:22-41
+uses-sdk
+INJECTED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml
+MERGED from [:modules:structural:networking:interface] /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/interface/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:modules:structural:networking:interface] /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/interface/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+INJECTED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		ADDED from [:modules:structural:networking:interface] /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/interface/build/intermediates/merged_manifest/debug/AndroidManifest.xml:7:9-38
+	android:minSdkVersion
+		INJECTED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml
+		ADDED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml
+		INJECTED from /Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/src/main/AndroidManifest.xml

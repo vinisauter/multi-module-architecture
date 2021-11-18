@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
     id 'kotlin-parcelize'
 }
 
@@ -17,7 +19,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildFeatures {
-        viewBinding true
+        dataBinding = true
     }
     buildTypes {
         release {
@@ -51,6 +53,19 @@ dependencies {
     api 'androidx.constraintlayout:constraintlayout:2.1.1'
     api 'com.google.android.material:material:1.4.0'
     api 'com.google.android.play:core-ktx:1.8.1'
+
+    // Jetpack
+//    def lifecycle_version = "2.4.0"
+//
+//    api "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+//    api "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+
+    //Koin
+    def koin_version = "3.1.2"
+
+    api "io.insert-koin:koin-android:$koin_version"
+    api "io.insert-koin:koin-android-compat:$koin_version"
+    api "io.insert-koin:koin-androidx-workmanager:$koin_version"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

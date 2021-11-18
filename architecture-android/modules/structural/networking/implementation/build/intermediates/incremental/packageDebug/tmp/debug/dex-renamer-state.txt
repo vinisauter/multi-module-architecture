@@ -1,0 +1,10 @@
+#Thu Nov 18 11:26:52 BRT 2021
+base.2=/Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/build/intermediates/dex/debug/mergeProjectDexDebug/14/classes.dex
+path.2=14/classes.dex
+base.1=/Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
+path.1=0/classes.dex
+base.0=/Users/viniciuslima/Desktop/Ilegra/Next/multi-module-architecture/architecture-android/modules/structural/networking/implementation/build/intermediates/dex/debug/mergeLibDexDebug/0/classes.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
+path.0=0/classes.dex

@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.dynamic-feature'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 android {
     compileSdk 31
@@ -11,7 +13,7 @@ android {
     }
 
     buildFeatures {
-        viewBinding true
+        dataBinding = true
     }
 
     buildTypes {
