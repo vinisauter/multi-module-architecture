@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42331260273AE16400278559 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4233125F273AE16400278559 /* ProfileViewController.swift */; };
+		42331264273AE41B00278559 /* ProfileLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42331263273AE41B00278559 /* ProfileLauncher.swift */; };
+		42331271273BF99900278559 /* ProfileBusinessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42331270273BF99900278559 /* ProfileBusinessModel.swift */; };
+		42331273273BFC2A00278559 /* ProfileApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42331272273BFC2A00278559 /* ProfileApi.swift */; };
+		42331275273C012D00278559 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42331274273C012D00278559 /* ProfileViewModel.swift */; };
 		593F25912739D3C600B34547 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593F25902739D3C600B34547 /* AppDelegate.swift */; };
 		593F25932739D3C600B34547 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593F25922739D3C600B34547 /* SceneDelegate.swift */; };
 		593F25952739D3C600B34547 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593F25942739D3C600B34547 /* ViewController.swift */; };
@@ -65,6 +70,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4233125F273AE16400278559 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		42331263273AE41B00278559 /* ProfileLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLauncher.swift; sourceTree = "<group>"; };
+		42331270273BF99900278559 /* ProfileBusinessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBusinessModel.swift; sourceTree = "<group>"; };
+		42331272273BFC2A00278559 /* ProfileApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileApi.swift; sourceTree = "<group>"; };
+		42331274273C012D00278559 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		593F258E2739D3C600B34547 /* ProfileDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProfileDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		593F25902739D3C600B34547 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		593F25922739D3C600B34547 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +116,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4233125D273AE14C00278559 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				4233125E273AE15500278559 /* View */,
+				4233126B273BF93F00278559 /* ViewModel */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		4233125E273AE15500278559 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4233125F273AE16400278559 /* ProfileViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4233126B273BF93F00278559 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				42331274273C012D00278559 /* ProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4233126C273BF96100278559 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				4233126E273BF97A00278559 /* Service */,
+				4233126D273BF97000278559 /* Data */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		4233126D273BF97000278559 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		4233126E273BF97A00278559 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				42331272273BFC2A00278559 /* ProfileApi.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		4233126F273BF98900278559 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				42331270273BF99900278559 /* ProfileBusinessModel.swift */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
 		593F258F2739D3C600B34547 /* ProfileDemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +221,10 @@
 		59DC838B2739D38A00466A21 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				42331263273AE41B00278559 /* ProfileLauncher.swift */,
+				4233126F273BF98900278559 /* Business */,
+				4233126C273BF96100278559 /* Repository */,
+				4233125D273AE14C00278559 /* Presentation */,
 				59DC838C2739D38A00466A21 /* Profile.h */,
 				59DC838D2739D38A00466A21 /* Info.plist */,
 			);
@@ -226,6 +297,7 @@
 					};
 					59DC83882739D38A00466A21 = {
 						CreatedOnToolsVersion = 12.1;
+						LastSwiftMigration = 1210;
 					};
 				};
 			};
@@ -283,6 +355,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42331271273BF99900278559 /* ProfileBusinessModel.swift in Sources */,
+				42331260273AE16400278559 /* ProfileViewController.swift in Sources */,
+				42331273273BFC2A00278559 /* ProfileApi.swift in Sources */,
+				42331264273AE41B00278559 /* ProfileLauncher.swift in Sources */,
+				42331275273C012D00278559 /* ProfileViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +396,7 @@
 		593F259F2739D3C700B34547 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -338,6 +416,7 @@
 		593F25A02739D3C700B34547 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -479,6 +558,7 @@
 		59DC83922739D38A00466A21 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CWQ8X44CMX;
@@ -495,6 +575,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = nykolas.Profile;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -503,6 +584,7 @@
 		59DC83932739D38A00466A21 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CWQ8X44CMX;

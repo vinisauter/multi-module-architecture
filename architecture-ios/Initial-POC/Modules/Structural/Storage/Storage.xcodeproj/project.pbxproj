@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		423312A82745459400278559 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423312A72745459400278559 /* DataManager.swift */; };
+		423312AB2745463600278559 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423312AA2745463600278559 /* DataManager.swift */; };
 		5961F8352739D9C1007780C9 /* Storage.h in Headers */ = {isa = PBXBuildFile; fileRef = 5961F8332739D9C1007780C9 /* Storage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5961F8452739D9E7007780C9 /* StorageInterfaces.h in Headers */ = {isa = PBXBuildFile; fileRef = 5961F8432739D9E7007780C9 /* StorageInterfaces.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5961F84C2739D9F8007780C9 /* StorageInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5961F8412739D9E7007780C9 /* StorageInterfaces.framework */; };
@@ -38,6 +40,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		423312A72745459400278559 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		423312AA2745463600278559 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		5961F8302739D9C1007780C9 /* Storage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Storage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5961F8332739D9C1007780C9 /* Storage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Storage.h; sourceTree = "<group>"; };
 		5961F8342739D9C1007780C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -89,6 +93,7 @@
 			children = (
 				5961F8332739D9C1007780C9 /* Storage.h */,
 				5961F8342739D9C1007780C9 /* Info.plist */,
+				423312AA2745463600278559 /* DataManager.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -98,6 +103,7 @@
 			children = (
 				5961F8432739D9E7007780C9 /* StorageInterfaces.h */,
 				5961F8442739D9E7007780C9 /* Info.plist */,
+				423312A72745459400278559 /* DataManager.swift */,
 			);
 			path = StorageInterfaces;
 			sourceTree = "<group>";
@@ -179,9 +185,11 @@
 				TargetAttributes = {
 					5961F82F2739D9C1007780C9 = {
 						CreatedOnToolsVersion = 12.1;
+						LastSwiftMigration = 1210;
 					};
 					5961F8402739D9E7007780C9 = {
 						CreatedOnToolsVersion = 12.1;
+						LastSwiftMigration = 1210;
 					};
 				};
 			};
@@ -226,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				423312AB2745463600278559 /* DataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				423312A82745459400278559 /* DataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +382,7 @@
 		5961F8392739D9C1007780C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CWQ8X44CMX;
@@ -388,6 +399,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = nykolas.Storage;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -396,6 +408,7 @@
 		5961F83A2739D9C1007780C9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CWQ8X44CMX;
@@ -420,6 +433,7 @@
 		5961F8472739D9E7007780C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CWQ8X44CMX;
@@ -436,6 +450,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = nykolas.StorageInterfaces;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -444,6 +459,7 @@
 		5961F8482739D9E7007780C9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CWQ8X44CMX;

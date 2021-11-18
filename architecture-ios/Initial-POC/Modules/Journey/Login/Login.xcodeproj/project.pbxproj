@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4233127C273C399B00278559 /* LoginLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4233127B273C399B00278559 /* LoginLauncher.swift */; };
+		42331287273D2F5400278559 /* LoginBusinessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42331286273D2F5400278559 /* LoginBusinessModel.swift */; };
+		42331289273D32B700278559 /* LoginApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42331288273D32B700278559 /* LoginApi.swift */; };
+		4233128B273D42EE00278559 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4233128A273D42EE00278559 /* UserModel.swift */; };
+		4233128D273D48AE00278559 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4233128C273D48AE00278559 /* LoginViewModel.swift */; };
+		4233128F273D4AAF00278559 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4233128E273D4AAF00278559 /* LoginViewController.swift */; };
+		423312972743D5C200278559 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423312962743D5C200278559 /* ForgotPasswordViewController.swift */; };
+		423312992743D60300278559 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423312982743D60300278559 /* ForgotPasswordViewModel.swift */; };
 		593F25AD2739D3E000B34547 /* Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59DC83592739D35D00466A21 /* Login.framework */; };
 		593F25AE2739D3E000B34547 /* Login.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59DC83592739D35D00466A21 /* Login.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		593F26372739D58C00B34547 /* NetworkingInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 593F26362739D58C00B34547 /* NetworkingInterfaces.framework */; };
@@ -65,6 +73,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4233127B273C399B00278559 /* LoginLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginLauncher.swift; sourceTree = "<group>"; };
+		42331286273D2F5400278559 /* LoginBusinessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBusinessModel.swift; sourceTree = "<group>"; };
+		42331288273D32B700278559 /* LoginApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginApi.swift; sourceTree = "<group>"; };
+		4233128A273D42EE00278559 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		4233128C273D48AE00278559 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		4233128E273D4AAF00278559 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		423312962743D5C200278559 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		423312982743D60300278559 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		593F26332739D58500B34547 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		593F26362739D58C00B34547 /* NetworkingInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkingInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		594380EB2739DE180001D840 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +123,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4233127E273C3A1A00278559 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				42331286273D2F5400278559 /* LoginBusinessModel.swift */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		4233127F273C3A1A00278559 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				42331280273C3A1A00278559 /* ViewModel */,
+				42331281273C3A1A00278559 /* View */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		42331280273C3A1A00278559 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4233128C273D48AE00278559 /* LoginViewModel.swift */,
+				423312982743D60300278559 /* ForgotPasswordViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		42331281273C3A1A00278559 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4233128E273D4AAF00278559 /* LoginViewController.swift */,
+				423312962743D5C200278559 /* ForgotPasswordViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		42331282273C3A1A00278559 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				42331283273C3A1A00278559 /* Service */,
+				42331284273C3A1A00278559 /* Data */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		42331283273C3A1A00278559 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				42331288273D32B700278559 /* LoginApi.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		42331284273C3A1A00278559 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				4233128A273D42EE00278559 /* UserModel.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		593F25AC2739D3E000B34547 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +218,10 @@
 		59DC835B2739D35D00466A21 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				4233127B273C399B00278559 /* LoginLauncher.swift */,
+				4233127E273C3A1A00278559 /* Business */,
+				42331282273C3A1A00278559 /* Repository */,
+				4233127F273C3A1A00278559 /* Presentation */,
 				59DC835C2739D35D00466A21 /* Login.h */,
 				59DC835D2739D35D00466A21 /* Info.plist */,
 			);
@@ -225,6 +305,7 @@
 				TargetAttributes = {
 					59DC83582739D35D00466A21 = {
 						CreatedOnToolsVersion = 12.1;
+						LastSwiftMigration = 1210;
 					};
 					59DC83682739D37000466A21 = {
 						CreatedOnToolsVersion = 12.1;
@@ -275,6 +356,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				423312992743D60300278559 /* ForgotPasswordViewModel.swift in Sources */,
+				4233128F273D4AAF00278559 /* LoginViewController.swift in Sources */,
+				423312972743D5C200278559 /* ForgotPasswordViewController.swift in Sources */,
+				4233127C273C399B00278559 /* LoginLauncher.swift in Sources */,
+				42331289273D32B700278559 /* LoginApi.swift in Sources */,
+				4233128B273D42EE00278559 /* UserModel.swift in Sources */,
+				4233128D273D48AE00278559 /* LoginViewModel.swift in Sources */,
+				42331287273D2F5400278559 /* LoginBusinessModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +532,7 @@
 		59DC83622739D35D00466A21 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CWQ8X44CMX;
@@ -459,6 +549,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = nykolas.Login;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -467,6 +558,7 @@
 		59DC83632739D35D00466A21 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CWQ8X44CMX;
@@ -491,6 +583,7 @@
 		59DC837B2739D37200466A21 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -510,6 +603,7 @@
 		59DC837C2739D37200466A21 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
