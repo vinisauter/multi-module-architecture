@@ -15,10 +15,10 @@ public protocol BaseViewControllerFactoryProtocol {
 }
 
 open class BaseViewControllerFactory<BusinessModel, Analytics>: BaseViewControllerFactoryProtocol {
-    public var businessModel: BusinessModel
-    public var analytics: Analytics
+    public var businessModel: BusinessModel?
+    public var analytics: Analytics?
     
-    public init(businessModel: BusinessModel, analytics: Analytics) {
+    public init(businessModel: BusinessModel?, analytics: Analytics?) {
         self.businessModel = businessModel
         self.analytics = analytics
     }

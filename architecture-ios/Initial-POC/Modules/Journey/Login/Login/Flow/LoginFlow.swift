@@ -12,7 +12,7 @@ protocol LoginFlowProtocol: AnyObject {
     var factory: LoginViewControllerFactory { get }
     var baseFlowDelegate: BaseFlowDelegate? { get set }
     var deeplink: Deeplink<LoginDeeplink>? { get set }
-    func start(useCase: LoginUseCaseProtocol, analytics: LoginAnalyticsProtocol) -> UIViewController
+    func start() -> UIViewController
 }
 
 class LoginFlow: LoginFlowProtocol, Deeplinkable {
@@ -27,7 +27,7 @@ class LoginFlow: LoginFlowProtocol, Deeplinkable {
         self.deeplink = deeplink
     }
     
-    func start(useCase: LoginUseCaseProtocol, analytics: LoginAnalyticsProtocol) -> UIViewController {
+    func start() -> UIViewController {
         return factory.makeLoginViewController(isIndex: true)
     }
     

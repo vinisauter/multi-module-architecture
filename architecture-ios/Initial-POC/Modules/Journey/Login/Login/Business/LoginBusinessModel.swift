@@ -7,9 +7,7 @@
 
 import AnalyticsInterfaces
 
-public protocol LoginUseCaseProtocol: LoginIndexUseCaseProtocol, ForgotPasswordUseCaseProtocol {
-    var repository: LoginRepositoryProtocol { get }
-}
+public protocol LoginUseCaseProtocol: LoginIndexUseCaseProtocol, ForgotPasswordUseCaseProtocol {}
 
 class LoginBusinessModel: LoginUseCaseProtocol {
     internal var repository: LoginRepositoryProtocol

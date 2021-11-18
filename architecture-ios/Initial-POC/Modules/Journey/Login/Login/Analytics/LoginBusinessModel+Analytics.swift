@@ -11,13 +11,11 @@ public protocol LoginAnalyticsProtocol: LoginIndexAnalyticsProtocol, ForgotPassw
     var analytics: AnalyticsProtocol { get }
 }
 
-extension LoginBusinessModel: LoginAnalyticsProtocol {
+extension LoginBusinessModel: LoginIndexAnalyticsProtocol {
     func onLoginClick() {
         analytics.track(tag: "LOGIN - onLoginClick track")
     }
-}
-
-extension LoginBusinessModel: ForgotPasswordAnalyticsProtocol {
+    
     func onChangePasswordClick() {
         analytics.track(tag: "LOGIN/FORGOT PASSWORD - onChangePasswordClick track")
     }
