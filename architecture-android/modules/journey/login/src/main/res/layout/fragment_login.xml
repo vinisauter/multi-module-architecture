@@ -14,8 +14,6 @@
         android:layout_height="match_parent"
         tools:context=".view.LoginFragment">
 
-
-
         <EditText
             android:id="@+id/tv_username"
             android:layout_width="0dp"

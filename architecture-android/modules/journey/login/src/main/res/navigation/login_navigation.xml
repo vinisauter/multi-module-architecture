@@ -17,5 +17,14 @@
         <deepLink
             android:id="@+id/dl_logout"
             app:uri="@string/logout_deeplink" />
+        <action
+            android:id="@+id/action_LoginFragment_to_home_navigation"
+            app:destination="@id/home_navigation" />
     </fragment>
+
+    <include-dynamic
+        android:id="@+id/home_navigation"
+        app:moduleName="home"
+        app:graphResName="home_navigation"
+        app:graphPackage="${applicationId}.home"/>
 </navigation>

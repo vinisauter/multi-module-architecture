@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.dynamic-feature'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
     id 'kotlin-android'
 }
 android {
@@ -9,6 +10,12 @@ android {
     defaultConfig {
         minSdk 21
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildFeatures {
+        viewBinding true
+    }
+    dataBinding {
+        enabled = true
     }
 
     buildTypes {
