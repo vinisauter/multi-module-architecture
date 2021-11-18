@@ -10,10 +10,6 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildFeatures {
-        viewBinding true
-    }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -23,7 +19,7 @@ android {
 }
 
 dependencies {
-    implementation project(":app")
+    implementation project(path: ':app')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
