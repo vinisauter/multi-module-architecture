@@ -18,7 +18,7 @@ public protocol HomeNavigationDelegate: AnyObject {
 }
 
 public protocol HomeNavigationProtocol: AnyObject {
-    func start(delegate: HomeNavigationDelegate?) -> UIViewController
+    func start(delegate: HomeNavigationDelegate?, deepLinkParameters: [String: String]?) -> UIViewController
     func finish(start newJourney: Journey, delegate: HomeNavigationDelegate?)
 }
 
@@ -29,7 +29,7 @@ open class HomeLauncher: HomeNavigationProtocol {
     
     public init() {}
     
-    public func start(delegate: HomeNavigationDelegate?) -> UIViewController {
+    public func start(delegate: HomeNavigationDelegate?, deepLinkParameters: [String: String]?) -> UIViewController {
         let viewModel = HomeViewModel(businessModel: HomeLauncher.shared.businessModel)
         return HomeViewController(viewModel: viewModel, delegate: delegate)
     }

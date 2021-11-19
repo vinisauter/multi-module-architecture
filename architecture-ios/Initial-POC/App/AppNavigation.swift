@@ -12,9 +12,9 @@ import Home
 import Profile
 
 enum Journey: String {
-    case Login = "Login"
-    case Home = "Home"
-    case Profile = "Profile"
+    case Login = "login"
+    case Home = "home"
+    case Profile = "profile"
 }
 
 class AppNavigation {
@@ -23,18 +23,18 @@ class AppNavigation {
     
     let storage = DataManager()
     
-    func setRootViewController(by journey: Journey) {
-        self.navigationController.setViewControllers([AppNavigation().setJourney(by: .Login)], animated: false)
+    func setRootViewController(by journey: Journey, deepLinkParameters: [String: String] = [:]) {
+        self.navigationController.setViewControllers([AppNavigation().setJourney(by: journey, deepLink: deepLinkParameters)], animated: false)
     }
     
-    func setJourney(by journey: Journey) -> UIViewController {
+    func setJourney(by journey: Journey, deepLink: [String: String] = [:]) -> UIViewController {
         switch journey {
         case .Login:
-            return LoginLauncher().start(delegate: AppNavigation.shared)
+            return LoginLauncher().start(delegate: AppNavigation.shared, deepLinkParameters: deepLink)
         case .Home:
-            return HomeLauncher().start(delegate: AppNavigation.shared)
+            return HomeLauncher().start(delegate: AppNavigation.shared, deepLinkParameters: deepLink)
         case .Profile:
-            return ProfileLauncher().start(delegate: AppNavigation.shared)
+            return ProfileLauncher().start(delegate: AppNavigation.shared, deepLinkParameters: deepLink)
         }
     }
 }

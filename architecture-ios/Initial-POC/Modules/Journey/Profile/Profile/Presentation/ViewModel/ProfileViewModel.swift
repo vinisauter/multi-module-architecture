@@ -8,11 +8,12 @@
 import Foundation
 
 protocol ProfileViewModelProtocol {
+    var businessModel: ProfileBusinessProtocol { get set }
     func getUserName() -> String
 }
 
 class ProfileViewModel: ProfileViewModelProtocol {
-    let businessModel: ProfileBusinessProtocol
+    var businessModel: ProfileBusinessProtocol
     
     var userName: String = ""
     

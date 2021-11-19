@@ -46,7 +46,7 @@ extension LoginViewController {
             print("logou")
             LoginLauncher.shared.finish(delegate: delegate)
         } else {
-            print("erro o login")
+            print("erro no login")
         }
     }
     

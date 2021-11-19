@@ -12,7 +12,7 @@ public protocol LoginNavigationDelegate: AnyObject {
 }
 
 public protocol LoginNavigationProtocol: AnyObject {
-    func start(delegate: LoginNavigationDelegate?) -> UIViewController
+    func start(delegate: LoginNavigationDelegate?, deepLinkParameters: [String: String]?) -> UIViewController
     func finish(delegate: LoginNavigationDelegate?)
 }
 
@@ -23,7 +23,7 @@ open class LoginLauncher: LoginNavigationProtocol {
     
     public init() {}
     
-    public func start(delegate: LoginNavigationDelegate?) -> UIViewController {
+    public func start(delegate: LoginNavigationDelegate?, deepLinkParameters: [String: String]?) -> UIViewController {
         let viewModel = LoginViewModel(businessModel: LoginLauncher.shared.businessModel)
         return LoginViewController(viewModel: viewModel, delegate: delegate)
     }
