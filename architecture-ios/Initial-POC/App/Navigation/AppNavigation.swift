@@ -76,13 +76,13 @@ class AppNavigation {
         resolve(deeplink)
     }
     
-    func start(_ journey: JourneyModule, from currentJourney: JourneyModule? = nil, with url: URL? = nil, baseFlowDelegate: BaseFlowDelegate = AppNavigation.shared, baseFlowDataSource: BaseFlowDataSource = AppNavigation.shared) -> UIViewController {
+    func start(_ journey: JourneyModule, from currentJourney: JourneyModule? = nil, with url: URL? = nil, baseFlowDelegate: BaseFlowDelegate = AppNavigation.shared, baseFlowDataSource: BaseFlowDataSource = AppNavigation.shared, moduleAnalytics: JourneyModuleAnalyticsProtocol? = nil) -> UIViewController {
         self.currentJourney = currentJourney == nil ? journey : currentJourney!
         switch journey {
         case .welcome: return UIViewController.instantiateViewController(ofType: WelcomeViewController.self)!
-        case .login: return startLogin(from: url, baseFlowDelegate: baseFlowDelegate)
-        case .home: return startHome(from: url, baseFlowDelegate: baseFlowDelegate)
-        case .profile: return startProfile(from: url, baseFlowDelegate: baseFlowDelegate, baseFlowDataSource: baseFlowDataSource)
+        case .login: return startLogin(from: url, baseFlowDelegate: baseFlowDelegate, loginAnalytics: moduleAnalytics)
+        case .home: return startHome(from: url, baseFlowDelegate: baseFlowDelegate, homeAnalytics: moduleAnalytics)
+        case .profile: return startProfile(from: url, baseFlowDelegate: baseFlowDelegate, baseFlowDataSource: baseFlowDataSource, profileAnalytics: moduleAnalytics)
         }
     }
 }
@@ -111,12 +111,12 @@ extension AppNavigation: BaseFlowDelegate {
 // MARK: - BaseFlowDataSource
 
 extension AppNavigation: BaseFlowDataSource {
-    func get(_ journey: JourneyModule, from currentJourney: JourneyModule, with baseFlowDelegate: BaseFlowDelegate) -> UIViewController {
+    func get(_ journey: JourneyModule, from currentJourney: JourneyModule, with baseFlowDelegate: BaseFlowDelegate, analytics: JourneyModuleAnalyticsProtocol?) -> UIViewController {
         switch journey {
         case .welcome: return start(.welcome)
-        case .login: return handleGetLoginFlow(from: currentJourney, with: baseFlowDelegate)
-        case .home: return handleGetHomeFlow(from: currentJourney, with: baseFlowDelegate)
-        case .profile: return handleGetProfileFlow(from: currentJourney, with: baseFlowDelegate)
+        case .login: return handleGetLoginFlow(from: currentJourney, with: baseFlowDelegate, analytics: analytics)
+        case .home: return handleGetHomeFlow(from: currentJourney, with: baseFlowDelegate, analytics: analytics)
+        case .profile: return handleGetProfileFlow(from: currentJourney, with: baseFlowDelegate, analytics: analytics)
         }
     }
 }

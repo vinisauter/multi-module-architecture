@@ -5,14 +5,12 @@
 //  Created by Nykolas Mayko Maia Barbosa on 09/11/21.
 //
 
-import AnalyticsInterfaces
-
-public protocol HomeAnalyticsProtocol: HomeIndexAnalyticsProtocol {
-    var analytics: AnalyticsProtocol { get }
-}
-
-extension HomeBusinessModel: HomeAnalyticsProtocol {
+extension HomeBusinessModel: HomeIndexAnalyticsProtocol {
     func onOpenProfileClick() {
-        analytics.track(tag: "HOME INDEX - onOpenProfileClick track")
+        analytics?.track(tag: "HOME INDEX - onOpenProfileClick track")
+    }
+    
+    func onLogoutClick() {
+        analytics?.track(tag: "HOME INDEX - onLogoutClick track")
     }
 }

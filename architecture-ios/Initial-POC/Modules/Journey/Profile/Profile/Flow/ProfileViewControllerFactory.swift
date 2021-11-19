@@ -11,6 +11,6 @@ public class ProfileViewControllerFactory: BaseViewControllerFactory<ProfileUseC
     weak var flow: ProfileFlowProtocol?
     
     func makeProfileHomeViewController() -> ProfileHomeViewController {
-        return ProfileHomeViewController(viewModel: ProfileHomeViewModel(useCase: businessModel, analytics: analytics), flowDelegate: flow as? ProfileHomeFlowDelegate)
+        return ProfileHomeViewController(viewModel: ProfileHomeViewModel(useCase: businessModel as? ProfileHomeUseCaseProtocol, analytics: analytics as? ProfileHomeAnalyticsProtocol), flowDelegate: flow as? ProfileHomeFlowDelegate)
     }
 }

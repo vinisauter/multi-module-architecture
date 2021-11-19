@@ -29,6 +29,7 @@
 		5993F7AD273D85BE00B3A695 /* AppNavigation+ProfileFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5993F7AC273D85BE00B3A695 /* AppNavigation+ProfileFlow.swift */; };
 		59C82C45273BFF8D00E84149 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C82C44273BFF8D00E84149 /* Core.framework */; };
 		59C82C46273BFF8D00E84149 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59C82C44273BFF8D00E84149 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		59EABE5427466FB4007E653F /* LoginAnalyticsProfileAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EABE5327466FB4007E653F /* LoginAnalyticsProfileAdapter.swift */; };
 		59FAED78273D9E2B00C18E6E /* Analytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED76273D9E2B00C18E6E /* Analytics.framework */; };
 		59FAED79273D9E2B00C18E6E /* Analytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED76273D9E2B00C18E6E /* Analytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59FAED7A273D9E2B00C18E6E /* AnalyticsInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED77273D9E2B00C18E6E /* AnalyticsInterfaces.framework */; };
@@ -77,6 +78,7 @@
 		59A9DA772739DCB6003FA91D /* Storage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Storage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59A9DA782739DCB6003FA91D /* StorageInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StorageInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59C82C44273BFF8D00E84149 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59EABE5327466FB4007E653F /* LoginAnalyticsProfileAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAnalyticsProfileAdapter.swift; sourceTree = "<group>"; };
 		59FAED76273D9E2B00C18E6E /* Analytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Analytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59FAED77273D9E2B00C18E6E /* AnalyticsInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AnalyticsInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -128,6 +130,7 @@
 				421ECFCE27396FBC00BD353C /* Info.plist */,
 				5993F7A6273D84FD00B3A695 /* Navigation */,
 				5993F7A7273D850900B3A695 /* Dependency */,
+				5999E0C22747D71A0044427F /* AnalyticsAdapters */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -166,6 +169,14 @@
 				59644E21273AA19000B3A865 /* DependencyProvider.swift */,
 			);
 			path = Dependency;
+			sourceTree = "<group>";
+		};
+		5999E0C22747D71A0044427F /* AnalyticsAdapters */ = {
+			isa = PBXGroup;
+			children = (
+				59EABE5327466FB4007E653F /* LoginAnalyticsProfileAdapter.swift */,
+			);
+			path = AnalyticsAdapters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59EABE5427466FB4007E653F /* LoginAnalyticsProfileAdapter.swift in Sources */,
 				59644E22273AA19000B3A865 /* DependencyProvider.swift in Sources */,
 				5993F7A9273D852E00B3A695 /* AppNavigation+LoginFlow.swift in Sources */,
 				5993F7AB273D856C00B3A695 /* AppNavigation+HomeFlow.swift in Sources */,

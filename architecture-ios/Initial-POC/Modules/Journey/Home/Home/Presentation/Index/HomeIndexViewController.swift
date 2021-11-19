@@ -75,6 +75,7 @@ open class HomeIndexViewController: BaseViewController<HomeIndexViewModelProtoco
     }
     
     @objc private func logout() {
+        viewModel?.onLogoutClick()
         flowDelegate?.logout(in: self)
     }
     

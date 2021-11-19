@@ -6,13 +6,28 @@
 //
 
 import AnalyticsInterfaces
+import Core
 
-public protocol ProfileAnalyticsProtocol: ProfileHomeAnalyticsProtocol {
-    var analytics: AnalyticsProtocol { get }
+extension ProfileBusinessModel: ProfileHomeAnalyticsProtocol {
+    public func onGoToMenuClick() {
+        analytics?.track(tag: "PROFILE INDEX - onGoToMenuClick track")
+    }
+    
+    func onCallLoginClick() {
+        analytics?.track(tag: "PROFILE INDEX - onCallLoginClick track")
+    }
 }
 
-extension ProfileBusinessModel: ProfileAnalyticsProtocol {
-    func onGoToMenuClick() {
-        analytics.track(tag: "PROFILE INDEX - onGoToMenuClick track")
+extension ProfileBusinessModel {
+    func onLoginClick() {
+        analytics?.track(tag: "FROM PROFILE - LOGIN - onLoginClick track ")
+    }
+    
+    func onForgotPasswordClick() {
+        analytics?.track(tag: "FROM PROFILE - LOGIN - onForgotPasswordClick track")
+    }
+    
+    func onChangePasswordClick() {
+        analytics?.track(tag: "FROM PROFILE - LOGIN/FORGOT PASSWORD - onChangePasswordClick track")
     }
 }

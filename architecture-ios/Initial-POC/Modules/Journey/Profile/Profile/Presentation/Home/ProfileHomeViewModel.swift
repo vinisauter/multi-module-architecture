@@ -13,14 +13,20 @@ public protocol ProfileHomeUseCaseProtocol {
 
 public protocol ProfileHomeAnalyticsProtocol {
     func onGoToMenuClick()
+    func onCallLoginClick()
 }
 
 public protocol ProfileHomeViewModelProtocol {
     func onGoToMenuClick()
+    func onCallLoginClick()
 }
 
 class ProfileHomeViewModel: BaseViewModel<ProfileHomeUseCaseProtocol, ProfileHomeAnalyticsProtocol, ProfileDeeplink>, ProfileHomeViewModelProtocol {
     func onGoToMenuClick() {
         analytics?.onGoToMenuClick()
+    }
+    
+    func onCallLoginClick() {
+        analytics?.onCallLoginClick()
     }
 }

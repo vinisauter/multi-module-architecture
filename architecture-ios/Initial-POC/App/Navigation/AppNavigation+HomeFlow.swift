@@ -10,8 +10,8 @@ import Core
 import Home
 
 extension AppNavigation {
-    func startHome(from deeplink: URL? = nil, baseFlowDelegate: BaseFlowDelegate? = nil) -> UIViewController {
-        return HomeLauncher.start(from: deeplink, baseFlowDelegate: baseFlowDelegate, httpClient: DependencyProvider.networking, analytics: DependencyProvider.analytics)
+    func startHome(from deeplink: URL? = nil, baseFlowDelegate: BaseFlowDelegate? = nil, homeAnalytics: JourneyModuleAnalyticsProtocol? = nil) -> UIViewController {
+        return HomeLauncher.start(from: deeplink, baseFlowDelegate: baseFlowDelegate, httpClient: DependencyProvider.networking, analytics: DependencyProvider.analytics, homeAnalytics: homeAnalytics as? HomeAnalyticsProtocol)
     }
     
     func handleHomeFlowGo(to journey: JourneyModule, in viewController: UIViewController, with value: Any?) {
@@ -29,7 +29,7 @@ extension AppNavigation {
         }
     }
     
-    func handleGetHomeFlow(from journey: JourneyModule, with baseFlowDelegate: BaseFlowDelegate) -> UIViewController {
+    func handleGetHomeFlow(from journey: JourneyModule, with baseFlowDelegate: BaseFlowDelegate, analytics: JourneyModuleAnalyticsProtocol?) -> UIViewController {
         return start(.home, from: journey, baseFlowDelegate: baseFlowDelegate)
     }
 }

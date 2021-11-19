@@ -13,14 +13,20 @@ public protocol HomeIndexUseCaseProtocol {
 
 public protocol HomeIndexAnalyticsProtocol {
     func onOpenProfileClick()
+    func onLogoutClick()
 }
 
 public protocol HomeIndexViewModelProtocol {
     func onOpenProfileButtonClick()
+    func onLogoutClick()
 }
 
 class HomeIndexViewModel: BaseViewModel<HomeIndexUseCaseProtocol, HomeIndexAnalyticsProtocol, HomeDeeplink>, HomeIndexViewModelProtocol {
     func onOpenProfileButtonClick() {
         analytics?.onOpenProfileClick()
+    }
+    
+    func onLogoutClick() {
+        analytics?.onLogoutClick()
     }
 }

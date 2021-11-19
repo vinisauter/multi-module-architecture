@@ -5,15 +5,23 @@
 //  Created by Nykolas Mayko Maia Barbosa on 09/11/21.
 //
 
+import Core
 import AnalyticsInterfaces
 
-public protocol ProfileUseCaseProtocol: ProfileHomeUseCaseProtocol {
-    var repository: ProfileRepositoryProtocol { get }
+public protocol ProfileAnalyticsProtocol: JourneyModuleAnalyticsProtocol {
+    var analytics: AnalyticsProtocol? { get }
+    func onLoginClick()
+    func onForgotPasswordClick()
+    func onChangePasswordClick()
 }
 
-class ProfileBusinessModel: ProfileUseCaseProtocol {
-    internal var repository: ProfileRepositoryProtocol
-    internal var analytics: AnalyticsProtocol
+public protocol ProfileUseCaseProtocol {
+    var repository: ProfileRepositoryProtocol? { get }
+}
+
+class ProfileBusinessModel: ProfileUseCaseProtocol, ProfileAnalyticsProtocol {
+    internal var repository: ProfileRepositoryProtocol?
+    internal var analytics: AnalyticsProtocol?
     
     init(repository: ProfileRepositoryProtocol, analytics: AnalyticsProtocol) {
         self.repository = repository

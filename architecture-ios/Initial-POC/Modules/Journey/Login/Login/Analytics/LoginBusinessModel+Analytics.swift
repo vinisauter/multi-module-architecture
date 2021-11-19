@@ -7,16 +7,18 @@
 
 import AnalyticsInterfaces
 
-public protocol LoginAnalyticsProtocol: LoginIndexAnalyticsProtocol, ForgotPasswordAnalyticsProtocol {
-    var analytics: AnalyticsProtocol { get }
-}
-
 extension LoginBusinessModel: LoginIndexAnalyticsProtocol {
-    func onLoginClick() {
-        analytics.track(tag: "LOGIN - onLoginClick track")
+    func onForgotPasswordClick() {
+        analytics?.track(tag: "LOGIN - onForgotPassword track")
     }
     
+    func onLoginClick() {
+        analytics?.track(tag: "LOGIN - onLoginClick track")
+    }
+}
+
+extension LoginBusinessModel: ForgotPasswordAnalyticsProtocol {
     func onChangePasswordClick() {
-        analytics.track(tag: "LOGIN/FORGOT PASSWORD - onChangePasswordClick track")
+        analytics?.track(tag: "LOGIN/FORGOT PASSWORD - onChangePasswordClick track")
     }
 }

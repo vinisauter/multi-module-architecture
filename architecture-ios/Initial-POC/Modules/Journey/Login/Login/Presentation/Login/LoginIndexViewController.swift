@@ -104,6 +104,7 @@ open class LoginIndexViewController: BaseViewController<LoginIndexViewModelProto
     }
     
     @objc private func forgotPassword() {
+        viewModel?.onForgotPasswordClick()
         flowDelegate?.onForgotPasswordClick(in: self)
     }
 }

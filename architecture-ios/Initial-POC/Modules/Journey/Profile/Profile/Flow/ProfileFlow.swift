@@ -13,7 +13,7 @@ protocol ProfileFlowProtocol: AnyObject {
     var deeplink: Deeplink<ProfileDeeplink>? { get set }
     var baseFlowDelegate: BaseFlowDelegate? { get set }
     var baseFlowDataSource: BaseFlowDataSource? { get set }
-    func start(useCase: ProfileUseCaseProtocol, analytics: ProfileAnalyticsProtocol) -> UIViewController
+    func start() -> UIViewController
 }
 
 class ProfileFlow: ProfileFlowProtocol, Deeplinkable {
@@ -30,7 +30,7 @@ class ProfileFlow: ProfileFlowProtocol, Deeplinkable {
         self.deeplink = deeplink
     }
     
-    func start(useCase: ProfileUseCaseProtocol, analytics: ProfileAnalyticsProtocol) -> UIViewController {
+    func start() -> UIViewController {
         return factory.makeProfileHomeViewController()
     }
     
@@ -53,7 +53,7 @@ extension ProfileFlow: ProfileHomeFlowDelegate {
     }
     
     func callLogin(in controller: ProfileHomeViewController) {
-        guard let loginVC = baseFlowDataSource?.get(.login, from: .profile, with: self) else { return }
+        guard let loginVC = baseFlowDataSource?.get(.login, from: .profile, with: self, analytics: factory.analytics) else { return }
         
         
         let navigationController = UINavigationController(rootViewController: loginVC)

@@ -13,13 +13,20 @@ public protocol LoginIndexUseCaseProtocol {
 
 public protocol LoginIndexAnalyticsProtocol {
     func onLoginClick()
+    func onForgotPasswordClick()
 }
 
-public protocol LoginIndexViewModelProtocol: LoginIndexUseCaseProtocol {}
+public protocol LoginIndexViewModelProtocol: LoginIndexUseCaseProtocol {
+    func onForgotPasswordClick()
+}
 
 class LoginIndexViewModel: BaseViewModel<LoginIndexUseCaseProtocol, LoginIndexAnalyticsProtocol, LoginDeeplink>, LoginIndexViewModelProtocol {
     func login(with username: String, and password: String, completion: @escaping (Bool) -> Void) {
         analytics?.onLoginClick()
         useCase?.login(with: username, and: password, completion: completion)
+    }
+    
+    func onForgotPasswordClick() {
+        analytics?.onForgotPasswordClick()
     }
 }

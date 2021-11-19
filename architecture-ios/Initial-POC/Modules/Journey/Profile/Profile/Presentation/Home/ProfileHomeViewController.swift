@@ -75,6 +75,7 @@ open class ProfileHomeViewController: BaseViewController<ProfileHomeViewModelPro
     }
     
     @objc private func callLogin() {
+        viewModel?.onCallLoginClick()
         flowDelegate?.callLogin(in: self)
     }
 }
