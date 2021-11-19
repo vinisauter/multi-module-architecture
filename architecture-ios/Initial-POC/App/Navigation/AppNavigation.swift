@@ -9,7 +9,6 @@ import UIKit
 import Core
 
 var isUserLoggedIn: Bool = false
-var isAppLaunched: Bool = false
 
 class AppNavigation {
     static let shared: AppNavigation = AppNavigation()
