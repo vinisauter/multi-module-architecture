@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart' as launcher;
+import 'package:analytics_flutter_plugin/analytics.dart';
 
 void main() => runApp(const ProfileApp(color: Colors.orange));
 
@@ -37,9 +38,12 @@ class _ProfileState extends State<Profile> {
   int? _counter = 0;
   late MethodChannel _channel;
 
+  final AnalyticsApi _analyticsApi = AnalyticsApi();
+
   @override
   void initState() {
     super.initState();
+    _analyticsApi.sendScreenView("profile");
     _channel = const MethodChannel('multiple-flutters');
     _channel.setMethodCallHandler((call) async {
       if (call.method == "setCount") {
@@ -54,6 +58,8 @@ class _ProfileState extends State<Profile> {
   }
 
   void _incrementCounter() {
+    _analyticsApi.sendInteraction("profile", "current counter", _counter.toString());
+
     // Mutations to the data model are forwarded to the host platform.
     _channel.invokeMethod<void>("incrementCount", _counter);
   }
@@ -81,12 +87,14 @@ class _ProfileState extends State<Profile> {
             ),
             TextButton(
               onPressed: () {
+                _analyticsApi.sendInteraction("profile", "button", "next");
                 _channel.invokeMethod<void>("next", _counter);
               },
               child: const Text('Next'),
             ),
             ElevatedButton(
               onPressed: () async {
+                _analyticsApi.sendInteraction("profile", "button", "launch documentation");
                 // Use the url_launcher plugin to open the Flutter docs in
                 // a browser.
                 const url = 'https://flutter.dev/docs';

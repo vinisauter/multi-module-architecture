@@ -1,8 +1,8 @@
 flutter pub run pigeon \
-  --input pigeons/messages.dart \
-  --dart_out lib/messages.dart \
-  --objc_header_out ios/Classes/messages.h \
-  --objc_source_out ios/Classes/messages.m \
+  --input pigeons/analytics.dart \
+  --dart_out lib/analytics.dart \
+  --objc_header_out ios/Classes/analytics.h \
+  --objc_source_out ios/Classes/analytics.m \
   --objc_prefix FLT \
-  --java_out android/src/main/java/com/example/pigeon_plugin/Messages.java \
-  --java_package "com.example.pigeon_plugin"
+  --java_out android/src/main/java/com/example/analytics/analytics_flutter_plugin/Analytics.java \
+  --java_package "com.example.analytics.analytics_flutter_plugin"

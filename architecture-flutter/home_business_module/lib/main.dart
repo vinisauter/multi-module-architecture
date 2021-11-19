@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart' as launcher;
-import 'package:analytics_flutter_plugin/messages.dart';
+import 'package:analytics_flutter_plugin/analytics.dart';
 
 void main() => runApp(const HomeApp(color: Colors.brown));
 
@@ -38,12 +38,12 @@ class _HomeState extends State<Home> {
   int? _counter = 0;
   late MethodChannel _channel;
 
-  Version? _platformVersion;
-  static late final ExampleApi _api = ExampleApi();
+  final AnalyticsApi _analyticsApi = AnalyticsApi();
 
   @override
   void initState() {
     super.initState();
+    _analyticsApi.sendScreenView("home");
     _channel = const MethodChannel('multiple-flutters');
     _channel.setMethodCallHandler((call) async {
       if (call.method == "setCount") {
@@ -58,14 +58,16 @@ class _HomeState extends State<Home> {
   }
 
   void _incrementCounter() {
+    _analyticsApi.sendInteraction("home", "current counter", _counter.toString());
+
     // Mutations to the data model are forwarded to the host platform.
     _channel.invokeMethod<void>("incrementCount", _counter);
   }
 
-  void _getPlatformVersion() async {
-    _platformVersion = await _api.getPlatformVersion();
-    setState(() {});
-  }
+  // void _getPlatformVersion() async {
+  //   _platformVersion = await _api.getPlatformVersion();
+  //   setState(() {});
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -89,21 +91,15 @@ class _HomeState extends State<Home> {
               child: const Text('Add'),
             ),
             TextButton(
-              onPressed: _getPlatformVersion,
-              child: const Text('Obter Platform Version'),
-            ),
-            Text(
-              _platformVersion?.string ?? '',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-            TextButton(
               onPressed: () {
+                _analyticsApi.sendInteraction("home", "button", "next");
                 _channel.invokeMethod<void>("next", _counter);
               },
               child: const Text('Next'),
             ),
             ElevatedButton(
               onPressed: () async {
+                _analyticsApi.sendInteraction("home", "button", "launch documentation");
                 // Use the url_launcher plugin to open the Flutter docs in
                 // a browser.
                 const url = 'https://flutter.dev/docs';

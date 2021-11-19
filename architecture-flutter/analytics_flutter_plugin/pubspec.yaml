@@ -38,14 +38,6 @@ flutter:
 #      ios:
 #        pluginClass: AnalyticsFlutterPlugin
 
-#  plugin:
-#    platforms:
-#      android:
-#        package: com.example.pigeon_plugin
-#        pluginClass: PigeonPlugin
-#      ios:
-#        pluginClass: PigeonPlugin
-
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
