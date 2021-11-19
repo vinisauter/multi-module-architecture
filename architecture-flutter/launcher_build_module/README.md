@@ -1,5 +1,19 @@
-# Profile build module
+# Para obter dependências
 
-This is the Flutter module that is embedded in the `multiple_flutters` projects.
+cd ../home_business_module ; flutter clean ; \
+   cd ../profile_business_module ; flutter clean ; \
+   cd ../analytics_flutter_plugin ; flutter clean ; \
+   cd ../launcher_build_module ; flutter clean
 
-See also: [multiple_flutters/README.md](../README.md)
+cd ../home_business_module ; flutter pub get ; \
+   cd ../profile_business_module ; flutter pub get ; \
+   cd ../analytics_flutter_plugin ; flutter pub get ; \
+   cd ../launcher_build_module ; flutter pub get
+
+# Para buildar AARs (ANDROID)
+
+cd ../launcher_build_module ; flutter build aar --no-debug --no-profile
+
+# Para buildar XC-FRAMEWORKS (iOS)
+
+cd ../launcher_build_module ; flutter build ios-framework --no-debug --no-profile

@@ -41,6 +41,7 @@ class FlutterEngineExecutor(context: Context, entrypoint: String) {
                 FlutterInjector.instance().flutterLoader().findAppBundlePath(), entrypoint
             )
         engine = getEngines().createAndRunEngine(context, dartEntrypoint)
+        GeneratedPluginRegistrant.registerWith(engine);
         channel = MethodChannel(engine.dartExecutor.binaryMessenger, "multiple-flutters")
     }
 

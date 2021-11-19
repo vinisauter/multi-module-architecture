@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart' as launcher;
+import 'package:analytics_flutter_plugin/messages.dart';
 
 void main() => runApp(const HomeApp(color: Colors.brown));
 
@@ -37,6 +38,9 @@ class _HomeState extends State<Home> {
   int? _counter = 0;
   late MethodChannel _channel;
 
+  Version? _platformVersion;
+  static late final ExampleApi _api = ExampleApi();
+
   @override
   void initState() {
     super.initState();
@@ -56,6 +60,11 @@ class _HomeState extends State<Home> {
   void _incrementCounter() {
     // Mutations to the data model are forwarded to the host platform.
     _channel.invokeMethod<void>("incrementCount", _counter);
+  }
+
+  void _getPlatformVersion() async {
+    _platformVersion = await _api.getPlatformVersion();
+    setState(() {});
   }
 
   @override
@@ -78,6 +87,14 @@ class _HomeState extends State<Home> {
             TextButton(
               onPressed: _incrementCounter,
               child: const Text('Add'),
+            ),
+            TextButton(
+              onPressed: _getPlatformVersion,
+              child: const Text('Obter Platform Version'),
+            ),
+            Text(
+              _platformVersion?.string ?? '',
+              style: Theme.of(context).textTheme.headline4,
             ),
             TextButton(
               onPressed: () {
