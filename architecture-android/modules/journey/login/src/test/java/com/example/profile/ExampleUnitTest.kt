@@ -1,4 +1,4 @@
-package com.example.login
+package com.example.profile
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/progressFragment"
+    >
+
+    <fragment
+        android:id="@+id/progressFragment"
+        android:name="com.example.profile.ProfileFragment"
+        android:label="fragment_profile"
+        >
+
+    </fragment>
+
+</navigation>

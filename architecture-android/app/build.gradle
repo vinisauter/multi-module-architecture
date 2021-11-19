@@ -1,5 +1,8 @@
 plugins {
     id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -14,9 +17,11 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
     buildFeatures {
-        viewBinding true
+        viewBinding = true
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -31,12 +36,14 @@ android {
             ':modules:journey:login',
             ':modules:journey:home',
             ':modules:journey:profile',
-            ':modules:structural:networking:implementation'
+            ':modules:structural:networking:implementation',
+            ':dynamicfeature'
     ]
 }
 
 dependencies {
     api project(path: ':libraries:bug-finder')
+    implementation("com.google.android.play:core:1.10.2")
 
     api 'com.google.android.play:core-ktx:1.8.1'
     api 'androidx.core:core-ktx:1.7.0'
@@ -44,6 +51,10 @@ dependencies {
     api 'com.google.android.material:material:1.4.0'
     api 'androidx.constraintlayout:constraintlayout:2.1.1'
     api 'androidx.constraintlayout:constraintlayout:2.1.1'
+
+    api 'androidx.navigation:navigation-ui-ktx:2.3.5'
+    api 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    api 'androidx.navigation:navigation-dynamic-features-fragment:2.3.5'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

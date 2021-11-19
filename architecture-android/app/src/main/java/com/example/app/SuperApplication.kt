@@ -1,4 +1,3 @@
-@file:Suppress("unused")
 package com.example.app
 
 import android.app.Activity
@@ -7,45 +6,17 @@ import android.app.Application
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
-import android.os.StrictModeManager.enableStrictMode
 import com.app.logger.Logger
 import java.text.MessageFormat
 
 class SuperApplication : Application(), Application.ActivityLifecycleCallbacks {
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
-        // MultiDex.install(this)
     }
 
     override fun onCreate() {
-        if (BuildConfig.DEBUG) {
-            enableStrictMode(
-                application = this,
-                LOGGER = Logger.logger,
-                APPLICATION_ID = BuildConfig.APPLICATION_ID,
-                penaltyDialog = true,
-                enableForThirdParties = false,
-                classInstanceLimit = mapOf(
-//                    Pair(SingleInstance::class.java, 1)
-//                    Pair(Cache::class.java, 1)
-                )
-            )
-        }
         super.onCreate()
         registerActivityLifecycleCallbacks(this)
-
-//        val logsFolder = File(filesDir, "logs")
-//        if (!logsFolder.exists()) {
-//            logsFolder.mkdirs()
-//        }
-//        Logger.fileHandler =
-//            LoggerFileHandler(
-//                app = this,
-//                file = File(logsFolder, "app-log.txt"),
-//                authority = BuildConfig.APPLICATION_ID,
-//                appVersion = "${BuildConfig.BUILD_TYPE} ${BuildConfig.VERSION_CODE} - ${BuildConfig.VERSION_NAME}",
-//                codeVersion = "${BuildConfig.BUILD_MACHINE_NAME} ${BuildConfig.GIT_BRANCH} ${BuildConfig.GIT_COMMIT}"
-//            )
     }
 
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {

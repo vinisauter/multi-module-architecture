@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/loginFragment"
+    >
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.login.LoginFragment"
+        android:label="fragment_login"
+        >
+       <action
+            android:id="@+id/login_button_action"
+            app:destination="@id/profile_graph"
+            />
+
+    </fragment>
+
+    <include-dynamic
+        android:id="@+id/profile_graph"
+        app:moduleName="profile"
+        app:graphResName="profile_nav_graph"
+        app:graphPackage="com.example.app.profile"
+        />
+
+</navigation>
