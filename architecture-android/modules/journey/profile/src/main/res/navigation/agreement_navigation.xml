@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:moduleName="agreement"
+    app:startDestination="@id/agreementFragment">
+
+    <fragment
+        android:id="@+id/agreementFragment"
+        android:name="com.example.profile.view.AgreementFragment"
+        android:label="AgreementFragment"
+        tools:layout="@layout/fragment_agreement">
+        <action
+            android:id="@+id/action_agreementFragment_to_agreementFinishFragment"
+            app:destination="@id/agreementFinishFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/agreementFinishFragment"
+        android:name="com.example.profile.view.AgreementFinishFragment"
+        android:label="AgreementFinishFragment"
+        tools:layout="@layout/fragment_agreement_finish"/>
+</navigation>

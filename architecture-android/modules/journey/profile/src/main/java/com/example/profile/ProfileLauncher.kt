@@ -1,4 +1,7 @@
 package com.example.profile
 
-object ProfileLauncher {
+import com.example.app.base.BaseLauncher
+
+object ProfileLauncher : BaseLauncher() {
+    override fun onStart() {}
 }

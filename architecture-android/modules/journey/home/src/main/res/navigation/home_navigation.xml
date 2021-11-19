@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     app:moduleName="home"
@@ -9,5 +10,27 @@
         android:id="@+id/homeFragment"
         android:name="com.example.home.view.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_profile_navigation"
+            app:destination="@id/profile_navigation" />
+        <action
+            android:id="@+id/action_homeFragment_to_agreement_navigation"
+            app:destination="@id/agreement_navigation" />
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="app://profile" />
+    </fragment>
+
+    <include-dynamic
+        android:id="@+id/profile_navigation"
+        app:moduleName="profile"
+        app:graphResName="profile_navigation"
+        app:graphPackage="${applicationId}.profile"/>
+
+    <include-dynamic
+        android:id="@+id/agreement_navigation"
+        app:moduleName="profile"
+        app:graphResName="profile_navigation"
+        app:graphPackage="${applicationId}.profile"/>
 </navigation>

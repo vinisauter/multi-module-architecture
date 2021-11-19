@@ -1,0 +1,7 @@
+<resources>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="agreement">Contratos</string>
+    <string name="logout">Sair</string>
+    <string name="next">Próximo</string>
+</resources>
