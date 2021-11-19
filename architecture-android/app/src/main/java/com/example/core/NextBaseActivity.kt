@@ -11,12 +11,13 @@ import androidx.databinding.ViewDataBinding
  * Only need to provide layout resource id and inject the viewmodel.
  *
  * */
-abstract class NextBaseActivity<DataBindingType : ViewDataBinding, out ViewModelType : NextBaseViewModel>
+abstract class NextBaseActivity<DataBindingType : ViewDataBinding, out ViewModelType : NextBaseViewModel, out NavigationType : NextBaseNavigation>
     : AppCompatActivity() {
 
     lateinit var mViewDataBinding: DataBindingType
 
     protected abstract val mViewModel: ViewModelType
+    protected abstract val mNavigation: NavigationType
 
     abstract val mLayoutId: Int
 

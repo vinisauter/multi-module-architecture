@@ -24,4 +24,10 @@ class RequestExecutorImpl(private val app: Application) : RequestExecutor {
         app.longToast("RequestExecutorImpl.delete")
         return "DELETE"
     }
+
+    companion object Provider : RequestExecutor.Provider {
+        override fun get(dependencies: RequestExecutor.Dependencies): RequestExecutor {
+            return RequestExecutorImpl(dependencies.getApp())
+        }
+    }
 }
