@@ -11,7 +11,7 @@ import Home
 import Profile
 
 extension AppNavigation {
-    func startProfile(from deeplink: URL? = nil, baseFlowDelegate: BaseFlowDelegate? = nil, baseFlowDataSource: BaseFlowDataSource? = nil, profileAnalytics: JourneyModuleAnalyticsProtocol? = nil) -> UIViewController {
+    func startProfile(from deeplink: URL? = nil, baseFlowDelegate: BaseFlowDelegate? = nil, baseFlowDataSource: BaseFlowDataSource? = nil, profileAnalytics: JourneyModuleAnalyticsProtocol? = nil, subJourney: JourneyModule? = nil) -> UIViewController {
         return ProfileLauncher.start(from: deeplink, baseFlowDelegate: baseFlowDelegate, baseFlowDataSource: baseFlowDataSource, httpClient: DependencyProvider.networking, analytics: DependencyProvider.analytics, profileAnalytics: profileAnalytics as? ProfileAnalyticsProtocol)
     }
     
@@ -25,7 +25,7 @@ extension AppNavigation {
         }
     }
     
-    func handleGetProfileFlow(from journey: JourneyModule, with baseFlowDelegate: BaseFlowDelegate, analytics: JourneyModuleAnalyticsProtocol?) -> UIViewController {
+    func handleGetProfileFlow(from journey: JourneyModule, to subJourney: JourneyModule? = nil, with baseFlowDelegate: BaseFlowDelegate, analytics: JourneyModuleAnalyticsProtocol?) -> UIViewController {
         return start(.profile, from: journey, baseFlowDelegate: baseFlowDelegate, baseFlowDataSource: self)
     }
 }

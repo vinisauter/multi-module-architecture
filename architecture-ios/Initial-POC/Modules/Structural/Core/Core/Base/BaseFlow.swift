@@ -22,6 +22,7 @@ public protocol JourneyModuleAnalyticsProtocol {}
 public enum JourneyModule: String, CaseIterable {
     case welcome = "welcome"
     case login = "login"
+    case forgotPassword = "forgotPassword"
     case home = "home"
     case profile = "profile"
     
@@ -29,6 +30,7 @@ public enum JourneyModule: String, CaseIterable {
         switch self {
         case .welcome: return false
         case .login: return false
+        case .forgotPassword: return false
         case .home: return true
         case .profile: return true
         }

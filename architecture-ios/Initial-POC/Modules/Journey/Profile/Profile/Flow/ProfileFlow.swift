@@ -61,12 +61,28 @@ extension ProfileFlow: ProfileHomeFlowDelegate {
         
         controller.present(navigationController, animated: true)
     }
+    
+    func goToForgotPassword(in controller: ProfileHomeViewController) {
+        guard let forgotPassswordVC = baseFlowDataSource?.get(.forgotPassword, from: .profile, with: self, analytics: factory.analytics) else { return }
+        
+        controller.show(forgotPassswordVC, sender: nil)
+    }
 }
 
 // MARK: - BaseFlowDelegate
 
 extension ProfileFlow: BaseFlowDelegate {
     func didFinish(_ feature: JourneyModule, in viewController: UIViewController, with value: Any?) {
-        viewController.dismiss(animated: true)
+        switch feature {
+        case .login:
+            viewController.dismiss(animated: true)
+            break
+            
+        case .forgotPassword:
+            viewController.pop(animated: true)
+            
+        default: break
+        }
+        
     }
 }

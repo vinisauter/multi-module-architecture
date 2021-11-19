@@ -8,6 +8,7 @@
 import UIKit
 import Login
 import Networking
+import Analytics
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -21,7 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let networking = Networking()
-        let mainVC = LoginLauncher.start(baseFlowDelegate: nil, loginFlowDelegate: nil, httpClient: networking)
+        let analytics = Analytics()
+        let mainVC = LoginLauncher.start(from: nil, baseFlowDelegate: nil, httpClient: networking, analytics: analytics, loginAnalytics: nil)
         
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = UINavigationController(rootViewController: mainVC)

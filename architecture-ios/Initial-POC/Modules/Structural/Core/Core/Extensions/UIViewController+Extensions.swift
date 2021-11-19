@@ -24,4 +24,12 @@ public extension UIViewController {
     func popToViewController<T: UIViewController>(_ type: T.Type) {
         navigationController?.popToViewControllerWithType(type)
     }
+    
+    func pop(animated: Bool) {
+        navigationController?.popViewController(animated: animated)
+    }
+    
+    func popToRootViewController(animated: Bool) {
+        navigationController?.popToRootViewController(animated: animated)
+    }
 }

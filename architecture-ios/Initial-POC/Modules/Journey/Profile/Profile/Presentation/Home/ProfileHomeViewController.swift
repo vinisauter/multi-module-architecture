@@ -11,6 +11,7 @@ import Core
 public protocol ProfileHomeFlowDelegate: AnyObject {
     func goToHome(in controller: ProfileHomeViewController)
     func callLogin(in controller: ProfileHomeViewController)
+    func goToForgotPassword(in controller: ProfileHomeViewController)
 }
 
 open class ProfileHomeViewController: BaseViewController<ProfileHomeViewModelProtocol, ProfileHomeFlowDelegate> {
@@ -18,6 +19,7 @@ open class ProfileHomeViewController: BaseViewController<ProfileHomeViewModelPro
     
     private let goToHomeButton: UIButton = UIButton()
     private let callLoginButton: UIButton = UIButton()
+    private let goToForgotPasswordButton: UIButton = UIButton()
     
     // MARK: - Life Cycle
     
@@ -43,6 +45,7 @@ open class ProfileHomeViewController: BaseViewController<ProfileHomeViewModelPro
     private func setupView() {
         view.backgroundColor = .purple
         title = "Profile"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Home", style: .done, target: self, action: #selector(goToHome))
     }
     
     private func setupButton() {
@@ -63,8 +66,18 @@ open class ProfileHomeViewController: BaseViewController<ProfileHomeViewModelPro
         callLoginButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(callLoginButton)
         
-        callLoginButton.centerXAnchor.constraint(equalTo: goToHomeButton.centerXAnchor).isActive = true
+        callLoginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         callLoginButton.topAnchor.constraint(equalTo: goToHomeButton.bottomAnchor, constant: 16.0).isActive = true
+        
+        goToForgotPasswordButton.setTitle("Go to Forgot Password", for: .normal)
+        goToForgotPasswordButton.setTitleColor(.red, for: .normal)
+        goToForgotPasswordButton.addTarget(self, action: #selector(goToForgotPassword), for: .touchUpInside)
+        
+        goToForgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(goToForgotPasswordButton)
+        
+        goToForgotPasswordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        goToForgotPasswordButton.topAnchor.constraint(equalTo: callLoginButton.bottomAnchor, constant: 16.0).isActive = true
     }
     
     // MARK: - Private Functions
@@ -77,5 +90,10 @@ open class ProfileHomeViewController: BaseViewController<ProfileHomeViewModelPro
     @objc private func callLogin() {
         viewModel?.onCallLoginClick()
         flowDelegate?.callLogin(in: self)
+    }
+    
+    @objc private func goToForgotPassword() {
+        viewModel?.onGoToForgotPasswordClick()
+        flowDelegate?.goToForgotPassword(in: self)
     }
 }

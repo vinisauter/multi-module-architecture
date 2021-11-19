@@ -17,8 +17,9 @@ public class LoginViewControllerFactory: BaseViewControllerFactory<LoginUseCaseP
         return LoginIndexViewController(viewModel: viewModel, flowDelegate: flow as? LoginIndexFlowDelegate)
     }
     
-    func makeForgotPasswordViewController() -> ForgotPasswordViewController {
+    func makeForgotPasswordViewController(isIndex: Bool = false) -> ForgotPasswordViewController {
         let viewModel = ForgotPasswordViewModel(useCase: businessModel as? ForgotPasswordUseCaseProtocol, analytics: analytics as? ForgotPasswordAnalyticsProtocol)
+        viewModel.isIndex = isIndex
         return ForgotPasswordViewController(viewModel: viewModel, flowDelegate: flow as? ForgotPasswordFlowDelegate)
     }
 }

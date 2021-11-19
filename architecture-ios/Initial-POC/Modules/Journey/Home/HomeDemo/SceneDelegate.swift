@@ -7,6 +7,7 @@
 
 import UIKit
 import Networking
+import Analytics
 import Home
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -21,8 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let networking = Networking()
-        let mainVC = HomeLauncher.start(baseFlowDelegate: nil, homeFlowDelegate: nil, homeFlowDataSource: nil, httpClient: networking)
-        
+        let analytics = Analytics()
+        let mainVC = HomeLauncher.start(from: nil, baseFlowDelegate: nil, httpClient: networking, analytics: analytics, homeAnalytics: nil)
+
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = UINavigationController(rootViewController: mainVC)
         window?.makeKeyAndVisible()

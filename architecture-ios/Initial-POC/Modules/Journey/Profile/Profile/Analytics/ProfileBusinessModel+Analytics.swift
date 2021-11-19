@@ -16,6 +16,10 @@ extension ProfileBusinessModel: ProfileHomeAnalyticsProtocol {
     func onCallLoginClick() {
         analytics?.track(tag: "PROFILE INDEX - onCallLoginClick track")
     }
+    
+    func onGoToForgotPasswordClick() {
+        analytics?.track(tag: "PROFILE INDEX - onGoToForgotPasswordClick track")
+    }
 }
 
 extension ProfileBusinessModel {

@@ -7,6 +7,7 @@
 
 import UIKit
 import Networking
+import Analytics
 import Profile
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -21,7 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let networking = Networking()
-        let mainVC = ProfileLauncher.start(baseFlowDelegate: nil, profileFlowDataSource: nil, profileFlowDelegate: nil, httpClient: networking)
+        let analytics = Analytics()
+        let mainVC = ProfileLauncher.start(from: nil, baseFlowDelegate: nil, baseFlowDataSource: nil, httpClient: networking, analytics: analytics, profileAnalytics: nil)
         
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = UINavigationController(rootViewController: mainVC)

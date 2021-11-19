@@ -76,14 +76,22 @@ class AppNavigation {
         resolve(deeplink)
     }
     
-    func start(_ journey: JourneyModule, from currentJourney: JourneyModule? = nil, with url: URL? = nil, baseFlowDelegate: BaseFlowDelegate = AppNavigation.shared, baseFlowDataSource: BaseFlowDataSource = AppNavigation.shared, moduleAnalytics: JourneyModuleAnalyticsProtocol? = nil) -> UIViewController {
+    func start(_ journey: JourneyModule, to subJourney: JourneyModule? = nil, from currentJourney: JourneyModule? = nil, with url: URL? = nil, baseFlowDelegate: BaseFlowDelegate = AppNavigation.shared, baseFlowDataSource: BaseFlowDataSource = AppNavigation.shared, moduleAnalytics: JourneyModuleAnalyticsProtocol? = nil) -> UIViewController {
         self.currentJourney = currentJourney == nil ? journey : currentJourney!
         switch journey {
         case .welcome: return UIViewController.instantiateViewController(ofType: WelcomeViewController.self)!
-        case .login: return startLogin(from: url, baseFlowDelegate: baseFlowDelegate, loginAnalytics: moduleAnalytics)
-        case .home: return startHome(from: url, baseFlowDelegate: baseFlowDelegate, homeAnalytics: moduleAnalytics)
-        case .profile: return startProfile(from: url, baseFlowDelegate: baseFlowDelegate, baseFlowDataSource: baseFlowDataSource, profileAnalytics: moduleAnalytics)
+        case .login, .forgotPassword: return startLogin(from: url, baseFlowDelegate: baseFlowDelegate, loginAnalytics: moduleAnalytics, subJourney: subJourney)
+        case .home: return startHome(from: url, baseFlowDelegate: baseFlowDelegate, homeAnalytics: moduleAnalytics, subJourney: subJourney)
+        case .profile: return startProfile(from: url, baseFlowDelegate: baseFlowDelegate, baseFlowDataSource: baseFlowDataSource, profileAnalytics: moduleAnalytics, subJourney: subJourney)
         }
+    }
+    
+    func set(_ journeys: Array<JourneyModule>, animated: Bool) {
+        let journeysControllers = journeys.compactMap{ [weak self] journey in
+            self?.start(journey)
+        }
+        
+        navigationController.setViewControllers(journeysControllers, animated: true)
     }
 }
 
@@ -93,7 +101,7 @@ extension AppNavigation: BaseFlowDelegate {
     func go(to destinationJourney: JourneyModule, from currentJourney: JourneyModule, in viewController: UIViewController, with value: Any?) {
         switch currentJourney {
         case .welcome: break
-        case .login:
+        case .login, .forgotPassword:
             handleLoginFlowGo(to: destinationJourney, in: viewController, with: value)
             break
             
@@ -104,6 +112,7 @@ extension AppNavigation: BaseFlowDelegate {
         case .profile:
             handleProfileFlowGo(to: destinationJourney, in: viewController, with: value)
             break            
+        
         }
     }
 }
@@ -114,9 +123,9 @@ extension AppNavigation: BaseFlowDataSource {
     func get(_ journey: JourneyModule, from currentJourney: JourneyModule, with baseFlowDelegate: BaseFlowDelegate, analytics: JourneyModuleAnalyticsProtocol?) -> UIViewController {
         switch journey {
         case .welcome: return start(.welcome)
-        case .login: return handleGetLoginFlow(from: currentJourney, with: baseFlowDelegate, analytics: analytics)
-        case .home: return handleGetHomeFlow(from: currentJourney, with: baseFlowDelegate, analytics: analytics)
-        case .profile: return handleGetProfileFlow(from: currentJourney, with: baseFlowDelegate, analytics: analytics)
+        case .login, .forgotPassword: return handleGetLoginFlow(from: currentJourney, to: journey, with: baseFlowDelegate, analytics: analytics)
+        case .home: return handleGetHomeFlow(from: currentJourney, to: journey, with: baseFlowDelegate, analytics: analytics)
+        case .profile: return handleGetProfileFlow(from: currentJourney, to: journey, with: baseFlowDelegate, analytics: analytics)
         }
     }
 }
