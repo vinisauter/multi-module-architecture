@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-parcelize'
+    id 'com.google.devtools.ksp'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -29,6 +31,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    sourceSets.all {
+        it.java.srcDir("build/generated/ksp/${it.name}/kotlin/")
+        it.res.srcDirs("build/generated/ksp/${it.name}/resources/")
+    }
     dynamicFeatures = [
             ':modules:journey:login',
             ':modules:journey:home',
@@ -39,7 +45,10 @@ android {
 }
 
 dependencies {
+    api project(path: ':libraries:auto-service:annotations')
+    ksp project(path: ':libraries:auto-service:processor')
     api project(path: ':libraries:bug-finder')
+    api project(path: ':libraries:injection')
     api project(path: ':modules:structural:networking-interface')
     api project(path: ':modules:structural:storage-interface')
 
@@ -51,6 +60,10 @@ dependencies {
     api 'androidx.constraintlayout:constraintlayout:2.1.1'
     api 'com.google.android.material:material:1.4.0'
     api 'com.google.android.play:core-ktx:1.8.1'
+
+    api "androidx.navigation:navigation-fragment-ktx:2.4.0-beta02"
+    api "androidx.navigation:navigation-ui-ktx:2.4.0-beta02"
+    api "androidx.navigation:navigation-dynamic-features-fragment:2.4.0-beta02"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

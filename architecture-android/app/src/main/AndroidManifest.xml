@@ -13,12 +13,15 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
+            <nav-graph android:value="@navigation/app_navigation_graph" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name="com.example.journey.AppNavigationActivity" />
     </application>
 
 </manifest>

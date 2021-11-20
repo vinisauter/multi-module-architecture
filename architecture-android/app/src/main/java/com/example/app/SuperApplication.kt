@@ -12,7 +12,9 @@ import android.os.Handler
 import android.os.Looper
 import android.os.StrictModeManager.enableStrictMode
 import android.widget.Toast
-import com.app.logger.Logger
+import com.core.logger.Logger
+import com.example.journey.JourneyLauncher
+import com.example.structural.StructuralProvider
 import java.text.MessageFormat
 
 class SuperApplication : Application(), Application.ActivityLifecycleCallbacks {
@@ -36,6 +38,10 @@ class SuperApplication : Application(), Application.ActivityLifecycleCallbacks {
             )
         }
         super.onCreate()
+
+        StructuralProvider.start(this)
+        JourneyLauncher.start(this)
+
         registerActivityLifecycleCallbacks(this)
 
 //        val logsFolder = File(filesDir, "logs")

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:moduleName="login"
+    app:startDestination="@+id/login_launcher">
+    <dialog
+        android:id="@+id/login_launcher"
+        android:name="com.example.login.LoginLauncherDialog"
+        android:label="login_launcher"
+        tools:layout="@layout/loader_fragment">
+        <argument
+            android:name="login_custom_dependencies"
+            android:defaultValue="@null"
+            app:argType="com.example.journey.login.LoginCustomDependencies"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_login"
+            app:destination="@id/login_fragment">
+            <argument
+                android:name="login_tracking"
+                app:argType="com.example.journey.login.tracking.LoginTracking" />
+        </action>
+        <action
+            android:id="@+id/action_reauthentication"
+            app:destination="@id/reauthentication_dialog">
+            <argument
+                android:name="didFinishDirection"
+                app:argType="com.core.extensions.Direction" />
+        </action>
+    </dialog>
+
+    <dialog
+        android:id="@+id/reauthentication_dialog"
+        android:name="com.example.login.presentation.reauthentication.ReauthenticationDialog"
+        android:label="reauthentication"
+        tools:layout="@layout/reauthentication_dialog">
+        <argument
+            android:name="didFinishDirection"
+            app:argType="com.core.extensions.Direction" />
+    </dialog>
+
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="com.example.login.presentation.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <argument
+            android:name="login_tracking"
+            app:argType="com.example.journey.login.tracking.LoginTracking" />
+
+        <action
+            android:id="@+id/action_login_succeed"
+            app:destination="@id/home_navigation_graph"
+            app:popUpTo="@id/app_navigation_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_login_failed"
+            app:destination="@id/profile_navigation_graph" />
+        <action
+            android:id="@+id/action_forgot_password"
+            app:destination="@id/forgot_password_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/forgot_password_fragment"
+        android:name="com.example.login.presentation.forgotpassword.ForgotPasswordFragment"
+        android:label="forgot_password"
+        tools:layout="@layout/fragment_forgot_password">
+        <action
+            android:id="@+id/action_exit"
+            app:destination="@id/mainFragment" />
+    </fragment>
+</navigation>

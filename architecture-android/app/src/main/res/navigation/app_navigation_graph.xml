@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  https://github.com/android/app-bundle-samples/blob/main/DynamicFeatureNavigation/XML/app/src/main/res/navigation/nav_graph.xml
+  https://developer.android.com/guide/navigation/navigation-dynamic
+  https://developer.android.com/guide/navigation/navigation-deep-link
+  -->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation_graph"
+    app:startDestination="@id/mainFragment">
+
+    <action
+        android:id="@+id/action_Login"
+        app:destination="@id/login_navigation_graph">
+        <argument
+            android:name="login_custom_dependencies"
+            android:defaultValue="@null"
+            app:argType="com.example.journey.login.LoginCustomDependencies"
+            app:nullable="true" />
+    </action>
+
+    <action
+        android:id="@+id/action_reauthenticate"
+        app:destination="@id/login_navigation_graph">
+        <argument
+            android:name="login_custom_dependencies"
+            android:defaultValue="@null"
+            app:argType="com.example.journey.login.LoginCustomDependencies"
+            app:nullable="true" />
+    </action>
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.app.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_login"
+            app:destination="@id/login_navigation_graph" />
+        <action
+            android:id="@+id/action_accession"
+            app:destination="@id/login_navigation_graph" />
+    </fragment>
+
+    <include-dynamic
+        android:id="@+id/login_navigation_graph"
+        app:graphPackage="${applicationId}.login"
+        app:graphResName="login_navigation_graph"
+        app:moduleName="login">
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="myapp://login" />
+    </include-dynamic>
+
+    <include-dynamic
+        android:id="@+id/home_navigation_graph"
+        app:graphPackage="${applicationId}.home"
+        app:graphResName="home_navigation_graph"
+        app:moduleName="home">
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="myapp://home" />
+    </include-dynamic>
+
+    <include-dynamic
+        android:id="@+id/profile_navigation_graph"
+        app:graphPackage="${applicationId}.profile"
+        app:graphResName="profile_navigation_graph"
+        app:moduleName="profile">
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="myapp://profile" />
+    </include-dynamic>
+</navigation>

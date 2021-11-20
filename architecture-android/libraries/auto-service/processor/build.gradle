@@ -1,0 +1,18 @@
+plugins {
+    id 'kotlin'
+    id 'com.google.devtools.ksp'
+}
+
+group = "com.auto.service"
+version = "1.0-SNAPSHOT"
+
+dependencies {
+    implementation project(path: ':libraries:auto-service:annotations')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.5.31"
+    implementation "com.squareup:javapoet:1.13.0"
+    implementation "com.google.devtools.ksp:symbol-processing-api:1.6.0-M1-1.0.0"
+}
+
+sourceSets {
+    main.java.srcDirs += 'src/main/kotlin'
+}
