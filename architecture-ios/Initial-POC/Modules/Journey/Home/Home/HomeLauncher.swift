@@ -11,9 +11,9 @@ import NetworkingInterfaces
 import AnalyticsInterfaces
 
 public class HomeLauncher {
-    static public func start(from deeplink: URL?, baseFlowDelegate: BaseFlowDelegate?, httpClient: HTTPClient, analytics: AnalyticsProtocol, homeAnalytics: HomeAnalyticsProtocol?) -> UIViewController {
+    static public func start(from deeplink: URL?, baseFlowDelegate: BaseFlowDelegate?, httpClient: HTTPClient, analytics: AnalyticsProtocol, customHomeAnalytics: HomeAnalyticsProtocol?) -> UIViewController {
         let businessModel = HomeBusinessModel(repository: HomeAPI(httpClient: httpClient), analytics: analytics)
-        let factory = HomeViewControllerFactory(businessModel: businessModel, analytics: homeAnalytics ?? businessModel)
+        let factory = HomeViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: customHomeAnalytics)
         let mainFlow = HomeFlow(factory: factory, deeplink: Deeplink(screen: HomeDeeplink(rawValue: deeplink?.path ?? "/"), url: deeplink))
         mainFlow.baseFlowDelegate = baseFlowDelegate
         factory.flow = mainFlow

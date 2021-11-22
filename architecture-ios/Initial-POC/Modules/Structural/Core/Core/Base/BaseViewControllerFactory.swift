@@ -11,16 +11,19 @@ public protocol BaseViewControllerFactoryProtocol {
     associatedtype BusinessModel
     associatedtype Analytics
     var businessModel: BusinessModel { get set }
-    var analytics: Analytics { get set }
+    var defaultAnalytics: Analytics { get set }
+    var customAnalytics: Analytics { get set }
 }
 
 open class BaseViewControllerFactory<BusinessModel, Analytics>: BaseViewControllerFactoryProtocol {
     public var businessModel: BusinessModel?
-    public var analytics: Analytics?
+    public var defaultAnalytics: Analytics?
+    public var customAnalytics: Analytics?
     
-    public init(businessModel: BusinessModel?, analytics: Analytics?) {
+    public init(businessModel: BusinessModel?, defaultAnalytics: Analytics?, customAnalytics: Analytics?) {
         self.businessModel = businessModel
-        self.analytics = analytics
+        self.defaultAnalytics = defaultAnalytics
+        self.customAnalytics = customAnalytics
     }
     
     func getViewControllerFromStoryboard<T: UIViewController>(in storyboardName: String) -> T? {

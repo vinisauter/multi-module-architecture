@@ -12,13 +12,13 @@ public class LoginViewControllerFactory: BaseViewControllerFactory<LoginUseCaseP
     weak var flow: LoginFlowProtocol?
     
     func makeLoginViewController(isIndex: Bool = false) -> LoginIndexViewController {
-        let viewModel = LoginIndexViewModel(useCase: businessModel as? LoginIndexUseCaseProtocol, analytics: analytics as? LoginIndexAnalyticsProtocol)
+        let viewModel = LoginIndexViewModel(useCase: businessModel as? LoginIndexUseCaseProtocol, analytics: customAnalytics as? LoginIndexAnalyticsProtocol ?? defaultAnalytics as? LoginIndexAnalyticsProtocol)
         viewModel.isIndex = isIndex
         return LoginIndexViewController(viewModel: viewModel, flowDelegate: flow as? LoginIndexFlowDelegate)
     }
     
     func makeForgotPasswordViewController(isIndex: Bool = false) -> ForgotPasswordViewController {
-        let viewModel = ForgotPasswordViewModel(useCase: businessModel as? ForgotPasswordUseCaseProtocol, analytics: analytics as? ForgotPasswordAnalyticsProtocol)
+        let viewModel = ForgotPasswordViewModel(useCase: businessModel as? ForgotPasswordUseCaseProtocol, analytics: customAnalytics as? ForgotPasswordAnalyticsProtocol ?? defaultAnalytics as? ForgotPasswordAnalyticsProtocol)
         viewModel.isIndex = isIndex
         return ForgotPasswordViewController(viewModel: viewModel, flowDelegate: flow as? ForgotPasswordFlowDelegate)
     }

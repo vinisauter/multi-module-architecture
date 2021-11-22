@@ -11,6 +11,6 @@ public class HomeViewControllerFactory: BaseViewControllerFactory<HomeUseCasePro
     weak var flow: HomeFlowProtocol?
     
     func makeHomeIndexViewController() -> HomeIndexViewController {
-        return HomeIndexViewController(viewModel: HomeIndexViewModel(useCase: businessModel as? HomeIndexUseCaseProtocol, analytics: analytics as? HomeIndexAnalyticsProtocol), flowDelegate: flow as? HomeIndexFlowDelegate)
+        return HomeIndexViewController(viewModel: HomeIndexViewModel(useCase: businessModel as? HomeIndexUseCaseProtocol, analytics: customAnalytics as? HomeIndexAnalyticsProtocol ?? defaultAnalytics as? HomeIndexAnalyticsProtocol), flowDelegate: flow as? HomeIndexFlowDelegate)
     }
 }

@@ -53,7 +53,7 @@ extension ProfileFlow: ProfileHomeFlowDelegate {
     }
     
     func callLogin(in controller: ProfileHomeViewController) {
-        guard let loginVC = baseFlowDataSource?.get(.login, from: .profile, with: self, analytics: factory.analytics) else { return }
+        guard let loginVC = baseFlowDataSource?.get(.login, from: .profile, with: self, customAnalytics: factory.defaultAnalytics) else { return }
         
         
         let navigationController = UINavigationController(rootViewController: loginVC)
@@ -63,7 +63,7 @@ extension ProfileFlow: ProfileHomeFlowDelegate {
     }
     
     func goToForgotPassword(in controller: ProfileHomeViewController) {
-        guard let forgotPassswordVC = baseFlowDataSource?.get(.forgotPassword, from: .profile, with: self, analytics: factory.analytics) else { return }
+        guard let forgotPassswordVC = baseFlowDataSource?.get(.forgotPassword, from: .profile, with: self, customAnalytics: factory.defaultAnalytics) else { return }
         
         controller.show(forgotPassswordVC, sender: nil)
     }

@@ -10,8 +10,8 @@ import Core
 import Home
 
 extension AppNavigation {
-    func startHome(from deeplink: URL? = nil, baseFlowDelegate: BaseFlowDelegate? = nil, homeAnalytics: JourneyModuleAnalyticsProtocol? = nil, subJourney: JourneyModule? = nil) -> UIViewController {
-        return HomeLauncher.start(from: deeplink, baseFlowDelegate: baseFlowDelegate, httpClient: DependencyProvider.networking, analytics: DependencyProvider.analytics, homeAnalytics: homeAnalytics as? HomeAnalyticsProtocol)
+    func startHome(from deeplink: URL? = nil, baseFlowDelegate: BaseFlowDelegate? = nil, customHomeAnalytics: JourneyModuleAnalyticsProtocol? = nil, subJourney: JourneyModule? = nil) -> UIViewController {
+        return HomeLauncher.start(from: deeplink, baseFlowDelegate: baseFlowDelegate, httpClient: DependencyProvider.networking, analytics: DependencyProvider.analytics, customHomeAnalytics: customHomeAnalytics as? HomeAnalyticsProtocol)
     }
     
     func handleHomeFlowGo(to journey: JourneyModule, in viewController: UIViewController, with value: Any?) {
@@ -21,7 +21,7 @@ extension AppNavigation {
             break
             
         case .login:
-            setRootViewController(start(.login, baseFlowDelegate: self), from: viewController)
+            set([.welcome, .login], animated: false)
             isUserLoggedIn = false
             break
             

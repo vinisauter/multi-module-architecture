@@ -18,7 +18,10 @@ public struct Deeplink<T> {
 }
 
 public protocol JourneyModuleAnalyticsProtocol {}
-
+// app://login/*
+// app://welcome/*
+// app://home/*
+// app://profile/*
 public enum JourneyModule: String, CaseIterable {
     case welcome = "welcome"
     case login = "login"
@@ -58,6 +61,6 @@ public extension BaseFlowDelegate {
 }
 
 public protocol BaseFlowDataSource: AnyObject {
-    func get(_ journey: JourneyModule, from currentJourney: JourneyModule, with baseFlowDelegate: BaseFlowDelegate, analytics: JourneyModuleAnalyticsProtocol?) -> UIViewController
+    func get(_ journey: JourneyModule, from currentJourney: JourneyModule, with baseFlowDelegate: BaseFlowDelegate, customAnalytics: JourneyModuleAnalyticsProtocol?) -> UIViewController
 }
 

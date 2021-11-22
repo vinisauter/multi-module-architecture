@@ -79,9 +79,9 @@ class AppNavigation {
         self.currentJourney = currentJourney == nil ? journey : currentJourney!
         switch journey {
         case .welcome: return UIViewController.instantiateViewController(ofType: WelcomeViewController.self)!
-        case .login, .forgotPassword: return startLogin(from: url, baseFlowDelegate: baseFlowDelegate, loginAnalytics: moduleAnalytics, subJourney: subJourney)
-        case .home: return startHome(from: url, baseFlowDelegate: baseFlowDelegate, homeAnalytics: moduleAnalytics, subJourney: subJourney)
-        case .profile: return startProfile(from: url, baseFlowDelegate: baseFlowDelegate, baseFlowDataSource: baseFlowDataSource, profileAnalytics: moduleAnalytics, subJourney: subJourney)
+        case .login, .forgotPassword: return startLogin(from: url, baseFlowDelegate: baseFlowDelegate, customLoginAnalytics: moduleAnalytics, subJourney: subJourney)
+        case .home: return startHome(from: url, baseFlowDelegate: baseFlowDelegate, customHomeAnalytics: moduleAnalytics, subJourney: subJourney)
+        case .profile: return startProfile(from: url, baseFlowDelegate: baseFlowDelegate, baseFlowDataSource: baseFlowDataSource, customProfileAnalytics: moduleAnalytics, subJourney: subJourney)
         }
     }
     
@@ -92,7 +92,7 @@ class AppNavigation {
             return firstModuleVC
         }
         
-        navigationController.setViewControllers(journeysControllers, animated: true)
+        navigationController.setViewControllers(journeysControllers, animated: animated)
     }
 }
 
@@ -121,12 +121,12 @@ extension AppNavigation: BaseFlowDelegate {
 // MARK: - BaseFlowDataSource
 
 extension AppNavigation: BaseFlowDataSource {
-    func get(_ journey: JourneyModule, from currentJourney: JourneyModule, with baseFlowDelegate: BaseFlowDelegate, analytics: JourneyModuleAnalyticsProtocol?) -> UIViewController {
+    func get(_ journey: JourneyModule, from currentJourney: JourneyModule, with baseFlowDelegate: BaseFlowDelegate, customAnalytics: JourneyModuleAnalyticsProtocol?) -> UIViewController {
         switch journey {
         case .welcome: return start(.welcome)
-        case .login, .forgotPassword: return handleGetLoginFlow(from: currentJourney, to: journey, with: baseFlowDelegate, analytics: analytics)
-        case .home: return handleGetHomeFlow(from: currentJourney, to: journey, with: baseFlowDelegate, analytics: analytics)
-        case .profile: return handleGetProfileFlow(from: currentJourney, to: journey, with: baseFlowDelegate, analytics: analytics)
+        case .login, .forgotPassword: return handleGetLoginFlow(from: currentJourney, to: journey, with: baseFlowDelegate, analytics: customAnalytics)
+        case .home: return handleGetHomeFlow(from: currentJourney, to: journey, with: baseFlowDelegate, analytics: customAnalytics)
+        case .profile: return handleGetProfileFlow(from: currentJourney, to: journey, with: baseFlowDelegate, analytics: customAnalytics)
         }
     }
 }

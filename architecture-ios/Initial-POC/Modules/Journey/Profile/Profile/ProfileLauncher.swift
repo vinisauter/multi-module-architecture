@@ -11,9 +11,9 @@ import NetworkingInterfaces
 import AnalyticsInterfaces
 
 public class ProfileLauncher {
-    static public func start(from deeplink: URL?, baseFlowDelegate: BaseFlowDelegate?, baseFlowDataSource: BaseFlowDataSource?, httpClient: HTTPClient, analytics: AnalyticsProtocol, profileAnalytics: ProfileAnalyticsProtocol?) -> UIViewController {
+    static public func start(from deeplink: URL?, baseFlowDelegate: BaseFlowDelegate?, baseFlowDataSource: BaseFlowDataSource?, httpClient: HTTPClient, analytics: AnalyticsProtocol, customProfileAnalytics: ProfileAnalyticsProtocol?) -> UIViewController {
         let businessModel = ProfileBusinessModel(repository: ProfileAPI(httpClient: httpClient), analytics: analytics)
-        let factory = ProfileViewControllerFactory(businessModel: businessModel, analytics: profileAnalytics ?? businessModel)
+        let factory = ProfileViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: customProfileAnalytics)
         let mainFlow = ProfileFlow(factory: factory, deeplink: Deeplink(screen: ProfileDeeplink(rawValue: deeplink?.path ?? "/"), url: deeplink))
         mainFlow.baseFlowDelegate = baseFlowDelegate
         mainFlow.baseFlowDataSource = baseFlowDataSource
