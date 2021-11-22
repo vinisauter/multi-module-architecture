@@ -3,7 +3,7 @@ package com.example.home
 import androidx.navigation.NavDirections
 import com.example.app.NavGraphDirections
 
-enum class LoginActionsGlobal {
+enum class HomeActionsGlobals {
     LOGIN_GRAPH,
     HOME_GRAPH,
     PROFILE_GRAPH,
