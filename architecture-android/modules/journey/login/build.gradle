@@ -5,6 +5,10 @@ plugins {
 android {
     compileSdk 31
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     defaultConfig {
         minSdk 21
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

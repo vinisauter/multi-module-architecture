@@ -18,7 +18,7 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.findViewById<TextView>(R.id.login_button).setOnClickListener {
+        view.findViewById<TextView>(R.id.bbb).setOnClickListener {
             findNavController().navigate(R.id.profile_graph)
         }
     }
