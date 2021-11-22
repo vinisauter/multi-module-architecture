@@ -86,8 +86,10 @@ class AppNavigation {
     }
     
     func set(_ journeys: Array<JourneyModule>, animated: Bool) {
-        let journeysControllers = journeys.compactMap{ [weak self] journey in
-            self?.start(journey)
+        let journeysControllers = journeys.compactMap{ [weak self] journey -> UIViewController? in
+            let firstModuleVC = self?.start(journey)
+            firstModuleVC?.loadViewIfNeeded()
+            return firstModuleVC
         }
         
         navigationController.setViewControllers(journeysControllers, animated: true)
