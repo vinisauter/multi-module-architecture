@@ -60,17 +60,9 @@
 			children = (
 				59C82C33273BFF2A00E84149 /* Base */,
 				59C82C34273BFF3000E84149 /* Extensions */,
-				59C82C32273BFF2200E84149 /* Helpers */,
 				59C82C4D273C02B500E84149 /* Config */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		59C82C32273BFF2200E84149 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		59C82C33273BFF2A00E84149 /* Base */ = {
