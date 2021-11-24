@@ -10,6 +10,10 @@ import androidx.navigation.fragment.findNavController
 
 class LoginFragment : Fragment() {
 
+    private val loginViewUseCaseInterface = LoginBusinessModel(LoginRepository())
+
+    private val loginViewModel = LoginViewModel(loginViewUseCaseInterface)
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?)
             : View? {
 
@@ -18,13 +22,14 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.findViewById<TextView>(R.id.bbb).setOnClickListener {
+        view.findViewById<TextView>(R.id.to_profile).setOnClickListener {
             findNavController().navigate(R.id.profile_graph)
         }
-    }
-
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) = LoginFragment()
+        view.findViewById<TextView>(R.id.to_home).setOnClickListener {
+            findNavController().navigate(R.id.home_graph)
+        }
+        view.findViewById<TextView>(R.id.show_login).setOnClickListener {
+            loginViewModel.login()
+        }
     }
 }

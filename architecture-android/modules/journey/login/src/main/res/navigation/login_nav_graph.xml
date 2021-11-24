@@ -14,6 +14,10 @@
             android:id="@+id/login_button_action"
             app:destination="@id/profile_graph"
             />
+        <action
+            android:id="@+id/home_button_action"
+            app:destination="@+id/home_graph"
+            />
 
     </fragment>
 
@@ -22,6 +26,13 @@
         app:moduleName="profile"
         app:graphResName="profile_nav_graph"
         app:graphPackage="com.example.app.profile"
+        />
+
+    <include-dynamic
+        android:id="@+id/home_graph"
+        app:moduleName="home"
+        app:graphResName="home_nav_graph"
+        app:graphPackage="com.example.app.home"
         />
 
 </navigation>
