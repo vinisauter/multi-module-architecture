@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:moduleName="home"
+    app:startDestination="@+id/home_launcher">
+
+    <dialog
+        android:id="@+id/home_launcher"
+        android:name="com.example.home.HomeLauncherDialog"
+        android:label="home_launcher"
+        tools:layout="@layout/loader_fragment">
+        <argument
+            android:name="home_custom_dependencies"
+            android:defaultValue="@null"
+            app:argType="com.example.journey.home.HomeCustomDependencies"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_to_home"
+            app:destination="@id/homeActivity" />
+    </dialog>
+
+    <activity
+        android:id="@+id/homeActivity"
+        android:name="com.example.home.presentation.HomeNavigationActivity"
+        android:label="activity_home" />
+</navigation>

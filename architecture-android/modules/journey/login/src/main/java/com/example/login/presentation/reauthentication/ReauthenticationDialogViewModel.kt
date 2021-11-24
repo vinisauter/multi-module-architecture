@@ -16,7 +16,10 @@ class ReauthenticationDialogViewModel(app: Application) : AndroidViewModel(app) 
     }
 
     fun onLoginClicked() = viewModelScope.onCpu {
-        onActionCompletedSharedFlow.emit(didFinishDirection)
+//        AppNavigationGraphDirections.
+        onActionCompletedSharedFlow.emit(didFinishDirection.also {
+            it.arguments.putBoolean("ARGUMENT", true)
+        })
     }
 
     private val onActionCompletedSharedFlow = MutableSharedFlow<NavDirections>()

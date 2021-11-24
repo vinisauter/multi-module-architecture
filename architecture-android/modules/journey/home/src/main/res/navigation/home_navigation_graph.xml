@@ -17,4 +17,6 @@
             android:id="@+id/action_exit"
             app:destination="@id/mainFragment" />
     </fragment>
+
+    <include app:graph="@navigation/app_navigation_graph" />
 </navigation>

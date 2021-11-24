@@ -9,26 +9,6 @@
     android:id="@+id/app_navigation_graph"
     app:startDestination="@id/mainFragment">
 
-    <action
-        android:id="@+id/action_Login"
-        app:destination="@id/login_navigation_graph">
-        <argument
-            android:name="login_custom_dependencies"
-            android:defaultValue="@null"
-            app:argType="com.example.journey.login.LoginCustomDependencies"
-            app:nullable="true" />
-    </action>
-
-    <action
-        android:id="@+id/action_reauthenticate"
-        app:destination="@id/login_navigation_graph">
-        <argument
-            android:name="login_custom_dependencies"
-            android:defaultValue="@null"
-            app:argType="com.example.journey.login.LoginCustomDependencies"
-            app:nullable="true" />
-    </action>
-
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.app.MainFragment"
@@ -42,6 +22,28 @@
             app:destination="@id/login_navigation_graph" />
     </fragment>
 
+    <action
+        android:id="@+id/action_Login"
+        app:destination="@id/login_navigation_graph">
+        <argument
+            android:name="login_custom_dependencies"
+            android:defaultValue="@null"
+            app:argType="com.example.journey.login.LoginCustomDependencies"
+            app:nullable="true" />
+    </action>
+
+    <!-- todo action callback profile with arguments? -->
+
+    <action
+        android:id="@+id/action_reauthenticate"
+        app:destination="@id/login_navigation_graph">
+        <argument
+            android:name="login_custom_dependencies"
+            android:defaultValue="@null"
+            app:argType="com.example.journey.login.LoginCustomDependencies"
+            app:nullable="true" />
+    </action>
+
     <include-dynamic
         android:id="@+id/login_navigation_graph"
         app:graphPackage="${applicationId}.login"
@@ -53,9 +55,9 @@
     </include-dynamic>
 
     <include-dynamic
-        android:id="@+id/home_navigation_graph"
+        android:id="@+id/home_graph"
         app:graphPackage="${applicationId}.home"
-        app:graphResName="home_navigation_graph"
+        app:graphResName="home_launcher_graph"
         app:moduleName="home">
         <deepLink
             android:id="@+id/deepLink"
@@ -71,4 +73,5 @@
             android:id="@+id/deepLink"
             app:uri="myapp://profile" />
     </include-dynamic>
+
 </navigation>

@@ -10,6 +10,7 @@ import com.core.analytics.Event
 import com.core.extensions.deepLinkIntent
 import com.core.extensions.navigate
 import com.core.extensions.redirectToThis
+import com.core.logger.Logger
 import com.example.app.AppNavigationGraphDirections
 import com.example.journey.login.LoginCustomDependencies
 import com.example.journey.login.tracking.LoginTracking
@@ -57,6 +58,9 @@ class ProfileFragment : Fragment() {
             }
             bind.reauthenticateButton.setOnClickListener {
                 navigate(
+                    // TODO: redirect result
+                    //  Start(Reauthenticate) + didFinishDirection(this)
+                    //  https://medium.com/google-developer-experts/using-navigation-architecture-component-in-a-large-banking-app-ac84936a42c2
                     AppNavigationGraphDirections.actionReauthenticate(
                         LoginCustomDependencies(didFinishDirection = redirectToThis())
                     )
@@ -76,4 +80,8 @@ class ProfileFragment : Fragment() {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        Logger.log("TEST")
+    }
 }

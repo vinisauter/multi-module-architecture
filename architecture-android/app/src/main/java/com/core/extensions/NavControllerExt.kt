@@ -35,6 +35,7 @@ private fun navigate(
 ) {
     val installMonitor = DynamicInstallMonitor()
     val dynamicExtras = DynamicExtras(installMonitor)
+
     val isPopUpTo = arguments?.getBoolean("popBackTo") == true
     val isInclusive = arguments?.getBoolean("inclusive") == true
     val isSaveState = arguments?.getBoolean("saveState") == true

@@ -9,11 +9,13 @@
         android:name="com.example.login.LoginLauncherDialog"
         android:label="login_launcher"
         tools:layout="@layout/loader_fragment">
+
         <argument
             android:name="login_custom_dependencies"
             android:defaultValue="@null"
             app:argType="com.example.journey.login.LoginCustomDependencies"
             app:nullable="true" />
+
         <action
             android:id="@+id/action_login"
             app:destination="@id/login_fragment">
@@ -51,7 +53,7 @@
 
         <action
             android:id="@+id/action_login_succeed"
-            app:destination="@id/home_navigation_graph"
+            app:destination="@id/home_graph"
             app:popUpTo="@id/app_navigation_graph"
             app:popUpToInclusive="true" />
         <action

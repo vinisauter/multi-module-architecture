@@ -18,7 +18,7 @@
 
         <action
             android:id="@+id/action_launch_home"
-            app:destination="@id/home_navigation_graph" />
+            app:destination="@id/home_graph" />
         <action
             android:id="@+id/action_exit"
             app:destination="@id/mainFragment" />

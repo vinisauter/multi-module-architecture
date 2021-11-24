@@ -7,8 +7,11 @@ import kotlinx.parcelize.Parcelize
 
 // TODO IMPORTANT FOR GENERIC TRACKING: (force forum maybe)
 //  Define journey tasks that can SUCCEED or FAIL and create a PATTERN to make tracking generic
+
+// login tracking abstraction with default values
+// maybe good pattern to also define view model methods
 @Parcelize
-data class LoginTracking(// maybe good pattern to also define view model methods
+data class LoginTracking(
     //LoginFragment
     var loginScreenName: ScreenName = "login",
     var loginClickAuthEvent: Event = Event("login", "click", "auth"),

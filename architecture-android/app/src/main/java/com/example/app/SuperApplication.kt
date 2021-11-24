@@ -8,10 +8,7 @@ import android.app.Application
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.os.StrictModeManager.enableStrictMode
-import android.widget.Toast
 import com.core.logger.Logger
 import com.example.journey.JourneyLauncher
 import com.example.structural.StructuralProvider
@@ -123,8 +120,4 @@ class SuperApplication : Application(), Application.ActivityLifecycleCallbacks {
         activityManager.getMemoryInfo(memoryInfo)
         return memoryInfo
     }
-}
-
-fun Context.longToast(text: CharSequence) {
-    Handler(Looper.getMainLooper()).post { Toast.makeText(this, text, Toast.LENGTH_LONG).show() }
 }

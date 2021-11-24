@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-parcelize'
     id 'com.google.devtools.ksp'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -20,6 +21,7 @@ android {
     }
     buildFeatures {
         viewBinding true
+        dataBinding true
     }
     buildTypes {
         release {
@@ -39,6 +41,7 @@ android {
             ':modules:journey:login',
             ':modules:journey:home',
             ':modules:journey:profile',
+
             ':modules:structural:networking',
             ':modules:structural:storage',
     ]
@@ -50,6 +53,7 @@ dependencies {
     api project(path: ':libraries:bug-finder')
     api project(path: ':libraries:injection')
     api project(path: ':modules:structural:networking-interface')
+
     api project(path: ':modules:structural:storage-interface')
 
     api 'androidx.core:core-ktx:1.7.0'

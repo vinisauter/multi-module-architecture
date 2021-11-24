@@ -5,6 +5,7 @@ import android.net.Uri
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavDirections
+import com.core.analytics.Tagging
 import com.core.extensions.default
 import com.core.extensions.onCpu
 import com.example.journey.login.tracking.LoginTracking
@@ -26,12 +27,18 @@ class LoginLauncherViewModel(app: Application) : AndroidViewModel(app) {
         //Start all the module dependencies
         val tracking: LoginTracking =
             args.loginCustomDependencies?.tracking.default(LoginTracking())
+
+        // TODO: Remover acesso direto ao APP - StructuralProvider
+        val tagging: Tagging = StructuralProvider.tagging
         val loginApi = LoginApi(StructuralProvider.networking)
         val loginStorage = LoginStorage(StructuralProvider.storage)
         val loginBusinessModel = LoginBusinessModel(loginApi, loginStorage)
-        dependencies.setup(tracking, loginBusinessModel, loginBusinessModel)
 
-        Thread.sleep(3_000) //TODO: Validate args & DeepLink and Directions
+        dependencies.setup(tagging, tracking, loginBusinessModel, loginBusinessModel)
+//        dependencies.setup(get(), get(), get(), get())
+
+        Thread.sleep(3_000)
+        //TODO: Validate args & DeepLink and Directions
         val reauthenticateDirection = args.loginCustomDependencies?.didFinishDirection
         if (reauthenticateDirection != null) {
             onActionCompletedSharedFlow.emit(
