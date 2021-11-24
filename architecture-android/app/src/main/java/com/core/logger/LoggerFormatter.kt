@@ -1,4 +1,4 @@
-package com.app.logger
+package com.core.logger
 
 import java.io.PrintWriter
 import java.io.StringWriter

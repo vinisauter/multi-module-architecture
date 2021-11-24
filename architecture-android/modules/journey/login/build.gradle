@@ -1,6 +1,10 @@
 plugins {
     id 'com.android.dynamic-feature'
-    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+    id 'com.google.devtools.ksp'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 android {
     compileSdk 31
@@ -10,8 +14,10 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+
     buildFeatures {
         viewBinding true
+        dataBinding true
     }
 
     buildTypes {
@@ -20,10 +26,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets.all {
+        it.java.srcDir("build/generated/ksp/${it.name}/kotlin/")
+        it.res.srcDirs("build/generated/ksp/${it.name}/resources/")
+    }
 }
 
 dependencies {
     implementation project(":app")
+    ksp project(path: ':libraries:auto-service:processor')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

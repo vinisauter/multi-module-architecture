@@ -1,11 +1,7 @@
 package com.example.app
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import com.core.base.NavigationActivity
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-    }
+class MainActivity : NavigationActivity(R.navigation.app_navigation_graph) {
+    val deepLink by lazy { intent.data }
 }

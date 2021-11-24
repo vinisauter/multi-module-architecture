@@ -1,6 +1,6 @@
 @file:Suppress("MemberVisibilityCanBePrivate", "unused", "SameParameterValue")
 
-package com.app.logger
+package com.core.logger
 
 import java.text.DateFormat
 import java.text.SimpleDateFormat

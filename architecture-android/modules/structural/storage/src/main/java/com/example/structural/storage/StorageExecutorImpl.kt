@@ -1,7 +1,7 @@
 package com.example.structural.storage
 
 import android.app.Application
-import com.example.app.longToast
+import com.core.extensions.longToast
 import com.example.storage.StorageExecutor
 
 class StorageExecutorImpl(private val app: Application) : StorageExecutor {

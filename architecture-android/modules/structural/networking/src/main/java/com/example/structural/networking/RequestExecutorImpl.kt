@@ -1,7 +1,7 @@
 package com.example.structural.networking
 
 import android.app.Application
-import com.example.app.longToast
+import com.core.extensions.longToast
 import com.example.networking.RequestExecutor
 
 class RequestExecutorImpl(private val app: Application) : RequestExecutor {
