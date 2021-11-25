@@ -18,6 +18,8 @@ data class LoginTracking(
     var loginAuthSucceededEvent: Event = Event("login", "auth", "succeeded"),
     var loginAuthFailedEvent: Event = Event("login", "auth", "failed"),
     var loginClickForgotPasswordEvent: Event = Event("login", "click", "forgot_password"),
+    val loginForgotPasswordSucceededEvent: Event = Event("login", "forgot_password", "succeeded"),
+    val loginForgotPasswordFailedEvent: Event = Event("login", "forgot_password", "failed"),
     //ForgotPasswordFragment
     var forgotPasswordScreenName: ScreenName = "forgot_password",
     var forgotPasswordClickExitEvent: Event = Event("forgot_password", "click", "exit"),
