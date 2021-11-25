@@ -2,7 +2,10 @@ package com.example.structural
 
 import android.app.Application
 import android.content.Context
+import android.injection.factory.InjectionProvider
+import android.injection.loadModule
 import android.injection.provides
+import android.injection.unloadModule
 import com.auto.service.load
 import com.core.analytics.Event
 import com.core.analytics.ScreenName
@@ -16,27 +19,39 @@ import com.example.structural.storage.StorageProvider
 
 @Suppress("RemoveExplicitTypeArguments")
 object StructuralProvider {
+    enum class ModuleNames(name: String) {
+        NETWORK("network"),
+        STORAGE("storage"),
+        TAGGING("tagging")
+    }
+
     fun start(app: SuperApplication) {
         provides {
-
             declare<SuperApplication> { app }
             declare<Application> { app }
             declare<Context> { app }
 
-            declare<StorageExecutor> { load<StorageProvider>().executor(app) }
-            declare<RequestExecutor> { load<NetworkingProvider>().executor(app) }
-            //TODO: Structural Module Tagging:
-            declare<Tagging> {
-                object : Tagging {
-                    override fun sendScreenName(screenName: ScreenName) {
-                        Logger.log("Tagging { screenName: $screenName }")
-                    }
+            module(ModuleNames.STORAGE.name) {
+                declare<StorageExecutor> { load<StorageProvider>().executor(app) }
+                shared<String>{String()}
+            }
+            module(ModuleNames.NETWORK.name) {
+                declare<RequestExecutor> { load<NetworkingProvider>().executor(app) }
+            }
+            module(ModuleNames.TAGGING.name) {
+                declare<Tagging> {
+                    object : Tagging {
+                        override fun sendScreenName(screenName: ScreenName) {
+                            Logger.log("Tagging { screenName: $screenName }")
+                        }
 
-                    override fun sendEvent(event: Event) {
-                        Logger.log("Tagging { sendEvent [ category: ${event.category}, action: ${event.action}, label: ${event.label} }")
+                        override fun sendEvent(event: Event) {
+                            Logger.log("Tagging { sendEvent [ category: ${event.category}, action: ${event.action}, label: ${event.label} }")
+                        }
                     }
                 }
             }
         }
+        loadModule(ModuleNames.STORAGE.name)
     }
 }

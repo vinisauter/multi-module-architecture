@@ -7,6 +7,18 @@ val provider = InjectionProvider
 
 inline fun provides(block: InjectionProvider.() -> Unit) = provider.apply(block)
 
+fun loadModule(moduleName: String){
+    provider.moduleRegistry[moduleName]?.run{
+        definitions.forEach{
+            instances[it.key] = it.value.invoke()
+        }
+    }
+}
+
+fun unloadModule(moduleName: String) {
+    provider.moduleRegistry[moduleName]?.instances?.clear()
+}
+
 inline fun <reified T : Any> get(
     qualifier: QualifierValue? = null,
 ): T {
