@@ -23,8 +23,8 @@ class AppNavigation {
     
     // MARK: - Action Functions
     
-    func setRootViewController(_ viewController: UIViewController, from currrentViewController: UIViewController? = nil, animated: Bool = false) {
-        if currrentViewController?.navigationController != navigationController { currrentViewController?.dismiss(animated: true) }
+    func setRootViewController(_ viewController: UIViewController, from currentViewController: UIViewController? = nil, animated: Bool = false) {
+        if currentViewController?.navigationController != navigationController { currentViewController?.dismiss(animated: animated) }
         
         if let rootVC = navigationController.viewControllers.first, type(of: rootVC) == type(of: viewController) {
             popToViewControllerWithType(type(of: viewController))
@@ -34,9 +34,9 @@ class AppNavigation {
     }
     
     func push(_ viewController: UIViewController, from currrentViewController: UIViewController? = nil, animated: Bool = true) {
-        if currrentViewController?.navigationController != navigationController { currrentViewController?.dismiss(animated: true) }
+        if currrentViewController?.navigationController != navigationController { currrentViewController?.dismiss(animated: animated) }
         
-        popToViewControllerWithType(type(of: currrentViewController ?? UIViewController()))
+        if let currrentViewController = currrentViewController { popToViewControllerWithType(type(of: currrentViewController)) }
         navigationController.pushViewController(viewController, animated: animated)
     }
     
@@ -85,12 +85,14 @@ class AppNavigation {
         }
     }
     
-    func set(_ journeys: Array<JourneyModule>, animated: Bool) {
+    func set(_ journeys: Array<JourneyModule>, from currentViewController: UIViewController? = nil, animated: Bool) {
         let journeysControllers = journeys.compactMap{ [weak self] journey -> UIViewController? in
             let firstModuleVC = self?.start(journey)
             firstModuleVC?.loadViewIfNeeded()
             return firstModuleVC
         }
+        
+        if currentViewController?.navigationController != navigationController { currentViewController?.dismiss(animated: animated) }
         
         navigationController.setViewControllers(journeysControllers, animated: animated)
     }

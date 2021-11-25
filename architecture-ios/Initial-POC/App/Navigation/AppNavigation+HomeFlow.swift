@@ -21,7 +21,7 @@ extension AppNavigation {
             break
             
         case .login:
-            set([.welcome, .login], animated: false)
+            set([.welcome, .login], from: viewController, animated: false)
             isUserLoggedIn = false
             break
             
