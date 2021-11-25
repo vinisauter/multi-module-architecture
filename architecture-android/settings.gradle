@@ -30,6 +30,8 @@ include ':modules:structural:networking-interface'
 include ':modules:structural:networking'
 include ':modules:structural:storage-interface'
 include ':modules:structural:storage'
+include ':modules:structural:tagging-interface'
+include ':modules:structural:tagging'
 
 include ':modules:journey'
 include ':modules:journey:login'
