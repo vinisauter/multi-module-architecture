@@ -4,6 +4,7 @@ import android.injection.get
 import android.injection.provides
 import android.os.Bundle
 import com.core.base.NavigationActivity
+import com.core.extensions.extra
 import com.example.journey.login.tracking.LoginTracking
 import com.example.login.business.LoginBusinessModel
 import com.example.login.business.repository.local.LoginStorage
@@ -13,12 +14,11 @@ class LoginNavigationActivity : NavigationActivity(R.navigation.login_navigation
     //lateinit var module: Module
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val tracking: LoginTracking = extra("tracking", LoginTracking())
         // TODO ADD MODULES DEPENDENCIES
 //        module =
         provides {
-            declare<LoginTracking> {
-                LoginTracking()// TODO get custom tracking by args
-            }
+            declare<LoginTracking> { tracking }
             declareWithSuperClasses {
                 val api = LoginApi(get())
                 val storage = LoginStorage(get())
