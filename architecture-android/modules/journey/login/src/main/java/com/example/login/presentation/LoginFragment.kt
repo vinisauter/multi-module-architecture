@@ -3,7 +3,7 @@ package com.example.login.presentation
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.injectViewModel
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavDirections
 import com.core.extensions.navigate
@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
-    private val viewModel: LoginFragmentViewModel by viewModels()
+    private val viewModel: LoginFragmentViewModel by injectViewModel()
     private val viewBinding: FragmentLoginBinding by lazy {
         FragmentLoginBinding.bind(requireView())
     }

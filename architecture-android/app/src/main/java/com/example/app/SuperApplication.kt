@@ -10,6 +10,7 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.os.StrictModeManager.enableStrictMode
 import com.core.logger.Logger
+import com.example.structural.StructuralProvider
 import java.text.MessageFormat
 
 class SuperApplication : Application(), Application.ActivityLifecycleCallbacks {
@@ -35,6 +36,7 @@ class SuperApplication : Application(), Application.ActivityLifecycleCallbacks {
         super.onCreate()
         registerActivityLifecycleCallbacks(this)
 
+        StructuralProvider.start(this)
 //        val logsFolder = File(filesDir, "logs")
 //        if (!logsFolder.exists()) {
 //            logsFolder.mkdirs()

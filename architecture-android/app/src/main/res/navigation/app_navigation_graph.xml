@@ -15,11 +15,20 @@
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" />
 
+    <action
+        android:id="@+id/action_login"
+        app:destination="@id/login_launcher">
+        <argument
+            android:name="login_custom_dependencies"
+            android:defaultValue="@null"
+            app:argType="com.example.journey.login.LoginCustomDependencies"
+            app:nullable="true" />
+    </action>
+
     <dialog
-        android:id="@+id/login_launcher"
-        android:name="com.example.login.LoginLauncher"
-        android:label="LoginLauncher"
-        app:moduleName="ModularFeatureArchitecture.modules.journey.login" >
+        android:id="@+id/navigation_launcher"
+        android:name="com.example.journey.NavigationLauncher"
+        android:label="Launcher">
         <argument
             android:name="login_custom_dependencies"
             android:defaultValue="@null"
@@ -27,4 +36,34 @@
             app:nullable="true" />
     </dialog>
 
+    <dialog
+        android:id="@+id/login_launcher"
+        android:name="com.example.login.LoginNavigationLauncher"
+        android:label="LoginLauncher"
+        app:moduleName="login">
+        <argument
+            android:name="login_custom_dependencies"
+            android:defaultValue="@null"
+            app:argType="com.example.journey.login.LoginCustomDependencies"
+            app:nullable="true" />
+        <deepLink
+            android:id="@+id/deep_link"
+            app:uri="myapp://login" />
+<!--        <action-->
+<!--            android:id="@+id/action_login"-->
+<!--            app:destination="@id/login_navigation_activity">-->
+<!--            <argument-->
+<!--                android:name="login_tracking"-->
+<!--                app:argType="com.example.journey.login.tracking.LoginTracking" />-->
+<!--        </action>-->
+    </dialog>
+<!--    <activity-->
+<!--        android:id="@+id/login_navigation_activity"-->
+<!--        android:name="com.example.login.LoginNavigationActivity"-->
+<!--        android:label="LoginNavigationActivity"-->
+<!--        app:moduleName="ModularFeatureArchitecture.modules.journey.login">-->
+<!--        <argument-->
+<!--            android:name="login_tracking"-->
+<!--            app:argType="com.example.journey.login.tracking.LoginTracking" />-->
+<!--    </activity>-->
 </navigation>

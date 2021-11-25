@@ -53,3 +53,18 @@ class LoginFragmentViewModel(
         }
     }
 }
+
+//fun ViewModel.action(
+//    tagging: Tagging,
+//    function: suspend CoroutineScope.() -> Unit
+//) = viewModelScope.onCpu {
+//    tagging.sendEvent(tracking.loginClickForgotPasswordEvent)
+//    try {
+//        function.invoke(this)
+////      onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginSucceed())
+//        tagging.sendEvent(tracking.loginForgotPasswordSucceededEvent)
+//    } catch (t: Throwable) {
+////      onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginFailed())
+//        tagging.sendEvent(tracking.loginForgotPasswordFailedEvent)
+//    }
+//}
