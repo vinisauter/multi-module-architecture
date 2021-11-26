@@ -7,7 +7,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/app_navigation_graph"
-    app:startDestination="@id/splash_fragment">
+    app:startDestination="@id/navigation_launcher">
 
     <fragment
         android:id="@+id/splash_fragment"
