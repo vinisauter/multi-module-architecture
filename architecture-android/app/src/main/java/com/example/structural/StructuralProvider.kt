@@ -2,10 +2,7 @@ package com.example.structural
 
 import android.app.Application
 import android.content.Context
-import android.injection.factory.InjectionProvider
-import android.injection.loadModule
 import android.injection.provides
-import android.injection.unloadModule
 import com.auto.service.load
 import com.core.analytics.Event
 import com.core.analytics.ScreenName
@@ -52,6 +49,5 @@ object StructuralProvider {
                 }
             }
         }
-        loadModule(ModuleNames.STORAGE.name)
     }
 }
