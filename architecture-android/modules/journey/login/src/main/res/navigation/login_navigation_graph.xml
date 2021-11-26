@@ -9,5 +9,34 @@
         android:id="@+id/login_fragment"
         android:name="com.example.login.presentation.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login">
+        <argument
+            android:name="login_tracking"
+            app:argType="com.example.journey.login.tracking.LoginTracking" />
+        <action
+            android:id="@+id/action_forgot_password"
+            app:destination="@id/forgot_password_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/forgot_password_fragment"
+        android:name="com.example.login.presentation.forgotpassword.ForgotPasswordFragment"
+        android:label="forgot_password"
+        tools:layout="@layout/fragment_forgot_password">
+        <!--        <action-->
+        <!--            android:id="@+id/action_exit"-->
+        <!--            app:destination="@id/mainFragment" />-->
+    </fragment>
+
+    <action
+        android:id="@+id/action_did_finish"
+        app:destination="@id/app_navigation_graph">
+        <argument
+            android:name="from_module"
+            android:defaultValue="@null"
+            app:argType="com.example.journey.NavigationState"
+            app:nullable="true" />
+    </action>
+
+    <include app:graph="@navigation/app_navigation_graph" />
 </navigation>

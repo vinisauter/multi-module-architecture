@@ -7,63 +7,59 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/app_navigation_graph"
-    app:startDestination="@id/main_fragment">
+    app:startDestination="@id/splash_fragment">
 
     <fragment
-        android:id="@+id/main_fragment"
-        android:name="com.example.app.MainFragment"
-        android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
-
-    <action
-        android:id="@+id/action_login"
-        app:destination="@id/login_launcher">
-        <argument
-            android:name="login_custom_dependencies"
-            android:defaultValue="@null"
-            app:argType="com.example.journey.login.LoginCustomDependencies"
-            app:nullable="true" />
-    </action>
+        android:id="@+id/splash_fragment"
+        android:name="com.example.app.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_login"
+            app:destination="@id/login_navigation_activity" />
+    </fragment>
 
     <dialog
         android:id="@+id/navigation_launcher"
         android:name="com.example.journey.NavigationLauncher"
-        android:label="Launcher">
+        android:label="Loader">
         <argument
-            android:name="login_custom_dependencies"
+            android:name="nav_state"
             android:defaultValue="@null"
-            app:argType="com.example.journey.login.LoginCustomDependencies"
+            app:argType="com.example.journey.NavigationState"
             app:nullable="true" />
     </dialog>
 
-    <dialog
-        android:id="@+id/login_launcher"
-        android:name="com.example.login.LoginNavigationLauncher"
-        android:label="LoginLauncher"
+    <activity
+        android:id="@+id/login_navigation_activity"
+        android:name="com.example.login.LoginNavigationActivity"
+        android:label="LoginNavigationActivity"
         app:moduleName="login">
-        <argument
-            android:name="login_custom_dependencies"
-            android:defaultValue="@null"
-            app:argType="com.example.journey.login.LoginCustomDependencies"
-            app:nullable="true" />
         <deepLink
             android:id="@+id/deep_link"
             app:uri="myapp://login" />
-<!--        <action-->
-<!--            android:id="@+id/action_login"-->
-<!--            app:destination="@id/login_navigation_activity">-->
-<!--            <argument-->
-<!--                android:name="login_tracking"-->
-<!--                app:argType="com.example.journey.login.tracking.LoginTracking" />-->
-<!--        </action>-->
-    </dialog>
-<!--    <activity-->
-<!--        android:id="@+id/login_navigation_activity"-->
-<!--        android:name="com.example.login.LoginNavigationActivity"-->
-<!--        android:label="LoginNavigationActivity"-->
-<!--        app:moduleName="ModularFeatureArchitecture.modules.journey.login">-->
-<!--        <argument-->
-<!--            android:name="login_tracking"-->
-<!--            app:argType="com.example.journey.login.tracking.LoginTracking" />-->
-<!--    </activity>-->
+        <argument
+            android:name="login_tracking"
+            android:defaultValue="@null"
+            app:argType="com.example.journey.login.tracking.LoginTracking"
+            app:nullable="true" />
+    </activity>
+    <activity
+        android:id="@+id/home_navigation_activity"
+        android:name="com.example.home.HomeNavigationActivity"
+        android:label="HomeNavigationActivity"
+        app:moduleName="home">
+        <deepLink
+            android:id="@+id/deep_link"
+            app:uri="myapp://home" />
+    </activity>
+    <activity
+        android:id="@+id/profile_navigation_activity"
+        android:name="com.example.profile.ProfileNavigationActivity"
+        android:label="ProfileNavigationActivity"
+        app:moduleName="profile">
+        <deepLink
+            android:id="@+id/deep_link"
+            app:uri="myapp://profile" />
+    </activity>
 </navigation>

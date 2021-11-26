@@ -1,4 +1,4 @@
-package com.example.journey
+package com.example.app
 
 import android.content.Context
 import androidx.annotation.IdRes
@@ -6,7 +6,6 @@ import com.core.base.NavigationActivity
 import com.core.extensions.clearStack
 import com.core.extensions.extra
 import com.core.extensions.start
-import com.example.app.R
 
 class AppNavigationActivity : NavigationActivity(R.navigation.app_navigation_graph) {
     val deepLink by lazy { intent.data }
@@ -16,7 +15,7 @@ class AppNavigationActivity : NavigationActivity(R.navigation.app_navigation_gra
     }
 
     companion object {
-        private const val START_DESTINATION = "START_DESTINATION"
+        private const val START_DESTINATION = "start_destination"
         fun open(
             context: Context,
             // TODO: Replace IdRes with Enumerated Annotations?

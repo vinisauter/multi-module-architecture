@@ -32,7 +32,13 @@ class LoginFragmentViewModel(
         try {
             // TODO: loader
             useCase.login("user", "password")
-//            onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginSucceed())
+            onActionCompletedSharedFlow.emit(
+                LoginFragmentDirections.actionDidFinish(
+                    fromModule = "login",
+                    succeeded = true,
+                    toModule = ""
+                )
+            )
             tagging.send(tracking.loginAuthSucceededEvent)
         } catch (t: Throwable) {
 //            onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginFailed())
@@ -43,9 +49,7 @@ class LoginFragmentViewModel(
     fun onForgotPasswordClicked() = viewModelScope.onCpu {
         tagging.send(tracking.loginClickForgotPasswordEvent)
         try {
-            // TODO: loader
-            useCase.login("user", "password")
-//            onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginSucceed())
+            onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionDidFinish())
             tagging.send(tracking.loginForgotPasswordSucceededEvent)
         } catch (t: Throwable) {
 //            onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginFailed())

@@ -11,7 +11,7 @@
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainFragment">
+        tools:context=".SplashFragment">
 
         <Button
             android:id="@+id/login_button"
