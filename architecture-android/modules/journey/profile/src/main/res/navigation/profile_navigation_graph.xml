@@ -2,7 +2,8 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:moduleName="home"
+    android:id="@+id/profile_navigation_graph"
+    app:moduleName="profile"
     app:startDestination="@+id/profile_fragment">
     <fragment
         android:id="@+id/profile_fragment"
@@ -12,15 +13,17 @@
         tools:layout="@layout/fragment_profile">
         <argument
             android:name="query_value"
+            android:defaultValue="@null"
             app:argType="string"
-            app:nullable="true"
-            android:defaultValue="@null"/>
+            app:nullable="true" />
 
         <action
             android:id="@+id/action_launch_home"
-            app:destination="@id/home_graph" />
+            app:destination="@id/app_navigation_graph" />
         <action
             android:id="@+id/action_exit"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/app_navigation_graph" />
     </fragment>
+
+    <include app:graph="@navigation/app_navigation_graph" />
 </navigation>

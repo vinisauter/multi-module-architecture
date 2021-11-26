@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavDirections
 import com.core.extensions.onCpu
+import com.example.journey.NavigationState
 import com.example.journey.login.tracking.LoginTracking
 import com.example.tagging.TaggingExecutor
 import kotlinx.coroutines.flow.Flow
@@ -33,11 +34,7 @@ class LoginFragmentViewModel(
             // TODO: loader
             useCase.login("user", "password")
             onActionCompletedSharedFlow.emit(
-                LoginFragmentDirections.actionDidFinish(
-                    fromModule = "login",
-                    succeeded = true,
-                    toModule = ""
-                )
+                LoginFragmentDirections.actionDidFinish(NavigationState("login", "succeeded"))
             )
             tagging.send(tracking.loginAuthSucceededEvent)
         } catch (t: Throwable) {
