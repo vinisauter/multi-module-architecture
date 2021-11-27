@@ -1,9 +1,9 @@
 package com.example.journey
 
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.core.base.LoaderDialog
-import com.core.extensions.default
 import kotlinx.coroutines.launch
 
 class NavigationLauncher : LoaderDialog() {
@@ -12,14 +12,11 @@ class NavigationLauncher : LoaderDialog() {
         super.onStart()
         lifecycleScope.launch {
             // TODO validate args & deep link to module navigation destination
-            val fromModule = args.navState?.from.default("app")
+            val state = args.navState
+//            findNavController().navigate(R.id.navigation_activity)
 
-//            // TODO start LoginNavigationActivity better:
-//            start<LoginNavigationActivity> {
-//                if (tracking != null) {
-//                    extra("tracking", tracking)
-//                }
-//            }
+            findNavController().navigate(args.destination, arguments)
+            dismiss()
         }
     }
 }

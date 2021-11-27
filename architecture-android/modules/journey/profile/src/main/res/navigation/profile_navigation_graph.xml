@@ -16,14 +16,23 @@
             android:defaultValue="@null"
             app:argType="string"
             app:nullable="true" />
-
-        <action
-            android:id="@+id/action_launch_home"
-            app:destination="@id/app_navigation_graph" />
-        <action
-            android:id="@+id/action_exit"
-            app:destination="@id/app_navigation_graph" />
     </fragment>
+
+    <action
+        android:id="@+id/action_did_finish"
+        app:destination="@id/app_navigation_graph">
+        <argument
+            android:name="nav_state"
+            android:defaultValue="@null"
+            app:argType="com.example.journey.NavigationState"
+            app:nullable="true" />
+        <!--TODO why suppress? -->
+        <!--suppress AndroidDomInspection -->
+        <argument
+            android:name="destination"
+            android:defaultValue="@com.example.app:id/home_navigation"
+            app:argType="reference" />
+    </action>
 
     <include app:graph="@navigation/app_navigation_graph" />
 </navigation>

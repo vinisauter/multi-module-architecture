@@ -3,9 +3,9 @@ package com.example.login.presentation.reauthentication
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.NavDirections
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.core.extensions.navigate
+import com.core.base.NavigationCommand
 import com.example.login.R
 import com.example.login.databinding.ReauthenticationDialogBinding
 import kotlinx.coroutines.flow.collect
@@ -23,8 +23,20 @@ class ReauthenticationDialog : DialogFragment(R.layout.reauthentication_dialog) 
         lifecycleScope.launch {
             viewModel.launch(args)
 
-            viewModel.onActionCompleted.collect { navDirection: NavDirections ->
-                navigate(navDirection)
+            viewModel.onActionCompleted.collect { command: NavigationCommand ->
+                //TODO: verify
+                val navController = findNavController()
+                when (command) {
+                    is NavigationCommand.To ->
+                        navController.navigate(command.directions)
+                    NavigationCommand.Back ->
+                        navController.popBackStack()
+                    is NavigationCommand.BackTo ->
+                        navController.popBackStack(command.destinationId, false)
+                    NavigationCommand.ToRoot ->
+                        navController.popBackStack(navController.graph.startDestinationId, false)
+                }
+                dismiss()
             }
         }
         viewBinding.also {

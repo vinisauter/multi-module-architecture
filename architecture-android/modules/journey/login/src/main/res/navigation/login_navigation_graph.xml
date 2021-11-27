@@ -18,6 +18,11 @@
             android:id="@+id/action_forgot_password"
             app:destination="@id/forgot_password_fragment" />
     </fragment>
+    <fragment
+        android:id="@+id/forgot_password_fragment"
+        android:name="com.example.login.presentation.forgotpassword.ForgotPasswordFragment"
+        android:label="forgot_password"
+        tools:layout="@layout/fragment_forgot_password" />
     <dialog
         android:id="@+id/reauthentication_dialog"
         android:name="com.example.login.presentation.reauthentication.ReauthenticationDialog"
@@ -25,17 +30,10 @@
         tools:layout="@layout/reauthentication_dialog">
         <argument
             android:name="didFinishDirection"
-            app:argType="com.core.extensions.Direction" />
+            android:defaultValue="@null"
+            app:argType="com.core.extensions.Direction"
+            app:nullable="true" />
     </dialog>
-    <fragment
-        android:id="@+id/forgot_password_fragment"
-        android:name="com.example.login.presentation.forgotpassword.ForgotPasswordFragment"
-        android:label="forgot_password"
-        tools:layout="@layout/fragment_forgot_password">
-        <!--        <action-->
-        <!--            android:id="@+id/action_exit"-->
-        <!--            app:destination="@id/mainFragment" />-->
-    </fragment>
 
     <action
         android:id="@+id/action_did_finish"
@@ -45,7 +43,12 @@
             android:defaultValue="@null"
             app:argType="com.example.journey.NavigationState"
             app:nullable="true" />
+        <!--TODO why suppress? -->
+        <!--suppress AndroidDomInspection -->
+        <argument
+            android:name="destination"
+            android:defaultValue="@com.example.app:id/home_navigation"
+            app:argType="reference" />
     </action>
-
     <include app:graph="@navigation/app_navigation_graph" />
 </navigation>

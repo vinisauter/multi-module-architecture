@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.core.extensions.deepLinkIntent
 import com.core.extensions.navigate
-import com.core.logger.Logger
 import com.example.journey.login.tracking.LoginTracking
 import com.example.profile.databinding.FragmentProfileBinding
 import com.example.tagging.Tagging.Event
@@ -25,7 +24,7 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentProfileBinding.inflate(inflater, container, false).also { bind ->
-            bind.profileButton.setOnClickListener { navigate(ProfileFragmentDirections.actionLaunchHome()) }
+            bind.profileButton.setOnClickListener { navigate(ProfileFragmentDirections.actionDidFinish()) }
             bind.loginButton.setOnClickListener {
                 // TODO extract to file
                 val tracking = LoginTracking(
@@ -64,7 +63,13 @@ class ProfileFragment : Fragment() {
 //                    )
 //                )
 //            }
-            bind.exitButton.setOnClickListener { navigate(ProfileFragmentDirections.actionExit()) }
+            bind.exitButton.setOnClickListener {
+                navigate(
+                    ProfileFragmentDirections.actionDidFinish(
+                        destination = com.example.app.R.id.home_navigation
+                    )
+                )
+            }
 
             args.queryValue?.let {
                 bind.textMonitor.append("\n${it}")
@@ -76,10 +81,5 @@ class ProfileFragment : Fragment() {
         }
 
         return binding.root
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Logger.log("TEST")
     }
 }

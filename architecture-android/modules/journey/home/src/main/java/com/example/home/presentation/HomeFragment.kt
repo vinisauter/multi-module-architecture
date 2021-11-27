@@ -17,7 +17,13 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false).also {
 //            it.profileButton.setOnClickListener { navigate(HomeFragmentDirections.actionLaunchProfile()) }
-            it.exitButton.setOnClickListener { navigate(HomeFragmentDirections.actionExit()) }
+            it.exitButton.setOnClickListener {
+                navigate(
+                    HomeFragmentDirections.actionDidFinish(
+                        destination = com.example.app.R.id.splash
+                    )
+                )
+            }
         }
         return binding.root
     }

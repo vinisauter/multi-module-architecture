@@ -16,7 +16,8 @@
     <application>
         <activity
             android:name=".HomeNavigationActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:launchMode="singleTask" />
     </application>
 
 </manifest>

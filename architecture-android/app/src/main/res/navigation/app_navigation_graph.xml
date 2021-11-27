@@ -9,16 +9,6 @@
     android:id="@+id/app_navigation_graph"
     app:startDestination="@id/navigation_launcher">
 
-    <fragment
-        android:id="@+id/splash_fragment"
-        android:name="com.example.app.SplashFragment"
-        android:label="fragment_splash"
-        tools:layout="@layout/fragment_splash">
-        <action
-            android:id="@+id/action_login"
-            app:destination="@id/login_navigation_activity" />
-    </fragment>
-
     <dialog
         android:id="@+id/navigation_launcher"
         android:name="com.example.journey.NavigationLauncher"
@@ -28,10 +18,23 @@
             android:defaultValue="@null"
             app:argType="com.example.journey.NavigationState"
             app:nullable="true" />
+        <argument
+            android:name="destination"
+            app:argType="reference" />
     </dialog>
 
+    <fragment
+        android:id="@+id/splash"
+        android:name="com.example.app.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_login"
+            app:destination="@id/login_navigation" />
+    </fragment>
+
     <activity
-        android:id="@+id/login_navigation_activity"
+        android:id="@+id/login_navigation"
         android:name="com.example.login.LoginNavigationActivity"
         android:label="LoginNavigationActivity"
         app:moduleName="login">
@@ -45,7 +48,7 @@
             app:nullable="true" />
     </activity>
     <activity
-        android:id="@+id/home_navigation_activity"
+        android:id="@+id/home_navigation"
         android:name="com.example.home.HomeNavigationActivity"
         android:label="HomeNavigationActivity"
         app:moduleName="home">
@@ -54,7 +57,7 @@
             app:uri="myapp://home" />
     </activity>
     <activity
-        android:id="@+id/profile_navigation_activity"
+        android:id="@+id/profile_navigation"
         android:name="com.example.profile.ProfileNavigationActivity"
         android:label="ProfileNavigationActivity"
         app:moduleName="profile">

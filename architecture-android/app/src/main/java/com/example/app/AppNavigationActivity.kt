@@ -5,7 +5,7 @@ import com.core.base.NavigationActivity
 
 class AppNavigationActivity : NavigationActivity(
     graphResId = R.navigation.app_navigation_graph,
-    startDestination = R.id.splash_fragment
+    startDestination = R.id.splash
 ) {
     val deepLink by lazy { intent.data }
     override fun onCreate(savedInstanceState: Bundle?) {
