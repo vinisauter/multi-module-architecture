@@ -29,11 +29,11 @@ import kotlin.reflect.jvm.isAccessible
  */
 class InjectionViewModelFactory @SuppressLint("LambdaLast") constructor(
     private val application: Application? = null,
-    private val owner: SavedStateRegistryOwner,
+    private val savedStateRegistryOwner: SavedStateRegistryOwner,
     private val defaultArgs: Bundle? = null,
 ) : ViewModelProvider.Factory {
-    private val lifecycle: Lifecycle = owner.lifecycle
-    private val savedStateRegistry: SavedStateRegistry = owner.savedStateRegistry
+    private val lifecycle: Lifecycle = savedStateRegistryOwner.lifecycle
+    private val savedStateRegistry: SavedStateRegistry = savedStateRegistryOwner.savedStateRegistry
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
