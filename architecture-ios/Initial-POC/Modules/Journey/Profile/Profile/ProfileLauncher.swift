@@ -10,13 +10,32 @@ import Core
 import NetworkingInterfaces
 import AnalyticsInterfaces
 
+public struct ProfileDependencies {
+    var deeplink: URL?
+    var baseFlowDelegate: BaseFlowDelegate?
+    var baseFlowDataSource: BaseFlowDataSource?
+    let networking: HTTPClient
+    let structuralAnalytics: AnalyticsProtocol
+    var customProfileAnalytics: ProfileAnalyticsProtocol?
+    
+    public init (_ deeplink: URL?, _ baseFlowDelegate: BaseFlowDelegate?, _ baseFlowDataSource: BaseFlowDataSource?, _ networking: HTTPClient, _ structuralAnalytics: AnalyticsProtocol, _ customProfileAnalytics: ProfileAnalyticsProtocol?) {
+        self.deeplink = deeplink
+        self.baseFlowDelegate = baseFlowDelegate
+        self.baseFlowDataSource = baseFlowDataSource
+        self.networking = networking
+        self.structuralAnalytics = structuralAnalytics
+        self.customProfileAnalytics = customProfileAnalytics
+    }
+}
+
+
 public class ProfileLauncher {
-    static public func start(from deeplink: URL?, baseFlowDelegate: BaseFlowDelegate?, baseFlowDataSource: BaseFlowDataSource?, httpClient: HTTPClient, analytics: AnalyticsProtocol, customProfileAnalytics: ProfileAnalyticsProtocol?) -> UIViewController {
-        let businessModel = ProfileBusinessModel(repository: ProfileAPI(httpClient: httpClient), analytics: analytics)
-        let factory = ProfileViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: customProfileAnalytics)
-        let mainFlow = ProfileFlow(factory: factory, deeplink: Deeplink(screen: ProfileDeeplink(rawValue: deeplink?.path ?? "/"), url: deeplink))
-        mainFlow.baseFlowDelegate = baseFlowDelegate
-        mainFlow.baseFlowDataSource = baseFlowDataSource
+    static public func start(with dependencies: ProfileDependencies) -> UIViewController {
+        let businessModel = ProfileBusinessModel(repository: ProfileAPI(httpClient: dependencies.networking), structuralAnalytics: dependencies.structuralAnalytics)
+        let factory = ProfileViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependencies.customProfileAnalytics)
+        let mainFlow = ProfileFlow(factory: factory, deeplink: Deeplink(screen: ProfileDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
+        mainFlow.baseFlowDelegate = dependencies.baseFlowDelegate
+        mainFlow.baseFlowDataSource = dependencies.baseFlowDataSource
         factory.flow = mainFlow
         
         return mainFlow.start()

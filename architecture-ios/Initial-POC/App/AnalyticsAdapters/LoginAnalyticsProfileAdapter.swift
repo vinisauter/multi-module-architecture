@@ -12,7 +12,7 @@ import Profile
 
 class LoginAnalyticsProfileAdapter: LoginAnalyticsProtocol, LoginIndexAnalyticsProtocol, ForgotPasswordAnalyticsProtocol {
     var structuralAnalytics: AnalyticsProtocol? {
-        return profileAnalytics?.analytics
+        return profileAnalytics?.structuralAnalytics
     }
     
     private let profileAnalytics: ProfileAnalyticsProtocol?

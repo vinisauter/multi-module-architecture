@@ -12,7 +12,10 @@ import Profile
 
 extension AppNavigation {
     func startProfile(from deeplink: URL? = nil, baseFlowDelegate: BaseFlowDelegate? = nil, baseFlowDataSource: BaseFlowDataSource? = nil, customProfileAnalytics: JourneyModuleAnalyticsProtocol? = nil, subJourney: JourneyModule? = nil) -> UIViewController {
-        return ProfileLauncher.start(from: deeplink, baseFlowDelegate: baseFlowDelegate, baseFlowDataSource: baseFlowDataSource, httpClient: DependencyProvider.networking, analytics: DependencyProvider.analytics, customProfileAnalytics: customProfileAnalytics as? ProfileAnalyticsProtocol)
+        let profileDependencies = ProfileDependencies(deeplink, baseFlowDelegate, baseFlowDataSource, DependencyProvider.networking, DependencyProvider.analytics, customProfileAnalytics as? ProfileAnalyticsProtocol
+        )
+        
+        return ProfileLauncher.start(with: profileDependencies)
     }
     
     func handleProfileFlowGo(to journey: JourneyModule, in viewController: UIViewController, with value: Any?) {

@@ -10,28 +10,28 @@ import Core
 
 extension ProfileBusinessModel: ProfileHomeAnalyticsProtocol {
     public func onGoToMenuClick() {
-        analytics?.track(tag: "PROFILE INDEX - onGoToMenuClick track")
+        structuralAnalytics?.track(tag: "PROFILE INDEX - onGoToMenuClick track")
     }
     
     func onCallLoginClick() {
-        analytics?.track(tag: "PROFILE INDEX - onCallLoginClick track")
+        structuralAnalytics?.track(tag: "PROFILE INDEX - onCallLoginClick track")
     }
     
     func onGoToForgotPasswordClick() {
-        analytics?.track(tag: "PROFILE INDEX - onGoToForgotPasswordClick track")
+        structuralAnalytics?.track(tag: "PROFILE INDEX - onGoToForgotPasswordClick track")
     }
 }
 
 extension ProfileBusinessModel {
     func onLoginClick() {
-        analytics?.track(tag: "FROM PROFILE - LOGIN - onLoginClick track ")
+        structuralAnalytics?.track(tag: "FROM PROFILE - LOGIN - onLoginClick track ")
     }
     
     func onForgotPasswordClick() {
-        analytics?.track(tag: "FROM PROFILE - LOGIN - onForgotPasswordClick track")
+        structuralAnalytics?.track(tag: "FROM PROFILE - LOGIN - onForgotPasswordClick track")
     }
     
     func onChangePasswordClick() {
-        analytics?.track(tag: "FROM PROFILE - LOGIN/FORGOT PASSWORD - onChangePasswordClick track")
+        structuralAnalytics?.track(tag: "FROM PROFILE - LOGIN/FORGOT PASSWORD - onChangePasswordClick track")
     }
 }

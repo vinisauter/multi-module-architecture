@@ -9,7 +9,7 @@ import Core
 import AnalyticsInterfaces
 
 public protocol ProfileAnalyticsProtocol: JourneyModuleAnalyticsProtocol {
-    var analytics: AnalyticsProtocol? { get }
+    var structuralAnalytics: AnalyticsProtocol? { get }
     func onLoginClick()
     func onForgotPasswordClick()
     func onChangePasswordClick()
@@ -21,10 +21,10 @@ public protocol ProfileUseCaseProtocol {
 
 class ProfileBusinessModel: ProfileUseCaseProtocol, ProfileAnalyticsProtocol {
     internal var repository: ProfileRepositoryProtocol?
-    internal var analytics: AnalyticsProtocol?
+    internal var structuralAnalytics: AnalyticsProtocol?
     
-    init(repository: ProfileRepositoryProtocol, analytics: AnalyticsProtocol) {
+    init(repository: ProfileRepositoryProtocol, structuralAnalytics: AnalyticsProtocol) {
         self.repository = repository
-        self.analytics = analytics
+        self.structuralAnalytics = structuralAnalytics
     }
 }
