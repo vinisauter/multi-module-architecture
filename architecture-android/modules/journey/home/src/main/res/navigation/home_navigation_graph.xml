@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_navigation_graph"
+    app:moduleName="home"
+    app:startDestination="@+id/home_fragment">
+
+    <fragment
+        android:id="@+id/home_fragment"
+        android:name="com.example.home.presentation.HomeFragment"
+        android:label="fragment_home"
+        app:moduleName="home"
+        tools:layout="@layout/fragment_home">
+    </fragment>
+
+    <action
+        android:id="@+id/action_did_finish"
+        app:destination="@id/app_navigation_graph">
+        <argument
+            android:name="nav_state"
+            android:defaultValue="@null"
+            app:argType="com.example.journey.NavigationState"
+            app:nullable="true" />
+        <!--TODO why suppress? -->
+        <!--suppress AndroidDomInspection -->
+        <argument
+            android:name="destination"
+            android:defaultValue="@com.example.app:id/profile_navigation"
+            app:argType="reference" />
+    </action>
+
+    <include app:graph="@navigation/app_navigation_graph" />
+</navigation>

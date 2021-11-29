@@ -4,15 +4,16 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavDirections
-import com.core.analytics.Tagging
 import com.core.extensions.onCpu
+import com.example.journey.NavigationState
 import com.example.journey.login.tracking.LoginTracking
+import com.example.tagging.TaggingExecutor
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 
 class LoginFragmentViewModel(
     private val app: Application,
-    private val tagging: Tagging,
+    private val tagging: TaggingExecutor,
     private val useCase: LoginFragmentUseCase,
     private val tracking: LoginTracking
 ) : AndroidViewModel(app) {
@@ -24,32 +25,32 @@ class LoginFragmentViewModel(
         get() = onActionCompletedSharedFlow
 
     fun onLoginViewCreated() {
-        tagging.sendScreenName(tracking.loginScreenName)
+        tagging.send(tracking.loginScreenName)
     }
 
     fun onLoginClicked() = viewModelScope.onCpu {
-        tagging.sendEvent(tracking.loginClickAuthEvent)
+        tagging.send(tracking.loginClickAuthEvent)
         try {
             // TODO: loader
             useCase.login("user", "password")
-//            onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginSucceed())
-            tagging.sendEvent(tracking.loginAuthSucceededEvent)
+            onActionCompletedSharedFlow.emit(
+                LoginFragmentDirections.actionDidFinish(NavigationState("login", "succeeded"))
+            )
+            tagging.send(tracking.loginAuthSucceededEvent)
         } catch (t: Throwable) {
 //            onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginFailed())
-            tagging.sendEvent(tracking.loginAuthFailedEvent)
+            tagging.send(tracking.loginAuthFailedEvent)
         }
     }
 
     fun onForgotPasswordClicked() = viewModelScope.onCpu {
-        tagging.sendEvent(tracking.loginClickForgotPasswordEvent)
+        tagging.send(tracking.loginClickForgotPasswordEvent)
         try {
-            // TODO: loader
-            useCase.login("user", "password")
-//            onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginSucceed())
-            tagging.sendEvent(tracking.loginForgotPasswordSucceededEvent)
+            onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionDidFinish())
+            tagging.send(tracking.loginForgotPasswordSucceededEvent)
         } catch (t: Throwable) {
 //            onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginFailed())
-            tagging.sendEvent(tracking.loginForgotPasswordFailedEvent)
+            tagging.send(tracking.loginForgotPasswordFailedEvent)
         }
     }
 }

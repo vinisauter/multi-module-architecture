@@ -2,6 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_navigation_graph"
     app:moduleName="login"
     app:startDestination="@+id/login_fragment">
 
@@ -9,5 +10,45 @@
         android:id="@+id/login_fragment"
         android:name="com.example.login.presentation.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login">
+        <argument
+            android:name="login_tracking"
+            app:argType="com.example.journey.login.tracking.LoginTracking" />
+        <action
+            android:id="@+id/action_forgot_password"
+            app:destination="@id/forgot_password_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgot_password_fragment"
+        android:name="com.example.login.presentation.forgotpassword.ForgotPasswordFragment"
+        android:label="forgot_password"
+        tools:layout="@layout/fragment_forgot_password" />
+    <dialog
+        android:id="@+id/reauthentication_dialog"
+        android:name="com.example.login.presentation.reauthentication.ReauthenticationDialog"
+        android:label="reauthentication"
+        tools:layout="@layout/reauthentication_dialog">
+        <argument
+            android:name="didFinishDirection"
+            android:defaultValue="@null"
+            app:argType="com.core.extensions.Direction"
+            app:nullable="true" />
+    </dialog>
+
+    <action
+        android:id="@+id/action_did_finish"
+        app:destination="@id/app_navigation_graph">
+        <argument
+            android:name="nav_state"
+            android:defaultValue="@null"
+            app:argType="com.example.journey.NavigationState"
+            app:nullable="true" />
+        <!--TODO why suppress? -->
+        <!--suppress AndroidDomInspection -->
+        <argument
+            android:name="destination"
+            android:defaultValue="@com.example.app:id/home_navigation"
+            app:argType="reference" />
+    </action>
+    <include app:graph="@navigation/app_navigation_graph" />
 </navigation>

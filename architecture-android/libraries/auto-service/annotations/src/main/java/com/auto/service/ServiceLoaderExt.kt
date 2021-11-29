@@ -8,9 +8,10 @@ inline fun <reified T : Any> load(): T = try {
         ServiceLoader.load(T::class.java, T::class.java.classLoader)
     serviceLoader.iterator().next()
 } catch (t: Throwable) {
-    throw IllegalStateException(
-        "TODO ERROR DESC ServiceLoader ${T::class.java.name} class or empty constructor not found",
-        t
+    throw
+    IllegalStateException(
+        "ServiceLoader ${T::class.java.name} " +
+                "class implementation not found or class does not have empty constructor", t
     )
 }
 

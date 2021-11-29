@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ModularFeatureArchitecture">
         <activity
-            android:name=".MainActivity"
+            android:name=".AppNavigationActivity"
             android:exported="true">
             <nav-graph android:value="@navigation/app_navigation_graph" />
             <intent-filter>
@@ -20,7 +20,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.journey.AppNavigationActivity" />
     </application>
 
 </manifest>

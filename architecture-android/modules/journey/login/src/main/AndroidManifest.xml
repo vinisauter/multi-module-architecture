@@ -12,6 +12,8 @@
         <dist:fusing dist:include="true" />
     </dist:module>
     <application>
-        <activity android:name=".LoginNavigationActivity" />
+        <activity
+            android:name=".LoginNavigationActivity"
+            android:exported="false" />
     </application>
 </manifest>

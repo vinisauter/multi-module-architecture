@@ -44,6 +44,7 @@ android {
 
             ':modules:structural:networking',
             ':modules:structural:storage',
+            ':modules:structural:tagging',
     ]
 }
 
@@ -55,6 +56,7 @@ dependencies {
 
     api project(path: ':modules:structural:networking-interface')
     api project(path: ':modules:structural:storage-interface')
+    api project(path: ':modules:structural:tagging-interface')
 
     api 'androidx.core:core-ktx:1.7.0'
     api 'androidx.activity:activity-ktx:1.4.0'

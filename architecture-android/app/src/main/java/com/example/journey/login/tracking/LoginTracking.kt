@@ -1,8 +1,9 @@
 package com.example.journey.login.tracking
 
 import android.os.Parcelable
-import com.core.analytics.Event
-import com.core.analytics.ScreenName
+import com.example.tagging.Tagging
+import com.example.tagging.Tagging.Event
+import com.example.tagging.Tagging.ScreenName
 import kotlinx.parcelize.Parcelize
 
 // TODO IMPORTANT FOR GENERIC TRACKING: (force forum maybe)
@@ -13,14 +14,14 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class LoginTracking(
     //LoginFragment
-    var loginScreenName: ScreenName = "login",
-    var loginClickAuthEvent: Event = Event("login", "click", "auth"),
-    var loginAuthSucceededEvent: Event = Event("login", "auth", "succeeded"),
-    var loginAuthFailedEvent: Event = Event("login", "auth", "failed"),
-    var loginClickForgotPasswordEvent: Event = Event("login", "click", "forgot_password"),
-    val loginForgotPasswordSucceededEvent: Event = Event("login", "forgot_password", "succeeded"),
-    val loginForgotPasswordFailedEvent: Event = Event("login", "forgot_password", "failed"),
+    var loginScreenName: Tagging = ScreenName("login"),
+    var loginClickAuthEvent: Tagging = Event("login", "click", "auth"),
+    var loginAuthSucceededEvent: Tagging = Event("login", "auth", "succeeded"),
+    var loginAuthFailedEvent: Tagging = Event("login", "auth", "failed"),
+    var loginClickForgotPasswordEvent: Tagging = Event("login", "click", "forgot_password"),
+    val loginForgotPasswordSucceededEvent: Tagging = Event("login", "forgot_password", "succeeded"),
+    val loginForgotPasswordFailedEvent: Tagging = Event("login", "forgot_password", "failed"),
     //ForgotPasswordFragment
-    var forgotPasswordScreenName: ScreenName = "forgot_password",
-    var forgotPasswordClickExitEvent: Event = Event("forgot_password", "click", "exit"),
+    var forgotPasswordScreenName: Tagging = ScreenName("forgot_password"),
+    var forgotPasswordClickExitEvent: Tagging = Event("forgot_password", "click", "exit"),
 ) : Parcelable
