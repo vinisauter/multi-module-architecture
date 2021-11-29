@@ -1,11 +1,16 @@
 package android.injection
 
-import android.injection.factory.InjectionProvider
-import android.injection.factory.QualifierValue
-
 val provider = InjectionProvider
 
 inline fun provides(block: InjectionProvider.() -> Unit) = provider.apply(block)
+
+@Synchronized
+fun module(moduleName: String, block: Module.() -> Unit) = provider.module(moduleName, block)
+
+@Synchronized
+fun moduleRemove(moduleName: String) {
+    provider.moduleRegistry[moduleName]?.clear()
+}
 
 inline fun <reified T : Any> get(
     qualifier: QualifierValue? = null,
@@ -17,4 +22,3 @@ inline fun <reified T : Any> inject(
     qualifier: QualifierValue? = null,
     mode: LazyThreadSafetyMode = LazyThreadSafetyMode.SYNCHRONIZED,
 ) = lazy(mode) { get<T>(qualifier) }
-

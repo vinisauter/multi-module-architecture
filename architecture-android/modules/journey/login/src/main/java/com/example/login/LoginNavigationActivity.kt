@@ -1,7 +1,8 @@
 package com.example.login
 
+import android.injection.Module
 import android.injection.get
-import android.injection.provides
+import android.injection.module
 import android.os.Bundle
 import androidx.navigation.navArgs
 import com.core.base.NavigationActivity
@@ -13,28 +14,28 @@ import com.example.login.business.repository.remote.LoginApi
 
 class LoginNavigationActivity : NavigationActivity(R.navigation.login_navigation_graph) {
     private val args: LoginNavigationActivityArgs by navArgs()
-
-    //lateinit var module: Module
+    private lateinit var module: Module
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val tracking: LoginTracking = args.loginTracking.default(LoginTracking())
-
-        // TODO ADD MODULES DEPENDENCIES
-//        module =
-        provides {
+        // TODO: move to BaseActivity?
+        module = module("LOGIN") {
             declare<LoginTracking> { tracking }
-            declareWithSuperClasses {
+            sharedWithSuperClasses<LoginBusinessModel> {
                 val api = LoginApi(get())
                 val storage = LoginStorage(get())
                 LoginBusinessModel(api, storage)
             }
+            // declareWithSuperClasses/sharedWithSuperClasses<LoginBusinessModel>
+            //  WithSuperClasses is equivalent to definition of all super classes:
+            //  declare/shared<LoginBusinessModel>
+            //  declare/shared<LoginFragmentUseCase>
+            //  declare/shared<ForgotPasswordFragmentUseCase>
         }
-//        addModule(module)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        // TODO REMOVE MODULES DEPENDENCIES
-//        removeModule(module)
+        module.clear()
     }
 }

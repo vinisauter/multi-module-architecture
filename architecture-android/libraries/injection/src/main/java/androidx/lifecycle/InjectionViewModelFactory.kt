@@ -2,7 +2,7 @@ package androidx.lifecycle
 
 import android.annotation.SuppressLint
 import android.app.Application
-import android.injection.factory.InjectionProvider
+import android.injection.InjectionProvider
 import android.os.Bundle
 import androidx.savedstate.SavedStateRegistry
 import androidx.savedstate.SavedStateRegistryOwner
