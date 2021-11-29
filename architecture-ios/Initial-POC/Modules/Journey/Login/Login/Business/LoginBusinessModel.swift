@@ -9,7 +9,7 @@ import Core
 import AnalyticsInterfaces
 
 public protocol LoginAnalyticsProtocol: JourneyModuleAnalyticsProtocol {
-    var analytics: AnalyticsProtocol? { get }
+    var structuralAnalytics: AnalyticsProtocol? { get }
 }
 
 public protocol LoginUseCaseProtocol {
@@ -18,11 +18,11 @@ public protocol LoginUseCaseProtocol {
 
 class LoginBusinessModel: LoginUseCaseProtocol, LoginAnalyticsProtocol {
     internal var repository: LoginRepositoryProtocol?
-    internal var analytics: AnalyticsProtocol?
+    internal var structuralAnalytics: AnalyticsProtocol?
     
-    init(repository: LoginRepositoryProtocol, analytics: AnalyticsProtocol) {
+    init(repository: LoginRepositoryProtocol, structuralAnalytics: AnalyticsProtocol) {
         self.repository = repository
-        self.analytics = analytics
+        self.structuralAnalytics = structuralAnalytics
     }
 }
 

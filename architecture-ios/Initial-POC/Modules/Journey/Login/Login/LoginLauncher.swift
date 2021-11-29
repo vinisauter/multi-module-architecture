@@ -10,22 +10,39 @@ import NetworkingInterfaces
 import AnalyticsInterfaces
 import Core
 
+public struct LoginDependencies {
+    var deeplink: URL?
+    var baseFlowDelegate: BaseFlowDelegate?
+    let networking: HTTPClient
+    let structuralAnalytics: AnalyticsProtocol
+    var customLoginAnalytics: LoginAnalyticsProtocol?
+    
+    public init (_ deeplink: URL?, _ baseFlowDelegate: BaseFlowDelegate?, _ networking: HTTPClient, _ structuralAnalytics: AnalyticsProtocol, _ customLoginAnalytics: LoginAnalyticsProtocol?) {
+        self.deeplink = deeplink
+        self.baseFlowDelegate = baseFlowDelegate
+        self.networking = networking
+        self.structuralAnalytics = structuralAnalytics
+        self.customLoginAnalytics = customLoginAnalytics
+    }
+}
+
+
 public class LoginLauncher {
-    static public func start(from deeplink: URL?, baseFlowDelegate: BaseFlowDelegate?, httpClient: HTTPClient, analytics: AnalyticsProtocol, customLoginAnalytics: LoginAnalyticsProtocol?) -> UIViewController {
-        let businessModel = LoginBusinessModel(repository: LoginAPI(httpClient: httpClient), analytics: analytics)
-        let factory = LoginViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: customLoginAnalytics)
-        let mainFlow = LoginFlow(factory: factory, deeplink: Deeplink(screen: LoginDeeplink(rawValue: deeplink?.path ?? "/"), url: deeplink))
-        mainFlow.baseFlowDelegate = baseFlowDelegate
+    static public func start(with dependenies: LoginDependencies) -> UIViewController {
+        let businessModel = LoginBusinessModel(repository: LoginAPI(httpClient: dependenies.networking), structuralAnalytics: dependenies.structuralAnalytics)
+        let factory = LoginViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependenies.customLoginAnalytics)
+        let mainFlow = LoginFlow(factory: factory, deeplink: Deeplink(screen: LoginDeeplink(rawValue: dependenies.deeplink?.path ?? "/"), url: dependenies.deeplink))
+        mainFlow.baseFlowDelegate = dependenies.baseFlowDelegate
         factory.flow = mainFlow
         
         return mainFlow.start()
     }
     
-    static public func startForgotPassword(from deeplink: URL?, baseFlowDelegate: BaseFlowDelegate?, httpClient: HTTPClient, analytics: AnalyticsProtocol, customLoginAnalytics: LoginAnalyticsProtocol?) -> UIViewController {
-        let businessModel = LoginBusinessModel(repository: LoginAPI(httpClient: httpClient), analytics: analytics)
-        let factory = LoginViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: customLoginAnalytics)
-        let mainFlow = ForgotPasswordFlow(factory: factory, deeplink: Deeplink(screen: LoginDeeplink(rawValue: deeplink?.path ?? "/"), url: deeplink))
-        mainFlow.baseFlowDelegate = baseFlowDelegate
+    static public func startForgotPassword(with dependenies: LoginDependencies) -> UIViewController {
+        let businessModel = LoginBusinessModel(repository: LoginAPI(httpClient: dependenies.networking), structuralAnalytics: dependenies.structuralAnalytics)
+        let factory = LoginViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependenies.customLoginAnalytics)
+        let mainFlow = ForgotPasswordFlow(factory: factory, deeplink: Deeplink(screen: LoginDeeplink(rawValue: dependenies.deeplink?.path ?? "/"), url: dependenies.deeplink))
+        mainFlow.baseFlowDelegate = dependenies.baseFlowDelegate
         factory.flow = mainFlow
         
         return mainFlow.start()

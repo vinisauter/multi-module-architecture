@@ -11,7 +11,7 @@ import Login
 import Profile
 
 class LoginAnalyticsProfileAdapter: LoginAnalyticsProtocol, LoginIndexAnalyticsProtocol, ForgotPasswordAnalyticsProtocol {
-    var analytics: AnalyticsProtocol? {
+    var structuralAnalytics: AnalyticsProtocol? {
         return profileAnalytics?.analytics
     }
     

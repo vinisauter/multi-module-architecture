@@ -12,17 +12,19 @@ import Profile
 
 extension AppNavigation {
     func startLogin(from deeplink: URL? = nil, baseFlowDelegate: BaseFlowDelegate? = nil, customLoginAnalytics: JourneyModuleAnalyticsProtocol? = nil, subJourney: JourneyModule? = nil) -> UIViewController {
-        let defaultStart = LoginLauncher.start(from: deeplink, baseFlowDelegate: baseFlowDelegate, httpClient: DependencyProvider.networking, analytics: DependencyProvider.analytics, customLoginAnalytics: customLoginAnalytics as? LoginAnalyticsProtocol)
+        let loginDependencies = LoginDependencies(deeplink, baseFlowDelegate, DependencyProvider.networking, DependencyProvider.analytics, customLoginAnalytics as? LoginAnalyticsProtocol)
+        
+        var startViewController: UIViewController = LoginLauncher.start(with: loginDependencies)
         
         if let subJourney = subJourney {
             switch subJourney {
             case .forgotPassword:
-                return LoginLauncher.startForgotPassword(from: deeplink, baseFlowDelegate: baseFlowDelegate, httpClient: DependencyProvider.networking, analytics: DependencyProvider.analytics, customLoginAnalytics: customLoginAnalytics as? LoginAnalyticsProtocol)
+                startViewController = LoginLauncher.startForgotPassword(with: loginDependencies)
             default: break
             }
         }
         
-        return defaultStart
+        return startViewController
     }
     
     func handleLoginFlowGo(to journey: JourneyModule, in viewController: UIViewController, with value: Any?) {
