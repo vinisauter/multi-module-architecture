@@ -11,7 +11,9 @@ import Home
 
 extension AppNavigation {
     func startHome(from deeplink: URL? = nil, baseFlowDelegate: BaseFlowDelegate? = nil, customHomeAnalytics: JourneyModuleAnalyticsProtocol? = nil, subJourney: JourneyModule? = nil) -> UIViewController {
-        return HomeLauncher.start(from: deeplink, baseFlowDelegate: baseFlowDelegate, httpClient: DependencyProvider.networking, analytics: DependencyProvider.analytics, customHomeAnalytics: customHomeAnalytics as? HomeAnalyticsProtocol)
+        let homeDependencies = HomeDependencies(deeplink, baseFlowDelegate, DependencyProvider.networking, DependencyProvider.analytics, customHomeAnalytics as? HomeAnalyticsProtocol)
+        
+        return HomeLauncher.start(with: homeDependencies)
     }
     
     func handleHomeFlowGo(to journey: JourneyModule, in viewController: UIViewController, with value: Any?) {

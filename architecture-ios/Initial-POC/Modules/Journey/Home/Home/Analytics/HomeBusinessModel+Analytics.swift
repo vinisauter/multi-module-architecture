@@ -7,10 +7,10 @@
 
 extension HomeBusinessModel: HomeIndexAnalyticsProtocol {
     func onOpenProfileClick() {
-        analytics?.track(tag: "HOME INDEX - onOpenProfileClick track")
+        structuralAnalytics?.track(tag: "HOME INDEX - onOpenProfileClick track")
     }
     
     func onLogoutClick() {
-        analytics?.track(tag: "HOME INDEX - onLogoutClick track")
+        structuralAnalytics?.track(tag: "HOME INDEX - onLogoutClick track")
     }
 }

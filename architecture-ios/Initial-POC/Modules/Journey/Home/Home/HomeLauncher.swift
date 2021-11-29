@@ -10,12 +10,28 @@ import Core
 import NetworkingInterfaces
 import AnalyticsInterfaces
 
+public struct HomeDependencies {
+    var deeplink: URL?
+    var baseFlowDelegate: BaseFlowDelegate?
+    let networking: HTTPClient
+    let structuralAnalytics: AnalyticsProtocol
+    var customHomeAnalytics: HomeAnalyticsProtocol?
+    
+    public init (_ deeplink: URL?, _ baseFlowDelegate: BaseFlowDelegate?, _ networking: HTTPClient, _ structuralAnalytics: AnalyticsProtocol, _ customHomeAnalytics: HomeAnalyticsProtocol?) {
+        self.deeplink = deeplink
+        self.baseFlowDelegate = baseFlowDelegate
+        self.networking = networking
+        self.structuralAnalytics = structuralAnalytics
+        self.customHomeAnalytics = customHomeAnalytics
+    }
+}
+
 public class HomeLauncher {
-    static public func start(from deeplink: URL?, baseFlowDelegate: BaseFlowDelegate?, httpClient: HTTPClient, analytics: AnalyticsProtocol, customHomeAnalytics: HomeAnalyticsProtocol?) -> UIViewController {
-        let businessModel = HomeBusinessModel(repository: HomeAPI(httpClient: httpClient), analytics: analytics)
-        let factory = HomeViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: customHomeAnalytics)
-        let mainFlow = HomeFlow(factory: factory, deeplink: Deeplink(screen: HomeDeeplink(rawValue: deeplink?.path ?? "/"), url: deeplink))
-        mainFlow.baseFlowDelegate = baseFlowDelegate
+    static public func start(with dependencies: HomeDependencies) -> UIViewController {
+        let businessModel = HomeBusinessModel(repository: HomeAPI(httpClient: dependencies.networking), structuralAnalytics: dependencies.structuralAnalytics)
+        let factory = HomeViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependencies.customHomeAnalytics)
+        let mainFlow = HomeFlow(factory: factory, deeplink: Deeplink(screen: HomeDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
+        mainFlow.baseFlowDelegate = dependencies.baseFlowDelegate
         factory.flow = mainFlow
         
         return mainFlow.start(useCase: businessModel, analytics: businessModel)
