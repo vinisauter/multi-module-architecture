@@ -29,7 +29,6 @@ class LoginNavigationActivity : NavigationActivity(R.navigation.login_navigation
                 LoginBusinessModel(api, storage)
             }
         }
-//        addModule(module)
     }
 
     override fun onDestroy() {
