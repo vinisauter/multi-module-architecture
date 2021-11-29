@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.app.databinding.SplashFragmentBinding
+import com.navigationapp.Actions
 import com.navigationapp.ActionsGlobal
 import com.navigationapp.NavigatorController
 
@@ -19,7 +20,7 @@ class SplashFragment : Fragment() {
 
         binding.apply {
             buttonLogin.setOnClickListener {
-                goToLoginGraph()
+                startActivity(context?.let { it1 -> Actions.openLoginIntent(it1) })
             }
         }
     }

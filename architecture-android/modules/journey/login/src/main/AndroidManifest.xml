@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:dist="http://schemas.android.com/apk/distribution"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
     package="com.example.login">
+
+    <application>
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.example.login.open" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
 
     <dist:module
         dist:instant="false"
-        dist:title="@string/title_login">
+        dist:title="Login Activity">
         <dist:delivery>
             <dist:on-demand />
         </dist:delivery>
+
         <dist:fusing dist:include="true" />
     </dist:module>
+
 </manifest>

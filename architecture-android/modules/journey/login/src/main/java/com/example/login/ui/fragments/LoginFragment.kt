@@ -8,6 +8,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.example.login.R
 import com.example.login.ui.locator.AppServiceLocator
+import com.navigationapp.Actions
 import com.navigationapp.ActionsGlobal
 import com.navigationapp.NavigatorController
 
@@ -21,9 +22,10 @@ class LoginFragment : Fragment() {
         initViewModels()
         val buttonHome = view.findViewById<Button>(R.id.buttonHome)
         buttonHome.setOnClickListener {
-             loginViewModel?.requestSignIn("sanzjv", "123")?.let {
+             /*loginViewModel?.requestSignIn("sanzjv", "123")?.let {
                  if (it) goToHomeGraph()
-             }
+             }*/
+            startActivity(context?.let { it1 -> Actions.openHomeIntent(it1) })
         }
     }
 
