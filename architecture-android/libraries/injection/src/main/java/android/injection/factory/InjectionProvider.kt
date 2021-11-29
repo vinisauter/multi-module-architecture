@@ -9,7 +9,7 @@ typealias Definition<T> = () -> T
 typealias QualifierValue = String
 
 object InjectionProvider {
-    val definitionRegistry: MutableMap<String, Factory<Any>> = ConcurrentHashMap()
+    val definitionRegistry: MutableMap<String, InjectionFactory<Any>> = ConcurrentHashMap()
     val moduleRegistry: MutableMap<String, Module> = ConcurrentHashMap()
 
     inline fun module(name: String, block: Module.() -> Unit) = Module(name).apply{

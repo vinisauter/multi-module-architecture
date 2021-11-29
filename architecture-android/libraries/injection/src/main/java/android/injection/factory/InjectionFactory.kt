@@ -1,5 +1,5 @@
 package android.injection.factory
 
-interface Factory<T>{
+interface InjectionFactory<T>{
     fun get(): T
 }
