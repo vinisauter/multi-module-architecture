@@ -17,7 +17,7 @@ class LoginAnalyticsProfileAdapter: LoginAnalyticsProtocol, LoginIndexAnalyticsP
     
     private let profileAnalytics: ProfileAnalyticsProtocol?
     
-    init(profileAnalytics: JourneyModuleAnalyticsProtocol?) {
+    init(profileAnalytics: Any?) {
         self.profileAnalytics = profileAnalytics as? ProfileAnalyticsProtocol
     }
     

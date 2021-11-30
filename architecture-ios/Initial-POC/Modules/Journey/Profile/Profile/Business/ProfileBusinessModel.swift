@@ -8,7 +8,7 @@
 import Core
 import AnalyticsInterfaces
 
-public protocol ProfileAnalyticsProtocol: JourneyModuleAnalyticsProtocol {
+public protocol ProfileAnalyticsProtocol {
     var structuralAnalytics: AnalyticsProtocol? { get }
     func onLoginClick()
     func onForgotPasswordClick()

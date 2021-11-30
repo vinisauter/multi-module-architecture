@@ -27,7 +27,7 @@ class WelcomeViewController: UIViewController {
 
 
 class WelcomeStarter: ModuleStarter {
-    func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: JourneyModuleAnalyticsProtocol?, _ subJourney: JourneyModule?, _ value: Any?) -> UIViewController {
+    func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: JourneyModule?, _ value: Any?) -> UIViewController {
         return UIViewController.instantiateViewController(ofType: WelcomeViewController.self)!
     }
     
@@ -43,7 +43,7 @@ class WelcomeStarter: ModuleStarter {
         return "welcome"
     }
     
-    func handleGet(from journey: JourneyModule, to subJourney: JourneyModule?, with baseFlowDelegate: BaseFlowDelegate, analytics: JourneyModuleAnalyticsProtocol?) -> UIViewController {
+    func handleGet(from journey: JourneyModule, to subJourney: JourneyModule?, with baseFlowDelegate: BaseFlowDelegate, analytics: Any?) -> UIViewController {
         UIViewController.instantiateViewController(ofType: WelcomeViewController.self)!
     }
 }

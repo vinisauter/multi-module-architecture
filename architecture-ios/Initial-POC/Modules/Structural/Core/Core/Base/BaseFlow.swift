@@ -17,8 +17,6 @@ public struct Deeplink<T> {
     }
 }
 
-public protocol JourneyModuleAnalyticsProtocol {}
-
 // app://login/*
 // app://welcome/*
 // app://home/*
@@ -47,13 +45,13 @@ public protocol BaseFlowDelegate: AnyObject {
 }
 
 public protocol BaseFlowDataSource: AnyObject {
-    func get(_ journey: JourneyModule, from currentJourney: JourneyModule, with baseFlowDelegate: BaseFlowDelegate, customAnalytics: JourneyModuleAnalyticsProtocol?) -> UIViewController
+    func get(_ journey: JourneyModule, from currentJourney: JourneyModule, with baseFlowDelegate: BaseFlowDelegate, customAnalytics: Any?) -> UIViewController
 }
 
 public protocol ModuleStarter {
-    func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: JourneyModuleAnalyticsProtocol?, _ subJourney: JourneyModule?, _ value: Any?) -> UIViewController
+    func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: JourneyModule?, _ value: Any?) -> UIViewController
     func canStart() -> Bool
     func getPath() -> String
     func handleGo(to journey: JourneyModule, in viewController: UIViewController, with value: Any?)
-    func handleGet(from journey: JourneyModule, to subJourney: JourneyModule?, with baseFlowDelegate: BaseFlowDelegate, analytics: JourneyModuleAnalyticsProtocol?) -> UIViewController
+    func handleGet(from journey: JourneyModule, to subJourney: JourneyModule?, with baseFlowDelegate: BaseFlowDelegate, analytics: Any?) -> UIViewController
 }

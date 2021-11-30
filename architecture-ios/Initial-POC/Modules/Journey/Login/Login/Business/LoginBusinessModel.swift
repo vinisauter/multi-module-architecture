@@ -8,7 +8,7 @@
 import Core
 import AnalyticsInterfaces
 
-public protocol LoginAnalyticsProtocol: JourneyModuleAnalyticsProtocol {
+public protocol LoginAnalyticsProtocol {
     var structuralAnalytics: AnalyticsProtocol? { get }
 }
 

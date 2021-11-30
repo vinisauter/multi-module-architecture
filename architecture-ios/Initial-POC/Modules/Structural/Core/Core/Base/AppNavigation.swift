@@ -91,7 +91,7 @@ public final class AppNavigation {
         return starters[jorney]
     }
     
-    public func start(_ journey: JourneyModule, to subJourney: JourneyModule? = nil, from currentJourney: JourneyModule? = nil, with url: URL? = nil, baseFlowDelegate: BaseFlowDelegate = AppNavigation.shared, baseFlowDataSource: BaseFlowDataSource = AppNavigation.shared, customModuleAnalytics: JourneyModuleAnalyticsProtocol? = nil, value: Any? = nil) -> UIViewController {
+    public func start(_ journey: JourneyModule, to subJourney: JourneyModule? = nil, from currentJourney: JourneyModule? = nil, with url: URL? = nil, baseFlowDelegate: BaseFlowDelegate = AppNavigation.shared, baseFlowDataSource: BaseFlowDataSource = AppNavigation.shared, customModuleAnalytics: Any? = nil, value: Any? = nil) -> UIViewController {
         
         guard let starter = getStarter(from: journey) else { return UIViewController() }
 
@@ -162,7 +162,7 @@ extension AppNavigation: BaseFlowDelegate {
 // MARK: - BaseFlowDataSource
 
 extension AppNavigation: BaseFlowDataSource {
-    public func get(_ journey: JourneyModule, from currentJourney: JourneyModule, with baseFlowDelegate: BaseFlowDelegate, customAnalytics: JourneyModuleAnalyticsProtocol?) -> UIViewController {
+    public func get(_ journey: JourneyModule, from currentJourney: JourneyModule, with baseFlowDelegate: BaseFlowDelegate, customAnalytics: Any?) -> UIViewController {
         guard let starter = getStarter(from: journey) else { return UIViewController() }
         return starter.handleGet(from: currentJourney, to: journey, with: baseFlowDelegate, analytics: customAnalytics)
     }
