@@ -12,20 +12,41 @@
         android:label="fragment_home"
         app:moduleName="home"
         tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_launch_profile"
+            app:destination="@id/app_navigation_graph">
+            <argument
+                android:name="destination_id"
+                android:defaultValue="@com.example.app:id/profile_navigation"
+                app:argType="reference" />
+        </action>
+        <action
+            android:id="@+id/action_exit"
+            app:destination="@id/app_navigation_graph">
+            <argument
+                android:name="destination_id"
+                android:defaultValue="@com.example.app:id/splash"
+                app:argType="reference" />
+        </action>
     </fragment>
 
     <action
-        android:id="@+id/action_did_finish"
+        android:id="@+id/delegate_state"
         app:destination="@id/app_navigation_graph">
         <argument
             android:name="nav_state"
             android:defaultValue="@null"
             app:argType="com.example.journey.NavigationState"
             app:nullable="true" />
+    </action>
+
+    <action
+        android:id="@+id/action_did_finish"
+        app:destination="@id/app_navigation_graph">
         <!--TODO why suppress? -->
         <!--suppress AndroidDomInspection -->
         <argument
-            android:name="destination"
+            android:name="destination_id"
             android:defaultValue="@com.example.app:id/profile_navigation"
             app:argType="reference" />
     </action>

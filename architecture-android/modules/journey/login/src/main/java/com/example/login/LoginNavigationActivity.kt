@@ -17,7 +17,7 @@ class LoginNavigationActivity : NavigationActivity(R.navigation.login_navigation
     private lateinit var module: Module
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val tracking: LoginTracking = args.loginTracking.default(LoginTracking())
+        val tracking: LoginTracking = args.tracking.default(LoginTracking())
         // TODO: move to BaseActivity?
         module = module("LOGIN") {
             declare<LoginTracking> { tracking }

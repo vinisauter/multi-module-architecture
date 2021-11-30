@@ -3,7 +3,7 @@ package com.example.login.presentation.forgotpassword
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.injectViewModel
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavDirections
 import com.core.extensions.navigate
@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class ForgotPasswordFragment : Fragment(R.layout.fragment_forgot_password) {
-    private val viewModel: ForgotPasswordFragmentViewModel by viewModels()
+    private val viewModel: ForgotPasswordFragmentViewModel by injectViewModel()
     private val binding: FragmentForgotPasswordBinding by lazy {
         FragmentForgotPasswordBinding.bind(requireView())
     }

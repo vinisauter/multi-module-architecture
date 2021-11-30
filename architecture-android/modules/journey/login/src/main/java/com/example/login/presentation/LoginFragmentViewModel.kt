@@ -4,8 +4,9 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavDirections
+import com.core.extensions.default
 import com.core.extensions.onCpu
-import com.example.journey.NavigationState
+import com.example.app.AppNavigationGraphDirections
 import com.example.journey.login.tracking.LoginTracking
 import com.example.tagging.TaggingExecutor
 import kotlinx.coroutines.flow.Flow
@@ -33,12 +34,10 @@ class LoginFragmentViewModel(
         try {
             // TODO: loader
             useCase.login("user", "password")
-            onActionCompletedSharedFlow.emit(
-                LoginFragmentDirections.actionDidFinish(NavigationState("login", "succeeded"))
-            )
+            onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginSucceed())
             tagging.send(tracking.loginAuthSucceededEvent)
         } catch (t: Throwable) {
-//            onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginFailed())
+            onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginFailed())
             tagging.send(tracking.loginAuthFailedEvent)
         }
     }
@@ -46,26 +45,15 @@ class LoginFragmentViewModel(
     fun onForgotPasswordClicked() = viewModelScope.onCpu {
         tagging.send(tracking.loginClickForgotPasswordEvent)
         try {
-            onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionDidFinish())
+            onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionForgotPassword())
             tagging.send(tracking.loginForgotPasswordSucceededEvent)
         } catch (t: Throwable) {
-//            onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginFailed())
+            onActionCompletedSharedFlow.emit(
+                AppNavigationGraphDirections.actionShowError(
+                    t.message.default("ERROR")
+                )
+            )
             tagging.send(tracking.loginForgotPasswordFailedEvent)
         }
     }
 }
-
-//fun ViewModel.action(
-//    tagging: Tagging,
-//    function: suspend CoroutineScope.() -> Unit
-//) = viewModelScope.onCpu {
-//    tagging.sendEvent(tracking.loginClickForgotPasswordEvent)
-//    try {
-//        function.invoke(this)
-////      onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginSucceed())
-//        tagging.sendEvent(tracking.loginForgotPasswordSucceededEvent)
-//    } catch (t: Throwable) {
-////      onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginFailed())
-//        tagging.sendEvent(tracking.loginForgotPasswordFailedEvent)
-//    }
-//}

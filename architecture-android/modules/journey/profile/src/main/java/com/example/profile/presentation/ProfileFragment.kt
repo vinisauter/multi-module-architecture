@@ -24,7 +24,7 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentProfileBinding.inflate(inflater, container, false).also { bind ->
-            bind.profileButton.setOnClickListener { navigate(ProfileFragmentDirections.actionDidFinish()) }
+            bind.profileButton.setOnClickListener { navigate(ProfileFragmentDirections.actionLaunchHome()) }
             bind.loginButton.setOnClickListener {
                 // TODO extract to file
                 val tracking = LoginTracking(
@@ -47,29 +47,21 @@ class ProfileFragment : Fragment() {
                     ),
                 )
 
-//                navigate(
-//                    AppNavigationGraphDirections.actionReauthenticate(
-//                        LoginCustomDependencies(tracking = tracking)
-//                    )
-//                )
-            }
-//            bind.reauthenticateButton.setOnClickListener {
-//                navigate(
-//                    // TODO: redirect result
-//                    //  Start(Reauthenticate) + didFinishDirection(this)
-//                    //  https://medium.com/google-developer-experts/using-navigation-architecture-component-in-a-large-banking-app-ac84936a42c2
-//                    AppNavigationGraphDirections.actionReauthenticate(
-//                        LoginCustomDependencies(didFinishDirection = redirectToThis())
-//                    )
-//                )
-//            }
-            bind.exitButton.setOnClickListener {
                 navigate(
-                    ProfileFragmentDirections.actionDidFinish(
-                        destination = com.example.app.R.id.home_navigation
+                    ProfileFragmentDirections.actionLogin(
+                        tracking = tracking
                     )
                 )
             }
+            bind.reauthenticateButton.setOnClickListener {
+                navigate(
+                    // TODO: redirect result
+                    //  Start(Reauthenticate) + didFinishDirection(this)
+                    //  https://medium.com/google-developer-experts/using-navigation-architecture-component-in-a-large-banking-app-ac84936a42c2
+                    ProfileFragmentDirections.actionReauthenticate()
+                )
+            }
+            bind.exitButton.setOnClickListener { navigate(ProfileFragmentDirections.actionExit()) }
 
             args.queryValue?.let {
                 bind.textMonitor.append("\n${it}")

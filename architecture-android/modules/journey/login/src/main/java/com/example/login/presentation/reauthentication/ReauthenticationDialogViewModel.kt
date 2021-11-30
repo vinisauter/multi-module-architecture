@@ -19,7 +19,7 @@ class ReauthenticationDialogViewModel(app: Application) : AndroidViewModel(app) 
     fun onLoginClicked() = viewModelScope.onCpu {
 //        AppNavigationGraphDirections.
         onActionCompletedSharedFlow.emit(
-            didFinishDirection?.let { NavigationCommand.To(it) }.default(NavigationCommand.ToRoot)
+            didFinishDirection?.let { NavigationCommand.To(it) }.default(NavigationCommand.Back)
         )
     }
 

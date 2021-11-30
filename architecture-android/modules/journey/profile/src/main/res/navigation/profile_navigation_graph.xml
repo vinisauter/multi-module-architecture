@@ -16,23 +16,45 @@
             android:defaultValue="@null"
             app:argType="string"
             app:nullable="true" />
+
+        <action
+            android:id="@+id/action_launch_home"
+            app:destination="@id/app_navigation_graph" >
+            <argument
+                android:name="destination_id"
+                android:defaultValue="@com.example.app:id/home_navigation"
+                app:argType="reference" />
+        </action>
+        <action
+            android:id="@+id/action_login"
+            app:destination="@id/app_navigation_graph">
+            <argument
+                android:name="destination_id"
+                android:defaultValue="@com.example.app:id/login_navigation"
+                app:argType="reference" />
+            <argument
+                android:name="tracking"
+                android:defaultValue="@null"
+                app:argType="com.example.journey.login.tracking.LoginTracking"
+                app:nullable="true" />
+        </action>
     </fragment>
 
     <action
-        android:id="@+id/action_did_finish"
+        android:id="@+id/action_reauthenticate"
         app:destination="@id/app_navigation_graph">
         <argument
-            android:name="nav_state"
-            android:defaultValue="@null"
-            app:argType="com.example.journey.NavigationState"
-            app:nullable="true" />
-        <!--TODO why suppress? -->
-        <!--suppress AndroidDomInspection -->
-        <argument
-            android:name="destination"
-            android:defaultValue="@com.example.app:id/home_navigation"
+            android:name="destination_id"
+            android:defaultValue="@com.example.app:id/reauthentication"
             app:argType="reference" />
     </action>
-
+    <action
+        android:id="@+id/action_exit"
+        app:destination="@id/app_navigation_graph">
+        <argument
+            android:name="destination_id"
+            android:defaultValue="@com.example.app:id/splash"
+            app:argType="reference" />
+    </action>
     <include app:graph="@navigation/app_navigation_graph" />
 </navigation>

@@ -26,6 +26,7 @@ class ForgotPasswordFragmentViewModel(
 
     fun onExitClicked() = viewModelScope.onCpu {
         tagging.send(tracking.forgotPasswordClickExitEvent)
-        onActionCompletedSharedFlow.emit(ForgotPasswordFragmentDirections.actionDidFinish())
+        onActionCompletedSharedFlow.emit(ForgotPasswordFragmentDirections.actionExit())
+
     }
 }
