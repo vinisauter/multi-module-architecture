@@ -34,7 +34,7 @@ class HomeStarter: ModuleStarter {
             break
             
         case .login:
-            AppNavigation.shared.set([.welcome, .login], from: viewController, animated: false)
+            AppNavigation.shared.show([.welcome, .login], from: viewController, animated: false)
             isUserLoggedIn = false
             break
             

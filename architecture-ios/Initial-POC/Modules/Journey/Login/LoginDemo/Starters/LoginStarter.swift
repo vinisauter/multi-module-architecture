@@ -39,7 +39,7 @@ class LoginStarter: ModuleStarter {
     
     func handleGo(to journey: JourneyModule, in viewController: UIViewController, with value: Any?) {
         isUserLoggedIn = journey == .home
-        AppNavigation.shared.set([.home], from: viewController, animated: true)
+        AppNavigation.shared.show([.home], from: viewController, animated: true)
         AppNavigation.shared.resolveDeeplinkIfNeeded()
         
     }

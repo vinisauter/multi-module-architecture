@@ -41,10 +41,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setupRootViewController(with deeplink: String? = nil) {
         if !isAppLaunched {
-            AppNavigation.shared.set([.welcome], animated: true)
+            AppNavigation.shared.show([.welcome], animated: true)
             isAppLaunched = true
         } else if isAppLaunched && !isUserLoggedIn {
-            if !AppNavigation.shared.resolve(deeplink) { AppNavigation.shared.set([.welcome, .login], animated: true) }
+            if !AppNavigation.shared.resolve(deeplink) { AppNavigation.shared.show([.welcome, .login], animated: true) }
         } else {
             AppNavigation.shared.resolve(deeplink)
         }

@@ -41,12 +41,12 @@ class LoginStarter: ModuleStarter {
         isUserLoggedIn = journey == .home
         switch journey {
         case .home:
-            AppNavigation.shared.set([.home], from: viewController, animated: true)
+            AppNavigation.shared.show([.home], from: viewController, animated: true)
             AppNavigation.shared.resolveDeeplinkIfNeeded()
             break
             
         case .welcome:
-            AppNavigation.shared.set([.welcome], from: viewController, animated: true)
+            AppNavigation.shared.show([.welcome], from: viewController, animated: true)
             break
             
         default: break

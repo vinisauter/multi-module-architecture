@@ -31,7 +31,7 @@ class ProfileStarter: ModuleStarter {
     func handleGo(to journey: JourneyModule, in viewController: UIViewController, with value: Any?) {
         switch journey {
         case .home:
-            AppNavigation.shared.set([.home], from: viewController, animated: true)
+            AppNavigation.shared.show([.home], from: viewController, animated: true)
             break
             
         default: break

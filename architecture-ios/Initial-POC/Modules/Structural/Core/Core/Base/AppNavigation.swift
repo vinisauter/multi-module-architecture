@@ -100,7 +100,7 @@ public final class AppNavigation {
         return starter.start(from: url, with: baseFlowDelegate, baseFlowDataSource, customModuleAnalytics, subJourney)
     }
     
-    public func set(_ journeys: Array<JourneyModule>, from currentViewController: UIViewController? = nil, animated: Bool) {
+    public func show(_ journeys: Array<JourneyModule>, from currentViewController: UIViewController? = nil, animated: Bool) {
         let journeysControllers = journeys.compactMap{ [weak self] journey -> UIViewController? in
             let firstModuleVC = self?.start(journey)
             firstModuleVC?.loadViewIfNeeded()
