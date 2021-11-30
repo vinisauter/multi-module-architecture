@@ -27,7 +27,7 @@ class WelcomeViewController: UIViewController {
 
 
 class WelcomeStarter: ModuleStarter {
-    func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: JourneyModuleAnalyticsProtocol?, _ subJourney: JourneyModule?) -> UIViewController {
+    func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: JourneyModuleAnalyticsProtocol?, _ subJourney: JourneyModule?, _ value: Any?) -> UIViewController {
         return UIViewController.instantiateViewController(ofType: WelcomeViewController.self)!
     }
     

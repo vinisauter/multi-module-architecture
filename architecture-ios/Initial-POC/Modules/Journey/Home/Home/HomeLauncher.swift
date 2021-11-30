@@ -16,13 +16,15 @@ public struct HomeDependencies {
     let networking: HTTPClient
     let structuralAnalytics: AnalyticsProtocol
     var customHomeAnalytics: HomeAnalyticsProtocol?
+    var value: Any?
     
-    public init (_ deeplink: URL?, _ baseFlowDelegate: BaseFlowDelegate?, _ networking: HTTPClient, _ structuralAnalytics: AnalyticsProtocol, _ customHomeAnalytics: HomeAnalyticsProtocol?) {
+    public init (_ deeplink: URL?, _ baseFlowDelegate: BaseFlowDelegate?, _ networking: HTTPClient, _ structuralAnalytics: AnalyticsProtocol, _ customHomeAnalytics: HomeAnalyticsProtocol?, _ value: Any?) {
         self.deeplink = deeplink
         self.baseFlowDelegate = baseFlowDelegate
         self.networking = networking
         self.structuralAnalytics = structuralAnalytics
         self.customHomeAnalytics = customHomeAnalytics
+        self.value = value
     }
 }
 

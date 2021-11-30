@@ -91,13 +91,13 @@ public final class AppNavigation {
         return starters[jorney]
     }
     
-    public func start(_ journey: JourneyModule, to subJourney: JourneyModule? = nil, from currentJourney: JourneyModule? = nil, with url: URL? = nil, baseFlowDelegate: BaseFlowDelegate = AppNavigation.shared, baseFlowDataSource: BaseFlowDataSource = AppNavigation.shared, customModuleAnalytics: JourneyModuleAnalyticsProtocol? = nil) -> UIViewController {
+    public func start(_ journey: JourneyModule, to subJourney: JourneyModule? = nil, from currentJourney: JourneyModule? = nil, with url: URL? = nil, baseFlowDelegate: BaseFlowDelegate = AppNavigation.shared, baseFlowDataSource: BaseFlowDataSource = AppNavigation.shared, customModuleAnalytics: JourneyModuleAnalyticsProtocol? = nil, value: Any? = nil) -> UIViewController {
         
         guard let starter = getStarter(from: journey) else { return UIViewController() }
 
         self.currentJourney = currentJourney == nil ? journey : currentJourney!
         
-        return starter.start(from: url, with: baseFlowDelegate, baseFlowDataSource, customModuleAnalytics, subJourney)
+        return starter.start(from: url, with: baseFlowDelegate, baseFlowDataSource, customModuleAnalytics, subJourney, value)
     }
     
     public func show(_ journeys: Array<JourneyModule>, from currentViewController: UIViewController? = nil, animated: Bool) {

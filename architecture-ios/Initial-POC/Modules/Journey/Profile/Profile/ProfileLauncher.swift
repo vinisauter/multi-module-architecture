@@ -17,14 +17,16 @@ public struct ProfileDependencies {
     let networking: HTTPClient
     let structuralAnalytics: AnalyticsProtocol
     var customProfileAnalytics: ProfileAnalyticsProtocol?
+    var value: Any?
     
-    public init (_ deeplink: URL?, _ baseFlowDelegate: BaseFlowDelegate?, _ baseFlowDataSource: BaseFlowDataSource?, _ networking: HTTPClient, _ structuralAnalytics: AnalyticsProtocol, _ customProfileAnalytics: ProfileAnalyticsProtocol?) {
+    public init (_ deeplink: URL?, _ baseFlowDelegate: BaseFlowDelegate?, _ baseFlowDataSource: BaseFlowDataSource?, _ networking: HTTPClient, _ structuralAnalytics: AnalyticsProtocol, _ customProfileAnalytics: ProfileAnalyticsProtocol?, _ value: Any?) {
         self.deeplink = deeplink
         self.baseFlowDelegate = baseFlowDelegate
         self.baseFlowDataSource = baseFlowDataSource
         self.networking = networking
         self.structuralAnalytics = structuralAnalytics
         self.customProfileAnalytics = customProfileAnalytics
+        self.value = value
     }
 }
 

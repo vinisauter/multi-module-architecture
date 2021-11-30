@@ -13,9 +13,8 @@ class ProfileStarter: ModuleStarter {
     
     init() {}
     
-    func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: JourneyModuleAnalyticsProtocol?, _ subJourney: JourneyModule?) -> UIViewController {
-        let profileDependencies = ProfileDependencies(url, baseFlowDelegate, baseFlowDataSource, StructuralDependencyProvider.networking, StructuralDependencyProvider.analytics, customModuleAnalytics as? ProfileAnalyticsProtocol
-        )
+    func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: JourneyModuleAnalyticsProtocol?, _ subJourney: JourneyModule?, _ value: Any?) -> UIViewController {
+        let profileDependencies = ProfileDependencies(url, baseFlowDelegate, baseFlowDataSource, StructuralDependencyProvider.networking, StructuralDependencyProvider.analytics, customModuleAnalytics as? ProfileAnalyticsProtocol, value)
         
         return ProfileLauncher.start(with: profileDependencies)
     }
@@ -39,6 +38,6 @@ class ProfileStarter: ModuleStarter {
     }
     
     func handleGet(from journey: JourneyModule, to subJourney: JourneyModule?, with baseFlowDelegate: BaseFlowDelegate, analytics: JourneyModuleAnalyticsProtocol?) -> UIViewController {
-        return start(from: nil, with: baseFlowDelegate, AppNavigation.shared, analytics, subJourney)
+        return start(from: nil, with: baseFlowDelegate, AppNavigation.shared, analytics, subJourney, nil)
     }
 }

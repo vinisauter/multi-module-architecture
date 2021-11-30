@@ -13,8 +13,8 @@ class HomeStarter: ModuleStarter {
     
     init() {}
     
-    func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: JourneyModuleAnalyticsProtocol?, _ subJourney: JourneyModule?) -> UIViewController {
-        let homeDependencies = HomeDependencies(url, baseFlowDelegate, StructuralDependencyProvider.networking, StructuralDependencyProvider.analytics, customModuleAnalytics as? HomeAnalyticsProtocol)
+    func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: JourneyModuleAnalyticsProtocol?, _ subJourney: JourneyModule?, _ value: Any?) -> UIViewController {
+        let homeDependencies = HomeDependencies(url, baseFlowDelegate, StructuralDependencyProvider.networking, StructuralDependencyProvider.analytics, customModuleAnalytics as? HomeAnalyticsProtocol, value)
         
         return HomeLauncher.start(with: homeDependencies)
     }
@@ -43,7 +43,7 @@ class HomeStarter: ModuleStarter {
     }
     
     func handleGet(from journey: JourneyModule, to subJourney: JourneyModule?, with baseFlowDelegate: BaseFlowDelegate, analytics: JourneyModuleAnalyticsProtocol?) -> UIViewController {
-        return start(from: nil, with: baseFlowDelegate, AppNavigation.shared, analytics, subJourney)
+        return start(from: nil, with: baseFlowDelegate, AppNavigation.shared, analytics, subJourney, nil)
     }
 }
 

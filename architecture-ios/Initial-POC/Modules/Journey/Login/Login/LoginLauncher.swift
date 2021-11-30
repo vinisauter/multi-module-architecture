@@ -16,13 +16,15 @@ public struct LoginDependencies {
     let networking: HTTPClient
     let structuralAnalytics: AnalyticsProtocol
     var customLoginAnalytics: LoginAnalyticsProtocol?
+    var value: Any?
     
-    public init (_ deeplink: URL?, _ baseFlowDelegate: BaseFlowDelegate?, _ networking: HTTPClient, _ structuralAnalytics: AnalyticsProtocol, _ customLoginAnalytics: LoginAnalyticsProtocol?) {
+    public init (_ deeplink: URL?, _ baseFlowDelegate: BaseFlowDelegate?, _ networking: HTTPClient, _ structuralAnalytics: AnalyticsProtocol, _ customLoginAnalytics: LoginAnalyticsProtocol?, _ value: Any?) {
         self.deeplink = deeplink
         self.baseFlowDelegate = baseFlowDelegate
         self.networking = networking
         self.structuralAnalytics = structuralAnalytics
         self.customLoginAnalytics = customLoginAnalytics
+        self.value = value
     }
 }
 
