@@ -31,7 +31,7 @@ public class LoginLauncher {
     static public func start(with dependenies: LoginDependencies) -> UIViewController {
         let businessModel = LoginBusinessModel(repository: LoginAPI(httpClient: dependenies.networking), structuralAnalytics: dependenies.structuralAnalytics)
         let factory = LoginViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependenies.customLoginAnalytics)
-        let mainFlow = LoginFlow(factory: factory, deeplink: Deeplink(screen: LoginDeeplink(rawValue: dependenies.deeplink?.path ?? "/"), url: dependenies.deeplink))
+        let mainFlow = LoginFlow(factory: factory, deeplink: Deeplink(value: LoginDeeplink(rawValue: dependenies.deeplink?.path ?? "/"), url: dependenies.deeplink))
         mainFlow.baseFlowDelegate = dependenies.baseFlowDelegate
         factory.flow = mainFlow
         
@@ -41,7 +41,7 @@ public class LoginLauncher {
     static public func startForgotPassword(with dependenies: LoginDependencies) -> UIViewController {
         let businessModel = LoginBusinessModel(repository: LoginAPI(httpClient: dependenies.networking), structuralAnalytics: dependenies.structuralAnalytics)
         let factory = LoginViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependenies.customLoginAnalytics)
-        let mainFlow = ForgotPasswordFlow(factory: factory, deeplink: Deeplink(screen: LoginDeeplink(rawValue: dependenies.deeplink?.path ?? "/"), url: dependenies.deeplink))
+        let mainFlow = ForgotPasswordFlow(factory: factory, deeplink: Deeplink(value: LoginDeeplink(rawValue: dependenies.deeplink?.path ?? "/"), url: dependenies.deeplink))
         mainFlow.baseFlowDelegate = dependenies.baseFlowDelegate
         factory.flow = mainFlow
         

@@ -30,7 +30,7 @@ public class HomeLauncher {
     static public func start(with dependencies: HomeDependencies) -> UIViewController {
         let businessModel = HomeBusinessModel(repository: HomeAPI(httpClient: dependencies.networking), structuralAnalytics: dependencies.structuralAnalytics)
         let factory = HomeViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependencies.customHomeAnalytics)
-        let mainFlow = HomeFlow(factory: factory, deeplink: Deeplink(screen: HomeDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
+        let mainFlow = HomeFlow(factory: factory, deeplink: Deeplink(value: HomeDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
         mainFlow.baseFlowDelegate = dependencies.baseFlowDelegate
         factory.flow = mainFlow
         

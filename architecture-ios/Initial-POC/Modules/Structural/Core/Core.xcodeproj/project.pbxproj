@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		597F1C3F27564229006320C9 /* AppNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F1C3E27564229006320C9 /* AppNavigation.swift */; };
 		59C82C2A273BFEF400E84149 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 59C82C28273BFEF400E84149 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		59C82C36273BFF4F00E84149 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C82C35273BFF4F00E84149 /* UINavigationController+Extensions.swift */; };
 		59C82C4B273C011100E84149 /* BaseFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C82C4A273C011100E84149 /* BaseFlow.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		597F1C3E27564229006320C9 /* AppNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigation.swift; sourceTree = "<group>"; };
 		59C82C25273BFEF400E84149 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59C82C28273BFEF400E84149 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		59C82C29273BFEF400E84149 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				59D006CD273C397500BFC574 /* BaseViewController.swift */,
 				59D006D1273C398300BFC574 /* BaseViewModel.swift */,
 				59D006D4273C3D1600BFC574 /* BaseViewControllerFactory.swift */,
+				597F1C3E27564229006320C9 /* AppNavigation.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				59D006D5273C3D1600BFC574 /* BaseViewControllerFactory.swift in Sources */,
 				59C82C4B273C011100E84149 /* BaseFlow.swift in Sources */,
 				59D006D2273C398300BFC574 /* BaseViewModel.swift in Sources */,
+				597F1C3F27564229006320C9 /* AppNavigation.swift in Sources */,
 				59C82C36273BFF4F00E84149 /* UINavigationController+Extensions.swift in Sources */,
 				59D006D8273C3D3E00BFC574 /* UIViewController+Extensions.swift in Sources */,
 				59D006CE273C397500BFC574 /* BaseViewController.swift in Sources */,

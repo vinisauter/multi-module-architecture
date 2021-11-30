@@ -33,7 +33,7 @@ public class ProfileLauncher {
     static public func start(with dependencies: ProfileDependencies) -> UIViewController {
         let businessModel = ProfileBusinessModel(repository: ProfileAPI(httpClient: dependencies.networking), structuralAnalytics: dependencies.structuralAnalytics)
         let factory = ProfileViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependencies.customProfileAnalytics)
-        let mainFlow = ProfileFlow(factory: factory, deeplink: Deeplink(screen: ProfileDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
+        let mainFlow = ProfileFlow(factory: factory, deeplink: Deeplink(value: ProfileDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
         mainFlow.baseFlowDelegate = dependencies.baseFlowDelegate
         mainFlow.baseFlowDataSource = dependencies.baseFlowDataSource
         factory.flow = mainFlow
@@ -44,4 +44,5 @@ public class ProfileLauncher {
 
 enum ProfileDeeplink: String, CaseIterable {
     case index = "/"
+    case forgotPassword = "/forgotPassword"
 }

@@ -32,7 +32,7 @@ class HomeFlow: HomeFlowProtocol, Deeplinkable {
     }
     
     func resolveDeeplinkIfNeeded(from controller: UIViewController) {
-        guard let deeplink = deeplink, let screen = deeplink.screen else { return }
+        guard let deeplink = deeplink, let screen = deeplink.value else { return }
         self.deeplink = nil
         
         switch screen {

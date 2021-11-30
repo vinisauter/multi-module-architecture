@@ -32,7 +32,7 @@ class LoginFlow: LoginFlowProtocol, Deeplinkable {
     }
     
     func resolveDeeplinkIfNeeded(from controller: UIViewController) {
-        guard let deeplink = deeplink, let screen = deeplink.screen, let url = deeplink.url else { return }
+        guard let deeplink = deeplink, let screen = deeplink.value, let url = deeplink.url else { return }
         self.deeplink = nil
         
         switch screen {
