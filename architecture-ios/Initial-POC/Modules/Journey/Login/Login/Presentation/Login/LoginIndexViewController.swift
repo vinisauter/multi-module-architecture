@@ -11,6 +11,8 @@ import Core
 public protocol LoginIndexFlowDelegate: AnyObject {
     func onLoginSuccess(in controller: LoginIndexViewController)
     func onForgotPasswordClick(in controller: LoginIndexViewController)
+    func onCloseClick(in controller: LoginIndexViewController)
+    func onBackClick(in controller: LoginIndexViewController)
 }
 
 open class LoginIndexViewController: BaseViewController<LoginIndexViewModelProtocol, LoginIndexFlowDelegate>  {
@@ -43,6 +45,8 @@ open class LoginIndexViewController: BaseViewController<LoginIndexViewModelProto
     }
     
     private func setupNavigation() {
+        let buttonTitle = isModal ? "Fechar" : "Voltar"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: buttonTitle, style: .done, target: self, action: isModal ? #selector(close) : #selector(back))
         navigationController?.navigationBar.isHidden = false
     }
     
@@ -106,5 +110,13 @@ open class LoginIndexViewController: BaseViewController<LoginIndexViewModelProto
     @objc private func forgotPassword() {
         viewModel?.onForgotPasswordClick()
         flowDelegate?.onForgotPasswordClick(in: self)
+    }
+    
+    @objc private func back() {
+        flowDelegate?.onBackClick(in: self)
+    }
+    
+    @objc private func close() {
+        flowDelegate?.onCloseClick(in: self)
     }
 }

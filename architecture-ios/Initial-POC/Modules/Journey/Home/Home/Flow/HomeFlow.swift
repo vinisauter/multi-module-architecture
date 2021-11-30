@@ -45,11 +45,10 @@ class HomeFlow: HomeFlowProtocol, Deeplinkable {
 
 extension HomeFlow: HomeIndexFlowDelegate {
     func logout(in controller: HomeIndexViewController) {
-        baseFlowDelegate?.go(to: .login, from: .home, in: controller, with: nil)
-        baseFlowDelegate?.didFinish(.home, in: controller, with: nil)
+        baseFlowDelegate?.perform(.finishCurrentAndGoTo(.login, currentJourney: .home), in: controller, with: nil)
     }
     
     func openProfile(in controller: HomeIndexViewController) {
-        baseFlowDelegate?.go(to: .profile, from: .home, in: controller, with: nil)
+        baseFlowDelegate?.perform(.goTo(.profile, currentJourney: .home), in: controller, with: nil)
     }
 }

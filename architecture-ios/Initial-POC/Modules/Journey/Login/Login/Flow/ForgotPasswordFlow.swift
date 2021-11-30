@@ -37,6 +37,6 @@ class ForgotPasswordFlow: LoginFlowProtocol, Deeplinkable {
 
 extension ForgotPasswordFlow: ForgotPasswordFlowDelegate {
     func onChangePasswordSuccess(in controller: ForgotPasswordViewController) {
-        baseFlowDelegate?.didFinish(.forgotPassword, in: controller, with: nil)
+        baseFlowDelegate?.perform(.finish(.forgotPassword), in: controller, with: nil)
     }
 }

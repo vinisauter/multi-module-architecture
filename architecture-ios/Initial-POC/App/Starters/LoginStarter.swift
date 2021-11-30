@@ -39,9 +39,18 @@ class LoginStarter: ModuleStarter {
     
     func handleGo(to journey: JourneyModule, in viewController: UIViewController, with value: Any?) {
         isUserLoggedIn = journey == .home
-        AppNavigation.shared.set([.home], from: viewController, animated: true)
-        AppNavigation.shared.resolveDeeplinkIfNeeded()
-        
+        switch journey {
+        case .home:
+            AppNavigation.shared.set([.home], from: viewController, animated: true)
+            AppNavigation.shared.resolveDeeplinkIfNeeded()
+            break
+            
+        case .welcome:
+            AppNavigation.shared.set([.welcome], from: viewController, animated: true)
+            break
+            
+        default: break
+        }
     }
     
     func handleGet(from journey: JourneyModule, to subJourney: JourneyModule?, with baseFlowDelegate: BaseFlowDelegate, analytics: JourneyModuleAnalyticsProtocol?) -> UIViewController {

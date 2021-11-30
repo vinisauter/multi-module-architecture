@@ -50,13 +50,20 @@ class LoginFlow: LoginFlowProtocol, Deeplinkable {
 // MARK: - LoginIndexFlowDelegate
 
 extension LoginFlow: LoginIndexFlowDelegate {
+    func onBackClick(in controller: LoginIndexViewController) {
+        baseFlowDelegate?.perform(.finishCurrentAndGoTo(.welcome, currentJourney: .login), in: controller, with: nil)
+    }
+    
+    func onCloseClick(in controller: LoginIndexViewController) {
+        baseFlowDelegate?.perform(.finish(.login), in: controller, with: nil)
+    }
+    
     func onForgotPasswordClick(in controller: LoginIndexViewController) {
         controller.show(factory.makeForgotPasswordViewController(), sender: nil)
     }
     
     func onLoginSuccess(in controller: LoginIndexViewController) {
-        baseFlowDelegate?.go(to: .home, from: .login, in: controller, with: nil)
-        baseFlowDelegate?.didFinish(.login, in: controller, with: nil)
+        baseFlowDelegate?.perform(.finishCurrentAndGoTo(.home, currentJourney: .login), in: controller, with: nil)
     }
 }
 

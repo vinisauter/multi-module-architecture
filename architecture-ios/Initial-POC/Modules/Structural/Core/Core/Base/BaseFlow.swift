@@ -18,6 +18,7 @@ public struct Deeplink<T> {
 }
 
 public protocol JourneyModuleAnalyticsProtocol {}
+
 // app://login/*
 // app://welcome/*
 // app://home/*
@@ -31,18 +32,18 @@ public enum JourneyModule: CaseIterable {
     case profile
 }
 
+public enum BaseFlowDelegateAction {
+    case finish(_ currentJourney: JourneyModule)
+    case goTo(_ destinationJourney: JourneyModule, currentJourney: JourneyModule)
+    case finishCurrentAndGoTo(_ destinationJourney: JourneyModule, currentJourney: JourneyModule)
+}
+
 public protocol Deeplinkable: AnyObject {
     func resolveDeeplinkIfNeeded(from controller: UIViewController)
 }
 
 public protocol BaseFlowDelegate: AnyObject {
-    func didFinish(_ feature: JourneyModule, in viewController: UIViewController, with value: Any?)
-    func go(to destinationJourney: JourneyModule, from currentJourney: JourneyModule, in viewController: UIViewController, with value: Any?)
-}
-
-public extension BaseFlowDelegate {
-    func didFinish(_ feature: JourneyModule, in viewController: UIViewController, with value: Any?) {}
-    func go(to destinationJourney: JourneyModule, from currentJourney: JourneyModule, in viewController: UIViewController, with value: Any?) {}
+    func perform(_ action: BaseFlowDelegateAction, in viewController: UIViewController, with value: Any?)
 }
 
 public protocol BaseFlowDataSource: AnyObject {

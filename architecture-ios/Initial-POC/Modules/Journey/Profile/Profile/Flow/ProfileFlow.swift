@@ -56,8 +56,7 @@ class ProfileFlow: ProfileFlowProtocol, Deeplinkable {
 
 extension ProfileFlow: ProfileHomeFlowDelegate {
     func goToHome(in controller: ProfileHomeViewController) {
-        baseFlowDelegate?.go(to: .home, from: .profile, in: controller, with: nil)
-        baseFlowDelegate?.didFinish(.profile, in: controller, with: nil)
+        baseFlowDelegate?.perform(.finishCurrentAndGoTo(.home, currentJourney: .profile), in: controller, with: nil)
     }
     
     func callLogin(in controller: ProfileHomeViewController) {
@@ -80,7 +79,17 @@ extension ProfileFlow: ProfileHomeFlowDelegate {
 // MARK: - BaseFlowDelegate
 
 extension ProfileFlow: BaseFlowDelegate {
-    func didFinish(_ feature: JourneyModule, in viewController: UIViewController, with value: Any?) {
+    func perform(_ action: BaseFlowDelegateAction, in viewController: UIViewController, with value: Any?) {
+        switch action {
+        case .finish(let journey), .finishCurrentAndGoTo(_, let journey):
+            handleDidFinish(journey, in: viewController, with: value)
+            break
+            
+        default: break
+        }
+    }
+    
+    func handleDidFinish(_ feature: JourneyModule, in viewController: UIViewController, with value: Any?) {
         switch feature {
         case .login:
             viewController.dismiss(animated: true)
@@ -91,6 +100,5 @@ extension ProfileFlow: BaseFlowDelegate {
             
         default: break
         }
-        
     }
 }
