@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="route_login">login</string>
+    <string name="route_home">home</string>
+    <string name="route_profile">profile</string>
+    <string name="route_splash">splash</string>
+</resources>

@@ -26,12 +26,10 @@
             android:defaultValue="@null"
             app:argType="com.example.journey.NavigationState"
             app:nullable="true" />
-        <!--TODO why suppress? -->
-        <!--suppress AndroidDomInspection -->
         <argument
             android:name="destination"
-            android:defaultValue="@com.example.app:id/home_navigation"
-            app:argType="reference" />
+            android:defaultValue="home"
+            app:argType="string" />
     </action>
 
     <include app:graph="@navigation/app_navigation_graph" />

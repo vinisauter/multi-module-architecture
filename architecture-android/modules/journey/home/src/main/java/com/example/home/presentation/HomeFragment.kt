@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.core.extensions.navigate
+import com.example.app.R
 import com.example.home.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -20,7 +21,7 @@ class HomeFragment : Fragment() {
             it.exitButton.setOnClickListener {
                 navigate(
                     HomeFragmentDirections.actionDidFinish(
-                        destination = com.example.app.R.id.splash
+                        destination = resources.getString(R.string.route_splash)
                     )
                 )
             }

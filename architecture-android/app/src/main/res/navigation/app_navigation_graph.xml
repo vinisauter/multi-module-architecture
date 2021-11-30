@@ -20,7 +20,7 @@
             app:nullable="true" />
         <argument
             android:name="destination"
-            app:argType="reference" />
+            app:argType="string" />
     </dialog>
 
     <fragment

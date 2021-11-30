@@ -9,6 +9,7 @@ import androidx.navigation.fragment.navArgs
 import com.core.extensions.deepLinkIntent
 import com.core.extensions.navigate
 import com.example.journey.login.tracking.LoginTracking
+import com.example.profile.R
 import com.example.profile.databinding.FragmentProfileBinding
 import com.example.tagging.Tagging.Event
 import com.example.tagging.Tagging.ScreenName
@@ -66,7 +67,7 @@ class ProfileFragment : Fragment() {
             bind.exitButton.setOnClickListener {
                 navigate(
                     ProfileFragmentDirections.actionDidFinish(
-                        destination = com.example.app.R.id.home_navigation
+                        destination = resources.getString(com.example.app.R.string.route_home)
                     )
                 )
             }
