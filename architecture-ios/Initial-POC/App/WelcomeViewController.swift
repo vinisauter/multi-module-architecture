@@ -39,7 +39,7 @@ class WelcomeStarter: ModuleStarter {
         return isAppLaunched
     }
     
-    func getPath() -> String {
+    func getName() -> String {
         return "welcome"
     }
     

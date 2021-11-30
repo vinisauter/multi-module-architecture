@@ -33,7 +33,7 @@ class LoginStarter: ModuleStarter {
         return isAppLaunched && !isUserLoggedIn
     }
     
-    func getPath() -> String {
+    func getName() -> String {
         return "login"
     }
     

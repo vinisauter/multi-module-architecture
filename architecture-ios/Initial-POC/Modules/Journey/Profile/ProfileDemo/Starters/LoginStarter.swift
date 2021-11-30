@@ -13,7 +13,7 @@ class LoginStarter: ModuleStarter {
     
     init() {}
     
-    func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: JourneyModuleAnalyticsProtocol?, _ subJourney: JourneyModule?, _ value: Any?) -> UIViewController {
+    func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: JourneyModule?, _ value: Any?) -> UIViewController {
         let loginDependencies = LoginDependencies(url, baseFlowDelegate, StructuralDependencyProvider.networking, StructuralDependencyProvider.analytics, customModuleAnalytics as? LoginAnalyticsProtocol, value)
         
         var startViewController: UIViewController = LoginLauncher.start(with: loginDependencies)
@@ -33,7 +33,7 @@ class LoginStarter: ModuleStarter {
         return isAppLaunched && !isUserLoggedIn
     }
     
-    func getPath() -> String {
+    func getName() -> String {
         return "login"
     }
     
@@ -44,7 +44,7 @@ class LoginStarter: ModuleStarter {
         
     }
     
-    func handleGet(from journey: JourneyModule, to subJourney: JourneyModule?, with baseFlowDelegate: BaseFlowDelegate, analytics: JourneyModuleAnalyticsProtocol?) -> UIViewController {
+    func handleGet(from journey: JourneyModule, to subJourney: JourneyModule?, with baseFlowDelegate: BaseFlowDelegate, analytics: Any?) -> UIViewController {
         switch journey {
         case .profile: return AppNavigation.shared.start(.login, to: subJourney, from: journey, baseFlowDelegate: baseFlowDelegate, customModuleAnalytics: analytics)
         default: return AppNavigation.shared.start(.login, from: journey, baseFlowDelegate: baseFlowDelegate)

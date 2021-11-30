@@ -23,7 +23,7 @@ class HomeStarter: ModuleStarter {
         return isUserLoggedIn
     }
     
-    func getPath() -> String {
+    func getName() -> String {
         return "home"
     }
     

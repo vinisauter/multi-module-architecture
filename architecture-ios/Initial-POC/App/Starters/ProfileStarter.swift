@@ -23,7 +23,7 @@ class ProfileStarter: ModuleStarter {
         return isUserLoggedIn
     }
     
-    func getPath() -> String {
+    func getName() -> String {
         return "profile"
     }
     

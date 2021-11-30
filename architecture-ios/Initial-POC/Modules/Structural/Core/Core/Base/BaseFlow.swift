@@ -51,7 +51,7 @@ public protocol BaseFlowDataSource: AnyObject {
 public protocol ModuleStarter {
     func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: JourneyModule?, _ value: Any?) -> UIViewController
     func canStart() -> Bool
-    func getPath() -> String
+    func getName() -> String
     func handleGo(to journey: JourneyModule, in viewController: UIViewController, with value: Any?)
     func handleGet(from journey: JourneyModule, to subJourney: JourneyModule?, with baseFlowDelegate: BaseFlowDelegate, analytics: Any?) -> UIViewController
 }

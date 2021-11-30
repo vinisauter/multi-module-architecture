@@ -124,9 +124,9 @@ public final class AppNavigation {
         return .init(value: jorneyModule, url: url)
     }
     
-    private func getJorneyModule(from path: String) -> JourneyModule? {
+    private func getJorneyModule(from name: String) -> JourneyModule? {
         let enumerated = starters.enumerated().first { enumerated -> Bool in
-            return enumerated.element.value.getPath() == path
+            return enumerated.element.value.getName() == name
         }
         
         return enumerated?.element.key
