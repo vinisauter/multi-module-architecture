@@ -4,13 +4,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.injectViewModel
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavDirections
+import com.core.base.LoaderDialog
+import com.core.extensions.State
+import com.core.extensions.consume
 import com.core.extensions.navigate
 import com.example.login.R
 import com.example.login.databinding.FragmentLoginBinding
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
     private val viewModel: LoginFragmentViewModel by injectViewModel()
@@ -27,11 +27,25 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             it.loginButton.setOnClickListener { viewModel.onLoginClicked() }
             it.forgotPasswordButton.setOnClickListener { viewModel.onForgotPasswordClicked() }
         }
-        //TODO: show loading if needed
-        lifecycleScope.launch {
-            viewModel.onActionCompleted.collect { navDirection: NavDirections ->
-                navigate(navDirection)
+        consume(viewModel.onActionCompleted) { navDirection: NavDirections ->
+            navigate(navDirection)
+        }
+        consume(viewModel.onStateChanged) { state: State ->
+            when (state) {
+                State.Running -> showLoading()
+                State.Idle -> hideLoading()
             }
         }
+    }
+
+    private fun hideLoading() {
+        loader?.dismiss()
+        loader = null
+    }
+
+    var loader: LoaderDialog? = null
+    private fun showLoading() {
+        loader = LoaderDialog()
+        loader!!.show(childFragmentManager, "login-loader")
     }
 }

@@ -16,11 +16,6 @@
         <argument
             android:name="destination_id"
             app:argType="reference" />
-        <argument
-            android:name="nav_state"
-            android:defaultValue="@null"
-            app:argType="com.example.journey.NavigationState"
-            app:nullable="true" />
     </dialog>
 
     <action
@@ -75,6 +70,7 @@
             app:argType="com.core.extensions.Direction"
             app:nullable="true" />
     </dialog>
+
     <activity
         android:id="@+id/home_navigation"
         android:name="com.example.home.HomeNavigationActivity"

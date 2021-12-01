@@ -15,12 +15,11 @@
             app:argType="com.example.journey.login.tracking.LoginTracking" />
         <action
             android:id="@+id/action_login_succeed"
-            app:destination="@id/app_navigation_graph"
-            app:popUpTo="@id/app_navigation_graph"
+            app:destination="@id/module_launcher"
+            app:popUpTo="@id/module_launcher"
             app:popUpToInclusive="true">
             <argument
                 android:name="destination_id"
-                android:defaultValue="@com.example.app:id/home_navigation"
                 app:argType="reference" />
         </action>
         <action
@@ -37,12 +36,11 @@
         tools:layout="@layout/fragment_forgot_password">
         <action
             android:id="@+id/action_exit"
-            app:destination="@id/app_navigation_graph"
-            app:popUpTo="@id/app_navigation_graph"
+            app:destination="@id/module_launcher"
+            app:popUpTo="@id/module_launcher"
             app:popUpToInclusive="true">
             <argument
                 android:name="destination_id"
-                android:defaultValue="@com.example.app:id/splash"
                 app:argType="reference" />
         </action>
     </fragment>
@@ -58,5 +56,12 @@
             app:nullable="true" />
     </dialog>
 
-    <include app:graph="@navigation/app_navigation_graph" />
+    <dialog
+        android:id="@+id/module_launcher"
+        android:name="com.example.journey.NavigationLauncher"
+        android:label="module_launcher">
+        <argument
+            android:name="destination_id"
+            app:argType="reference" />
+    </dialog>
 </navigation>
