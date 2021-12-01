@@ -5,17 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.injectViewModel
+import androidx.navigation.NavDirections
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import com.core.extensions.consume
 import com.core.extensions.deepLinkIntent
 import com.core.extensions.navigate
-import com.example.journey.login.tracking.LoginTracking
 import com.example.profile.databinding.FragmentProfileBinding
-import com.example.tagging.Tagging.Event
-import com.example.tagging.Tagging.ScreenName
 
 class ProfileFragment : Fragment() {
-    private val viewModel: ProfileViewModel by viewModels()
+    private val viewModel: ProfileViewModel by injectViewModels()
     private lateinit var binding: FragmentProfileBinding
     private val args: ProfileFragmentArgs by navArgs()
     private val deepLink by lazy { deepLinkIntent?.data }

@@ -1,14 +1,15 @@
 package com.example.journey
 
-import android.os.Bundle
+import androidx.annotation.NavigationRes
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
-import androidx.navigation.NavDestination
+import androidx.navigation.NavGraph
 import androidx.navigation.dynamicfeatures.DynamicExtras
 import androidx.navigation.dynamicfeatures.DynamicInstallMonitor
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.core.base.LoaderDialog
+import com.example.app.R
 import kotlinx.coroutines.launch
 
 class NavigationLauncher : LoaderDialog() {
@@ -16,11 +17,13 @@ class NavigationLauncher : LoaderDialog() {
     override fun onStart() {
         super.onStart()
         lifecycleScope.launch {
-            // TODO validate args & deep link to module navigation destination
-//            val state = args.navState
-//            findNavController().navigate(R.id.navigation_activity)
             val navController = findNavController()
 
+            if (navController.findDestination(args.destinationId) == null) {
+                navController.includeDestinationsFromGraph(
+                    R.navigation.app_navigation_graph
+                )
+            }
             val installMonitor = DynamicInstallMonitor()
             val dynamicExtras = DynamicExtras(installMonitor)
             navController.navigate(
@@ -29,19 +32,19 @@ class NavigationLauncher : LoaderDialog() {
                 null,
                 dynamicExtras
             )
-            navController.addOnDestinationChangedListener(object :
-                NavController.OnDestinationChangedListener {
-                override fun onDestinationChanged(
-                    controller: NavController,
-                    destination: NavDestination,
-                    arguments: Bundle?
-                ) {
-                    if ("activity" == destination.navigatorName) {
-                        requireActivity().finish()
-                    }
-                    navController.removeOnDestinationChangedListener(this)
-                }
-            })
+            // TODO: validate when should close loader
+            if ("activity" == navController.findDestination(args.destinationId)?.navigatorName) {
+                dismiss()
+                requireActivity().finish()
+            } else {
+                //TODO: close loader
+                // navController.popBackStack()?
+            }
         }
+    }
+
+    private fun NavController.includeDestinationsFromGraph(@NavigationRes graphResId: Int) {
+        val sharedDestinations: NavGraph = navInflater.inflate(graphResId)
+        graph.addAll(sharedDestinations)
     }
 }

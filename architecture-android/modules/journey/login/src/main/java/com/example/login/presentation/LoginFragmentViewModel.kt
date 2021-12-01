@@ -2,10 +2,12 @@ package com.example.login.presentation
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.navigation.NavDirections
+import com.core.extensions.State
 import com.core.extensions.default
-import com.core.extensions.onCpu
+import com.core.extensions.runTask
 import com.example.app.AppNavigationGraphDirections
 import com.example.journey.login.tracking.LoginTracking
 import com.example.tagging.TaggingExecutor
@@ -25,16 +27,21 @@ class LoginFragmentViewModel(
     val onActionCompleted: Flow<NavDirections>
         get() = onActionCompletedSharedFlow
 
+    private val onStateChangedMutable = MutableLiveData<State>(State.Idle)
+    val onStateChanged: LiveData<State>
+        get() = onStateChangedMutable
+
     fun onLoginViewCreated() {
         tagging.send(tracking.loginScreenName)
     }
 
-    fun onLoginClicked() = viewModelScope.onCpu {
+    fun onLoginClicked() = runTask(onStateChangedMutable) {
         tagging.send(tracking.loginClickAuthEvent)
         try {
-            // TODO: loader
             useCase.login("user", "password")
-            onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginSucceed())
+            onActionCompletedSharedFlow.emit(
+                LoginFragmentDirections.actionLoginSucceed(com.example.app.R.id.home_navigation)
+            )
             tagging.send(tracking.loginAuthSucceededEvent)
         } catch (t: Throwable) {
             onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginFailed())
@@ -42,7 +49,7 @@ class LoginFragmentViewModel(
         }
     }
 
-    fun onForgotPasswordClicked() = viewModelScope.onCpu {
+    fun onForgotPasswordClicked() = runTask(onStateChangedMutable) {
         tagging.send(tracking.loginClickForgotPasswordEvent)
         try {
             onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionForgotPassword())
