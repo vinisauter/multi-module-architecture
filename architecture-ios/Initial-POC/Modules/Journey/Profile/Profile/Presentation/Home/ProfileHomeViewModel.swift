@@ -23,7 +23,7 @@ public protocol ProfileHomeViewModelProtocol {
     func onGoToForgotPasswordClick()
 }
 
-class ProfileHomeViewModel: BaseViewModel<ProfileHomeUseCaseProtocol, ProfileHomeAnalyticsProtocol, ProfileDeeplink>, ProfileHomeViewModelProtocol {
+class ProfileHomeViewModel: BaseViewModel<ProfileHomeUseCaseProtocol, ProfileHomeAnalyticsProtocol>, ProfileHomeViewModelProtocol {
     func onGoToMenuClick() {
         analytics?.onGoToMenuClick()
     }

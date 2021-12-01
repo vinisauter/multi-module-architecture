@@ -21,7 +21,7 @@ public protocol HomeIndexViewModelProtocol {
     func onLogoutClick()
 }
 
-class HomeIndexViewModel: BaseViewModel<HomeIndexUseCaseProtocol, HomeIndexAnalyticsProtocol, HomeDeeplink>, HomeIndexViewModelProtocol {
+class HomeIndexViewModel: BaseViewModel<HomeIndexUseCaseProtocol, HomeIndexAnalyticsProtocol>, HomeIndexViewModelProtocol {
     func onOpenProfileButtonClick() {
         analytics?.onOpenProfileClick()
     }

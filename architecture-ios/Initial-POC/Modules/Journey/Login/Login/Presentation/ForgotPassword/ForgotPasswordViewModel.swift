@@ -17,7 +17,7 @@ public protocol ForgotPasswordAnalyticsProtocol {
 
 public protocol ForgotPasswordViewModelProtocol: ForgotPasswordUseCaseProtocol {}
 
-class ForgotPasswordViewModel: BaseViewModel<ForgotPasswordUseCaseProtocol, ForgotPasswordAnalyticsProtocol, LoginDeeplink>, ForgotPasswordViewModelProtocol {
+class ForgotPasswordViewModel: BaseViewModel<ForgotPasswordUseCaseProtocol, ForgotPasswordAnalyticsProtocol>, ForgotPasswordViewModelProtocol {
     func changePassword(with newPassword: String, completion: @escaping (Bool) -> Void) {
         analytics?.onChangePasswordClick()
         useCase?.changePassword(with: newPassword, completion: completion)

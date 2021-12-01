@@ -18,14 +18,13 @@ public protocol ViewModelProtocol: BaseViewModelProtocol {
     var analytics: AnalyticsModel? { get }
 }
 
-open class BaseViewModel<U, A, D>: ViewModelProtocol {
+open class BaseViewModel<U, A>: ViewModelProtocol {
     public typealias UseCase = U
     public typealias AnalyticsModel = A
     
     public var useCase: UseCase?
     public var analytics: AnalyticsModel?
     public var isIndex: Bool = false
-    public var deeplink: D?
     
     public init(useCase: UseCase?, analytics: AnalyticsModel?, isIndex: Bool = false) {
         self.useCase = useCase
