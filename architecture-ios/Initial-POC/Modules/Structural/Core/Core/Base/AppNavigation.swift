@@ -125,11 +125,7 @@ public final class AppNavigation {
     }
     
     private func getJorneyModule(from name: String) -> JourneyModule? {
-        let enumerated = starters.enumerated().first { enumerated -> Bool in
-            return enumerated.element.value.getName() == name
-        }
-        
-        return enumerated?.element.key
+        return starters.first{ $0.value.getName() == name }?.key
     }
 }
 
