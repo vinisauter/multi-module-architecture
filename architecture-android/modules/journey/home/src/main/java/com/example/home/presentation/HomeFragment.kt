@@ -18,6 +18,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding.viewModel = viewModel
         viewModel.profileButton.observe(this){
             navigate(HomeFragmentDirections.actionLaunchProfile())
         }
