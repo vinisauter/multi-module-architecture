@@ -14,7 +14,7 @@ class LoginStarter: ModuleStarter {
     init() {}
     
     func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: JourneyModule?, _ value: Any?) -> UIViewController {
-        let loginDependencies = LoginDependencies(url, baseFlowDelegate, StructuralDependencyProvider.networking, StructuralDependencyProvider.analytics, customModuleAnalytics as? LoginAnalyticsProtocol, value)
+        let loginDependencies = LoginDependencies(url, baseFlowDelegate, StructuralDependencyProvider.shared, customModuleAnalytics as? LoginAnalyticsProtocol, value)
         
         var startViewController: UIViewController = LoginLauncher.start(with: loginDependencies)
         
@@ -52,3 +52,4 @@ class LoginStarter: ModuleStarter {
     }
 }
 
+extension StructuralDependencyProvider: LoginStructuralDependencies {}

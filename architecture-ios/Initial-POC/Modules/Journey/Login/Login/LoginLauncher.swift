@@ -13,38 +13,40 @@ import Core
 public struct LoginDependencies {
     var deeplink: URL?
     var baseFlowDelegate: BaseFlowDelegate?
-    let networking: HTTPClient
-    let structuralAnalytics: AnalyticsProtocol
+    let structuralDependencies: LoginStructuralDependencies
     var customLoginAnalytics: LoginAnalyticsProtocol?
     var value: Any?
     
-    public init (_ deeplink: URL?, _ baseFlowDelegate: BaseFlowDelegate?, _ networking: HTTPClient, _ structuralAnalytics: AnalyticsProtocol, _ customLoginAnalytics: LoginAnalyticsProtocol?, _ value: Any?) {
+    public init (_ deeplink: URL?, _ baseFlowDelegate: BaseFlowDelegate?, _ structuralDependencies: LoginStructuralDependencies, _ customLoginAnalytics: LoginAnalyticsProtocol?, _ value: Any?) {
         self.deeplink = deeplink
         self.baseFlowDelegate = baseFlowDelegate
-        self.networking = networking
-        self.structuralAnalytics = structuralAnalytics
+        self.structuralDependencies = structuralDependencies
         self.customLoginAnalytics = customLoginAnalytics
         self.value = value
     }
 }
 
+public protocol LoginStructuralDependencies {
+    var networking: HTTPClient { get }
+    var analytics: AnalyticsProtocol { get }
+}
 
 public class LoginLauncher {
-    static public func start(with dependenies: LoginDependencies) -> UIViewController {
-        let businessModel = LoginBusinessModel(repository: LoginAPI(httpClient: dependenies.networking), structuralAnalytics: dependenies.structuralAnalytics)
-        let factory = LoginViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependenies.customLoginAnalytics)
-        let mainFlow = LoginFlow(factory: factory, deeplink: Deeplink(value: LoginDeeplink(rawValue: dependenies.deeplink?.path ?? "/"), url: dependenies.deeplink))
-        mainFlow.baseFlowDelegate = dependenies.baseFlowDelegate
+    static public func start(with dependencies: LoginDependencies) -> UIViewController {
+        let businessModel = LoginBusinessModel(repository: LoginAPI(httpClient: dependencies.structuralDependencies.networking), structuralAnalytics: dependencies.structuralDependencies.analytics)
+        let factory = LoginViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependencies.customLoginAnalytics)
+        let mainFlow = LoginFlow(factory: factory, deeplink: Deeplink(value: LoginDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
+        mainFlow.baseFlowDelegate = dependencies.baseFlowDelegate
         factory.flow = mainFlow
         
         return mainFlow.start()
     }
     
-    static public func startForgotPassword(with dependenies: LoginDependencies) -> UIViewController {
-        let businessModel = LoginBusinessModel(repository: LoginAPI(httpClient: dependenies.networking), structuralAnalytics: dependenies.structuralAnalytics)
-        let factory = LoginViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependenies.customLoginAnalytics)
-        let mainFlow = ForgotPasswordFlow(factory: factory, deeplink: Deeplink(value: LoginDeeplink(rawValue: dependenies.deeplink?.path ?? "/"), url: dependenies.deeplink))
-        mainFlow.baseFlowDelegate = dependenies.baseFlowDelegate
+    static public func startForgotPassword(with dependencies: LoginDependencies) -> UIViewController {
+        let businessModel = LoginBusinessModel(repository: LoginAPI(httpClient: dependencies.structuralDependencies.networking), structuralAnalytics: dependencies.structuralDependencies.analytics)
+        let factory = LoginViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependencies.customLoginAnalytics)
+        let mainFlow = ForgotPasswordFlow(factory: factory, deeplink: Deeplink(value: LoginDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
+        mainFlow.baseFlowDelegate = dependencies.baseFlowDelegate
         factory.flow = mainFlow
         
         return mainFlow.start()

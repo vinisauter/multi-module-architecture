@@ -14,7 +14,7 @@ class HomeStarter: ModuleStarter {
     init() {}
     
     func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: JourneyModule?, _ value: Any?) -> UIViewController {
-        let homeDependencies = HomeDependencies(url, baseFlowDelegate, StructuralDependencyProvider.networking, StructuralDependencyProvider.analytics, customModuleAnalytics as? HomeAnalyticsProtocol, value)
+        let homeDependencies = HomeDependencies(url, baseFlowDelegate, StructuralDependencyProvider.shared, customModuleAnalytics as? HomeAnalyticsProtocol, value)
         
         return HomeLauncher.start(with: homeDependencies)
     }
@@ -46,3 +46,5 @@ class HomeStarter: ModuleStarter {
         return start(from: nil, with: baseFlowDelegate, AppNavigation.shared, analytics, subJourney, nil)
     }
 }
+
+extension StructuralDependencyProvider: HomeStructuralDependencies {}

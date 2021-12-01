@@ -13,24 +13,27 @@ import AnalyticsInterfaces
 public struct HomeDependencies {
     var deeplink: URL?
     var baseFlowDelegate: BaseFlowDelegate?
-    let networking: HTTPClient
-    let structuralAnalytics: AnalyticsProtocol
+    let structuralDependencies: HomeStructuralDependencies
     var customHomeAnalytics: HomeAnalyticsProtocol?
     var value: Any?
     
-    public init (_ deeplink: URL?, _ baseFlowDelegate: BaseFlowDelegate?, _ networking: HTTPClient, _ structuralAnalytics: AnalyticsProtocol, _ customHomeAnalytics: HomeAnalyticsProtocol?, _ value: Any?) {
+    public init (_ deeplink: URL?, _ baseFlowDelegate: BaseFlowDelegate?, _ structuralDependencies: HomeStructuralDependencies, _ customHomeAnalytics: HomeAnalyticsProtocol?, _ value: Any?) {
         self.deeplink = deeplink
         self.baseFlowDelegate = baseFlowDelegate
-        self.networking = networking
-        self.structuralAnalytics = structuralAnalytics
+        self.structuralDependencies = structuralDependencies
         self.customHomeAnalytics = customHomeAnalytics
         self.value = value
     }
 }
 
+public protocol HomeStructuralDependencies {
+    var networking: HTTPClient { get }
+    var analytics: AnalyticsProtocol { get }
+}
+
 public class HomeLauncher {
     static public func start(with dependencies: HomeDependencies) -> UIViewController {
-        let businessModel = HomeBusinessModel(repository: HomeAPI(httpClient: dependencies.networking), structuralAnalytics: dependencies.structuralAnalytics)
+        let businessModel = HomeBusinessModel(repository: HomeAPI(httpClient: dependencies.structuralDependencies.networking), structuralAnalytics: dependencies.structuralDependencies.analytics)
         let factory = HomeViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependencies.customHomeAnalytics)
         let mainFlow = HomeFlow(factory: factory, deeplink: Deeplink(value: HomeDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
         mainFlow.baseFlowDelegate = dependencies.baseFlowDelegate

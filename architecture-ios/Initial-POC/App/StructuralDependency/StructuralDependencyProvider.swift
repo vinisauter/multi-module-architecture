@@ -11,11 +11,15 @@ import AnalyticsInterfaces
 import Analytics
 
 class StructuralDependencyProvider {
-    static var networking: Networking = {
+    static let shared: StructuralDependencyProvider = StructuralDependencyProvider()
+    
+    private init() {}
+    
+    lazy var networking: HTTPClient = {
         return Networking()
     }()
     
-    static var analytics: AnalyticsProtocol = {
+    lazy var analytics: AnalyticsProtocol = {
         return Analytics()
     }()
 }

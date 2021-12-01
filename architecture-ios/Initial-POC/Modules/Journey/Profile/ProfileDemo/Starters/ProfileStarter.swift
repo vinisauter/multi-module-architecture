@@ -14,7 +14,7 @@ class ProfileStarter: ModuleStarter {
     init() {}
     
     func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: JourneyModule?, _ value: Any?) -> UIViewController {
-        let profileDependencies = ProfileDependencies(url, baseFlowDelegate, baseFlowDataSource, StructuralDependencyProvider.networking, StructuralDependencyProvider.analytics, customModuleAnalytics as? ProfileAnalyticsProtocol, value)
+        let profileDependencies = ProfileDependencies(url, baseFlowDelegate, baseFlowDataSource, StructuralDependencyProvider.shared, customModuleAnalytics as? ProfileAnalyticsProtocol, value)
         
         return ProfileLauncher.start(with: profileDependencies)
     }
@@ -41,3 +41,5 @@ class ProfileStarter: ModuleStarter {
         return start(from: nil, with: baseFlowDelegate, AppNavigation.shared, analytics, subJourney, nil)
     }
 }
+
+extension StructuralDependencyProvider: ProfileStructuralDependencies {}

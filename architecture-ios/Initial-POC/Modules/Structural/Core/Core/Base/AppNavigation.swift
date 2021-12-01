@@ -125,7 +125,7 @@ public final class AppNavigation {
     }
     
     private func getJorneyModule(from name: String) -> JourneyModule? {
-        return starters.first{ $0.value.getName() == name }?.key
+        return starters.first{ $0.value.getName().lowercased() == name.lowercased() }?.key
     }
 }
 
