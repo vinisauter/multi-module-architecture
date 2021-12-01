@@ -12,3 +12,7 @@ fun <T> T?.default(default: T): T {
 fun Context.longToast(text: CharSequence) {
     Handler(Looper.getMainLooper()).post { Toast.makeText(this, text, Toast.LENGTH_LONG).show() }
 }
+
+fun Throwable.errorMessage(): String {
+    return localizedMessage ?: message ?: javaClass.name
+}

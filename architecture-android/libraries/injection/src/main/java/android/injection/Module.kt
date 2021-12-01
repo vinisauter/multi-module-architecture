@@ -14,7 +14,7 @@ data class Module(
         qualifier: QualifierValue? = null,
         noinline definition: Definition<T>,
     ) {
-        provider.shared(qualifier, definition)
+        provider.definitionRegistry[key(T::class, qualifier)] = SharedFactory(definition)
         keys.add(key(T::class, qualifier))
     }
 

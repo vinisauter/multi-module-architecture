@@ -14,6 +14,7 @@
     <application>
         <activity
             android:name=".LoginNavigationActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:launchMode="singleInstance" />
     </application>
 </manifest>

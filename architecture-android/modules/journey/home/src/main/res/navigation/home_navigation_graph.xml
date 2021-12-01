@@ -43,8 +43,6 @@
     <action
         android:id="@+id/action_did_finish"
         app:destination="@id/app_navigation_graph">
-        <!--TODO why suppress? -->
-        <!--suppress AndroidDomInspection -->
         <argument
             android:name="destination_id"
             android:defaultValue="@com.example.app:id/profile_navigation"

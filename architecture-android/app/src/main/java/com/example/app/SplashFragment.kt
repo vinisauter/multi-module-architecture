@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavDeepLinkRequest
+import androidx.navigation.fragment.findNavController
 import com.core.extensions.navigate
 import com.example.app.databinding.FragmentSplashBinding
 
@@ -17,7 +19,10 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
 //            binding.accessionButton.setOnClickListener { navigate(MainFragmentDirections.actionAccession()) }
             binding.deepLinkButton.setOnClickListener {
                 val link = binding.deepLinkEditText.text.toString().toUri()
-                // TODO launch link
+                val request = NavDeepLinkRequest.Builder
+                    .fromUri(link)
+                    .build()
+                findNavController().navigate(request)
             }
         }
     }

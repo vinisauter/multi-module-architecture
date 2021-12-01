@@ -2,7 +2,6 @@ package android.injection
 
 import android.injection.factory.DefinitionFactory
 import android.injection.factory.InjectionFactory
-import android.injection.factory.SharedFactory
 import java.util.concurrent.ConcurrentHashMap
 import kotlin.reflect.KClass
 import kotlin.reflect.full.allSuperclasses
@@ -56,13 +55,6 @@ object InjectionProvider {
         definitionRegistry[key(T::class, qualifier)] = DefinitionFactory(definition)
     }
 
-    inline fun <reified T : Any> shared(
-        qualifier: QualifierValue? = null,
-        noinline definition: Definition<T>,
-    ) {
-        definitionRegistry[key(T::class, qualifier)] = SharedFactory(definition)
-    }
-
     inline fun <reified T : Any> declareWithSuperClasses(
         qualifier: QualifierValue? = null,
         noinline definition: Definition<T>,
@@ -71,18 +63,6 @@ object InjectionProvider {
         for (superClass: KClass<*> in T::class.allSuperclasses) {
             if (!superClass.simpleName.equals("Any")) {
                 definitionRegistry[key(superClass, qualifier)] = DefinitionFactory(definition)
-            }
-        }
-    }
-
-    inline fun <reified T : Any> sharedWithSuperClasses(
-        qualifier: QualifierValue? = null,
-        noinline definition: Definition<T>,
-    ) {
-        definitionRegistry[key(T::class, qualifier)] = SharedFactory(definition)
-        for (superClass: KClass<*> in T::class.allSuperclasses) {
-            if (!superClass.simpleName.equals("Any")) {
-                definitionRegistry[key(superClass, qualifier)] = SharedFactory(definition)
             }
         }
     }

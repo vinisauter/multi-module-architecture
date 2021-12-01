@@ -29,19 +29,10 @@ class NavigationLauncher : LoaderDialog() {
                 null,
                 dynamicExtras
             )
-            navController.addOnDestinationChangedListener(object :
-                NavController.OnDestinationChangedListener {
-                override fun onDestinationChanged(
-                    controller: NavController,
-                    destination: NavDestination,
-                    arguments: Bundle?
-                ) {
-                    if ("activity" == destination.navigatorName) {
-                        requireActivity().finish()
-                    }
-                    navController.removeOnDestinationChangedListener(this)
-                }
-            })
+            if ("activity" == navController.findDestination(args.destinationId)?.navigatorName) {
+                dismiss()
+                requireActivity().finish()
+            }
         }
     }
 }
