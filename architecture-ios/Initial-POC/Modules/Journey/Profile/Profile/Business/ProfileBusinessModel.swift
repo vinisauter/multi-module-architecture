@@ -15,11 +15,11 @@ public protocol ProfileAnalyticsProtocol {
     func onChangePasswordClick()
 }
 
-public protocol ProfileUseCaseProtocol {
+public protocol ProfileBusinessModelProtocol {
     var repository: ProfileRepositoryProtocol? { get }
 }
 
-class ProfileBusinessModel: ProfileUseCaseProtocol, ProfileAnalyticsProtocol {
+class ProfileBusinessModel: ProfileBusinessModelProtocol, ProfileAnalyticsProtocol {
     internal var repository: ProfileRepositoryProtocol?
     internal var structuralAnalytics: AnalyticsProtocol?
     

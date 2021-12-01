@@ -7,13 +7,13 @@
 
 import Core
 
-public protocol LoginIndexViewModelProtocol: LoginIndexUseCaseProtocol, LoginIndexFlowDelegate {}
+public protocol LoginIndexViewModelProtocol: LoginIndexBusinessModelProtocol, LoginIndexFlowDelegate {}
 
-class LoginIndexViewModel: BaseViewModel<LoginIndexUseCaseProtocol, LoginIndexAnalyticsProtocol, LoginIndexFlowDelegate>, LoginIndexViewModelProtocol {
+class LoginIndexViewModel: BaseViewModel<LoginIndexBusinessModelProtocol, LoginIndexAnalyticsProtocol, LoginIndexFlowDelegate>, LoginIndexViewModelProtocol {
     
     func login(with username: String, and password: String, completion: @escaping (Bool) -> Void) {
         analytics?.onLoginClick()
-        useCase?.login(with: username, and: password, completion: completion)
+        businessModel?.login(with: username, and: password, completion: completion)
     }
     
     func onForgotPasswordClick(in controller: LoginIndexViewController) {

@@ -7,9 +7,9 @@
 
 import Core
 
-public protocol ProfileHomeViewModelProtocol: ProfileHomeUseCaseProtocol, ProfileHomeFlowDelegate {}
+public protocol ProfileHomeViewModelProtocol: ProfileHomeBusinessModelProtocol, ProfileHomeFlowDelegate {}
 
-class ProfileHomeViewModel: BaseViewModel<ProfileHomeUseCaseProtocol, ProfileHomeAnalyticsProtocol, ProfileHomeFlowDelegate>, ProfileHomeViewModelProtocol {
+class ProfileHomeViewModel: BaseViewModel<ProfileHomeBusinessModelProtocol, ProfileHomeAnalyticsProtocol, ProfileHomeFlowDelegate>, ProfileHomeViewModelProtocol {
     func goToHome(in controller: ProfileHomeViewController) {
         analytics?.onGoToMenuClick()
         flowDelegate?.goToHome(in: controller)

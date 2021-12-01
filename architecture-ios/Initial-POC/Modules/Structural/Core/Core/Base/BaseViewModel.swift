@@ -7,40 +7,40 @@
 
 public protocol BaseViewModelProtocol {
     var isIndex: Bool { get set }
-    func getUseCase<UseCase>() -> UseCase?
+    func getBusinessModel<BusinessModel>() -> BusinessModel?
     func getAnalytics<AnalyticsModel>() -> AnalyticsModel?
     func getFlow<FlowDelegate>() -> FlowDelegate?
 }
 
 public protocol ViewModelProtocol: BaseViewModelProtocol {
-    associatedtype UseCase
+    associatedtype BusinessModel
     associatedtype AnalyticsModel
     associatedtype FlowDelegate
 
-    var useCase: UseCase? { get }
+    var businessModel: BusinessModel? { get }
     var analytics: AnalyticsModel? { get }
     var flowDelegate: FlowDelegate? { get set }
 }
 
 open class BaseViewModel<U, A, F>: ViewModelProtocol {
-    public typealias UseCase = U
+    public typealias BusinessModel = U
     public typealias AnalyticsModel = A
     public typealias FlowDelegate = F
     
-    public var useCase: UseCase?
+    public var businessModel: BusinessModel?
     public var analytics: AnalyticsModel?
     public var flowDelegate: FlowDelegate?
     public var isIndex: Bool = false
     
-    public init(useCase: UseCase?, analytics: AnalyticsModel?, flowDelegate: FlowDelegate?, isIndex: Bool = false) {
-        self.useCase = useCase
+    public init(businessModel: BusinessModel?, analytics: AnalyticsModel?, flowDelegate: FlowDelegate?, isIndex: Bool = false) {
+        self.businessModel = businessModel
         self.analytics = analytics
         self.flowDelegate = flowDelegate
         self.isIndex = isIndex
     }
     
-    public func getUseCase<UseCase>() -> UseCase? {
-        return useCase as? UseCase
+    public func getBusinessModel<BusinessModel>() -> BusinessModel? {
+        return businessModel as? BusinessModel
     }
     
     public func getAnalytics<AnalyticsModel>() -> AnalyticsModel? {

@@ -12,11 +12,11 @@ public protocol HomeAnalyticsProtocol {
     var structuralAnalytics: AnalyticsProtocol? { get }
 }
 
-public protocol HomeUseCaseProtocol {
+public protocol HomeBusinessModelProtocol {
     var repository: HomeRepositoryProtocol? { get }
 }
 
-class HomeBusinessModel: HomeUseCaseProtocol, HomeAnalyticsProtocol {
+class HomeBusinessModel: HomeBusinessModelProtocol, HomeAnalyticsProtocol {
     internal var repository: HomeRepositoryProtocol?
     internal var structuralAnalytics: AnalyticsProtocol?
     

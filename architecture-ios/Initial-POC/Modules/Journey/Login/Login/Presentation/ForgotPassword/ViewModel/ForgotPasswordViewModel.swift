@@ -7,12 +7,12 @@
 
 import Core
 
-public protocol ForgotPasswordViewModelProtocol: ForgotPasswordUseCaseProtocol, ForgotPasswordFlowDelegate {}
+public protocol ForgotPasswordViewModelProtocol: ForgotPasswordBusinessModelProtocol, ForgotPasswordFlowDelegate {}
 
-class ForgotPasswordViewModel: BaseViewModel<ForgotPasswordUseCaseProtocol, ForgotPasswordAnalyticsProtocol, ForgotPasswordFlowDelegate>, ForgotPasswordViewModelProtocol {
+class ForgotPasswordViewModel: BaseViewModel<ForgotPasswordBusinessModelProtocol, ForgotPasswordAnalyticsProtocol, ForgotPasswordFlowDelegate>, ForgotPasswordViewModelProtocol {
     func changePassword(with newPassword: String, completion: @escaping (Bool) -> Void) {
         analytics?.onChangePasswordClick()
-        useCase?.changePassword(with: newPassword, completion: completion)
+        businessModel?.changePassword(with: newPassword, completion: completion)
     }
     
     func onChangePasswordSuccess(in controller: ForgotPasswordViewController) {

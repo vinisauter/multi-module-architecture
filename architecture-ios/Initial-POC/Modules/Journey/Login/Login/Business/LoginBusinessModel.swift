@@ -12,11 +12,11 @@ public protocol LoginAnalyticsProtocol {
     var structuralAnalytics: AnalyticsProtocol? { get }
 }
 
-public protocol LoginUseCaseProtocol {
+public protocol LoginBusinessModelProtocol {
     var repository: LoginRepositoryProtocol? { get }
 }
 
-class LoginBusinessModel: LoginUseCaseProtocol, LoginAnalyticsProtocol {
+class LoginBusinessModel: LoginBusinessModelProtocol, LoginAnalyticsProtocol {
     internal var repository: LoginRepositoryProtocol?
     internal var structuralAnalytics: AnalyticsProtocol?
     
@@ -26,13 +26,13 @@ class LoginBusinessModel: LoginUseCaseProtocol, LoginAnalyticsProtocol {
     }
 }
 
-extension LoginBusinessModel: LoginIndexUseCaseProtocol {
+extension LoginBusinessModel: LoginIndexBusinessModelProtocol {
     func login(with username: String, and password: String, completion: @escaping (Bool) -> Void) {
         repository?.login(with: username, and: password, completion: completion)
     }
 }
 
-extension LoginBusinessModel: ForgotPasswordUseCaseProtocol {
+extension LoginBusinessModel: ForgotPasswordBusinessModelProtocol {
     func changePassword(with newPassword: String, completion: @escaping (Bool) -> Void) {
         repository?.changePassword(with: newPassword, completion: completion)
     }

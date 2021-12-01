@@ -7,9 +7,9 @@
 
 import Core
 
-public protocol HomeIndexViewModelProtocol: HomeIndexUseCaseProtocol, HomeIndexFlowDelegate {}
+public protocol HomeIndexViewModelProtocol: HomeIndexBusinessModelProtocol, HomeIndexFlowDelegate {}
 
-class HomeIndexViewModel: BaseViewModel<HomeIndexUseCaseProtocol, HomeIndexAnalyticsProtocol, HomeIndexFlowDelegate>, HomeIndexViewModelProtocol {
+class HomeIndexViewModel: BaseViewModel<HomeIndexBusinessModelProtocol, HomeIndexAnalyticsProtocol, HomeIndexFlowDelegate>, HomeIndexViewModelProtocol {
     func openProfile(in controller: HomeIndexViewController) {
         analytics?.onOpenProfileClick()
         flowDelegate?.openProfile(in: controller)
