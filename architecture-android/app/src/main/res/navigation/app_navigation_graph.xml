@@ -9,14 +9,14 @@
     android:id="@+id/app_navigation_graph"
     app:startDestination="@id/navigation_launcher">
 
-    <dialog
+    <launcher
         android:id="@+id/navigation_launcher"
         android:name="com.example.journey.NavigationLauncher"
         android:label="Loader">
         <argument
             android:name="destination_id"
             app:argType="reference" />
-    </dialog>
+    </launcher>
 
     <action
         android:id="@+id/action_show_error"
