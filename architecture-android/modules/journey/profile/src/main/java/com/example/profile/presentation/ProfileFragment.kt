@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.injectViewModel
 import androidx.navigation.NavDirections
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.core.extensions.consume
 import com.core.extensions.deepLinkIntent
@@ -15,9 +14,9 @@ import com.core.extensions.navigate
 import com.example.profile.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
-    private val viewModel: ProfileViewModel by injectViewModels()
     private lateinit var binding: FragmentProfileBinding
     private val args: ProfileFragmentArgs by navArgs()
+    private val viewModel: ProfileFragmentViewModel by injectViewModel()
     private val deepLink by lazy { deepLinkIntent?.data }
 
     override fun onCreateView(
@@ -25,8 +24,9 @@ class ProfileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentProfileBinding.inflate(inflater, container, false).apply{
-
+        // view scope
+        binding = FragmentProfileBinding.inflate(inflater, container, false).apply {
+            viewModel = this@ProfileFragment.viewModel
             args.queryValue?.let {
                 textMonitor.append("\n${it}")
             }
@@ -35,29 +35,12 @@ class ProfileFragment : Fragment() {
                 textMonitor.append("\n${deepLink}")
             }
         }
-        binding.viewModel = viewModel
-        viewModel.homeButton.observe(this){
-            navigate(ProfileFragmentDirections.actionLaunchHome())
+        // view-model scope
+        viewModel.apply {
+            consume(onActionCompleted) { navDirection: NavDirections ->
+                navigate(navDirection)
+            }
         }
-        viewModel.expireButton.observe(this){
-            navigate(
-                // TODO: redirect result
-                //  Start(Reauthenticate) + didFinishDirection(this)
-                //  https://medium.com/google-developer-experts/using-navigation-architecture-component-in-a-large-banking-app-ac84936a42c2
-                ProfileFragmentDirections.actionReauthenticate()
-            )
-        }
-        viewModel.loginButton.observe(this){ tracking ->
-            navigate(
-                ProfileFragmentDirections.actionLogin(
-                    tracking = tracking
-                )
-            )
-        }
-        viewModel.exitButton.observe(this){
-            navigate(ProfileFragmentDirections.actionExit())
-        }
-
         return binding.root
     }
 }

@@ -5,25 +5,29 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.injectViewModel
+import androidx.navigation.NavDirections
+import com.core.extensions.consume
 import com.core.extensions.navigate
 import com.example.home.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
-    lateinit var binding: FragmentHomeBinding
-    private val viewModel: HomeViewModel by viewModels()
+    private lateinit var binding: FragmentHomeBinding
+    private val viewModel: HomeFragmentViewModel by injectViewModel()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
-        binding.viewModel = viewModel
-        viewModel.profileButton.observe(this){
-            navigate(HomeFragmentDirections.actionLaunchProfile())
+        // view scope
+        binding = FragmentHomeBinding.inflate(inflater, container, false).apply {
+            viewModel = this@HomeFragment.viewModel
         }
-        viewModel.exitButton.observe(this){
-            navigate(HomeFragmentDirections.actionExit())
+        // view-model scope
+        viewModel.apply {
+            consume(onActionCompleted) { navDirection: NavDirections ->
+                navigate(navDirection)
+            }
         }
         return binding.root
     }

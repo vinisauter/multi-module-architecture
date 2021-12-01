@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.profile.presentation.ProfileViewModel" />
+            type="com.example.profile.presentation.ProfileFragmentViewModel" />
     </data>
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,28 +26,28 @@
             android:id="@+id/home_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> viewModel.onHomeButtonClicked()}"
+            android:onClick="@{() -> viewModel.onHomeClicked()}"
             android:text="Home" />
 
         <Button
             android:id="@+id/reauthenticate_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> viewModel.onExpireButtonClicked()}"
+            android:onClick="@{() -> viewModel.onReauthenticateClicked()}"
             android:text="Expire Login" />
 
         <Button
             android:id="@+id/login_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> viewModel.onLoginButtonClicked()}"
+            android:onClick="@{() -> viewModel.onLoginClicked()}"
             android:text="Login" />
 
         <Button
             android:id="@+id/exit_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> viewModel.onExitButtonClicked()}"
+            android:onClick="@{() -> viewModel.onExitClicked()}"
             android:text="Exit" />
     </LinearLayout>
 </layout>
