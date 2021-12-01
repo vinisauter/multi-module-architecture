@@ -12,6 +12,12 @@ import com.core.base.LoaderDialog
 import com.example.app.R
 import kotlinx.coroutines.launch
 
+// TODO replace with tag launcher?
+//  ```
+//      <launcher android:id="@+id/my_launcher"
+//               android:graph="@navigation/app_navigation_graph"/>
+//  ```
+//  https://gist.github.com/fbarthelery/ad0062a88875b46e0065137ff03807a0
 class NavigationLauncher : LoaderDialog() {
     private val args: NavigationLauncherArgs by navArgs()
     override fun onStart() {
@@ -33,12 +39,18 @@ class NavigationLauncher : LoaderDialog() {
                 dynamicExtras
             )
             // TODO: validate when should close loader
-            if ("activity" == navController.findDestination(args.destinationId)?.navigatorName) {
-                dismiss()
-                requireActivity().finish()
-            } else {
-                //TODO: close loader
-                // navController.popBackStack()?
+            when (navController.findDestination(args.destinationId)?.navigatorName) {
+                "activity" -> {
+                    dismiss()
+                    // TODO: finish optional?
+                    requireActivity().finish()
+                }
+                else -> {
+                    //TODO: close loader
+                    // navController.popBackStack()?
+                    // dismiss()?
+                    // NavOptions?
+                }
             }
         }
     }

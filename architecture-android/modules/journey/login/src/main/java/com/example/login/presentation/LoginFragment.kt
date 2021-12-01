@@ -31,7 +31,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             navigate(navDirection)
         }
         consume(viewModel.onStateChanged) { state: State ->
-            when (state) {
+            when (state) {// TODO: handle case of multiple states running at same time
                 State.Running -> showLoading()
                 State.Idle -> hideLoading()
             }
@@ -45,7 +45,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     var loader: LoaderDialog? = null
     private fun showLoading() {
-        loader = LoaderDialog()
-        loader!!.show(childFragmentManager, "login-loader")
+        if (loader == null) loader = LoaderDialog().also {
+            it.show(childFragmentManager, "login-loader")
+        }
     }
 }
