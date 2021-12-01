@@ -8,13 +8,7 @@
 import UIKit
 import Core
 
-public protocol ProfileHomeFlowDelegate: AnyObject {
-    func goToHome(in controller: ProfileHomeViewController)
-    func callLogin(in controller: ProfileHomeViewController)
-    func goToForgotPassword(in controller: ProfileHomeViewController)
-}
-
-open class ProfileHomeViewController: BaseViewController<ProfileHomeViewModelProtocol, ProfileHomeFlowDelegate> {
+open class ProfileHomeViewController: BaseViewController<ProfileHomeViewModelProtocol> {
     // MARK: - Private Properties
     
     private let goToHomeButton: UIButton = UIButton()
@@ -27,12 +21,6 @@ open class ProfileHomeViewController: BaseViewController<ProfileHomeViewModelPro
         super.viewWillAppear(animated)
         
         setupUI()
-    }
-    
-    public override func checkDeeplinkIfNeeded() {
-        if let flowDelegate = flowDelegate as? Deeplinkable {
-            flowDelegate.resolveDeeplinkIfNeeded(from: self)
-        }
     }
     
     // MARK: - Setup Functions
@@ -83,17 +71,14 @@ open class ProfileHomeViewController: BaseViewController<ProfileHomeViewModelPro
     // MARK: - Private Functions
     
     @objc private func goToHome() {
-        viewModel?.onGoToMenuClick()
-        flowDelegate?.goToHome(in: self)
+        viewModel?.goToHome(in: self)
     }
     
     @objc private func callLogin() {
-        viewModel?.onCallLoginClick()
-        flowDelegate?.callLogin(in: self)
+        viewModel?.callLogin(in: self)
     }
     
     @objc private func goToForgotPassword() {
-        viewModel?.onGoToForgotPasswordClick()
-        flowDelegate?.goToForgotPassword(in: self)
+        viewModel?.goToForgotPassword(in: self)
     }
 }

@@ -9,21 +9,14 @@ import UIKit
 
 public protocol BaseViewControllerProtocol {
     associatedtype ViewModel
-    associatedtype FlowDelegate
     var viewModel: ViewModel? { get set }
-    var flowDelegate: FlowDelegate? { get set }
 }
 
-open class BaseViewController<T, F>: UIViewController, BaseViewControllerProtocol {
-    public typealias ViewModel = T
-    public typealias FlowDelegate = F
-    
+open class BaseViewController<ViewModel>: UIViewController, BaseViewControllerProtocol {
     public var viewModel: ViewModel?
-    public var flowDelegate: FlowDelegate?
     
-    public init(viewModel: ViewModel?, flowDelegate: FlowDelegate?) {
+    public init(viewModel: ViewModel?) {
         self.viewModel = viewModel
-        self.flowDelegate = flowDelegate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -33,11 +26,11 @@ open class BaseViewController<T, F>: UIViewController, BaseViewControllerProtoco
     
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let viewModel = viewModel as? BaseViewModelProtocol, viewModel.isIndex { checkDeeplinkIfNeeded() }
+        checkDeeplinkIfNeeded()
     }
     
     open func checkDeeplinkIfNeeded() {
-        if let flowDelegate = flowDelegate as? Deeplinkable {
+        if let viewModel = viewModel as? BaseViewModelProtocol, let flowDelegate: Deeplinkable = viewModel.getFlow(), viewModel.isIndex {
             flowDelegate.resolveDeeplinkIfNeeded(from: self)
         }
     }

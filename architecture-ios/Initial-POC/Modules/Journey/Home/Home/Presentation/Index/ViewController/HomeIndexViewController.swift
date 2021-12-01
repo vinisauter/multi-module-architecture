@@ -8,12 +8,7 @@
 import UIKit
 import Core
 
-public protocol HomeIndexFlowDelegate: AnyObject {
-    func openProfile(in controller: HomeIndexViewController)
-    func logout(in controller: HomeIndexViewController)
-}
-
-open class HomeIndexViewController: BaseViewController<HomeIndexViewModelProtocol, HomeIndexFlowDelegate> {
+open class HomeIndexViewController: BaseViewController<HomeIndexViewModelProtocol> {
     // MARK: - Private Properties
     
     private let button: UIButton = UIButton()
@@ -70,13 +65,11 @@ open class HomeIndexViewController: BaseViewController<HomeIndexViewModelProtoco
     // MARK: - Private Functions
     
     @objc private func openProfile() {
-        viewModel?.onOpenProfileButtonClick()
-        flowDelegate?.openProfile(in: self)
+        viewModel?.openProfile(in: self)
     }
     
     @objc private func logout() {
-        viewModel?.onLogoutClick()
-        flowDelegate?.logout(in: self)
+        viewModel?.logout(in: self)
     }
     
 }

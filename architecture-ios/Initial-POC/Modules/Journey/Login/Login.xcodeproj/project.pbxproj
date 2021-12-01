@@ -22,6 +22,12 @@
 		59585587273A9130008E587C /* LoginIndexViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59585586273A9130008E587C /* LoginIndexViewModel.swift */; };
 		5958558A273A9141008E587C /* LoginIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59585589273A9141008E587C /* LoginIndexViewController.swift */; };
 		5958558C273A924E008E587C /* LoginViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5958558B273A924E008E587C /* LoginViewControllerFactory.swift */; };
+		596283C82757F93700EEA78C /* ForgotPasswordUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596283C72757F93700EEA78C /* ForgotPasswordUseCaseProtocol.swift */; };
+		596283CA2757F94800EEA78C /* ForgotPasswordAnalyticsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596283C92757F94800EEA78C /* ForgotPasswordAnalyticsProtocol.swift */; };
+		596283CC2757F95500EEA78C /* ForgotPasswordFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596283CB2757F95500EEA78C /* ForgotPasswordFlowDelegate.swift */; };
+		5975557F2757F7D70001C15D /* LoginIndexAnalyticsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5975557E2757F7D70001C15D /* LoginIndexAnalyticsProtocol.swift */; };
+		597555842757F81A0001C15D /* LoginIndexUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597555832757F81A0001C15D /* LoginIndexUseCaseProtocol.swift */; };
+		597555862757F8370001C15D /* LoginIndexFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597555852757F8370001C15D /* LoginIndexFlowDelegate.swift */; };
 		597F1C4227564395006320C9 /* Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 597F1C4127564395006320C9 /* Home.framework */; };
 		597F1C4327564395006320C9 /* Home.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 597F1C4127564395006320C9 /* Home.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		597F1C46275643D6006320C9 /* LoginStarter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F1C45275643D6006320C9 /* LoginStarter.swift */; };
@@ -95,6 +101,12 @@
 		59585586273A9130008E587C /* LoginIndexViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginIndexViewModel.swift; sourceTree = "<group>"; };
 		59585589273A9141008E587C /* LoginIndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginIndexViewController.swift; sourceTree = "<group>"; };
 		5958558B273A924E008E587C /* LoginViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerFactory.swift; sourceTree = "<group>"; };
+		596283C72757F93700EEA78C /* ForgotPasswordUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordUseCaseProtocol.swift; sourceTree = "<group>"; };
+		596283C92757F94800EEA78C /* ForgotPasswordAnalyticsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordAnalyticsProtocol.swift; sourceTree = "<group>"; };
+		596283CB2757F95500EEA78C /* ForgotPasswordFlowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordFlowDelegate.swift; sourceTree = "<group>"; };
+		5975557E2757F7D70001C15D /* LoginIndexAnalyticsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginIndexAnalyticsProtocol.swift; sourceTree = "<group>"; };
+		597555832757F81A0001C15D /* LoginIndexUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginIndexUseCaseProtocol.swift; sourceTree = "<group>"; };
+		597555852757F8370001C15D /* LoginIndexFlowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginIndexFlowDelegate.swift; sourceTree = "<group>"; };
 		597F1C4127564395006320C9 /* Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		597F1C45275643D6006320C9 /* LoginStarter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStarter.swift; sourceTree = "<group>"; };
 		597F1C482756442D006320C9 /* StructuralDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructuralDependency.swift; sourceTree = "<group>"; };
@@ -186,8 +198,8 @@
 		59585577273A8F17008E587C /* Flow */ = {
 			isa = PBXGroup;
 			children = (
+				596283CD2757F99800EEA78C /* Factory */,
 				5958557D273A8F7C008E587C /* LoginFlow.swift */,
-				5958558B273A924E008E587C /* LoginViewControllerFactory.swift */,
 				5999E0C32747EF920044427F /* ForgotPasswordFlow.swift */,
 			);
 			path = Flow;
@@ -196,19 +208,110 @@
 		59585578273A8F1D008E587C /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				59585585273A911F008E587C /* Login */,
+				59585585273A911F008E587C /* Index */,
 				59B3B1BA273EC34900CEA77C /* ForgotPassword */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
 		};
-		59585585273A911F008E587C /* Login */ = {
+		59585585273A911F008E587C /* Index */ = {
+			isa = PBXGroup;
+			children = (
+				5975557C2757F7950001C15D /* Analytics */,
+				5975557D2757F79C0001C15D /* Flow */,
+				5975557B2757F7880001C15D /* UseCase */,
+				596283C02757F8D600EEA78C /* ViewModel */,
+				596283C12757F8E400EEA78C /* ViewController */,
+			);
+			path = Index;
+			sourceTree = "<group>";
+		};
+		596283C02757F8D600EEA78C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				59585586273A9130008E587C /* LoginIndexViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		596283C12757F8E400EEA78C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
 				59585589273A9141008E587C /* LoginIndexViewController.swift */,
 			);
-			path = Login;
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		596283C22757F90700EEA78C /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				596283C92757F94800EEA78C /* ForgotPasswordAnalyticsProtocol.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		596283C32757F90F00EEA78C /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				596283CB2757F95500EEA78C /* ForgotPasswordFlowDelegate.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		596283C42757F91400EEA78C /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				596283C72757F93700EEA78C /* ForgotPasswordUseCaseProtocol.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		596283C52757F91900EEA78C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				59B3B1BB273EC36B00CEA77C /* ForgotPasswordViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		596283C62757F91F00EEA78C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				59B3B1BD273EC39400CEA77C /* ForgotPasswordViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		596283CD2757F99800EEA78C /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				5958558B273A924E008E587C /* LoginViewControllerFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		5975557B2757F7880001C15D /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				597555832757F81A0001C15D /* LoginIndexUseCaseProtocol.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		5975557C2757F7950001C15D /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				5975557E2757F7D70001C15D /* LoginIndexAnalyticsProtocol.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		5975557D2757F79C0001C15D /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				597555852757F8370001C15D /* LoginIndexFlowDelegate.swift */,
+			);
+			path = Flow;
 			sourceTree = "<group>";
 		};
 		597F1C44275643AE006320C9 /* Starters */ = {
@@ -231,8 +334,11 @@
 		59B3B1BA273EC34900CEA77C /* ForgotPassword */ = {
 			isa = PBXGroup;
 			children = (
-				59B3B1BB273EC36B00CEA77C /* ForgotPasswordViewModel.swift */,
-				59B3B1BD273EC39400CEA77C /* ForgotPasswordViewController.swift */,
+				596283C22757F90700EEA78C /* Analytics */,
+				596283C32757F90F00EEA78C /* Flow */,
+				596283C42757F91400EEA78C /* UseCase */,
+				596283C52757F91900EEA78C /* ViewModel */,
+				596283C62757F91F00EEA78C /* ViewController */,
 			);
 			path = ForgotPassword;
 			sourceTree = "<group>";
@@ -395,16 +501,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				596283CA2757F94800EEA78C /* ForgotPasswordAnalyticsProtocol.swift in Sources */,
+				597555862757F8370001C15D /* LoginIndexFlowDelegate.swift in Sources */,
 				59B3B1BC273EC36B00CEA77C /* ForgotPasswordViewModel.swift in Sources */,
 				5958557A273A8F50008E587C /* LoginLauncher.swift in Sources */,
 				59B3B1BE273EC39400CEA77C /* ForgotPasswordViewController.swift in Sources */,
 				5958557C273A8F69008E587C /* LoginBusinessModel.swift in Sources */,
+				596283C82757F93700EEA78C /* ForgotPasswordUseCaseProtocol.swift in Sources */,
 				59585584273A8FCA008E587C /* LoginBusinessModel+Analytics.swift in Sources */,
 				5958558C273A924E008E587C /* LoginViewControllerFactory.swift in Sources */,
 				59585582273A8FB1008E587C /* LoginAPI.swift in Sources */,
 				5999E0C42747EF920044427F /* ForgotPasswordFlow.swift in Sources */,
 				5958558A273A9141008E587C /* LoginIndexViewController.swift in Sources */,
+				596283CC2757F95500EEA78C /* ForgotPasswordFlowDelegate.swift in Sources */,
 				5958557E273A8F7C008E587C /* LoginFlow.swift in Sources */,
+				597555842757F81A0001C15D /* LoginIndexUseCaseProtocol.swift in Sources */,
+				5975557F2757F7D70001C15D /* LoginIndexAnalyticsProtocol.swift in Sources */,
 				59585580273A8FA2008E587C /* LoginRepositoryProtocol.swift in Sources */,
 				59585587273A9130008E587C /* LoginIndexViewModel.swift in Sources */,
 			);

@@ -1,25 +1,16 @@
 //
-//  LoginViewController.swift
+//  ForgotPasswordViewController.swift
 //  Login
 //
-//  Created by Nykolas Mayko Maia Barbosa on 09/11/21.
+//  Created by Nykolas Mayko Maia Barbosa on 12/11/21.
 //
 
 import UIKit
 import Core
 
-public protocol LoginIndexFlowDelegate: AnyObject {
-    func onLoginSuccess(in controller: LoginIndexViewController)
-    func onForgotPasswordClick(in controller: LoginIndexViewController)
-    func onCloseClick(in controller: LoginIndexViewController)
-    func onBackClick(in controller: LoginIndexViewController)
-}
-
-open class LoginIndexViewController: BaseViewController<LoginIndexViewModelProtocol, LoginIndexFlowDelegate>  {
+open class ForgotPasswordViewController: BaseViewController<ForgotPasswordViewModelProtocol> {
     // MARK: - Private Properties
-    
     private let button: UIButton = UIButton()
-    private let forgotPasswordbutton: UIButton = UIButton()
     private let loadingContainer: UIView = UIView()
     
     // MARK: - Life Cycle
@@ -40,36 +31,24 @@ open class LoginIndexViewController: BaseViewController<LoginIndexViewModelProto
     }
     
     private func setupView() {
+        title = "Forgot Password"
         view.backgroundColor = .white
-        title = "Login"
     }
     
     private func setupNavigation() {
-        let buttonTitle = isModal ? "Fechar" : "Voltar"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: buttonTitle, style: .done, target: self, action: isModal ? #selector(close) : #selector(back))
         navigationController?.navigationBar.isHidden = false
     }
     
     private func setupButton() {
         button.setTitleColor(.blue, for: .normal)
-        button.setTitle("Login", for: .normal)
-        button.addTarget(self, action: #selector(login), for: .touchUpInside)
+        button.setTitle("Change Password", for: .normal)
+        button.addTarget(self, action: #selector(changePassword), for: .touchUpInside)
         
         button.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button)
         
         button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        
-        forgotPasswordbutton.setTitleColor(.blue, for: .normal)
-        forgotPasswordbutton.setTitle("Forgot Password", for: .normal)
-        forgotPasswordbutton.addTarget(self, action: #selector(forgotPassword), for: .touchUpInside)
-        
-        forgotPasswordbutton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(forgotPasswordbutton)
-        
-        forgotPasswordbutton.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 16.0).isActive = true
-        forgotPasswordbutton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
     private func setupLoadingContainer() {
@@ -98,25 +77,12 @@ open class LoginIndexViewController: BaseViewController<LoginIndexViewModelProto
     
     // MARK: - Private Functions
     
-    @objc private func login() {
+    @objc private func changePassword() {
         loadingContainer.isHidden = !loadingContainer.isHidden
-        viewModel?.login(with: "nykolas", and: "123456", completion: { [weak self] success in
+        viewModel?.changePassword(with: "123456", completion: { [weak self] success in
             guard let self = self else { return }
             self.loadingContainer.isHidden = true
-            if success { self.flowDelegate?.onLoginSuccess(in: self) }
+            if success { self.viewModel?.onChangePasswordSuccess(in: self) }
         })
-    }
-    
-    @objc private func forgotPassword() {
-        viewModel?.onForgotPasswordClick()
-        flowDelegate?.onForgotPasswordClick(in: self)
-    }
-    
-    @objc private func back() {
-        flowDelegate?.onBackClick(in: self)
-    }
-    
-    @objc private func close() {
-        flowDelegate?.onCloseClick(in: self)
     }
 }

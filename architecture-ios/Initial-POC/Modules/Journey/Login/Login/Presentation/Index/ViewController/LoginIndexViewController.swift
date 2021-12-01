@@ -1,20 +1,18 @@
 //
-//  ForgotPasswordViewController.swift
+//  LoginViewController.swift
 //  Login
 //
-//  Created by Nykolas Mayko Maia Barbosa on 12/11/21.
+//  Created by Nykolas Mayko Maia Barbosa on 09/11/21.
 //
 
 import UIKit
 import Core
 
-public protocol ForgotPasswordFlowDelegate: AnyObject {
-    func onChangePasswordSuccess(in controller: ForgotPasswordViewController)
-}
-
-open class ForgotPasswordViewController: BaseViewController<ForgotPasswordViewModelProtocol, ForgotPasswordFlowDelegate> {
+open class LoginIndexViewController: BaseViewController<LoginIndexViewModelProtocol>  {
     // MARK: - Private Properties
+    
     private let button: UIButton = UIButton()
+    private let forgotPasswordbutton: UIButton = UIButton()
     private let loadingContainer: UIView = UIView()
     
     // MARK: - Life Cycle
@@ -35,24 +33,36 @@ open class ForgotPasswordViewController: BaseViewController<ForgotPasswordViewMo
     }
     
     private func setupView() {
-        title = "Forgot Password"
         view.backgroundColor = .white
+        title = "Login"
     }
     
     private func setupNavigation() {
+        let buttonTitle = isModal ? "Fechar" : "Voltar"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: buttonTitle, style: .done, target: self, action: isModal ? #selector(close) : #selector(back))
         navigationController?.navigationBar.isHidden = false
     }
     
     private func setupButton() {
         button.setTitleColor(.blue, for: .normal)
-        button.setTitle("Change Password", for: .normal)
-        button.addTarget(self, action: #selector(changePassword), for: .touchUpInside)
+        button.setTitle("Login", for: .normal)
+        button.addTarget(self, action: #selector(login), for: .touchUpInside)
         
         button.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button)
         
         button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        forgotPasswordbutton.setTitleColor(.blue, for: .normal)
+        forgotPasswordbutton.setTitle("Forgot Password", for: .normal)
+        forgotPasswordbutton.addTarget(self, action: #selector(forgotPassword), for: .touchUpInside)
+        
+        forgotPasswordbutton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(forgotPasswordbutton)
+        
+        forgotPasswordbutton.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 16.0).isActive = true
+        forgotPasswordbutton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
     private func setupLoadingContainer() {
@@ -81,12 +91,24 @@ open class ForgotPasswordViewController: BaseViewController<ForgotPasswordViewMo
     
     // MARK: - Private Functions
     
-    @objc private func changePassword() {
+    @objc private func login() {
         loadingContainer.isHidden = !loadingContainer.isHidden
-        viewModel?.changePassword(with: "123456", completion: { [weak self] success in
+        viewModel?.login(with: "nykolas", and: "123456", completion: { [weak self] success in
             guard let self = self else { return }
             self.loadingContainer.isHidden = true
-            if success { self.flowDelegate?.onChangePasswordSuccess(in: self) }
+            if success { self.viewModel?.onLoginSuccess(in: self) }
         })
+    }
+    
+    @objc private func forgotPassword() {
+        viewModel?.onForgotPasswordClick(in: self)
+    }
+    
+    @objc private func back() {
+        viewModel?.onBackClick(in: self)
+    }
+    
+    @objc private func close() {
+        viewModel?.onCloseClick(in: self)
     }
 }
