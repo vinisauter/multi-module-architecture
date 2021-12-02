@@ -16,7 +16,7 @@
 		593F262F2739D56F00B34547 /* NetworkingInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 593F262E2739D56F00B34547 /* NetworkingInterfaces.framework */; };
 		593F26302739D56F00B34547 /* NetworkingInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 593F262E2739D56F00B34547 /* NetworkingInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		596283DF2757FAA400EEA78C /* ProfileHomeFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596283DE2757FAA400EEA78C /* ProfileHomeFlowDelegate.swift */; };
-		596283E12757FABE00EEA78C /* ProfileHomeUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596283E02757FABE00EEA78C /* ProfileHomeUseCaseProtocol.swift */; };
+		596283E12757FABE00EEA78C /* ProfileHomeBusinessModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596283E02757FABE00EEA78C /* ProfileHomeBusinessModelProtocol.swift */; };
 		596283E32757FAE000EEA78C /* ProfileHomeAnalyticsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596283E22757FAE000EEA78C /* ProfileHomeAnalyticsProtocol.swift */; };
 		597F1C5D27564AAC006320C9 /* StructuralDependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F1C5C27564AAC006320C9 /* StructuralDependencyProvider.swift */; };
 		597F1C6027564AC3006320C9 /* LoginStarter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F1C5F27564AC3006320C9 /* LoginStarter.swift */; };
@@ -88,7 +88,7 @@
 		593F262B2739D55F00B34547 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		593F262E2739D56F00B34547 /* NetworkingInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkingInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		596283DE2757FAA400EEA78C /* ProfileHomeFlowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHomeFlowDelegate.swift; sourceTree = "<group>"; };
-		596283E02757FABE00EEA78C /* ProfileHomeUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHomeUseCaseProtocol.swift; sourceTree = "<group>"; };
+		596283E02757FABE00EEA78C /* ProfileHomeBusinessModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHomeBusinessModelProtocol.swift; sourceTree = "<group>"; };
 		596283E22757FAE000EEA78C /* ProfileHomeAnalyticsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHomeAnalyticsProtocol.swift; sourceTree = "<group>"; };
 		597F1C5C27564AAC006320C9 /* StructuralDependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructuralDependencyProvider.swift; sourceTree = "<group>"; };
 		597F1C5F27564AC3006320C9 /* LoginStarter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStarter.swift; sourceTree = "<group>"; };
@@ -180,12 +180,12 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		596283DB2757FA7D00EEA78C /* UseCase */ = {
+		596283DB2757FA7D00EEA78C /* Business */ = {
 			isa = PBXGroup;
 			children = (
-				596283E02757FABE00EEA78C /* ProfileHomeUseCaseProtocol.swift */,
+				596283E02757FABE00EEA78C /* ProfileHomeBusinessModelProtocol.swift */,
 			);
-			path = UseCase;
+			path = Business;
 			sourceTree = "<group>";
 		};
 		596283DC2757FA8A00EEA78C /* Flow */ = {
@@ -269,7 +269,7 @@
 			children = (
 				596283DD2757FA8E00EEA78C /* Analytics */,
 				596283DC2757FA8A00EEA78C /* Flow */,
-				596283DB2757FA7D00EEA78C /* UseCase */,
+				596283DB2757FA7D00EEA78C /* Business */,
 				596283D92757FA6F00EEA78C /* ViewModel */,
 				596283DA2757FA7600EEA78C /* ViewController */,
 			);
@@ -442,7 +442,7 @@
 				59AECDEE273AB3FF00252E87 /* ProfileHomeViewModel.swift in Sources */,
 				59AECDF6273AB44D00252E87 /* ProfileRepositoryProtocol.swift in Sources */,
 				59AECDF0273AB40B00252E87 /* ProfileHomeViewController.swift in Sources */,
-				596283E12757FABE00EEA78C /* ProfileHomeUseCaseProtocol.swift in Sources */,
+				596283E12757FABE00EEA78C /* ProfileHomeBusinessModelProtocol.swift in Sources */,
 				59AECDFA273AB46600252E87 /* ProfileFlow.swift in Sources */,
 				59AECDF8273AB45A00252E87 /* ProfileAPI.swift in Sources */,
 				59AECDF2273AB42100252E87 /* ProfileBusinessModel.swift in Sources */,
