@@ -28,16 +28,18 @@ abstract class BaseFragment<ViewBindingType : ViewBinding, ViewModelType : BaseV
         val viewBindingClass: Class<ViewBindingType> = getClassTypeAt(0)
         binding = viewBindingInflate(viewBindingClass, inflater, container)
         if (binding is ViewDataBinding) {
-            val data = (binding as ViewDataBinding)
-            data.lifecycleOwner = this
-            data.executePendingBindings()
+            val viewDataBinding = (binding as ViewDataBinding)
+            viewDataBinding.lifecycleOwner = this
+            viewDataBinding.executePendingBindings()
         }
+        afterViews(binding)
+        viewModel.onViewCreated()
         return binding.root
     }
 
     abstract fun afterViews(binding: ViewBindingType)
 
-     private fun <T : ViewBinding> viewBindingInflate(
+    private fun <T : ViewBinding> viewBindingInflate(
         clazz: Class<T>,
         inflater: LayoutInflater,
         parent: ViewGroup?
