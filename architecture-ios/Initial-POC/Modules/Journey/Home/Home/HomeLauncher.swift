@@ -43,6 +43,8 @@ public class HomeLauncher {
     }
 }
 
+// MARK: - Deeplink
+
 enum HomeDeeplink: String, CaseIterable {
     case index = "/"
 }

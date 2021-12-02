@@ -46,6 +46,8 @@ public class ProfileLauncher {
     }
 }
 
+// MARK: - Deeplink
+
 enum ProfileDeeplink: String, CaseIterable {
     case index = "/"
     case forgotPassword = "/forgotPassword"
