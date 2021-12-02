@@ -4,6 +4,7 @@
     <string name="title_home">Home</string>
     <string name="title_profile">Profile</string>
     <string name="title_networking">Networking-Implementation</string>
+    <string name="title_networking_secure">Networking-Implementation</string>
     <string name="title_storage">Storage-Implementation</string>
     <string name="title_tagging">Tagging-Implementation</string>
 </resources>

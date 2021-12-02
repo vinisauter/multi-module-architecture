@@ -3,6 +3,8 @@ package androidx.lifecycle
 import android.annotation.SuppressLint
 import android.app.Application
 import android.injection.InjectionProvider
+import android.injection.QualifierValue
+import android.injection.annotation.Qualifier
 import android.os.Bundle
 import androidx.savedstate.SavedStateRegistry
 import androidx.savedstate.SavedStateRegistryOwner
@@ -41,13 +43,27 @@ class InjectionViewModelFactory @SuppressLint("LambdaLast") constructor(
             newInstanceOf(modelClass) as T
         } catch (e: IllegalAccessException) {
             throw RuntimeException("Failed to access $modelClass", e)
+                .filterStackTrace("android")
         } catch (e: InstantiationException) {
             throw RuntimeException("A $modelClass cannot be instantiated.", e)
+                .filterStackTrace("android")
         } catch (e: InvocationTargetException) {
             throw RuntimeException("An exception happened in constructor of $modelClass", e.cause)
+                .filterStackTrace("android")
         } catch (e: Exception) {
             throw RuntimeException("Cannot create an instance of $modelClass", e)
+                .filterStackTrace("android")
         }
+    }
+
+    private fun Throwable.filterStackTrace(notContains: String): Throwable {
+        val filtered = stackTrace.filterNot { it.className.contains(notContains) }
+        stackTrace = filtered.toTypedArray()
+        cause?.let { cause ->
+            val causeFiltered = cause.stackTrace.filterNot { it.className.contains(notContains) }
+            cause.stackTrace = causeFiltered.toTypedArray()
+        }
+        return this
     }
 
     private fun newInstanceOf(clazz: Class<*>): Any {
@@ -68,11 +84,22 @@ class InjectionViewModelFactory @SuppressLint("LambdaLast") constructor(
                 parameterType.type.isSupertypeOf(SavedStateHandle::class.createType()) -> {
                     val canonicalName = clazz.canonicalName
                     controller = SavedStateHandleController.create(
-                        savedStateRegistry, lifecycle, canonicalName, defaultArgs)
+                        savedStateRegistry, lifecycle, canonicalName, defaultArgs
+                    )
                     args[parameterType] = controller?.handle
                 }
                 else -> {
-                    val value = InjectionProvider.getDefinition(parameterType.type.classifier as KClass<*>)
+                    var qualifier: QualifierValue? = null
+                    for (annotation in parameterType.annotations) {
+                        if (annotation is Qualifier) {
+                            qualifier = (parameterType.annotations[0] as Qualifier).value
+                            break
+                        }
+                    }
+                    val value = InjectionProvider.getDefinition(
+                        parameterType.type.classifier as KClass<*>,
+                        qualifier
+                    )
                     args[parameterType] = value
                 }
             }

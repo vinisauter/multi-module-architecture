@@ -43,6 +43,7 @@ android {
             ':modules:journey:profile',
 
             ':modules:structural:networking',
+            ':modules:structural:networkingsecure',
             ':modules:structural:storage',
             ':modules:structural:tagging',
     ]

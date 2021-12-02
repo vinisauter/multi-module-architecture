@@ -31,19 +31,20 @@ object InjectionProvider {
         val instance = declaration?.get()
         instance ?: run {
             var keys = "["
-            for (entry in definitionRegistry.keys) {
+            for (entry in definitionRegistry.keys.sorted()) {
                 keys += "\n   $entry"
             }
             keys += "\n]"
-            error(
-                "Unable to find declaration of type ${clazz.qualifiedName}" +
+            val error = IllegalStateException(
+                "Unable to find declaration of type ${clazz.qualifiedName} ${qualifier?.let { "with qualifier: \"$qualifier\"" } ?: ""}" +
                         "\n   Please declare:\n" +
                         "        provides {\n" +
-                        "            declare<${clazz.simpleName}> { TheImplementationOf${clazz.simpleName}() }\n" +
+                        "            declare<${clazz.simpleName}>${qualifier?.let { "(qualifier = \"$qualifier\")" } ?: ""} { TheImplementationOf${clazz.simpleName}() }\n" +
                         "        }" +
                         "\n\n" +
                         "Definitions: $keys"
             )
+            throw error
         }
         return instance as T
     }
@@ -68,7 +69,7 @@ object InjectionProvider {
     }
 
     fun <T : Any> key(kClass: KClass<T>, qualifier: QualifierValue?): String {
-        return """${qualifier.orEmpty()}[${kClass.qualifiedName}]"""
+        return """(${kClass.qualifiedName}${qualifier?.let { " - $qualifier" } ?: ""})"""
     }
 
 }

@@ -11,6 +11,8 @@ import com.example.journey.login.tracking.LoginTracking
 import com.example.login.business.LoginBusinessModel
 import com.example.login.business.repository.local.LoginStorage
 import com.example.login.business.repository.remote.LoginApi
+import com.example.networking.RequestExecutor
+import com.example.storage.StorageExecutor
 
 class LoginNavigationActivity : NavigationActivity(R.navigation.login_navigation_graph) {
     private val args: LoginNavigationActivityArgs by navArgs()
@@ -22,12 +24,15 @@ class LoginNavigationActivity : NavigationActivity(R.navigation.login_navigation
         module = module("LOGIN") {
             declare<LoginTracking> { tracking }
             sharedWithSuperClasses<LoginBusinessModel> {
-                val api = LoginApi(get())
-                val storage = LoginStorage(get())
+                val secureRequestExecutor: RequestExecutor = get(qualifier = "secure")
+                val unsecureRequestExecutor: RequestExecutor = get(qualifier = "unsecure")
+                val storageExecutor: StorageExecutor = get()
+                val api = LoginApi(unsecureRequestExecutor, secureRequestExecutor)
+                val storage = LoginStorage(storageExecutor)
                 LoginBusinessModel(api, storage)
             }
             // declareWithSuperClasses/sharedWithSuperClasses<LoginBusinessModel>
-            //  WithSuperClasses is equivalent to definition of all super classes:
+            //  WithSuperClasses is equivalent to definition of the class and all super classes:
             //  declare/shared<LoginBusinessModel>
             //  declare/shared<LoginFragmentUseCase>
             //  declare/shared<ForgotPasswordFragmentUseCase>
