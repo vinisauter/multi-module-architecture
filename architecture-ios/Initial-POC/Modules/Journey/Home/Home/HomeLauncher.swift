@@ -39,7 +39,7 @@ public class HomeLauncher {
         mainFlow.baseFlowDelegate = dependencies.baseFlowDelegate
         factory.flow = mainFlow
         
-        return mainFlow.start(businessModel: businessModel, analytics: businessModel)
+        return mainFlow.start()
     }
 }
 

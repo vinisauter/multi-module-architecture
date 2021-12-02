@@ -222,6 +222,14 @@
 			path = Starters;
 			sourceTree = "<group>";
 		};
+		598AC4BB27593DD70081C1FD /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				59AECDFB273AB47C00252E87 /* ProfileViewControllerFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
 		59AECDE5273AB39F00252E87 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,8 +249,8 @@
 		59AECDE7273AB3AD00252E87 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
+				598AC4BB27593DD70081C1FD /* Factory */,
 				59AECDF9273AB46600252E87 /* ProfileFlow.swift */,
-				59AECDFB273AB47C00252E87 /* ProfileViewControllerFactory.swift */,
 			);
 			path = Flow;
 			sourceTree = "<group>";

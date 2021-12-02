@@ -12,16 +12,14 @@ public protocol HomeAnalyticsProtocol {
     var structuralAnalytics: AnalyticsProtocol? { get }
 }
 
-public protocol HomeBusinessModelProtocol {
-    var repository: HomeRepositoryProtocol? { get }
-}
-
-class HomeBusinessModel: HomeBusinessModelProtocol, HomeAnalyticsProtocol {
-    internal var repository: HomeRepositoryProtocol?
-    internal var structuralAnalytics: AnalyticsProtocol?
+public class HomeBusinessModel: HomeAnalyticsProtocol {
+    public var repository: HomeRepositoryProtocol?
+    public var structuralAnalytics: AnalyticsProtocol?
     
     init(repository: HomeRepositoryProtocol, structuralAnalytics: AnalyticsProtocol) {
         self.repository = repository
         self.structuralAnalytics = structuralAnalytics
     }
 }
+
+extension HomeBusinessModel: HomeIndexBusinessModelProtocol {}

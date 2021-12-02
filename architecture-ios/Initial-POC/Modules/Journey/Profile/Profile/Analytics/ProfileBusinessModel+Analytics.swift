@@ -13,25 +13,25 @@ extension ProfileBusinessModel: ProfileHomeAnalyticsProtocol {
         structuralAnalytics?.track(tag: "PROFILE INDEX - onGoToMenuClick track")
     }
     
-    func onCallLoginClick() {
+    public func onCallLoginClick() {
         structuralAnalytics?.track(tag: "PROFILE INDEX - onCallLoginClick track")
     }
     
-    func onGoToForgotPasswordClick() {
+    public func onGoToForgotPasswordClick() {
         structuralAnalytics?.track(tag: "PROFILE INDEX - onGoToForgotPasswordClick track")
     }
 }
 
 extension ProfileBusinessModel {
-    func onLoginClick() {
+    public func onLoginClick() {
         structuralAnalytics?.track(tag: "FROM PROFILE - LOGIN - onLoginClick track ")
     }
     
-    func onForgotPasswordClick() {
+    public func onForgotPasswordClick() {
         structuralAnalytics?.track(tag: "FROM PROFILE - LOGIN - onForgotPasswordClick track")
     }
     
-    func onChangePasswordClick() {
+    public func onChangePasswordClick() {
         structuralAnalytics?.track(tag: "FROM PROFILE - LOGIN/FORGOT PASSWORD - onChangePasswordClick track")
     }
 }

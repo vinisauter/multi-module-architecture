@@ -8,17 +8,17 @@
 import AnalyticsInterfaces
 
 extension LoginBusinessModel: LoginIndexAnalyticsProtocol {
-    func onForgotPasswordClick() {
+    public func onForgotPasswordClick() {
         structuralAnalytics?.track(tag: "LOGIN - onForgotPassword track")
     }
     
-    func onLoginClick() {
+    public func onLoginClick() {
         structuralAnalytics?.track(tag: "LOGIN - onLoginClick track")
     }
 }
 
 extension LoginBusinessModel: ForgotPasswordAnalyticsProtocol {
-    func onChangePasswordClick() {
+    public func onChangePasswordClick() {
         structuralAnalytics?.track(tag: "LOGIN/FORGOT PASSWORD - onChangePasswordClick track")
     }
 }

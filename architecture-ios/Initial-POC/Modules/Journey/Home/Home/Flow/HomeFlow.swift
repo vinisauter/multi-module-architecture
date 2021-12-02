@@ -12,7 +12,7 @@ protocol HomeFlowProtocol: AnyObject {
     var factory: HomeViewControllerFactory { get }
     var baseFlowDelegate: BaseFlowDelegate? { get set }
     var deeplink: Deeplink<HomeDeeplink>? { get set }
-    func start(businessModel: HomeBusinessModelProtocol, analytics: HomeAnalyticsProtocol) -> UIViewController
+    func start() -> UIViewController
 }
 
 class HomeFlow: HomeFlowProtocol, Deeplinkable {
@@ -27,7 +27,7 @@ class HomeFlow: HomeFlowProtocol, Deeplinkable {
         self.deeplink = deeplink
     }
     
-    func start(businessModel: HomeBusinessModelProtocol, analytics: HomeAnalyticsProtocol) -> UIViewController {
+    func start() -> UIViewController {
         return factory.makeHomeIndexViewController()
     }
     
