@@ -8,23 +8,16 @@
 import Foundation
 import NetworkingInterfaces
 
-open class Networking: HTTPClient {
+open class Networking: NetworkingInterfaces.Networking {
     
     public init() {}
     
-    public func get() -> String {
-        return "GET"
-    }
-    
-    public func post() -> String {
-        return "POST"
-    }
-    
-    public func put() -> String {
-        return "PUT"
-    }
-    
-    public func delete() -> String {
-        return "DELETE"
+    public func getHttpClient() -> HTTPClient {
+        let isLibOne = Bool.random()
+        if isLibOne {
+            return LibOneHTTPClient()
+        } else {
+            return LibTwoHTTPClient()
+        }
     }
 }

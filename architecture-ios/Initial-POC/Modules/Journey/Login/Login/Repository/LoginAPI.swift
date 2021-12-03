@@ -16,18 +16,14 @@ class LoginAPI: LoginRepositoryProtocol {
     }
     
     func login(with username: String, and password: String, completion: @escaping (Bool) -> Void) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
-            guard let self = self else { return completion(false) }
-            
-            completion(self.httpClient.post() == "POST")
+        httpClient.post { result in
+            completion(result == "POST")
         }
     }
     
     func changePassword(with newPassword: String, completion: @escaping (Bool) -> Void) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
-            guard let self = self else { return completion(false) }
-            
-            completion(self.httpClient.post() == "POST")
+        httpClient.post { result in
+            completion(result == "POST")
         }
     }
 }

@@ -7,9 +7,13 @@
 
 import Foundation
 
+public protocol Networking {
+    func getHttpClient() -> HTTPClient
+}
+
 public protocol HTTPClient {
-    func get() -> String
-    func post() -> String
-    func put() -> String
-    func delete() -> String
+    func get(completion: @escaping (String) -> Void)
+    func post(completion: @escaping (String) -> Void)
+    func put(completion: @escaping (String) -> Void)
+    func delete(completion: @escaping (String) -> Void)
 }
