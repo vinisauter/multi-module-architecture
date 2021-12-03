@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <attr name="destiny" format="reference" />
+    <declare-styleable name="LauncherNavigator">
+        <attr name="android:name"/>
+        <attr name="destiny"/>
+    </declare-styleable>
 </resources>

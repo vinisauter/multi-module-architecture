@@ -8,6 +8,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraph
 import androidx.navigation.fragment.NavHostFragment
 import com.example.app.R
+import com.example.journey.LauncherNavigator
 
 
 abstract class NavigationActivity(
@@ -27,8 +28,12 @@ abstract class NavigationActivity(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val graphInflater = navHostFragment.navController.navInflater
-        navGraph = graphInflater.inflate(graphResId)
         navController = navHostFragment.navController
+        navController.apply {
+            val launcherNavigator = LauncherNavigator(context)
+            navigatorProvider.addNavigator(launcherNavigator)
+        }
+        navGraph = graphInflater.inflate(graphResId)
         if (startDestination != DEFAULT_START_DESTINATION) {
             navGraph.setStartDestination(startDestination)
         }

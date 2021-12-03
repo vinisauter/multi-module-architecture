@@ -5,6 +5,12 @@
     android:id="@+id/profile_navigation_graph"
     app:moduleName="profile"
     app:startDestination="@+id/profile_fragment">
+
+    <launcher
+        android:id="@+id/home_launcher"
+        android:name="home"
+        app:destiny="@id/home_navigation" />
+
     <fragment
         android:id="@+id/profile_fragment"
         android:name="com.example.profile.presentation.ProfileFragment"
