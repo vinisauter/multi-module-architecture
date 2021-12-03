@@ -12,7 +12,7 @@
     <launcher
         android:id="@+id/navigation_launcher"
         android:name="com.example.journey.NavigationLauncher"
-        android:label="Loader">
+        app:graph="@navigation/app_navigation_graph">
         <argument
             android:name="destination_id"
             app:argType="reference" />

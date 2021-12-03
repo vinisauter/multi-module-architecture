@@ -5,7 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.injectViewModel
 import androidx.navigation.NavDirections
-import com.core.base.LoaderDialog
+import com.core.base.Loader
 import com.core.extensions.State
 import com.core.extensions.consume
 import com.core.extensions.navigate
@@ -43,9 +43,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         loader = null
     }
 
-    var loader: LoaderDialog? = null
+    var loader: Loader? = null
     private fun showLoading() {
-        if (loader == null) loader = LoaderDialog().also {
+        if (loader == null) loader = Loader().also {
             it.show(childFragmentManager, "login-loader")
         }
     }

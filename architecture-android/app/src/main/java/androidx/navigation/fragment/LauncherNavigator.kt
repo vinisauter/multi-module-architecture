@@ -1,11 +1,12 @@
 package androidx.navigation.fragment
 
 import android.content.Context
+import android.content.ContextParams
 import android.util.AttributeSet
 import android.util.Log
 import androidx.annotation.CallSuper
 import androidx.core.content.res.use
-import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Launcher
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
@@ -17,10 +18,12 @@ import androidx.navigation.Navigator
 import androidx.navigation.NavigatorProvider
 import androidx.navigation.NavigatorState
 import androidx.navigation.fragment.LauncherNavigator.Destination
+import java.lang.RuntimeException
+
 
 /**
- * Navigator that uses [DialogFragment.show]. Every
- * destination using this Navigator must set a valid DialogFragment class name with
+ * Navigator that uses [Launcher.show]. Every
+ * destination using this Navigator must set a valid Launcher class name with
  * `android:name` or [Destination.setClassName].
  */
 @Navigator.Name("launcher")
@@ -28,31 +31,34 @@ public class LauncherNavigator(
     private val context: Context,
     private val fragmentManager: FragmentManager
 ) : Navigator<Destination>() {
+    private var params: Launcher.LauncherParams? = null
     private val restoredTagsAwaitingAttach = mutableSetOf<String>()
     private val observer = LifecycleEventObserver { source, event ->
         if (event == Lifecycle.Event.ON_CREATE) {
-            val dialogFragment = source as DialogFragment
-            val dialogOnBackStack = state.backStack.value.any { it.id == dialogFragment.tag }
-            if (!dialogOnBackStack) {
+            val launcher = source as Launcher
+            this.params = Launcher.LauncherParams()
+            launcher.params = this.params
+            val launcherOnBackStack = state.backStack.value.any { it.id == launcher.tag }
+            if (!launcherOnBackStack) {
                 // If the Fragment is no longer on the back stack, it must have been
                 // been popped before it was actually attached to the FragmentManager
                 // (i.e., popped in the same frame as the navigate() call that added it). For
                 // that case, we need to dismiss the dialog to ensure the states stay in sync
-                dialogFragment.dismiss()
+                launcher.dismiss()
             }
         } else if (event == Lifecycle.Event.ON_STOP) {
-            val dialogFragment = source as DialogFragment
-            if (!dialogFragment.requireDialog().isShowing) {
+            val launcher = source as Launcher
+            if (!launcher.requireDialog().isShowing) {
                 val beforePopList = state.backStack.value
                 val poppedEntry = checkNotNull(beforePopList.lastOrNull {
-                    it.id == dialogFragment.tag
+                    it.id == launcher.tag
                 }) {
-                    "Dialog $dialogFragment has already been popped off of the Navigation " +
+                    "Launcher $launcher has already been popped off of the Navigation " +
                             "back stack"
                 }
                 if (beforePopList.lastOrNull() != poppedEntry) {
                     Log.i(
-                        TAG, "Dialog $dialogFragment was dismissed while it was not the top " +
+                        TAG, "Launcher $launcher was dismissed while it was not the top " +
                                 "of the back stack, popping all dialogs above this dismissed dialog"
                     )
                 }
@@ -80,14 +86,14 @@ public class LauncherNavigator(
             val existingFragment = fragmentManager.findFragmentByTag(entry.id)
             if (existingFragment != null) {
                 existingFragment.lifecycle.removeObserver(observer)
-                (existingFragment as DialogFragment).dismiss()
+                (existingFragment as Launcher).dismiss()
             }
         }
         state.pop(popUpTo, savedState)
     }
 
     public override fun createDestination(): Destination {
-        return Destination(this)
+        return Destination(params, this)
     }
 
     override fun navigate(
@@ -115,13 +121,13 @@ public class LauncherNavigator(
         val frag = fragmentManager.fragmentFactory.instantiate(
             context.classLoader, className
         )
-        require(DialogFragment::class.java.isAssignableFrom(frag.javaClass)) {
-            "Dialog destination ${destination.className} is not an instance of DialogFragment"
+        require(Launcher::class.java.isAssignableFrom(frag.javaClass)) {
+            "Launcher destination ${destination.className} is not an instance of Launcher"
         }
-        val dialogFragment = frag as DialogFragment
-        dialogFragment.arguments = entry.arguments
-        dialogFragment.lifecycle.addObserver(observer)
-        dialogFragment.show(fragmentManager, entry.id)
+        val launcher = frag as Launcher
+        launcher.arguments = entry.arguments
+        launcher.lifecycle.addObserver(observer)
+        launcher.show(fragmentManager, entry.id)
         state.push(entry)
     }
 
@@ -129,7 +135,7 @@ public class LauncherNavigator(
         super.onAttach(state)
         for (entry in state.backStack.value) {
             val fragment = fragmentManager
-                .findFragmentByTag(entry.id) as DialogFragment?
+                .findFragmentByTag(entry.id) as Launcher?
             fragment?.lifecycle?.addObserver(observer)
                 ?: restoredTagsAwaitingAttach.add(entry.id)
         }
@@ -142,28 +148,28 @@ public class LauncherNavigator(
     }
 
     /**
-     * NavDestination specific to [DialogFragmentNavigator].
+     * NavDestination specific to [LauncherNavigator].
      *
      * Construct a new fragment destination. This destination is not valid until you set the
      * Fragment via [setClassName].
      *
-     * @param fragmentNavigator The [DialogFragmentNavigator] which this destination will be
+     * @param fragmentNavigator The [LauncherNavigator] which this destination will be
      *                          associated with. Generally retrieved via a [NavController]'s
      *                          [NavigatorProvider.getNavigator] method.
      */
-    @NavDestination.ClassType(DialogFragment::class)
+    @NavDestination.ClassType(Launcher::class)
     public open class Destination
-    public constructor(fragmentNavigator: Navigator<out Destination>) :
+    public constructor(private val params: Launcher.LauncherParams?, fragmentNavigator: Navigator<out Destination>) :
         NavDestination(fragmentNavigator), FloatingWindow {
         private var _className: String? = null
         /**
-         * The DialogFragment's class name associated with this destination
+         * The Launcher's class name associated with this destination
          *
-         * @throws IllegalStateException when no DialogFragment class was set.
+         * @throws IllegalStateException when no Launcher class was set.
          */
         public val className: String
             get() {
-                checkNotNull(_className) { "DialogFragment class was not set" }
+                checkNotNull(_className) { "Launcher class was not set" }
                 return _className as String
             }
 
@@ -174,25 +180,33 @@ public class LauncherNavigator(
          * @param navigatorProvider The [NavController] which this destination
          * will be associated with.
          */
-        public constructor(navigatorProvider: NavigatorProvider) : this(
+        public constructor(params: Launcher.LauncherParams?, navigatorProvider: NavigatorProvider) : this(
+            params,
             navigatorProvider.getNavigator(LauncherNavigator::class.java)
         )
 
         @CallSuper
         public override fun onInflate(context: Context, attrs: AttributeSet) {
             super.onInflate(context, attrs)
-            context.resources.obtainAttributes(
-                attrs,
-                R.styleable.DialogFragmentNavigator
-            ).use { array ->
+            context.resources.obtainAttributes(attrs, R.styleable.DialogFragmentNavigator).use { array ->
                 val className = array.getString(R.styleable.DialogFragmentNavigator_android_name)
                 className?.let { setClassName(it) }
             }
+//            context.obtainStyledAttributes(com.example.app.R.styleable.LauncherNavigator).apply {
+//                val graph =  getResourceId(com.example.app.R.styleable.LauncherNavigator_graph, 0)
+//                if(graph == 0 ) {
+//                    throw RuntimeException("must set a  app:graph=\"@navigation/my_app_navigation_graph\" in the launcher tag")
+//                }
+//                this@Destination.params?.let { params ->
+//                    params.graph = graph
+//                }
+//                recycle()
+//            }
         }
 
         /**
-         * Set the DialogFragment class name associated with this destination
-         * @param className The class name of the DialogFragment to show when you navigate to this
+         * Set the Launcher class name associated with this destination
+         * @param className The class name of the Launcher to show when you navigate to this
          *                  destination
          * @return this [Destination]
          */

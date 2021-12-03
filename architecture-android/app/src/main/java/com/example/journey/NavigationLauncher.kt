@@ -8,7 +8,7 @@ import androidx.navigation.dynamicfeatures.DynamicExtras
 import androidx.navigation.dynamicfeatures.DynamicInstallMonitor
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.core.base.LoaderDialog
+import com.core.base.Loader
 import com.example.app.R
 import kotlinx.coroutines.launch
 
@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
 //               android:graph="@navigation/app_navigation_graph"/>
 //  ```
 //  https://gist.github.com/fbarthelery/ad0062a88875b46e0065137ff03807a0
-class NavigationLauncher : LoaderDialog() {
+class NavigationLauncher : Loader() {
     private val args: NavigationLauncherArgs by navArgs()
     override fun onStart() {
         super.onStart()

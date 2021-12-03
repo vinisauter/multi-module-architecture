@@ -2,13 +2,14 @@ package com.core.base
 
 import android.os.Bundle
 import android.view.ViewGroup
-import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Launcher
 import com.example.app.R
 
-open class LoaderDialog(
+open class Loader(
     contentLayoutId: Int = R.layout.loader_fragment,
     private val cancelable: Boolean = false
-) : DialogFragment(contentLayoutId) {
+) : Launcher(contentLayoutId) {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(STYLE_NORMAL, R.style.FullScreenDialog)
