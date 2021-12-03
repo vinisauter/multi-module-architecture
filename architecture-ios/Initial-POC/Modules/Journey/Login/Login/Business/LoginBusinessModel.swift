@@ -25,12 +25,20 @@ public class LoginBusinessModel: LoginAnalyticsProtocol {
 
 extension LoginBusinessModel: LoginIndexBusinessModelProtocol {
     public func login(with username: String, and password: String, completion: @escaping (Bool) -> Void) {
-        repository?.login(with: username, and: password, completion: completion)
+        repository?.login(with: username, and: password, completion: { result in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        })
     }
 }
 
 extension LoginBusinessModel: ForgotPasswordBusinessModelProtocol {
     public func changePassword(with newPassword: String, completion: @escaping (Bool) -> Void) {
-        repository?.changePassword(with: newPassword, completion: completion)
+        repository?.changePassword(with: newPassword, completion: { result in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        })
     }
 }

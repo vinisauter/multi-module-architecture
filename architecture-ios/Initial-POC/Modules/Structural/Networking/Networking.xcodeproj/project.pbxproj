@@ -13,6 +13,8 @@
 		593F26142739D4B000B34547 /* NetworkingInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 593F26082739D4A500B34547 /* NetworkingInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		593F261A2739D4CC00B34547 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593F26192739D4CC00B34547 /* HTTPClient.swift */; };
 		593F261D2739D4ED00B34547 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593F261C2739D4ED00B34547 /* Networking.swift */; };
+		598AC4BE275A2B160081C1FD /* LibOneHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598AC4BD275A2B160081C1FD /* LibOneHTTPClient.swift */; };
+		598AC4C1275A2BD20081C1FD /* LibTwoHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598AC4C0275A2BD20081C1FD /* LibTwoHTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		593F260B2739D4A500B34547 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		593F26192739D4CC00B34547 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		593F261C2739D4ED00B34547 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		598AC4BD275A2B160081C1FD /* LibOneHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibOneHTTPClient.swift; sourceTree = "<group>"; };
+		598AC4C0275A2BD20081C1FD /* LibTwoHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibTwoHTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,8 @@
 			children = (
 				59C82C4E273C02C900E84149 /* Config */,
 				593F261C2739D4ED00B34547 /* Networking.swift */,
+				598AC4BD275A2B160081C1FD /* LibOneHTTPClient.swift */,
+				598AC4C0275A2BD20081C1FD /* LibTwoHTTPClient.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -250,7 +256,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				598AC4C1275A2BD20081C1FD /* LibTwoHTTPClient.swift in Sources */,
 				593F261D2739D4ED00B34547 /* Networking.swift in Sources */,
+				598AC4BE275A2B160081C1FD /* LibOneHTTPClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
