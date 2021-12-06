@@ -56,7 +56,7 @@ public final class AppNavigation {
     
     @discardableResult public func resolve(_ rawDeeplink: String?) -> Bool {
         guard let rawDeeplink = rawDeeplink, let deeplink = getDeeplink(from: rawDeeplink), let destinationJourney = deeplink.value, let url = deeplink.url, let starter = getHandler(from: destinationJourney) else { return false }
-
+        
         guard starter.canStart() else {
             self.rawDeeplink = rawDeeplink
             return false
@@ -83,7 +83,11 @@ public final class AppNavigation {
         jorneys.forEach{ [weak self] jorney in self?.handlers[jorney] = stater }
     }
     
+<<<<<<< HEAD
     public func getHandler(from jorney: Journey) -> ModuleHandler? {
+=======
+    public func getStarter(from jorney: Journey) -> ModuleHandler? {
+>>>>>>> Replacing JourneyModule enumeration for Jorney struct, moving its definitions to App. Creating Module's delegates and DataSources, and renaming Starters to Handlers.
         return handlers[jorney]
     }
     
@@ -146,7 +150,11 @@ extension AppNavigation: BaseFlowDelegate {
     }
     
     private func handleGo(to destinationJourney: Journey, from currentJourney: Journey, in viewController: UIViewController, with value: Any?) {
+<<<<<<< HEAD
         guard let starter = getHandler(from: currentJourney) else { return }
+=======
+        guard let starter = getStarter(from: currentJourney) else { return }
+>>>>>>> Replacing JourneyModule enumeration for Jorney struct, moving its definitions to App. Creating Module's delegates and DataSources, and renaming Starters to Handlers.
         starter.handleGo(to: destinationJourney, in: viewController, with: value)
     }
 }
@@ -155,7 +163,11 @@ extension AppNavigation: BaseFlowDelegate {
 
 extension AppNavigation: BaseFlowDataSource {
     public func get(_ journey: Journey, from currentJourney: Journey, with baseFlowDelegate: BaseFlowDelegate, customAnalytics: Any?) -> UIViewController {
+<<<<<<< HEAD
         guard let starter = getHandler(from: journey) else { return UIViewController() }
+=======
+        guard let starter = getStarter(from: journey) else { return UIViewController() }
+>>>>>>> Replacing JourneyModule enumeration for Jorney struct, moving its definitions to App. Creating Module's delegates and DataSources, and renaming Starters to Handlers.
         return starter.handleGet(from: currentJourney, to: journey, with: baseFlowDelegate, analytics: customAnalytics)
     }
 }
