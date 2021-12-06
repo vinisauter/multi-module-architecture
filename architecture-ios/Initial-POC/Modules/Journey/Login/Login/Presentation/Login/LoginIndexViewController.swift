@@ -13,7 +13,7 @@ public protocol LoginIndexFlowDelegate: AnyObject {
     func onForgotPasswordClick(in controller: LoginIndexViewController)
 }
 
-open class LoginIndexViewController: BaseViewController<LoginIndexViewModelProtocol, LoginIndexFlowDelegate>  {
+open class LoginIndexViewController: BaseViewController<LoginIndexViewModelProtocol, LoginIndexFlowDelegate>{
     // MARK: - Private Properties
     
     private let button: UIButton = UIButton()

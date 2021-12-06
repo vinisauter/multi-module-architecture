@@ -183,8 +183,8 @@
 			isa = PBXGroup;
 			children = (
 				5958557D273A8F7C008E587C /* LoginFlow.swift */,
-				5958558B273A924E008E587C /* LoginViewControllerFactory.swift */,
 				5999E0C32747EF920044427F /* ForgotPasswordFlow.swift */,
+				5958558B273A924E008E587C /* LoginViewControllerFactory.swift */,
 			);
 			path = Flow;
 			sourceTree = "<group>";
@@ -616,6 +616,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CWQ8X44CMX;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = LoginDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -636,6 +637,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CWQ8X44CMX;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = LoginDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

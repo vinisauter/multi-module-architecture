@@ -37,6 +37,10 @@ open class BaseViewModel<U, A, D>: ViewModelProtocol {
         return useCase as? UseCase
     }
     
+    public func getUserCaseTest<UseCase>() -> UseCase{
+        return useCase as! UseCase
+    }
+    
     public func getAnalytics<AnalyticsModel>() -> AnalyticsModel? {
         return analytics as? AnalyticsModel
     }

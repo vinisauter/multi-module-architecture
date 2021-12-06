@@ -18,6 +18,7 @@ protocol LoginFlowProtocol: AnyObject {
 class LoginFlow: LoginFlowProtocol, Deeplinkable {
     var factory: LoginViewControllerFactory
     
+    
     var deeplink: Deeplink<LoginDeeplink>?
     
     weak var baseFlowDelegate: BaseFlowDelegate?
@@ -54,6 +55,7 @@ extension LoginFlow: LoginIndexFlowDelegate {
         controller.show(factory.makeForgotPasswordViewController(), sender: nil)
     }
     
+    //
     func onLoginSuccess(in controller: LoginIndexViewController) {
         baseFlowDelegate?.go(to: .home, from: .login, in: controller, with: nil)
         baseFlowDelegate?.didFinish(.login, in: controller, with: nil)

@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "container:/Users/nykolasmayko/Documents/multi-module-architecture/architecture-ios/Initial-POC/App.xcodeproj">
+      location = "container:App.xcodeproj">
    </FileRef>
    <Group
       location = "container:"
@@ -10,6 +10,9 @@
       <Group
          location = "container:"
          name = "Journey">
+         <FileRef
+            location = "group:../../../../Projects/multi-module-architecture/architecture-ios/Initial-POC/Modules/Journey/Detail/Detail.xcodeproj">
+         </FileRef>
          <FileRef
             location = "group:Modules/Journey/Login/Login.xcodeproj">
          </FileRef>

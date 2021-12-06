@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CB2E489275672CD005646E8 /* AppNavigation+DetailFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB2E488275672CD005646E8 /* AppNavigation+DetailFlow.swift */; };
+		0CB2E48B2756735D005646E8 /* Detail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CB2E48A2756735D005646E8 /* Detail.framework */; };
+		0CB2E48C2756735D005646E8 /* Detail.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0CB2E48A2756735D005646E8 /* Detail.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		421ECFC127396FBA00BD353C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421ECFC027396FBA00BD353C /* AppDelegate.swift */; };
 		421ECFC527396FBA00BD353C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421ECFC427396FBA00BD353C /* WelcomeViewController.swift */; };
 		421ECFC827396FBA00BD353C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 421ECFC627396FBA00BD353C /* Main.storyboard */; };
@@ -45,6 +48,7 @@
 			files = (
 				593F26402739D63000B34547 /* Home.framework in Embed Frameworks */,
 				593F26482739D63000B34547 /* Profile.framework in Embed Frameworks */,
+				0CB2E48C2756735D005646E8 /* Detail.framework in Embed Frameworks */,
 				59C82C46273BFF8D00E84149 /* Core.framework in Embed Frameworks */,
 				59FAED79273D9E2B00C18E6E /* Analytics.framework in Embed Frameworks */,
 				593F26462739D63000B34547 /* NetworkingInterfaces.framework in Embed Frameworks */,
@@ -58,6 +62,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0CB2E488275672CD005646E8 /* AppNavigation+DetailFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppNavigation+DetailFlow.swift"; sourceTree = "<group>"; };
+		0CB2E48A2756735D005646E8 /* Detail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Detail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		421ECFBD27396FBA00BD353C /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		421ECFC027396FBA00BD353C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		421ECFC427396FBA00BD353C /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +96,7 @@
 			files = (
 				593F263F2739D63000B34547 /* Home.framework in Frameworks */,
 				593F26472739D63000B34547 /* Profile.framework in Frameworks */,
+				0CB2E48B2756735D005646E8 /* Detail.framework in Frameworks */,
 				59C82C45273BFF8D00E84149 /* Core.framework in Frameworks */,
 				59FAED78273D9E2B00C18E6E /* Analytics.framework in Frameworks */,
 				593F26452739D63000B34547 /* NetworkingInterfaces.framework in Frameworks */,
@@ -138,6 +145,7 @@
 		421ED0C12739758400BD353C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0CB2E48A2756735D005646E8 /* Detail.framework */,
 				59FAED76273D9E2B00C18E6E /* Analytics.framework */,
 				59FAED77273D9E2B00C18E6E /* AnalyticsInterfaces.framework */,
 				59C82C44273BFF8D00E84149 /* Core.framework */,
@@ -159,6 +167,7 @@
 				5993F7A8273D852E00B3A695 /* AppNavigation+LoginFlow.swift */,
 				5993F7AA273D856C00B3A695 /* AppNavigation+HomeFlow.swift */,
 				5993F7AC273D85BE00B3A695 /* AppNavigation+ProfileFlow.swift */,
+				0CB2E488275672CD005646E8 /* AppNavigation+DetailFlow.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -258,6 +267,7 @@
 				421ECFC127396FBA00BD353C /* AppDelegate.swift in Sources */,
 				59644E20273AA16600B3A865 /* AppNavigation.swift in Sources */,
 				5993F7AD273D85BE00B3A695 /* AppNavigation+ProfileFlow.swift in Sources */,
+				0CB2E489275672CD005646E8 /* AppNavigation+DetailFlow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,6 +28,7 @@ public enum JourneyModule: String, CaseIterable {
     case forgotPassword = "forgotPassword"
     case home = "home"
     case profile = "profile"
+    case detail = "detail"
     
     public var shouldBeLogInToOpen: Bool {
         switch self {
@@ -36,6 +37,7 @@ public enum JourneyModule: String, CaseIterable {
         case .forgotPassword: return false
         case .home: return true
         case .profile: return true
+        case .detail: return true
         }
     }
     

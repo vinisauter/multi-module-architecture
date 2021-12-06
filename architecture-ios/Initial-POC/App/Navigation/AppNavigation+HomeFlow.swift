@@ -17,7 +17,7 @@ extension AppNavigation {
     func handleHomeFlowGo(to journey: JourneyModule, in viewController: UIViewController, with value: Any?) {
         switch journey {
         case .profile:
-            push(start(.profile, baseFlowDelegate: self, baseFlowDataSource: self), from: viewController)
+            push(startMock(.profile, baseFlowDelegate: self, baseFlowDataSource: self), from: viewController)
             break
             
         case .login:

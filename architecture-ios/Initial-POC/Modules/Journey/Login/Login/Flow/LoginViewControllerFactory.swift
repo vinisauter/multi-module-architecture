@@ -8,6 +8,9 @@
 import Core
 
 
+// parameter (loginUserCase Protocol) should not be the business Model class (LoginBunisses Model)
+// parameters useCase at class LoginIndexViewModel in viewmodel is confusing with bunissesModel
+
 public class LoginViewControllerFactory: BaseViewControllerFactory<LoginUseCaseProtocol, LoginAnalyticsProtocol> {
     weak var flow: LoginFlowProtocol?
     

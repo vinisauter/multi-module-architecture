@@ -8,6 +8,8 @@
 import Core
 import AnalyticsInterfaces
 
+// BASE BUNISSES MODEL for Bunissses Model
+
 public protocol LoginAnalyticsProtocol: JourneyModuleAnalyticsProtocol {
     var analytics: AnalyticsProtocol? { get }
 }
