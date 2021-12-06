@@ -17,10 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        AppNavigation.shared.register([.welcome], with: WelcomeStarter())
-        AppNavigation.shared.register([.login, .forgotPassword], with: LoginStarter())
-        AppNavigation.shared.register([.home], with: HomeStarter())
-        AppNavigation.shared.register([.profile], with: ProfileStarter())
+        AppNavigation.shared.register([.welcome], with: WelcomeHandler())
+        AppNavigation.shared.register([.login, .forgotPassword], with: LoginHandler())
+        AppNavigation.shared.register([.home], with: HomeHandler())
+        AppNavigation.shared.register([.profile], with: ProfileHandler())
                 
         setupRootViewController()
         
@@ -51,3 +51,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+extension Journey {
+    static let welcome: Journey = Journey(rawValue: "welcome")
+    static let login: Journey = Journey(rawValue: "login")
+    static let forgotPassword: Journey = Journey(rawValue: "forgotPassword")
+    static let home: Journey = Journey(rawValue: "home")
+    static let profile: Journey = Journey(rawValue: "profile")
+}

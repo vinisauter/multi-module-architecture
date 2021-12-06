@@ -11,9 +11,9 @@ public final class AppNavigation {
     public static let shared: AppNavigation = AppNavigation()
     
     public let navigationController: UINavigationController = UINavigationController()
-    private var currentJourney: JourneyModule = .welcome
+    private var currentJourney: Journey?
     private var rawDeeplink: String?
-    private var starters: Dictionary<JourneyModule, ModuleStarter> = [:]
+    private var handlers: Dictionary<Journey, ModuleHandler> = [:]
     
     // MARK: - Initializer
     
@@ -38,7 +38,7 @@ public final class AppNavigation {
         navigationController.pushViewController(viewController, animated: animated)
     }
     
-    public func push(_ journey: JourneyModule, from currentViewController: UIViewController?, animated: Bool = true) {
+    public func push(_ journey: Journey, from currentViewController: UIViewController?, animated: Bool = true) {
         push(start(journey), from: currentViewController, animated: animated)
     }
     
@@ -55,11 +55,7 @@ public final class AppNavigation {
     }
     
     @discardableResult public func resolve(_ rawDeeplink: String?) -> Bool {
-        guard let rawDeeplink = rawDeeplink else { return false }
-        
-        let deeplink = getDeeplink(from: rawDeeplink)
-
-        guard let destinationJourney = deeplink.value, let url = deeplink.url, let starter = getStarter(from: destinationJourney) else { return false }
+        guard let rawDeeplink = rawDeeplink, let deeplink = getDeeplink(from: rawDeeplink), let destinationJourney = deeplink.value, let url = deeplink.url, let starter = getStarter(from: destinationJourney) else { return false }
 
         guard starter.canStart() else {
             self.rawDeeplink = rawDeeplink
@@ -83,15 +79,15 @@ public final class AppNavigation {
         resolve(rawDeeplink)
     }
     
-    public func register(_ jorneys: Array<JourneyModule>, with stater: ModuleStarter) {
-        jorneys.forEach{ [weak self] jorney in self?.starters[jorney] = stater }
+    public func register(_ jorneys: Array<Journey>, with stater: ModuleHandler) {
+        jorneys.forEach{ [weak self] jorney in self?.handlers[jorney] = stater }
     }
     
-    public func getStarter(from jorney: JourneyModule) -> ModuleStarter? {
-        return starters[jorney]
+    public func getStarter(from jorney: Journey) -> ModuleHandler? {
+        return handlers[jorney]
     }
     
-    public func start(_ journey: JourneyModule, to subJourney: JourneyModule? = nil, from currentJourney: JourneyModule? = nil, with url: URL? = nil, baseFlowDelegate: BaseFlowDelegate = AppNavigation.shared, baseFlowDataSource: BaseFlowDataSource = AppNavigation.shared, customModuleAnalytics: Any? = nil, value: Any? = nil) -> UIViewController {
+    public func start(_ journey: Journey, to subJourney: Journey? = nil, from currentJourney: Journey? = nil, with url: URL? = nil, baseFlowDelegate: BaseFlowDelegate = AppNavigation.shared, baseFlowDataSource: BaseFlowDataSource = AppNavigation.shared, customModuleAnalytics: Any? = nil, value: Any? = nil) -> UIViewController {
         
         guard let starter = getStarter(from: journey) else { return UIViewController() }
 
@@ -100,7 +96,7 @@ public final class AppNavigation {
         return starter.start(from: url, with: baseFlowDelegate, baseFlowDataSource, customModuleAnalytics, subJourney, value)
     }
     
-    public func show(_ journeys: Array<JourneyModule>, from currentViewController: UIViewController? = nil, animated: Bool) {
+    public func show(_ journeys: Array<Journey>, from currentViewController: UIViewController? = nil, animated: Bool) {
         let journeysControllers = journeys.compactMap{ [weak self] journey -> UIViewController? in
             let firstModuleVC = self?.start(journey)
             firstModuleVC?.loadViewIfNeeded()
@@ -115,17 +111,17 @@ public final class AppNavigation {
         }
     }
     
-    private func getDeeplink(from rawDeeplink: String) -> Deeplink<JourneyModule> {
+    private func getDeeplink(from rawDeeplink: String) -> Deeplink<Journey>? {
         guard  let url = URL(string: rawDeeplink),
                let host = url.host,
                let jorneyModule = getJorneyModule(from: host)
-               else { return .init(value: .unknown, url: nil) }
+               else { return nil }
 
         return .init(value: jorneyModule, url: url)
     }
     
-    private func getJorneyModule(from name: String) -> JourneyModule? {
-        return starters.first{ $0.value.getName().lowercased() == name.lowercased() }?.key
+    private func getJorneyModule(from name: String) -> Journey? {
+        return handlers.first{ $0.value.getName().lowercased() == name.lowercased() }?.key
     }
 }
 
@@ -135,7 +131,7 @@ extension AppNavigation: BaseFlowDelegate {
     public func perform(_ action: BaseFlowDelegateAction, in viewController: UIViewController, with value: Any?) {
         switch action {
         case .finish(let journey):
-            debugPrint("====== AppNavigation didFinish: \(journey)")
+            debugPrint("====== AppNavigation didFinish: \(journey.rawValue)")
             break
             
         case .goTo(let destinationJourney, let currentJourney):
@@ -143,13 +139,13 @@ extension AppNavigation: BaseFlowDelegate {
             break
             
         case .finishCurrentAndGoTo(let destinationJourney, let currentJourney):
-            debugPrint("====== AppNavigation didFinish: \(currentJourney)")
+            debugPrint("====== AppNavigation didFinish: \(currentJourney.rawValue)")
             handleGo(to: destinationJourney, from: currentJourney, in: viewController, with: value)
             break
         }
     }
     
-    private func handleGo(to destinationJourney: JourneyModule, from currentJourney: JourneyModule, in viewController: UIViewController, with value: Any?) {
+    private func handleGo(to destinationJourney: Journey, from currentJourney: Journey, in viewController: UIViewController, with value: Any?) {
         guard let starter = getStarter(from: currentJourney) else { return }
         starter.handleGo(to: destinationJourney, in: viewController, with: value)
     }
@@ -158,7 +154,7 @@ extension AppNavigation: BaseFlowDelegate {
 // MARK: - BaseFlowDataSource
 
 extension AppNavigation: BaseFlowDataSource {
-    public func get(_ journey: JourneyModule, from currentJourney: JourneyModule, with baseFlowDelegate: BaseFlowDelegate, customAnalytics: Any?) -> UIViewController {
+    public func get(_ journey: Journey, from currentJourney: Journey, with baseFlowDelegate: BaseFlowDelegate, customAnalytics: Any?) -> UIViewController {
         guard let starter = getStarter(from: journey) else { return UIViewController() }
         return starter.handleGet(from: currentJourney, to: journey, with: baseFlowDelegate, analytics: customAnalytics)
     }

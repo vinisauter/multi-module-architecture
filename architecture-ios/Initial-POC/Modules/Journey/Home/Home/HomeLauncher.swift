@@ -12,14 +12,14 @@ import AnalyticsInterfaces
 
 public struct HomeDependencies {
     var deeplink: URL?
-    var baseFlowDelegate: BaseFlowDelegate?
+    var flowDelegate: HomeFlowDelegate?
     let structuralDependencies: HomeStructuralDependencies
     var customHomeAnalytics: HomeAnalyticsProtocol?
     var value: Any?
     
-    public init (_ deeplink: URL?, _ baseFlowDelegate: BaseFlowDelegate?, _ structuralDependencies: HomeStructuralDependencies, _ customHomeAnalytics: HomeAnalyticsProtocol?, _ value: Any?) {
+    public init (_ deeplink: URL?, _ flowDelegate: HomeFlowDelegate?, _ structuralDependencies: HomeStructuralDependencies, _ customHomeAnalytics: HomeAnalyticsProtocol?, _ value: Any?) {
         self.deeplink = deeplink
-        self.baseFlowDelegate = baseFlowDelegate
+        self.flowDelegate = flowDelegate
         self.structuralDependencies = structuralDependencies
         self.customHomeAnalytics = customHomeAnalytics
         self.value = value
@@ -36,7 +36,7 @@ public class HomeLauncher {
         let businessModel = HomeBusinessModel(repository: HomeAPI(httpClient: dependencies.structuralDependencies.networking), structuralAnalytics: dependencies.structuralDependencies.analytics)
         let factory = HomeViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependencies.customHomeAnalytics)
         let mainFlow = HomeFlow(factory: factory, deeplink: Deeplink(value: HomeDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
-        mainFlow.baseFlowDelegate = dependencies.baseFlowDelegate
+        mainFlow.delegate = dependencies.flowDelegate
         factory.flow = mainFlow
         
         return mainFlow.start()
@@ -47,4 +47,10 @@ public class HomeLauncher {
 
 enum HomeDeeplink: String, CaseIterable {
     case index = "/"
+}
+
+// MARK: - Flow
+
+public enum Flow: CaseIterable {
+    case main
 }

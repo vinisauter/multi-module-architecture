@@ -13,7 +13,7 @@ class ForgotPasswordFlow: LoginFlowProtocol, Deeplinkable {
     
     var deeplink: Deeplink<LoginDeeplink>?
     
-    weak var baseFlowDelegate: BaseFlowDelegate?
+    weak var delegate: LoginFlowDelegate?
     
     init(factory: LoginViewControllerFactory, deeplink: Deeplink<LoginDeeplink>?) {
         self.factory = factory
@@ -37,6 +37,6 @@ class ForgotPasswordFlow: LoginFlowProtocol, Deeplinkable {
 
 extension ForgotPasswordFlow: ForgotPasswordFlowDelegate {
     func onChangePasswordSuccess(in controller: ForgotPasswordViewController) {
-        baseFlowDelegate?.perform(.finish(.forgotPassword), in: controller, with: nil)
+        delegate?.didFinish(.forgotPassword, in: controller, with: nil)
     }
 }

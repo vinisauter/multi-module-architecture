@@ -17,23 +17,21 @@ public struct Deeplink<T> {
     }
 }
 
-// app://login/*
-// app://welcome/*
-// app://home/*
-// app://profile/*
-public enum JourneyModule: CaseIterable {
-    case unknown
-    case welcome
-    case login
-    case forgotPassword
-    case home
-    case profile
+
+public struct Journey: Hashable, RawRepresentable {
+    static let unkown: Journey = Journey(rawValue: "unkown")
+    
+    public var rawValue: String
+    
+    public init(rawValue: String) {
+        self.rawValue = rawValue
+    }
 }
 
 public enum BaseFlowDelegateAction {
-    case finish(_ currentJourney: JourneyModule)
-    case goTo(_ destinationJourney: JourneyModule, currentJourney: JourneyModule)
-    case finishCurrentAndGoTo(_ destinationJourney: JourneyModule, currentJourney: JourneyModule)
+    case finish(_ currentJourney: Journey)
+    case goTo(_ destinationJourney: Journey, currentJourney: Journey)
+    case finishCurrentAndGoTo(_ destinationJourney: Journey, currentJourney: Journey)
 }
 
 public protocol Deeplinkable: AnyObject {
@@ -45,13 +43,13 @@ public protocol BaseFlowDelegate: AnyObject {
 }
 
 public protocol BaseFlowDataSource: AnyObject {
-    func get(_ journey: JourneyModule, from currentJourney: JourneyModule, with baseFlowDelegate: BaseFlowDelegate, customAnalytics: Any?) -> UIViewController
+    func get(_ journey: Journey, from currentJourney: Journey, with baseFlowDelegate: BaseFlowDelegate, customAnalytics: Any?) -> UIViewController
 }
 
-public protocol ModuleStarter {
-    func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: JourneyModule?, _ value: Any?) -> UIViewController
+public protocol ModuleHandler {
+    func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: Journey?, _ value: Any?) -> UIViewController
     func canStart() -> Bool
     func getName() -> String
-    func handleGo(to journey: JourneyModule, in viewController: UIViewController, with value: Any?)
-    func handleGet(from journey: JourneyModule, to subJourney: JourneyModule?, with baseFlowDelegate: BaseFlowDelegate, analytics: Any?) -> UIViewController
+    func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?)
+    func handleGet(from journey: Journey, to subJourney: Journey?, with baseFlowDelegate: BaseFlowDelegate, analytics: Any?) -> UIViewController
 }

@@ -10,9 +10,15 @@ import Core
 
 protocol LoginFlowProtocol: AnyObject {
     var factory: LoginViewControllerFactory { get }
-    var baseFlowDelegate: BaseFlowDelegate? { get set }
+    var delegate: LoginFlowDelegate? { get set }
     var deeplink: Deeplink<LoginDeeplink>? { get set }
     func start() -> UIViewController
+}
+
+public protocol LoginFlowDelegate: AnyObject {
+    func didFinish(_ flow: Flow, in controller: UIViewController, with value: Any?)
+    func goToHome(from: Flow, in controller: UIViewController, with value: Any?)
+    func goToWelcome(from: Flow, in controller: UIViewController, with value: Any?)
 }
 
 class LoginFlow: LoginFlowProtocol, Deeplinkable {
@@ -20,7 +26,7 @@ class LoginFlow: LoginFlowProtocol, Deeplinkable {
     
     var deeplink: Deeplink<LoginDeeplink>?
     
-    weak var baseFlowDelegate: BaseFlowDelegate?
+    weak var delegate: LoginFlowDelegate?
     
     init(factory: LoginViewControllerFactory, deeplink: Deeplink<LoginDeeplink>?) {
         self.factory = factory
@@ -51,11 +57,11 @@ class LoginFlow: LoginFlowProtocol, Deeplinkable {
 
 extension LoginFlow: LoginIndexFlowDelegate {
     func onBackClick(in controller: LoginIndexViewController) {
-        baseFlowDelegate?.perform(.finishCurrentAndGoTo(.welcome, currentJourney: .login), in: controller, with: nil)
+        delegate?.goToWelcome(from: .main, in: controller, with: nil)
     }
     
     func onCloseClick(in controller: LoginIndexViewController) {
-        baseFlowDelegate?.perform(.finish(.login), in: controller, with: nil)
+        delegate?.didFinish(.main, in: controller, with: nil)
     }
     
     func onForgotPasswordClick(in controller: LoginIndexViewController) {
@@ -63,7 +69,7 @@ extension LoginFlow: LoginIndexFlowDelegate {
     }
     
     func onLoginSuccess(in controller: LoginIndexViewController) {
-        baseFlowDelegate?.perform(.finishCurrentAndGoTo(.home, currentJourney: .login), in: controller, with: nil)
+        delegate?.goToHome(from: .main, in: controller, with: nil)
     }
 }
 

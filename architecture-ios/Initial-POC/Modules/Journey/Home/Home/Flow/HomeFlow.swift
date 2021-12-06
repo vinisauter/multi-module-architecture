@@ -10,19 +10,24 @@ import Core
 
 protocol HomeFlowProtocol: AnyObject {
     var factory: HomeViewControllerFactory { get }
-    var baseFlowDelegate: BaseFlowDelegate? { get set }
+    var delegate: HomeFlowDelegate? { get set }
     var deeplink: Deeplink<HomeDeeplink>? { get set }
     func start() -> UIViewController
+}
+
+public protocol HomeFlowDelegate: AnyObject {
+    func goToProfile(from flow: Flow, in controller: UIViewController, with value: Any?)
+    func goToLogin(from flow: Flow, in controller: UIViewController, with value: Any?)
 }
 
 class HomeFlow: HomeFlowProtocol, Deeplinkable {
     var factory: HomeViewControllerFactory
     
-    var deeplink: Deeplink<HomeDeeplink>?
+    var deeplink:  Deeplink<HomeDeeplink>?
     
-    weak var baseFlowDelegate: BaseFlowDelegate?
+    weak var delegate: HomeFlowDelegate?
     
-    init(factory: HomeViewControllerFactory, deeplink: Deeplink<HomeDeeplink>?) {
+    init(factory: HomeViewControllerFactory, deeplink:  Deeplink<HomeDeeplink>?) {
         self.factory = factory
         self.deeplink = deeplink
     }
@@ -45,10 +50,10 @@ class HomeFlow: HomeFlowProtocol, Deeplinkable {
 
 extension HomeFlow: HomeIndexFlowDelegate {
     func logout(in controller: HomeIndexViewController) {
-        baseFlowDelegate?.perform(.finishCurrentAndGoTo(.login, currentJourney: .home), in: controller, with: nil)
+        delegate?.goToLogin(from: .main, in: controller, with: nil)
     }
     
     func openProfile(in controller: HomeIndexViewController) {
-        baseFlowDelegate?.perform(.goTo(.profile, currentJourney: .home), in: controller, with: nil)
+        delegate?.goToProfile(from: .main, in: controller, with: nil)
     }
 }

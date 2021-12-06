@@ -9,7 +9,7 @@ import UIKit
 import Core
 import Profile
 
-class ProfileStarter: ModuleStarter {
+class ProfileStarter: ModuleHandler {
     
     init() {}
     

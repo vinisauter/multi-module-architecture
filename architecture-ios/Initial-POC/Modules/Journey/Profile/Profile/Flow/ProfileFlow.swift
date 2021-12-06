@@ -11,9 +11,18 @@ import Core
 protocol ProfileFlowProtocol: AnyObject {
     var factory: ProfileViewControllerFactory { get }
     var deeplink: Deeplink<ProfileDeeplink>? { get set }
-    var baseFlowDelegate: BaseFlowDelegate? { get set }
-    var baseFlowDataSource: BaseFlowDataSource? { get set }
+    var delegate: ProfileFlowDelegate? { get set }
+    var dataSource: ProfileFlowDataSource? { get set }
     func start() -> UIViewController
+}
+
+public protocol ProfileFlowDelegate: AnyObject {
+    func goToHome(from flow: Flow, in controller: UIViewController, with value: Any?)
+}
+
+public protocol ProfileFlowDataSource: AnyObject {
+    func getLogin(from flow: Flow, with customAnalytics: Any?) -> UIViewController?
+    func getForgotPassword(from flow: Flow, with customAnalytics: Any?) -> UIViewController?
 }
 
 class ProfileFlow: ProfileFlowProtocol, Deeplinkable {
@@ -21,9 +30,9 @@ class ProfileFlow: ProfileFlowProtocol, Deeplinkable {
     
     var deeplink: Deeplink<ProfileDeeplink>?
     
-    weak var baseFlowDelegate: BaseFlowDelegate?
+    weak var delegate: ProfileFlowDelegate?
     
-    weak var baseFlowDataSource: BaseFlowDataSource?
+    weak var dataSource: ProfileFlowDataSource?
     
     init(factory: ProfileViewControllerFactory, deeplink: Deeplink<ProfileDeeplink>?) {
         self.factory = factory
@@ -47,7 +56,7 @@ class ProfileFlow: ProfileFlowProtocol, Deeplinkable {
     }
     
     private func getForgotPassword() -> UIViewController? {
-        guard let forgotPassswordVC = baseFlowDataSource?.get(.forgotPassword, from: .profile, with: self, customAnalytics: factory.defaultAnalytics) else { return nil }
+        guard let forgotPassswordVC = dataSource?.getForgotPassword(from: .main, with: factory.defaultAnalytics) else { return nil }
         return forgotPassswordVC
     }
 }
@@ -56,11 +65,11 @@ class ProfileFlow: ProfileFlowProtocol, Deeplinkable {
 
 extension ProfileFlow: ProfileHomeFlowDelegate {
     func goToHome(in controller: ProfileHomeViewController) {
-        baseFlowDelegate?.perform(.finishCurrentAndGoTo(.home, currentJourney: .profile), in: controller, with: nil)
+        delegate?.goToHome(from: .main, in: controller, with: nil)
     }
     
     func callLogin(in controller: ProfileHomeViewController) {
-        guard let loginVC = baseFlowDataSource?.get(.login, from: .profile, with: self, customAnalytics: factory.defaultAnalytics) else { return }
+        guard let loginVC = dataSource?.getLogin(from: .main, with: factory.defaultAnalytics) else { return }
         
         
         let navigationController = UINavigationController(rootViewController: loginVC)
@@ -73,32 +82,5 @@ extension ProfileFlow: ProfileHomeFlowDelegate {
         guard let forgotPassswordVC = getForgotPassword() else { return }
         
         controller.show(forgotPassswordVC, sender: nil)
-    }
-}
-
-// MARK: - BaseFlowDelegate
-
-extension ProfileFlow: BaseFlowDelegate {
-    func perform(_ action: BaseFlowDelegateAction, in viewController: UIViewController, with value: Any?) {
-        switch action {
-        case .finish(let journey), .finishCurrentAndGoTo(_, let journey):
-            handleDidFinish(journey, in: viewController, with: value)
-            break
-            
-        default: break
-        }
-    }
-    
-    func handleDidFinish(_ feature: JourneyModule, in viewController: UIViewController, with value: Any?) {
-        switch feature {
-        case .login:
-            viewController.dismiss(animated: true)
-            break
-            
-        case .forgotPassword:
-            viewController.pop(animated: true)
-            
-        default: break
-        }
     }
 }

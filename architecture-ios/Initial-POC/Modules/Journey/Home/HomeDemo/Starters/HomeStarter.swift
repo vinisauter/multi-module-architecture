@@ -9,7 +9,7 @@ import UIKit
 import Core
 import Home
 
-class HomeStarter: ModuleStarter {
+class HomeStarter: ModuleHandler {
     
     init() {}
     

@@ -12,14 +12,14 @@ import Core
 
 public struct LoginDependencies {
     var deeplink: URL?
-    var baseFlowDelegate: BaseFlowDelegate?
+    var flowDelegate: LoginFlowDelegate?
     let structuralDependencies: LoginStructuralDependencies
     var customLoginAnalytics: LoginAnalyticsProtocol?
     var value: Any?
     
-    public init (_ deeplink: URL?, _ baseFlowDelegate: BaseFlowDelegate?, _ structuralDependencies: LoginStructuralDependencies, _ customLoginAnalytics: LoginAnalyticsProtocol?, _ value: Any?) {
+    public init (_ deeplink: URL?, _ flowDelegate: LoginFlowDelegate?, _ structuralDependencies: LoginStructuralDependencies, _ customLoginAnalytics: LoginAnalyticsProtocol?, _ value: Any?) {
         self.deeplink = deeplink
-        self.baseFlowDelegate = baseFlowDelegate
+        self.flowDelegate = flowDelegate
         self.structuralDependencies = structuralDependencies
         self.customLoginAnalytics = customLoginAnalytics
         self.value = value
@@ -36,7 +36,7 @@ public class LoginLauncher {
         let businessModel = LoginBusinessModel(repository: LoginAPI(httpClient: dependencies.structuralDependencies.networking), structuralAnalytics: dependencies.structuralDependencies.analytics)
         let factory = LoginViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependencies.customLoginAnalytics)
         let mainFlow = LoginFlow(factory: factory, deeplink: Deeplink(value: LoginDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
-        mainFlow.baseFlowDelegate = dependencies.baseFlowDelegate
+        mainFlow.delegate = dependencies.flowDelegate
         factory.flow = mainFlow
         
         return mainFlow.start()
@@ -46,7 +46,7 @@ public class LoginLauncher {
         let businessModel = LoginBusinessModel(repository: LoginAPI(httpClient: dependencies.structuralDependencies.networking), structuralAnalytics: dependencies.structuralDependencies.analytics)
         let factory = LoginViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependencies.customLoginAnalytics)
         let mainFlow = ForgotPasswordFlow(factory: factory, deeplink: Deeplink(value: LoginDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
-        mainFlow.baseFlowDelegate = dependencies.baseFlowDelegate
+        mainFlow.delegate = dependencies.flowDelegate
         factory.flow = mainFlow
         
         return mainFlow.start()
@@ -58,4 +58,9 @@ public class LoginLauncher {
 enum LoginDeeplink: String, CaseIterable {
     case index = "/"
     case forgotPassword = "/forgotPassword"
+}
+
+public enum Flow: CaseIterable {
+    case main
+    case forgotPassword
 }
