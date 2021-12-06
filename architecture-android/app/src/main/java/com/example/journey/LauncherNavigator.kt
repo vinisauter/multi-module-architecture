@@ -19,8 +19,10 @@ import com.example.app.R
  * or add the DialogNavigator to your [NavigatorProvider]
  */
 @Navigator.Name("launcher")
+//    ModuleNavigator
 class LauncherNavigator(
-    private val context: Context
+    private val context: Context,
+    private val navInflater: NavInflater
 ) : Navigator<LauncherNavigator.Destination>() {
 
     override fun createDestination(): Destination = Destination(this)
@@ -34,11 +36,18 @@ class LauncherNavigator(
         navOptions: NavOptions?,
         navigatorExtras: Extras?
     ): NavDestination? {
+        var moduleDestination = destination.destiny
 
-        return super.navigate(destination, args, navOptions, navigatorExtras)
+//       TODO add destiny to graph
+//        val sharedDestinations: NavGraph = navInflater.inflate(R.navigation.app_navigation_graph)
+//        if(destiny not exists)
+//          graph.add(destiny)
+        return null
     }
 
-    class Destination(navigator: LauncherNavigator) : NavDestination(navigator) {
+    class Destination(
+        navigator: LauncherNavigator
+    ) : NavDestination(navigator) {
         var name: String? = null
             get() = checkNotNull(field) { "destination name was not set" }
         var destiny: Int? = null

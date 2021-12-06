@@ -46,8 +46,8 @@
 
     <activity
         android:id="@+id/login_navigation"
-        android:name="com.example.login.LoginNavigationActivity"
-        android:label="LoginNavigationActivity"
+        android:name="com.example.login.LoginController"
+        android:label="LoginController"
         app:moduleName="login">
         <deepLink
             android:id="@+id/deep_link"

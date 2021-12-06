@@ -25,7 +25,7 @@
 
         <action
             android:id="@+id/action_launch_home"
-            app:destination="@id/app_navigation_graph">
+            app:destination="@id/home_launcher">
             <argument
                 android:name="destination_id"
                 android:defaultValue="@com.example.app:id/home_navigation"

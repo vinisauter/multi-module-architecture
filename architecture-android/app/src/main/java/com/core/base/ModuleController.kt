@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.annotation.IdRes
 import androidx.annotation.NavigationRes
 
-abstract class ModuleNavigationActivity(
+abstract class ModuleController(
     @NavigationRes override val graphResId: Int,
     @IdRes override val startDestination: Int = DEFAULT_START_DESTINATION
 ) : NavigationActivity(graphResId, startDestination) {
