@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.injectViewModel
 import androidx.navigation.NavDirections
 import com.core.base.LoaderDialog
-import com.core.extensions.State
+import com.core.extensions.StateResult
 import com.core.extensions.consume
 import com.core.extensions.navigate
 import com.example.login.R
@@ -30,10 +30,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         consume(viewModel.onActionCompleted) { navDirection: NavDirections ->
             navigate(navDirection)
         }
-        consume(viewModel.onStateChanged) { state: State ->
+        consume(viewModel.onStateChanged) { state: StateResult ->
             when (state) {// TODO: handle case of multiple states running at same time
-                State.Running -> showLoading()
-                State.Idle -> hideLoading()
+                StateResult.Loading -> showLoading()
+                StateResult.Initial -> hideLoading()
+                else -> {}
             }
         }
     }

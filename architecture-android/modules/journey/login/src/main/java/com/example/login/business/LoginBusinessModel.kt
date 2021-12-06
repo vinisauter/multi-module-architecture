@@ -10,9 +10,9 @@ class LoginBusinessModel(
     private val storage: LoginStorage
 ) : LoginFragmentUseCase, ForgotPasswordFragmentUseCase {
     override suspend fun login(user: String, password: String): Boolean {
-        val userName = api.login(user, password)
-        storage.save(userName)
-        Thread.sleep(3_000)
+        //val userName = api.login(user, password)
+        //storage.save(userName)
+        Thread.sleep(3000)
         return true
     }
 }

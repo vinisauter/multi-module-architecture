@@ -5,9 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.NavDirections
-import com.core.extensions.State
-import com.core.extensions.default
-import com.core.extensions.runTask
+import com.core.extensions.*
 import com.example.app.AppNavigationGraphDirections
 import com.example.journey.login.tracking.LoginTracking
 import com.example.tagging.TaggingExecutor
@@ -27,29 +25,29 @@ class LoginFragmentViewModel(
     val onActionCompleted: Flow<NavDirections>
         get() = onActionCompletedSharedFlow
 
-    private val onStateChangedMutable = MutableLiveData<State>(State.Idle)
-    val onStateChanged: LiveData<State>
+    private val onStateChangedMutable = MutableLiveData<StateResult>(StateResult.Initial)
+    val onStateChanged: LiveData<StateResult>
         get() = onStateChangedMutable
 
     fun onLoginViewCreated() {
         tagging.send(tracking.loginScreenName)
     }
 
-    fun onLoginClicked() = runTask(onStateChangedMutable) {
-        tagging.send(tracking.loginClickAuthEvent)
-        try {
-            useCase.login("user", "password")
-            onActionCompletedSharedFlow.emit(
-                LoginFragmentDirections.actionLoginSucceed(com.example.app.R.id.home_navigation)
-            )
-            tagging.send(tracking.loginAuthSucceededEvent)
-        } catch (t: Throwable) {
-            onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginFailed())
-            tagging.send(tracking.loginAuthFailedEvent)
-        }
+    fun onLoginClicked() = runTaskResult(onStateChangedMutable) {
+            tagging.send(tracking.loginClickAuthEvent)
+            try {
+                useCase.login("user", "password")
+                onActionCompletedSharedFlow.emit(
+                    LoginFragmentDirections.actionLoginSucceed(com.example.app.R.id.home_navigation)
+                )
+                tagging.send(tracking.loginAuthSucceededEvent)
+            } catch (t: Throwable) {
+                onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginFailed())
+                tagging.send(tracking.loginAuthFailedEvent)
+            }
     }
 
-    fun onForgotPasswordClicked() = runTask(onStateChangedMutable) {
+    fun onForgotPasswordClicked() = runTaskResult(onStateChangedMutable) {
         tagging.send(tracking.loginClickForgotPasswordEvent)
         try {
             onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionForgotPassword())
