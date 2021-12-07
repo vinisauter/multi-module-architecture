@@ -15,11 +15,10 @@ import com.example.app.R
 class ModuleNavigator(
     private val navigatorProvider: NavigatorProvider,
     private val navInflater: NavInflater,
+    private val graphId: Int,
 ) : Navigator<ModuleNavigator.ModuleDestination>() {
 
-    override fun createDestination(): ModuleDestination = ModuleDestination(
-        this, navInflater, R.navigation.app_navigation_graph
-    )
+    override fun createDestination(): ModuleDestination = ModuleDestination(this)
 
     override fun navigate(
         entries: List<NavBackStackEntry>,
@@ -37,7 +36,32 @@ class ModuleNavigator(
         navigatorExtras: Extras?
     ) {
         val module = entry.destination as ModuleDestination
-        val destination = module.destination
+
+        val includedNav = navInflater.inflate(graphId)
+        includedNav.id = module.id
+        val outerNav = module.parent
+            ?: throw IllegalStateException(
+                "The module destination with id ${module.displayName} " +
+                        "does not have a parent. Make sure it is attached to a NavGraph."
+            )
+        val destinationId = module.destiny
+        var resolvedDestination: NavDestination? = null
+        if (module.toStart) resolvedDestination = includedNav.findStartDestination()
+        val iterator = includedNav.iterator()
+        while (iterator.hasNext()) {
+            val nextDestination = iterator.next()
+            iterator.remove()
+            outerNav.addDestination(nextDestination)
+            if (destinationId == nextDestination.id) {
+                resolvedDestination = nextDestination
+            }
+        }
+        if (resolvedDestination == null)
+            throw IllegalStateException(
+                "The module destination with id ${module.displayName} " +
+                        "does not have a matching destiny (${module.destiny}). Make sure it it exists on app_navigation_graph."
+            )
+        val destination = resolvedDestination
         val navigator: Navigator<NavDestination> = navigatorProvider[destination.navigatorName]
         val newGraphEntry = state.createBackStackEntry(destination, entry.arguments)
         navigator.navigate(listOf(newGraphEntry), navOptions, navigatorExtras)
@@ -45,13 +69,10 @@ class ModuleNavigator(
 
     class ModuleDestination(
         navigator: ModuleNavigator,
-        private val navInflater: NavInflater,
-        private val graphId: Int
     ) : NavDestination(navigator) {
-        private var name: String? = null
-        private var destiny: Int? = null
-        private var toStart: Boolean = false
-        lateinit var destination: NavDestination
+        var name: String? = null
+        var destiny: Int? = null
+        var toStart: Boolean = false
 
         override fun onInflate(context: Context, attrs: AttributeSet) {
             super.onInflate(context, attrs)
@@ -60,32 +81,6 @@ class ModuleNavigator(
             destiny = it.getResourceId(R.styleable.ModuleNavigator_destiny, 0)
             toStart = it.getBoolean(R.styleable.ModuleNavigator_toStart, false)
             it.recycle()
-
-            val includedNav = navInflater.inflate(graphId)
-            includedNav.id = id
-            val outerNav = parent
-                ?: throw IllegalStateException(
-                    "The module destination with id $displayName " +
-                            "does not have a parent. Make sure it is attached to a NavGraph."
-                )
-            val destinationId = destiny
-            var resolvedDestination: NavDestination? = null
-            if (toStart) resolvedDestination = includedNav.findStartDestination()
-            val iterator = includedNav.iterator()
-            while (iterator.hasNext()) {
-                val nextDestination = iterator.next()
-                iterator.remove()
-                outerNav.addDestination(nextDestination)
-                if (destinationId == nextDestination.id) {
-                    resolvedDestination = nextDestination
-                }
-            }
-            if (resolvedDestination == null)
-                throw IllegalStateException(
-                    "The module destination with id $displayName " +
-                            "does not have a matching destiny ($destiny). Make sure it it exists on app_navigation_graph."
-                )
-            destination = resolvedDestination
         }
     }
 }
