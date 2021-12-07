@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <attr name="destiny" format="reference" />
-    <declare-styleable name="LauncherNavigator">
+    <attr name="toStart" format="boolean" />
+    <declare-styleable name="ModuleNavigator">
         <attr name="android:name"/>
         <attr name="destiny"/>
+        <attr name="toStart"/>
     </declare-styleable>
 </resources>

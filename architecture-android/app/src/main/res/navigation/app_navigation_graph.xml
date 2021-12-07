@@ -59,7 +59,7 @@
             app:nullable="true" />
     </activity>
     <dialog
-        android:id="@+id/reauthentication"
+        android:id="@+id/reauthentication_navigation"
         android:name="com.example.login.presentation.reauthentication.ReauthenticationDialog"
         android:label="reauthentication"
         app:moduleName="login"

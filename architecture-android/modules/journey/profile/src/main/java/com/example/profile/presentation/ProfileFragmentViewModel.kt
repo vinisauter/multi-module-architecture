@@ -18,9 +18,7 @@ class ProfileFragmentViewModel(
 
     fun onExitClicked() = runTask {
         onActionCompletedSharedFlow.emit(
-            ProfileFragmentDirections.actionExit(
-                com.example.app.R.id.splash
-            )
+            ProfileFragmentDirections.actionExit()
         )
     }
 

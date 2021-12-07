@@ -6,10 +6,25 @@
     app:moduleName="profile"
     app:startDestination="@+id/profile_fragment">
 
-    <launcher
-        android:id="@+id/home_launcher"
-        android:name="home"
+    <module
+        android:id="@+id/home"
         app:destiny="@id/home_navigation" />
+
+    <module
+        android:id="@+id/login"
+        app:destiny="@id/login_navigation" >
+        <argument
+            android:name="tracking"
+            android:defaultValue="@null"
+            app:argType="com.example.journey.login.tracking.LoginTracking"
+            app:nullable="true" />
+    </module>
+    <module
+        android:id="@+id/reauthentication"
+        app:destiny="@id/reauthentication_navigation" />
+    <module
+        android:id="@+id/exit"
+        app:destiny="@id/splash" />
 
     <fragment
         android:id="@+id/profile_fragment"
@@ -25,19 +40,10 @@
 
         <action
             android:id="@+id/action_launch_home"
-            app:destination="@id/home_launcher">
-            <argument
-                android:name="destination_id"
-                android:defaultValue="@com.example.app:id/home_navigation"
-                app:argType="reference" />
-        </action>
+            app:destination="@id/home" />
         <action
             android:id="@+id/action_login"
-            app:destination="@id/app_navigation_graph">
-            <argument
-                android:name="destination_id"
-                android:defaultValue="@com.example.app:id/login_navigation"
-                app:argType="reference" />
+            app:destination="@id/login">
             <argument
                 android:name="tracking"
                 android:defaultValue="@null"
@@ -48,19 +54,8 @@
 
     <action
         android:id="@+id/action_reauthenticate"
-        app:destination="@id/app_navigation_graph">
-        <argument
-            android:name="destination_id"
-            android:defaultValue="@com.example.app:id/reauthentication"
-            app:argType="reference" />
-    </action>
+        app:destination="@id/reauthentication" />
     <action
         android:id="@+id/action_exit"
-        app:destination="@id/app_navigation_graph">
-        <argument
-            android:name="destination_id"
-            android:defaultValue="@com.example.app:id/splash"
-            app:argType="reference" />
-    </action>
-    <include app:graph="@navigation/app_navigation_graph" />
+        app:destination="@id/exit" />
 </navigation>
