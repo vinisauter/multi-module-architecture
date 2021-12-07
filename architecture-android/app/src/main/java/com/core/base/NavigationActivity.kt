@@ -34,7 +34,7 @@ abstract class NavigationActivity(
         val graphInflater = navHostFragment.navController.navInflater
         navController = navHostFragment.navController
         navController.apply {
-            val launcherNavigator = ModuleNavigator(context, navigatorProvider, navInflater)
+            val launcherNavigator = ModuleNavigator(navigatorProvider, navInflater)
             navigatorProvider.addNavigator(launcherNavigator)
 
             for (navigator in navigators) {

@@ -13,7 +13,6 @@ import com.example.app.R
  */
 @Navigator.Name("module")
 class ModuleNavigator(
-    private val context: Context,
     private val navigatorProvider: NavigatorProvider,
     private val navInflater: NavInflater,
 ) : Navigator<ModuleNavigator.ModuleDestination>() {
@@ -49,9 +48,9 @@ class ModuleNavigator(
         private val navInflater: NavInflater,
         private val graphId: Int
     ) : NavDestination(navigator) {
-        var name: String? = null
-        var destiny: Int? = null
-        var toStart: Boolean = false
+        private var name: String? = null
+        private var destiny: Int? = null
+        private var toStart: Boolean = false
         lateinit var destination: NavDestination
 
         override fun onInflate(context: Context, attrs: AttributeSet) {
@@ -66,7 +65,7 @@ class ModuleNavigator(
             includedNav.id = id
             val outerNav = parent
                 ?: throw IllegalStateException(
-                    "The module destination with id ${displayName} " +
+                    "The module destination with id $displayName " +
                             "does not have a parent. Make sure it is attached to a NavGraph."
                 )
             val destinationId = destiny
