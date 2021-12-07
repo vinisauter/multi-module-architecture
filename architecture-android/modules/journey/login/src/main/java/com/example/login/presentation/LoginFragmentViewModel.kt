@@ -34,17 +34,23 @@ class LoginFragmentViewModel(
     }
 
     fun onLoginClicked() = runTaskResult(onStateChangedMutable) {
-            tagging.send(tracking.loginClickAuthEvent)
-            try {
-                useCase.login("user", "password")
-                onActionCompletedSharedFlow.emit(
-                    LoginFragmentDirections.actionLoginSucceed(com.example.app.R.id.home_navigation)
-                )
-                tagging.send(tracking.loginAuthSucceededEvent)
-            } catch (t: Throwable) {
-                onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginFailed())
-                tagging.send(tracking.loginAuthFailedEvent)
+        tagging.send(tracking.loginClickAuthEvent)
+        useCase.login("user", "password").let {
+            when(it) {
+                true -> {
+                    tagging.send(tracking.loginAuthSucceededEvent)
+                    onActionCompletedSharedFlow.emit(
+                        LoginFragmentDirections.actionLoginSucceed(com.example.app.R.id.home_navigation)
+                    )
+                }
+                false ->{
+                    tagging.send(tracking.loginAuthFailedEvent)
+                    onActionCompletedSharedFlow.emit(
+                        LoginFragmentDirections.actionLoginFailed()
+                    )
+                }
             }
+        }
     }
 
     fun onForgotPasswordClicked() = runTaskResult(onStateChangedMutable) {

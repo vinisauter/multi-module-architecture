@@ -2,7 +2,6 @@ package com.example.login
 
 import android.app.Application
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.core.extensions.StateResult
 import com.example.journey.login.tracking.LoginTracking
 import com.example.login.presentation.LoginFragmentUseCase
 import com.example.login.presentation.LoginFragmentViewModel
@@ -18,6 +17,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.mockito.ArgumentMatchers.anyString
+import org.mockito.Mockito.`when`
 
 class ExampleUnitTest {
 
@@ -81,6 +81,7 @@ class ExampleUnitTest {
         val captor = argumentCaptor<Tagging.Event>()
         val loginFragmentViewModel = LoginFragmentViewModel(Application(), tagging, useCase, tracking)
         return runTest {
+            `when`(useCase.login(anyString(), anyString())).thenReturn(true)
             loginFragmentViewModel.onLoginClicked()
             delay(oneSecond)
             verify(tagging, atLeastOnce()).send(captor.capture())
@@ -88,15 +89,17 @@ class ExampleUnitTest {
         }
     }
 
-    //TODO Make it pass
     @ExperimentalCoroutinesApi
     @Test
     fun trackLoginFail_onLoginFail_sendLoginFailEvent() {
+        val captor = argumentCaptor<Tagging.Event>()
         val loginFragmentViewModel = LoginFragmentViewModel(Application(), tagging, useCase, tracking)
         return runTest {
+            `when`(useCase.login(anyString(), anyString())).thenReturn(false)
             loginFragmentViewModel.onLoginClicked()
             delay(oneSecond)
-            verify(tagging, times(1)).send(tracking.loginAuthFailedEvent)
+            verify(tagging, atLeastOnce()).send(captor.capture())
+            assert(captor.secondValue.label == ((tracking.loginAuthFailedEvent) as Tagging.Event).label)
         }
     }
 
