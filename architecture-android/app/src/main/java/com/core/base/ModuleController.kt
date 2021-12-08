@@ -4,6 +4,10 @@ import android.injection.Module
 import android.os.Bundle
 import androidx.annotation.IdRes
 import androidx.annotation.NavigationRes
+import androidx.navigation.NavDestination
+import androidx.navigation.Navigator
+import com.example.app.R
+import com.example.journey.JourneyNavigator
 
 abstract class ModuleController(
     @NavigationRes override val graphResId: Int,
@@ -19,5 +23,15 @@ abstract class ModuleController(
     override fun onDestroy() {
         super.onDestroy()
         module.clear()
+    }
+
+    override fun customNavigators(): List<Navigator<out NavDestination>> {
+        val launcherNavigator = JourneyNavigator(
+            navController.context,
+            navController.navigatorProvider,
+            navController.navInflater,
+            R.navigation.app_navigation_graph
+        )
+        return listOf(launcherNavigator)
     }
 }

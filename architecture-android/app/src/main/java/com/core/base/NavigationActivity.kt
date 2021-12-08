@@ -10,8 +10,6 @@ import androidx.navigation.NavGraph
 import androidx.navigation.Navigator
 import androidx.navigation.fragment.NavHostFragment
 import com.example.app.R
-import com.example.journey.JourneyNavigator
-
 
 abstract class NavigationActivity(
     @NavigationRes open val graphResId: Int,
@@ -27,22 +25,14 @@ abstract class NavigationActivity(
         supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
     }
 
-    open val navigators: List<Navigator<out NavDestination>> = listOf()
+    open fun customNavigators(): List<Navigator<out NavDestination>> = listOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val graphInflater = navHostFragment.navController.navInflater
         navController = navHostFragment.navController
         navController.apply {
-            val launcherNavigator = JourneyNavigator(
-                context,
-                navigatorProvider,
-                navInflater,
-                R.navigation.app_navigation_graph//TODO R.navigation?
-            )
-            navigatorProvider.addNavigator(launcherNavigator)
-
-            for (navigator in navigators) {
+            for (navigator in customNavigators()) {
                 navigatorProvider.addNavigator(navigator)
             }
         }
