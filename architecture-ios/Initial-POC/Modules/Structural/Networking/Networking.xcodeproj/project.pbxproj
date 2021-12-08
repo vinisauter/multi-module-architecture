@@ -11,10 +11,11 @@
 		593F260C2739D4A500B34547 /* NetworkingInterfaces.h in Headers */ = {isa = PBXBuildFile; fileRef = 593F260A2739D4A500B34547 /* NetworkingInterfaces.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		593F26132739D4AF00B34547 /* NetworkingInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 593F26082739D4A500B34547 /* NetworkingInterfaces.framework */; };
 		593F26142739D4B000B34547 /* NetworkingInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 593F26082739D4A500B34547 /* NetworkingInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		593F261A2739D4CC00B34547 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593F26192739D4CC00B34547 /* HTTPClient.swift */; };
+		593F261A2739D4CC00B34547 /* HTTPClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593F26192739D4CC00B34547 /* HTTPClientProtocol.swift */; };
 		593F261D2739D4ED00B34547 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593F261C2739D4ED00B34547 /* Networking.swift */; };
 		598AC4BE275A2B160081C1FD /* LibOneHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598AC4BD275A2B160081C1FD /* LibOneHTTPClient.swift */; };
 		598AC4C1275A2BD20081C1FD /* LibTwoHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598AC4C0275A2BD20081C1FD /* LibTwoHTTPClient.swift */; };
+		59FF604B27610C800096F78F /* NetworkingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FF604A27610C800096F78F /* NetworkingProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,10 +49,11 @@
 		593F26082739D4A500B34547 /* NetworkingInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkingInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		593F260A2739D4A500B34547 /* NetworkingInterfaces.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingInterfaces.h; sourceTree = "<group>"; };
 		593F260B2739D4A500B34547 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		593F26192739D4CC00B34547 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		593F26192739D4CC00B34547 /* HTTPClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientProtocol.swift; sourceTree = "<group>"; };
 		593F261C2739D4ED00B34547 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		598AC4BD275A2B160081C1FD /* LibOneHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibOneHTTPClient.swift; sourceTree = "<group>"; };
 		598AC4C0275A2BD20081C1FD /* LibTwoHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibTwoHTTPClient.swift; sourceTree = "<group>"; };
+		59FF604A27610C800096F78F /* NetworkingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				59C82C51273C02D500E84149 /* Config */,
-				593F26192739D4CC00B34547 /* HTTPClient.swift */,
+				593F26192739D4CC00B34547 /* HTTPClientProtocol.swift */,
+				59FF604A27610C800096F78F /* NetworkingProtocol.swift */,
 			);
 			path = NetworkingInterfaces;
 			sourceTree = "<group>";
@@ -266,7 +269,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				593F261A2739D4CC00B34547 /* HTTPClient.swift in Sources */,
+				593F261A2739D4CC00B34547 /* HTTPClientProtocol.swift in Sources */,
+				59FF604B27610C800096F78F /* NetworkingProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

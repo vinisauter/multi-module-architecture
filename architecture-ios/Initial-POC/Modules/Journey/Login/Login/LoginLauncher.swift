@@ -27,7 +27,7 @@ public struct LoginDependencies {
 }
 
 public protocol LoginStructuralDependencies {
-    var networking: Networking { get }
+    var networking: NetworkingProtocol { get }
     var analytics: AnalyticsProtocol { get }
 }
 

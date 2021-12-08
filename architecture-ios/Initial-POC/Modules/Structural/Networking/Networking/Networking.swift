@@ -8,11 +8,11 @@
 import Foundation
 import NetworkingInterfaces
 
-open class Networking: NetworkingInterfaces.Networking {
+open class Networking: NetworkingProtocol {
     
     public init() {}
     
-    public func getHttpClient() -> HTTPClient {
+    public func getHttpClient() -> HTTPClientProtocol {
         let isLibOne = Bool.random()
         if isLibOne {
             return LibOneHTTPClient()

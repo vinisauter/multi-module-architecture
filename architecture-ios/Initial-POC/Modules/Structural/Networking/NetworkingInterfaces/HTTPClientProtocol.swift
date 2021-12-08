@@ -7,11 +7,7 @@
 
 import Foundation
 
-public protocol Networking {
-    func getHttpClient() -> HTTPClient
-}
-
-public protocol HTTPClient {
+public protocol HTTPClientProtocol {
     func get(completion: @escaping (String) -> Void)
     func post(completion: @escaping (String) -> Void)
     func put(completion: @escaping (String) -> Void)
