@@ -16,7 +16,7 @@ class StructuralDependencyProvider {
     private init() {}
     
     lazy var networking: HTTPClientProtocol = {
-        return Networking()
+        return NetworkingProvider()
     }()
     
     lazy var analytics: AnalyticsProtocol = {

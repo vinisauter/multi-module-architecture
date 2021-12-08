@@ -27,13 +27,14 @@ public struct LoginDependencies {
 }
 
 public protocol LoginStructuralDependencies {
-    var networking: NetworkingProtocol { get }
+    var networkingProvider: NetworkingProviderProtocol { get }
     var analytics: AnalyticsProtocol { get }
 }
 
 public class LoginLauncher {
     static public func start(with dependencies: LoginDependencies) -> UIViewController {
-        let businessModel = LoginBusinessModel(repository: LoginAPI(httpClient: dependencies.structuralDependencies.networking.getHttpClient()), structuralAnalytics: dependencies.structuralDependencies.analytics)
+        let loginAPI = LoginAPI(secureHttpClient: dependencies.structuralDependencies.networkingProvider.getSecureHttpClient(), insecureHttpClient: dependencies.structuralDependencies.networkingProvider.getInsecureHttpClient())
+        let businessModel = LoginBusinessModel(repository: loginAPI, structuralAnalytics: dependencies.structuralDependencies.analytics)
         let factory = LoginViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependencies.customLoginAnalytics)
         let mainFlow = LoginFlow(factory: factory, deeplink: Deeplink(value: LoginDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
         mainFlow.delegate = dependencies.flowDelegate
@@ -43,7 +44,8 @@ public class LoginLauncher {
     }
     
     static public func startForgotPassword(with dependencies: LoginDependencies) -> UIViewController {
-        let businessModel = LoginBusinessModel(repository: LoginAPI(httpClient: dependencies.structuralDependencies.networking.getHttpClient()), structuralAnalytics: dependencies.structuralDependencies.analytics)
+        let loginAPI = LoginAPI(secureHttpClient: dependencies.structuralDependencies.networkingProvider.getSecureHttpClient(), insecureHttpClient: dependencies.structuralDependencies.networkingProvider.getInsecureHttpClient())
+        let businessModel = LoginBusinessModel(repository: loginAPI, structuralAnalytics: dependencies.structuralDependencies.analytics)
         let factory = LoginViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependencies.customLoginAnalytics)
         let mainFlow = ForgotPasswordFlow(factory: factory, deeplink: Deeplink(value: LoginDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
         mainFlow.delegate = dependencies.flowDelegate
