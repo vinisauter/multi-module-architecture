@@ -7,7 +7,7 @@
 
 import NetworkingInterfaces
 
-public final class LibOneHTTPClient: HTTPClient {
+public final class LibOneHTTPClient: HTTPClientProtocol {
     public func get(completion: @escaping (String) -> Void) {
         execute("GET", completion: completion)
     }

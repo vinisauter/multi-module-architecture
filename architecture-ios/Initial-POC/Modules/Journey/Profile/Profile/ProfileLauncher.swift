@@ -29,7 +29,7 @@ public struct ProfileDependencies {
 }
 
 public protocol ProfileStructuralDependencies {
-    var networking: Networking { get }
+    var networking: NetworkingProtocol { get }
     var analytics: AnalyticsProtocol { get }
 }
 

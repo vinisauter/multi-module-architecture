@@ -27,7 +27,7 @@ public struct HomeDependencies {
 }
 
 public protocol HomeStructuralDependencies {
-    var networking: Networking { get }
+    var networking: NetworkingProtocol { get }
     var analytics: AnalyticsProtocol { get }
 }
 

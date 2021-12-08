@@ -9,9 +9,9 @@ import Foundation
 import NetworkingInterfaces
 
 class LoginAPI: LoginRepositoryProtocol {
-    private let httpClient: HTTPClient
+    private let httpClient: HTTPClientProtocol
     
-    init(httpClient: HTTPClient) {
+    init(httpClient: HTTPClientProtocol) {
         self.httpClient = httpClient
     }
     
