@@ -9,20 +9,22 @@ import Foundation
 import NetworkingInterfaces
 
 class LoginAPI: LoginRepositoryProtocol {
-    private let httpClient: HTTPClientProtocol
+    private let secureHttpClient: HTTPClientProtocol
+    private let insecureHttpClient: HTTPClientProtocol
     
-    init(httpClient: HTTPClientProtocol) {
-        self.httpClient = httpClient
+    init(secureHttpClient: HTTPClientProtocol, insecureHttpClient: HTTPClientProtocol) {
+        self.secureHttpClient = secureHttpClient
+        self.insecureHttpClient = insecureHttpClient
     }
     
     func login(with username: String, and password: String, completion: @escaping (Bool) -> Void) {
-        httpClient.post { result in
+        secureHttpClient.post("some_url") { result in
             completion(result == "POST")
         }
     }
     
     func changePassword(with newPassword: String, completion: @escaping (Bool) -> Void) {
-        httpClient.post { result in
+        insecureHttpClient.post("some_url") { result in
             completion(result == "POST")
         }
     }
