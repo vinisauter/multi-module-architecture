@@ -37,6 +37,7 @@ class ModuleNavigator(
     ) {
         val module = entry.destination as ModuleDestination
 
+        // TODO: validate multiple inflates
         val includedNav = navInflater.inflate(graphId)
         includedNav.id = module.id
         val outerNav = module.parent

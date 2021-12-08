@@ -15,13 +15,9 @@
             app:argType="com.example.journey.login.tracking.LoginTracking" />
         <action
             android:id="@+id/action_login_succeed"
-            app:destination="@id/module_launcher"
-            app:popUpTo="@id/module_launcher"
-            app:popUpToInclusive="true">
-            <argument
-                android:name="destination_id"
-                app:argType="reference" />
-        </action>
+            app:destination="@id/home"
+            app:popUpTo="@id/home"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_login_failed"
             app:destination="@id/profile_navigation" />
@@ -36,13 +32,9 @@
         tools:layout="@layout/fragment_forgot_password">
         <action
             android:id="@+id/action_exit"
-            app:destination="@id/module_launcher"
-            app:popUpTo="@id/module_launcher"
-            app:popUpToInclusive="true">
-            <argument
-                android:name="destination_id"
-                app:argType="reference" />
-        </action>
+            app:destination="@id/exit"
+            app:popUpTo="@id/exit"
+            app:popUpToInclusive="true" />
     </fragment>
     <dialog
         android:id="@+id/reauthentication"
@@ -55,13 +47,11 @@
             app:argType="com.core.extensions.Direction"
             app:nullable="true" />
     </dialog>
+    <module
+        android:id="@+id/exit"
+        app:destiny="@id/splash" />
 
-    <dialog
-        android:id="@+id/module_launcher"
-        android:name="com.example.journey.NavigationLauncher"
-        android:label="module_launcher">
-        <argument
-            android:name="destination_id"
-            app:argType="reference" />
-    </dialog>
+    <module
+        android:id="@+id/home"
+        app:destiny="@id/home_navigation" />
 </navigation>

@@ -7,20 +7,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/app_navigation_graph"
-    app:startDestination="@id/navigation_launcher">
-
-    <dialog
-        android:id="@+id/navigation_launcher"
-        android:name="com.example.journey.NavigationLauncher"
-        android:label="Loader">
-        <argument
-            android:name="destination_id"
-            app:argType="reference" />
-    </dialog>
+    app:startDestination="@id/splash">
 
     <action
         android:id="@+id/action_show_error"
-        app:destination="@id/splash">
+        app:destination="@id/error_dialog">
         <argument
             android:name="error_message"
             app:argType="string" />
@@ -44,6 +35,18 @@
             app:destination="@id/login_navigation" />
     </fragment>
 
+    <dialog
+        android:id="@+id/reauthentication_navigation"
+        android:name="com.example.login.presentation.reauthentication.ReauthenticationDialog"
+        android:label="reauthentication"
+        app:moduleName="login"
+        tools:layout="@layout/reauthentication_dialog">
+        <argument
+            android:name="didFinishDirection"
+            android:defaultValue="@null"
+            app:argType="com.core.extensions.Direction"
+            app:nullable="true" />
+    </dialog>
     <activity
         android:id="@+id/login_navigation"
         android:name="com.example.login.LoginController"
@@ -58,19 +61,6 @@
             app:argType="com.example.journey.login.tracking.LoginTracking"
             app:nullable="true" />
     </activity>
-    <dialog
-        android:id="@+id/reauthentication_navigation"
-        android:name="com.example.login.presentation.reauthentication.ReauthenticationDialog"
-        android:label="reauthentication"
-        app:moduleName="login"
-        tools:layout="@layout/reauthentication_dialog">
-        <argument
-            android:name="didFinishDirection"
-            android:defaultValue="@null"
-            app:argType="com.core.extensions.Direction"
-            app:nullable="true" />
-    </dialog>
-
     <activity
         android:id="@+id/home_navigation"
         android:name="com.example.home.HomeNavigationActivity"

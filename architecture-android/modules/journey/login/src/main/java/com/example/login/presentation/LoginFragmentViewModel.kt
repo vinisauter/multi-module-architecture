@@ -40,7 +40,7 @@ class LoginFragmentViewModel(
         try {
             useCase.login("user", "password")
             onActionCompletedSharedFlow.emit(
-                LoginFragmentDirections.actionLoginSucceed(com.example.app.R.id.home_navigation)
+                LoginFragmentDirections.actionLoginSucceed()
             )
             tagging.send(tracking.loginAuthSucceededEvent)
         } catch (t: Throwable) {
