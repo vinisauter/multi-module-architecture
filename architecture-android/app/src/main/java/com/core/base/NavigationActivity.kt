@@ -10,7 +10,7 @@ import androidx.navigation.NavGraph
 import androidx.navigation.Navigator
 import androidx.navigation.fragment.NavHostFragment
 import com.example.app.R
-import com.example.journey.ModuleNavigator
+import com.example.journey.JourneyNavigator
 
 
 abstract class NavigationActivity(
@@ -34,7 +34,7 @@ abstract class NavigationActivity(
         val graphInflater = navHostFragment.navController.navInflater
         navController = navHostFragment.navController
         navController.apply {
-            val launcherNavigator = ModuleNavigator(
+            val launcherNavigator = JourneyNavigator(
                 context,
                 navigatorProvider,
                 navInflater,

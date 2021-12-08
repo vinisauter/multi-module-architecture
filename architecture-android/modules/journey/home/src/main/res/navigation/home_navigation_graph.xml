@@ -20,10 +20,9 @@
             app:destination="@id/exit" />
     </fragment>
 
-    <module
-        android:id="@+id/exit"
-        app:destiny="@id/splash" />
-    <module
+    <journey
+        android:id="@+id/exit"/>
+    <journey
         android:id="@+id/profile"
         app:destiny="@id/profile_navigation" />
 </navigation>

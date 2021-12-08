@@ -11,13 +11,13 @@ import com.example.app.R
  *
  * Use it for navigating to app.
  */
-@Navigator.Name("module")
-class ModuleNavigator(
+@Navigator.Name("journey")
+class JourneyNavigator(
     private val context: Context,
     private val navigatorProvider: NavigatorProvider,
     private val navInflater: NavInflater,
     private val graphId: Int,
-) : Navigator<ModuleNavigator.ModuleDestination>() {
+) : Navigator<JourneyNavigator.ModuleDestination>() {
 
     override fun createDestination(): ModuleDestination = ModuleDestination(this, graphId)
 
@@ -58,12 +58,11 @@ class ModuleNavigator(
                 resolvedDestination = nextDestination
             }
         }
-        if (resolvedDestination == null)
-            throw IllegalStateException(
-                "The module destination with id ${module.displayName} " +
-                        "does not have a matching destiny (${module.destiny}).\n" +
-                        "Make sure it it exists on ${context.resources.getResourceEntryName(graphId)}."
-            )
+        if (resolvedDestination == null) throw IllegalStateException(
+            "The module destination with id ${module.displayName} does not have a matching " +
+                    "destiny (${context.resources.getResourceName(module.destiny)}).\n" +
+                    "Make sure it it exists on ${context.resources.getResourceEntryName(graphId)}."
+        )
         val destination = resolvedDestination
         val navigator: Navigator<NavDestination> = navigatorProvider[destination.navigatorName]
         val newGraphEntry = state.createBackStackEntry(destination, entry.arguments)
@@ -71,19 +70,17 @@ class ModuleNavigator(
     }
 
     class ModuleDestination(
-        navigator: ModuleNavigator,
+        navigator: JourneyNavigator,
         private val graphId: Int
     ) : NavDestination(navigator) {
-        var name: String? = null
         var destiny: Int = 0
         var toStart: Boolean = false
 
         override fun onInflate(context: Context, attrs: AttributeSet) {
             super.onInflate(context, attrs)
-            val it = context.resources.obtainAttributes(attrs, R.styleable.ModuleNavigator)
-            name = it.getString(R.styleable.ModuleNavigator_android_name)
-            destiny = it.getResourceId(R.styleable.ModuleNavigator_destiny, 0)
-            toStart = it.getBoolean(R.styleable.ModuleNavigator_toStart, false)
+            val it = context.resources.obtainAttributes(attrs, R.styleable.JourneyNavigator)
+            destiny = it.getResourceId(R.styleable.JourneyNavigator_destiny, 0)
+            toStart = destiny == 0
             it.recycle()
 
             if (destiny != 0) {

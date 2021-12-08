@@ -6,13 +6,12 @@
     app:moduleName="profile"
     app:startDestination="@+id/profile_fragment">
 
-    <module
-        android:id="@+id/exit"
-        app:toStart="true" />
-    <module
+    <journey android:id="@+id/exit" />
+
+    <journey
         android:id="@+id/home"
         app:destiny="@id/home_navigation" />
-    <module
+    <journey
         android:id="@+id/login"
         app:destiny="@id/login_navigation">
         <argument
@@ -20,8 +19,8 @@
             android:defaultValue="@null"
             app:argType="com.example.journey.login.tracking.LoginTracking"
             app:nullable="true" />
-    </module>
-    <module
+    </journey>
+    <journey
         android:id="@+id/reauthentication"
         app:destiny="@id/reauthentication_navigation" />
 

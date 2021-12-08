@@ -47,11 +47,9 @@
             app:argType="com.core.extensions.Direction"
             app:nullable="true" />
     </dialog>
-    <module
-        android:id="@+id/exit"
-        app:destiny="@id/splash" />
 
-    <module
+    <journey android:id="@+id/exit" />
+    <journey
         android:id="@+id/home"
         app:destiny="@id/home_navigation" />
 </navigation>
