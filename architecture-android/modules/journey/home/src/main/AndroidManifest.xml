@@ -16,8 +16,7 @@
     <application>
         <activity
             android:name=".HomeNavigationActivity"
-            android:clearTaskOnLaunch="true"
-            android:exported="false" />
+            android:launchMode="singleInstance" />
     </application>
 
 </manifest>
