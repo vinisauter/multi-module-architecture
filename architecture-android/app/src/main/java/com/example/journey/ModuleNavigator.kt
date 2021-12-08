@@ -13,6 +13,7 @@ import com.example.app.R
  */
 @Navigator.Name("module")
 class ModuleNavigator(
+    private val context: Context,
     private val navigatorProvider: NavigatorProvider,
     private val navInflater: NavInflater,
     private val graphId: Int,
@@ -36,6 +37,23 @@ class ModuleNavigator(
         navigatorExtras: Extras?
     ) {
         val module = entry.destination as ModuleDestination
+
+        if (module.destiny != 0) {
+            if (context.resources.getResourcePackageName(module.destiny) !=
+                context.resources.getResourcePackageName(graphId)
+            ) {
+                val name = context.resources.getResourceName(module.destiny)
+                val graphName = context.resources.getResourceName(graphId)
+
+                throw IllegalStateException(
+                    "package ids of destination mismatch from ${
+                        context.resources.getResourcePackageName(
+                            graphId
+                        )
+                    }.\nThe module destination with id $name must be a destination from $graphName "
+                )
+            }
+        }
 
         // TODO: validate multiple inflates
         val includedNav = navInflater.inflate(graphId)
@@ -72,7 +90,7 @@ class ModuleNavigator(
         navigator: ModuleNavigator,
     ) : NavDestination(navigator) {
         var name: String? = null
-        var destiny: Int? = null
+        var destiny: Int = 0
         var toStart: Boolean = false
 
         override fun onInflate(context: Context, attrs: AttributeSet) {

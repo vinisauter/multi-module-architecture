@@ -7,12 +7,14 @@
     app:startDestination="@+id/profile_fragment">
 
     <module
+        android:id="@+id/exit"
+        app:toStart="true" />
+    <module
         android:id="@+id/home"
         app:destiny="@id/home_navigation" />
-
     <module
         android:id="@+id/login"
-        app:destiny="@id/login_navigation" >
+        app:destiny="@id/login_navigation">
         <argument
             android:name="tracking"
             android:defaultValue="@null"
@@ -22,9 +24,6 @@
     <module
         android:id="@+id/reauthentication"
         app:destiny="@id/reauthentication_navigation" />
-    <module
-        android:id="@+id/exit"
-        app:destiny="@id/splash" />
 
     <fragment
         android:id="@+id/profile_fragment"

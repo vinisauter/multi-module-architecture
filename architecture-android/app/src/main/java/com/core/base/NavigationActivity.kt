@@ -35,7 +35,10 @@ abstract class NavigationActivity(
         navController = navHostFragment.navController
         navController.apply {
             val launcherNavigator = ModuleNavigator(
-                navigatorProvider, navInflater, R.navigation.app_navigation_graph//TODO R.navigation?
+                context,
+                navigatorProvider,
+                navInflater,
+                R.navigation.app_navigation_graph//TODO R.navigation?
             )
             navigatorProvider.addNavigator(launcherNavigator)
 
