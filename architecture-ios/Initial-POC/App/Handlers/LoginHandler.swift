@@ -78,16 +78,16 @@ extension LoginHandler: LoginFlowDelegate {
         }
     }
     
-    func goToHome(from: Flow, in controller: UIViewController, with value: Any?) {
-        switch from {
+    func goToHome(from flow: Flow, in controller: UIViewController, with value: Any?) {
+        switch flow {
         case .main:
             baseFlowDelegate?.perform(.finishCurrentAndGoTo(.home, currentJourney: .login), in: controller, with: nil)
         default: break
         }
     }
     
-    func goToWelcome(from: Flow, in controller: UIViewController, with value: Any?) {
-        switch from {
+    func goToWelcome(from flow: Flow, in controller: UIViewController, with value: Any?) {
+        switch flow {
         case .main:
             baseFlowDelegate?.perform(.finishCurrentAndGoTo(.welcome, currentJourney: .login), in: controller, with: nil)
         default: break

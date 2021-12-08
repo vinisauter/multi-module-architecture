@@ -17,8 +17,8 @@ protocol LoginFlowProtocol: AnyObject {
 
 public protocol LoginFlowDelegate: AnyObject {
     func didFinish(_ flow: Flow, in controller: UIViewController, with value: Any?)
-    func goToHome(from: Flow, in controller: UIViewController, with value: Any?)
-    func goToWelcome(from: Flow, in controller: UIViewController, with value: Any?)
+    func goToHome(from flow: Flow, in controller: UIViewController, with value: Any?)
+    func goToWelcome(from flow: Flow, in controller: UIViewController, with value: Any?)
 }
 
 class LoginFlow: LoginFlowProtocol, Deeplinkable {
