@@ -19,7 +19,7 @@ class ModuleNavigator(
     private val graphId: Int,
 ) : Navigator<ModuleNavigator.ModuleDestination>() {
 
-    override fun createDestination(): ModuleDestination = ModuleDestination(this)
+    override fun createDestination(): ModuleDestination = ModuleDestination(this, graphId)
 
     override fun navigate(
         entries: List<NavBackStackEntry>,
@@ -37,23 +37,6 @@ class ModuleNavigator(
         navigatorExtras: Extras?
     ) {
         val module = entry.destination as ModuleDestination
-
-        if (module.destiny != 0) {
-            if (context.resources.getResourcePackageName(module.destiny) !=
-                context.resources.getResourcePackageName(graphId)
-            ) {
-                val name = context.resources.getResourceName(module.destiny)
-                val graphName = context.resources.getResourceName(graphId)
-
-                throw IllegalStateException(
-                    "package ids of destination mismatch from ${
-                        context.resources.getResourcePackageName(
-                            graphId
-                        )
-                    }.\nThe module destination with id $name must be a destination from $graphName "
-                )
-            }
-        }
 
         // TODO: validate multiple inflates
         val includedNav = navInflater.inflate(graphId)
@@ -78,7 +61,8 @@ class ModuleNavigator(
         if (resolvedDestination == null)
             throw IllegalStateException(
                 "The module destination with id ${module.displayName} " +
-                        "does not have a matching destiny (${module.destiny}). Make sure it it exists on app_navigation_graph."
+                        "does not have a matching destiny (${module.destiny}).\n" +
+                        "Make sure it it exists on ${context.resources.getResourceEntryName(graphId)}."
             )
         val destination = resolvedDestination
         val navigator: Navigator<NavDestination> = navigatorProvider[destination.navigatorName]
@@ -88,6 +72,7 @@ class ModuleNavigator(
 
     class ModuleDestination(
         navigator: ModuleNavigator,
+        private val graphId: Int
     ) : NavDestination(navigator) {
         var name: String? = null
         var destiny: Int = 0
@@ -100,6 +85,22 @@ class ModuleNavigator(
             destiny = it.getResourceId(R.styleable.ModuleNavigator_destiny, 0)
             toStart = it.getBoolean(R.styleable.ModuleNavigator_toStart, false)
             it.recycle()
+
+            if (destiny != 0) {
+                if (context.resources.getResourcePackageName(destiny) !=
+                    context.resources.getResourcePackageName(graphId)
+                ) {
+                    val name = context.resources.getResourceName(destiny)
+                    throw IllegalStateException(
+                        "package ids of destination mismatch from " +
+                                "${context.resources.getResourcePackageName(graphId)}." +
+                                "\nThe module destinies id \"$name\" must be a destination from " +
+                                "${context.resources.getResourceName(graphId)}." +
+                                "\nMake sure you are using the same id from " +
+                                "${context.resources.getResourceEntryName(graphId)} and not creating a new one."
+                    )
+                }
+            }
         }
     }
 }
