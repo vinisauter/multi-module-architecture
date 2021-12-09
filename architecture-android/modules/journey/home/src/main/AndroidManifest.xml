@@ -15,8 +15,7 @@
 
     <application>
         <activity
-            android:name=".HomeNavigationActivity"
-            android:launchMode="singleInstance" />
+            android:name=".HomeNavigationActivity"/>
     </application>
 
 </manifest>
