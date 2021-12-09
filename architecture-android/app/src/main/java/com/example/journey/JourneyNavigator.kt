@@ -37,36 +37,41 @@ class JourneyNavigator(
         navigatorExtras: Extras?
     ) {
         val module = entry.destination as ModuleDestination
-
-        // TODO: validate multiple inflates
-        val includedNav = navInflater.inflate(graphId)
-        includedNav.id = module.id
+        val destinationId = module.destiny
         val outerNav = module.parent
             ?: throw IllegalStateException(
                 "The module destination with id ${module.displayName} " +
                         "does not have a parent. Make sure it is attached to a NavGraph."
             )
-        val destinationId = module.destiny
-        var resolvedDestination: NavDestination? = null
-        if (module.toStart) resolvedDestination = includedNav.findStartDestination()
-        val iterator = includedNav.iterator()
-        while (iterator.hasNext()) {
-            val nextDestination = iterator.next()
-            iterator.remove()
-            outerNav.addDestination(nextDestination)
-            if (destinationId == nextDestination.id) {
-                resolvedDestination = nextDestination
+        var resolvedDestination: NavDestination? = outerNav.findNode(destinationId)
+        if (resolvedDestination != null) {
+            val navigator: Navigator<NavDestination> =
+                navigatorProvider[resolvedDestination.navigatorName]
+            val newGraphEntry = state.createBackStackEntry(resolvedDestination, entry.arguments)
+            navigator.navigate(listOf(newGraphEntry), navOptions, navigatorExtras)
+        } else {
+            val includedNav = navInflater.inflate(graphId)
+            includedNav.id = module.id
+            if (module.toStart) resolvedDestination = includedNav.findStartDestination()
+            val iterator = includedNav.iterator()
+            while (iterator.hasNext()) {
+                val nextDestination = iterator.next()
+                iterator.remove()
+                outerNav.addDestination(nextDestination)
+                if (destinationId == nextDestination.id) {
+                    resolvedDestination = nextDestination
+                }
             }
+            if (resolvedDestination == null) throw IllegalStateException(
+                "The module destination with id ${module.displayName} does not have a matching " +
+                        "destiny (${context.resources.getResourceName(module.destiny)}).\n" +
+                        "Make sure it it exists on ${context.resources.getResourceEntryName(graphId)}."
+            )
+            val destination = resolvedDestination
+            val navigator: Navigator<NavDestination> = navigatorProvider[destination.navigatorName]
+            val newGraphEntry = state.createBackStackEntry(destination, entry.arguments)
+            navigator.navigate(listOf(newGraphEntry), navOptions, navigatorExtras)
         }
-        if (resolvedDestination == null) throw IllegalStateException(
-            "The module destination with id ${module.displayName} does not have a matching " +
-                    "destiny (${context.resources.getResourceName(module.destiny)}).\n" +
-                    "Make sure it it exists on ${context.resources.getResourceEntryName(graphId)}."
-        )
-        val destination = resolvedDestination
-        val navigator: Navigator<NavDestination> = navigatorProvider[destination.navigatorName]
-        val newGraphEntry = state.createBackStackEntry(destination, entry.arguments)
-        navigator.navigate(listOf(newGraphEntry), navOptions, navigatorExtras)
     }
 
     class ModuleDestination(
