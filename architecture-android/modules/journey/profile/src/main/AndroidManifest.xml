@@ -12,8 +12,6 @@
         <dist:fusing dist:include="true" />
     </dist:module>
     <application>
-        <activity
-            android:name=".ProfileNavigationActivity"
-            android:launchMode="singleInstance" />
+        <activity android:name=".ProfileNavigationActivity" />
     </application>
 </manifest>

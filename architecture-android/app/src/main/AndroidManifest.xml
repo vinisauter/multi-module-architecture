@@ -12,7 +12,6 @@
         android:theme="@style/Theme.ModularFeatureArchitecture">
         <activity
             android:name=".AppNavigationActivity"
-            android:launchMode="singleInstance"
             android:exported="true">
             <nav-graph android:value="@navigation/app_navigation_graph" />
             <intent-filter>

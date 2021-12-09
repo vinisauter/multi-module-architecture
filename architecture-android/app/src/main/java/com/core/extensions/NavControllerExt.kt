@@ -47,6 +47,7 @@ private fun navigate(
                 saveState = isSaveState
             ).build()
         } else null
+
     navController.navigate(
         if (isPopUpTo) 0 else resId,
         arguments,
