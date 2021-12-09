@@ -1,5 +1,5 @@
 //
-//  LoginStarter.swift
+//  LoginHandler.swift
 //  App
 //
 //  Created by Nykolas Mayko Maia Barbosa on 11/11/21.
