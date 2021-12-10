@@ -29,7 +29,7 @@ abstract class BaseFragment<ViewBindingType : ViewBinding, ViewModelType : BaseV
         binding = viewBindingInflate(viewBindingClass, inflater, container)
         if (binding is ViewDataBinding) {
             val viewDataBinding = (binding as ViewDataBinding)
-            viewDataBinding.lifecycleOwner = this
+            viewDataBinding.lifecycleOwner = viewLifecycleOwner
             viewDataBinding.executePendingBindings()
         }
         afterViews(binding)
