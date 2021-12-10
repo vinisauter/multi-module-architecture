@@ -8,7 +8,7 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import com.example.app.R
 
 /**
- * Navigator for `module`.
+ * Navigator for `journey`.
  *
  * Use it for navigating to app.
  */

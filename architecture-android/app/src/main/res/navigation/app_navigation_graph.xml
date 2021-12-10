@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?><!--
 todo: navigation documentation:
-  https://github.com/android/app-bundle-samples/blob/main/DynamicFeatureNavigation/XML/app/src/main/res/navigation/nav_graph.xml
   https://developer.android.com/guide/navigation/navigation-dynamic
   https://developer.android.com/guide/navigation/navigation-deep-link
+  https://github.com/android/app-bundle-samples/tree/main/DynamicFeatureNavigation
   -->
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
