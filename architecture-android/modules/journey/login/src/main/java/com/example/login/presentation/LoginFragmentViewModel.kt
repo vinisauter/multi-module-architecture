@@ -9,7 +9,6 @@ import com.core.base.BaseViewModel
 import com.core.extensions.State
 import com.core.extensions.default
 import com.core.extensions.runTask
-import com.example.app.AppNavigationGraphDirections
 import com.example.journey.login.tracking.LoginTracking
 import com.example.tagging.TaggingExecutor
 import kotlinx.coroutines.flow.Flow
@@ -63,7 +62,7 @@ class LoginFragmentViewModel(
             tagging.send(tracking.loginForgotPasswordSucceededEvent)
         } catch (t: Throwable) {
             onActionCompletedSharedFlow.emit(
-                AppNavigationGraphDirections.actionShowError(
+                LoginFragmentDirections.actionShowError(
                     t.message.default("ERROR")
                 )
             )

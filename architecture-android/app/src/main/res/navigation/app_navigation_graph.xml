@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?><!--
+todo: navigation documentation:
   https://github.com/android/app-bundle-samples/blob/main/DynamicFeatureNavigation/XML/app/src/main/res/navigation/nav_graph.xml
   https://developer.android.com/guide/navigation/navigation-dynamic
   https://developer.android.com/guide/navigation/navigation-deep-link
@@ -9,22 +10,6 @@
     android:id="@+id/app_navigation_graph"
     app:startDestination="@id/splash">
 
-    <action
-        android:id="@+id/action_show_error"
-        app:destination="@id/error_dialog">
-        <argument
-            android:name="error_message"
-            app:argType="string" />
-    </action>
-    <dialog
-        android:id="@+id/error_dialog"
-        android:name="com.example.app.ErrorDialog"
-        android:label="Error">
-        <argument
-            android:name="error_message"
-            app:argType="string" />
-    </dialog>
-
     <fragment
         android:id="@+id/splash"
         android:name="com.example.app.SplashFragment"
@@ -34,7 +19,14 @@
             android:id="@+id/action_login"
             app:destination="@id/login_navigation" />
     </fragment>
-
+    <dialog
+        android:id="@+id/error_dialog"
+        android:name="com.example.app.ErrorDialog"
+        android:label="Error">
+        <argument
+            android:name="error_message"
+            app:argType="string" />
+    </dialog>
     <dialog
         android:id="@+id/reauthentication_navigation"
         android:name="com.example.login.presentation.reauthentication.ReauthenticationDialog"

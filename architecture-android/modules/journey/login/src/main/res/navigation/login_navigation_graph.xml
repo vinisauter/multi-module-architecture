@@ -47,9 +47,19 @@
             app:argType="com.core.extensions.Direction"
             app:nullable="true" />
     </dialog>
+    <action
+        android:id="@+id/action_show_error"
+        app:destination="@id/error">
+        <argument
+            android:name="error_message"
+            app:argType="string" />
+    </action>
 
     <journey android:id="@+id/exit" />
     <journey
         android:id="@+id/home"
         app:destiny="@id/home_navigation" />
+    <journey
+        android:id="@+id/error"
+        app:destiny="@id/error_dialog" />
 </navigation>

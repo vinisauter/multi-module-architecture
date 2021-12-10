@@ -16,6 +16,7 @@ import com.example.structural.storage.StorageProvider
 import com.example.structural.tagging.TaggingProvider
 import com.example.tagging.TaggingExecutor
 
+// TODO Split Install validation
 object StructuralProvider {
     private fun featureFlag(flag: String): Boolean {
         return true// TODO: MOCK to structural FeatureFlag module
