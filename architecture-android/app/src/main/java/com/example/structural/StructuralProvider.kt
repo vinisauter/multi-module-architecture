@@ -12,11 +12,15 @@ import com.example.networking.RequestExecutor
 import com.example.storage.StorageExecutor
 import com.example.structural.networking.NetworkingProvider
 import com.example.structural.networking.secure.NetworkingSecureProvider
+import com.example.structural.networking.secure.NetworkingSecureProviderV2
 import com.example.structural.storage.StorageProvider
 import com.example.structural.tagging.TaggingProvider
 import com.example.tagging.TaggingExecutor
 
-// TODO Split Install validation
+// TODO Split Install validation to enable on-demand delivery, only install-time for now
+//    <dist:delivery>
+//        <dist:on-demand />
+//    </dist:delivery>
 object StructuralProvider {
     private fun featureFlag(flag: String): Boolean {
         return true// TODO: MOCK to structural FeatureFlag module
@@ -36,16 +40,20 @@ object StructuralProvider {
         load<TaggingProvider>().executor(get())
     }
     val defaultRequestExecutor: RequestExecutor by lazy {
-        when {
-            featureFlag("executor-version-1") -> secureRequestExecutor
-            else -> unsecureRequestExecutor
-        }
+        secureRequestExecutorV2
     }
     val unsecureRequestExecutor: RequestExecutor by lazy {
         load<NetworkingProvider>().executor(get())
     }
     val secureRequestExecutor: RequestExecutor by lazy {
         load<NetworkingSecureProvider>().executor(get())
+    }
+    val secureRequestExecutorV2: RequestExecutor by lazy {
+        when {
+            featureFlag("networking-version-1") -> load<NetworkingSecureProvider>().executor(get())
+            featureFlag("networking-version-2") -> load<NetworkingSecureProviderV2>().executor(get())
+            else -> load<NetworkingSecureProviderV2>().executor(get())
+        }
     }
 
     fun start(app: SuperApplication) {

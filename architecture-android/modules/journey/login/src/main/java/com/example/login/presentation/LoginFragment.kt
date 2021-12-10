@@ -19,7 +19,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginFragmentViewModel>
             navigate(navDirection)
         }
         consume(viewModel.onStateChanged) { state: State ->
-            when (state) {// TODO: handle case of multiple states running at same time
+            when (state) {
                 State.Running -> showLoading()
                 State.Idle -> hideLoading()
             }

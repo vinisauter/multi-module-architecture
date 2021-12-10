@@ -4,7 +4,7 @@
 
     <dist:module
         dist:instant="false"
-        dist:title="@string/title_networking">
+        dist:title="@string/title_networking_secure_v2">
         <dist:delivery>
             <dist:install-time />
         </dist:delivery>

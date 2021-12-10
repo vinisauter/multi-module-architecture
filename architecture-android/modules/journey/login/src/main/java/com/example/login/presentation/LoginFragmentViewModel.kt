@@ -29,7 +29,7 @@ class LoginFragmentViewModel(
         get() = onActionCompletedSharedFlow
 
     private val onStateChangedMutable = MutableLiveData<State>(State.Idle)
-    val onStateChanged: LiveData<State>
+    val onStateChanged: LiveData<State>// TODO: handle case of multiple states running at same time
         get() = onStateChangedMutable
 
     fun onLoginViewCreated() {
