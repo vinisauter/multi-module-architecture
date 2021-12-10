@@ -83,8 +83,8 @@ extension ProfileHandler: BaseFlowDelegate {
         }
     }
     
-    private func handleDidFinish(_ feature: Journey, in viewController: UIViewController, with value: Any?) {
-        switch feature {
+    private func handleDidFinish(_ journey: Journey, in viewController: UIViewController, with value: Any?) {
+        switch journey {
         case .login:
             viewController.dismiss(animated: true)
             break
