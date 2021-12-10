@@ -9,20 +9,21 @@ import androidx.navigation.Navigator
 import com.example.app.R
 import com.example.journey.JourneyNavigator
 
-abstract class ModuleController(
+abstract class ModuleControllerActivity(
     @NavigationRes override val graphResId: Int,
     @IdRes override val startDestination: Int = DEFAULT_START_DESTINATION
 ) : NavigationActivity(graphResId, startDestination) {
-    private lateinit var module: Module
-    abstract fun dependencies(): Module
+    private var module: Module? = null
+    abstract fun dependencies(): Module?
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         module = dependencies()
     }
 
     override fun onDestroy() {
+        module?.clear()
+        module = null
         super.onDestroy()
-        module.clear()
     }
 
     override fun customNavigators(): List<Navigator<out NavDestination>> {

@@ -3,9 +3,14 @@ package android.injection
 val provider = InjectionProvider
 
 inline fun provides(block: InjectionProvider.() -> Unit) = provider.apply(block)
-
-@Synchronized
-fun module(moduleName: String, block: Module.() -> Unit) = provider.module(moduleName, block)
+inline fun module(moduleName: String, block: Module.() -> Unit): Module {
+    provider.moduleRegistry[moduleName]?.let {
+        error("module $moduleName already exists")
+    }
+    val module = Module(moduleName).apply(block)
+    provider.moduleRegistry[moduleName] = module
+    return module
+}
 
 @Synchronized
 fun moduleRemove(moduleName: String) {

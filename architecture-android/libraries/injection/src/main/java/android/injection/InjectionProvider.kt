@@ -14,12 +14,12 @@ object InjectionProvider {
     val definitionRegistry: MutableMap<String, InjectionFactory<Any>> = ConcurrentHashMap()
     val moduleRegistry: MutableMap<String, Module> = ConcurrentHashMap()
 
-    inline fun module(name: String, block: Module.() -> Unit) = Module(name).apply {
-        moduleRegistry[name]?.let {
-            error("module $name already exists")
+    inline fun module(moduleName: String, block: Module.() -> Unit) {
+        provider.moduleRegistry[moduleName]?.let {
+            error("module $moduleName already exists")
         }
-        block.invoke(this)
-        moduleRegistry[name] = this
+        val module = Module(moduleName).apply(block)
+        provider.moduleRegistry[moduleName] = module
     }
 
     @Suppress("UNCHECKED_CAST")

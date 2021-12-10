@@ -49,7 +49,7 @@
     </dialog>
     <activity
         android:id="@+id/login_navigation"
-        android:name="com.example.login.LoginController"
+        android:name="com.example.login.LoginControllerActivity"
         android:label="LoginController"
         app:moduleName="login">
         <deepLink
