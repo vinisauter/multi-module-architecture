@@ -8,5 +8,4 @@ abstract class BaseViewModel(
     application: Application,
     savedStateHandle: SavedStateHandle
 ) : AndroidViewModel(application) {
-    abstract fun onViewCreated()
 }

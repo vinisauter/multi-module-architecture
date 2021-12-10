@@ -8,10 +8,7 @@ import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
-import androidx.navigation.NavController
-import androidx.navigation.NavDestination
-import androidx.navigation.NavDirections
-import androidx.navigation.NavOptions
+import androidx.navigation.*
 import androidx.navigation.dynamicfeatures.DynamicExtras
 import androidx.navigation.dynamicfeatures.DynamicInstallMonitor
 import androidx.navigation.fragment.findNavController
@@ -34,7 +31,11 @@ private fun navigate(
     statusObserver: SplitInstallStatusObserver? = null
 ) {
     val installMonitor = DynamicInstallMonitor()
-    val dynamicExtras = DynamicExtras(installMonitor)
+    // TODO? validate if destination is Activity?
+    val extras = ActivityNavigator.Extras.Builder()
+        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+        .build()
+    val dynamicExtras = DynamicExtras(installMonitor, extras)
 
     val isPopUpTo = arguments?.getBoolean("popBackTo") == true
     val isInclusive = arguments?.getBoolean("inclusive") == true

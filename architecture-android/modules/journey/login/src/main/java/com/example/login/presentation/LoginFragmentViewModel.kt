@@ -1,10 +1,11 @@
 package com.example.login.presentation
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.NavDirections
+import com.core.base.BaseViewModel
 import com.core.extensions.State
 import com.core.extensions.default
 import com.core.extensions.runTask
@@ -16,10 +17,11 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 
 class LoginFragmentViewModel(
     private val app: Application,
+    private val savedStateHandle: SavedStateHandle,
     private val tagging: TaggingExecutor,
     private val useCase: LoginFragmentUseCase,
     private val tracking: LoginTracking
-) : AndroidViewModel(app) {
+) : BaseViewModel(app, savedStateHandle) {
     //https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/
 //   TODO use NavigationCommand?
 //    private val onNavigationCommandSharedFlow = MutableSharedFlow<NavigationCommand>()
@@ -38,11 +40,16 @@ class LoginFragmentViewModel(
     fun onLoginClicked() = runTask(onStateChangedMutable) {
         tagging.send(tracking.loginClickAuthEvent)
         try {
-            useCase.login("user", "password")
-            onActionCompletedSharedFlow.emit(
-                LoginFragmentDirections.actionLoginSucceed()
-            )
-            tagging.send(tracking.loginAuthSucceededEvent)
+            when (useCase.login("user", "password")) {
+                true -> {
+                    onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginSucceed())
+                    tagging.send(tracking.loginAuthSucceededEvent)
+                }
+                false -> {
+                    onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginFailed())
+                    tagging.send(tracking.loginAuthFailedEvent)
+                }
+            }
         } catch (t: Throwable) {
             onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginFailed())
             tagging.send(tracking.loginAuthFailedEvent)

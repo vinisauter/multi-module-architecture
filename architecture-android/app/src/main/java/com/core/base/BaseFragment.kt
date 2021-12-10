@@ -33,7 +33,6 @@ abstract class BaseFragment<ViewBindingType : ViewBinding, ViewModelType : BaseV
             viewDataBinding.executePendingBindings()
         }
         afterViews(binding)
-        viewModel.onViewCreated()
         return binding.root
     }
 

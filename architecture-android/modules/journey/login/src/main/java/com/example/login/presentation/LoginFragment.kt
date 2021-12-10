@@ -1,32 +1,20 @@
 package com.example.login.presentation
 
-import android.os.Bundle
-import android.view.View
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.injectViewModel
 import androidx.navigation.NavDirections
+import com.core.base.BaseFragment
 import com.core.base.LoaderDialog
 import com.core.extensions.State
 import com.core.extensions.consume
 import com.core.extensions.navigate
-import com.example.login.R
 import com.example.login.databinding.FragmentLoginBinding
 
-class LoginFragment : Fragment(R.layout.fragment_login) {
-    private val viewModel: LoginFragmentViewModel by injectViewModel()
-    private val viewBinding: FragmentLoginBinding by lazy {
-        FragmentLoginBinding.bind(requireView())
-    }
+class LoginFragment : BaseFragment<FragmentLoginBinding, LoginFragmentViewModel>() {
+    override val viewModel: LoginFragmentViewModel by injectViewModel()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun afterViews(binding: FragmentLoginBinding) {
         viewModel.onLoginViewCreated()
-        // TODO: unnecessary setOnClickListener can be set via data binding
-        viewBinding.viewModel = viewModel
-        viewBinding.also {
-            it.loginButton.setOnClickListener { viewModel.onLoginClicked() }
-            it.forgotPasswordButton.setOnClickListener { viewModel.onForgotPasswordClicked() }
-        }
+        binding.viewModel = viewModel
         consume(viewModel.onActionCompleted) { navDirection: NavDirections ->
             navigate(navDirection)
         }
