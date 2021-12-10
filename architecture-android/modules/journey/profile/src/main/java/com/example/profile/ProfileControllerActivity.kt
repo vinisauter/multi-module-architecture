@@ -5,7 +5,7 @@ import android.injection.module
 import android.os.Bundle
 import com.core.base.ModuleControllerActivity
 
-class ProfileNavigationActivity : ModuleControllerActivity(R.navigation.profile_navigation_graph) {
+class ProfileControllerActivity : ModuleControllerActivity(R.navigation.profile_navigation_graph) {
     override fun dependencies(): Module = module("profile") {}
 
     override fun onCreate(savedInstanceState: Bundle?) {

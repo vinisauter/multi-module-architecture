@@ -55,7 +55,7 @@ todo: navigation documentation:
     </activity>
     <activity
         android:id="@+id/home_navigation"
-        android:name="com.example.home.HomeNavigationActivity"
+        android:name="com.example.home.HomeControllerActivity"
         android:label="HomeNavigationActivity"
         app:moduleName="home">
         <deepLink
@@ -64,7 +64,7 @@ todo: navigation documentation:
     </activity>
     <activity
         android:id="@+id/profile_navigation"
-        android:name="com.example.profile.ProfileNavigationActivity"
+        android:name="com.example.profile.ProfileControllerActivity"
         android:label="ProfileNavigationActivity"
         app:moduleName="profile">
         <deepLink

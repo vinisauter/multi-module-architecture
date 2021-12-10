@@ -5,7 +5,7 @@ import android.injection.module
 import android.os.Bundle
 import com.core.base.ModuleControllerActivity
 
-class HomeNavigationActivity : ModuleControllerActivity(R.navigation.home_navigation_graph) {
+class HomeControllerActivity : ModuleControllerActivity(R.navigation.home_navigation_graph) {
     override fun dependencies(): Module = module("home") {}
 
     override fun onCreate(savedInstanceState: Bundle?) {
