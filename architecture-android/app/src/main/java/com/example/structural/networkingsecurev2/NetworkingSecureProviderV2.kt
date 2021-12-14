@@ -1,8 +1,8 @@
-package com.example.structural.networking.secure
+package com.example.structural.networkingsecurev2
 
 import android.app.Application
 import com.example.networking.RequestExecutor
 
-interface NetworkingSecureProvider {
+interface NetworkingSecureProviderV2 {
     fun executor(app: Application): RequestExecutor
 }
