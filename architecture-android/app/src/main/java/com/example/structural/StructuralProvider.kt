@@ -11,8 +11,8 @@ import com.example.app.SuperApplication
 import com.example.networking.RequestExecutor
 import com.example.storage.StorageExecutor
 import com.example.structural.networking.NetworkingProvider
-import com.example.structural.networking.secure.NetworkingSecureProvider
-import com.example.structural.networking.secure.NetworkingSecureProviderV2
+import com.example.structural.networkingsecure.NetworkingSecureProvider
+import com.example.structural.networkingsecurev2.NetworkingSecureProviderV2
 import com.example.structural.storage.StorageProvider
 import com.example.structural.tagging.TaggingProvider
 import com.example.tagging.TaggingExecutor
