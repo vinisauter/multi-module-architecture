@@ -9,10 +9,12 @@ import android.injection.provides
 import com.auto.service.load
 import com.example.app.SuperApplication
 import com.example.networking.RequestExecutor
+import com.example.security.SecurityExecutor
 import com.example.storage.StorageExecutor
 import com.example.structural.networking.NetworkingProvider
 import com.example.structural.networking.secure.NetworkingSecureProvider
 import com.example.structural.networking.secure.NetworkingSecureProviderV2
+import com.example.structural.security.SecurityProvider
 import com.example.structural.storage.StorageProvider
 import com.example.structural.tagging.TaggingProvider
 import com.example.tagging.TaggingExecutor
@@ -42,6 +44,9 @@ object StructuralProvider {
     val defaultRequestExecutor: RequestExecutor by lazy {
         secureRequestExecutorV2
     }
+    val defaultSecurityExecutor: SecurityExecutor by lazy {
+        load<SecurityProvider>().executor(get())
+    }
     val unsecureRequestExecutor: RequestExecutor by lazy {
         load<NetworkingProvider>().executor(get())
     }
@@ -65,6 +70,7 @@ object StructuralProvider {
             declare<StorageExecutor> { defaultStorageExecutor }
             declare<TaggingExecutor> { defaultTaggingExecutor }
             declare<RequestExecutor> { defaultRequestExecutor }
+            declare<SecurityExecutor> { defaultSecurityExecutor }
 
             declare<RequestExecutor>(qualifier = "secure") { secureRequestExecutor }
             declare<RequestExecutor>(qualifier = "unsecure") { unsecureRequestExecutor }

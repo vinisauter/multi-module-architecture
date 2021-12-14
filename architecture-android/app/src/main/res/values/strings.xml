@@ -8,4 +8,5 @@
     <string name="title_networking_secure_v2">Networking-Implementation</string>
     <string name="title_storage">Storage-Implementation</string>
     <string name="title_tagging">Tagging-Implementation</string>
+    <string name="title_security">security</string>
 </resources>
