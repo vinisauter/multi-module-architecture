@@ -10,12 +10,12 @@ todo: navigation documentation:
     android:id="@+id/app_navigation_graph"
     app:startDestination="@id/splash">
     <!-- App Destinations
-            All shared destinations must be declared in this file to access
-            use the follow declaration in your respective nav_graph.xml :
+    All shared destinations must be declared in this file.
+    To access use the follow declaration in your respective nav_graph.xml:
 
-            <journey
-                android:id="@+id/home"
-                app:destiny="@id/login_navigation" />
+    <journey
+        android:id="@+id/login"
+        app:destiny="@id/login_navigation" />
     -->
     <fragment
         android:id="@+id/splash"
