@@ -1,30 +1,30 @@
 //
-//  Networking.swift
+//  SecureNetwork.swift
 //  Networking
 //
-//  Created by Nykolas Mayko Maia Barbosa on 08/11/21.
+//  Created by Felippe Matos on 08/12/21.
 //
 
 import Foundation
 import NetworkingInterfaces
 
-open class Networking: HTTPClient {
+open class SecureNetwork: HTTPClient {
     
     public init() {}
     
     public func get() -> String {
-        return "GET"
+        return "Secure GET"
     }
     
     public func post() -> String {
-        return "POST"
+        return "Secure POST"
     }
     
     public func put() -> String {
-        return "PUT"
+        return "Secure PUT"
     }
     
     public func delete() -> String {
-        return "DELETE"
+        return "Secure DELETE"
     }
 }

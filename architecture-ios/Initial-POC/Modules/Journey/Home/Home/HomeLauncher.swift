@@ -27,13 +27,13 @@ public struct HomeDependencies {
 }
 
 public protocol HomeStructuralDependencies {
-    var networking: HTTPClient { get }
+    var networking: NetworkingProviderProtocol { get }
     var analytics: AnalyticsProtocol { get }
 }
 
 public class HomeLauncher {
     static public func start(with dependencies: HomeDependencies) -> UIViewController {
-        let businessModel = HomeBusinessModel(repository: HomeAPI(httpClient: dependencies.structuralDependencies.networking), structuralAnalytics: dependencies.structuralDependencies.analytics)
+        let businessModel = HomeBusinessModel(repository: HomeAPI(network: dependencies.structuralDependencies.networking), structuralAnalytics: dependencies.structuralDependencies.analytics)
         let factory = HomeViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependencies.customHomeAnalytics)
         let mainFlow = HomeFlow(factory: factory, deeplink: Deeplink(value: HomeDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
         mainFlow.baseFlowDelegate = dependencies.baseFlowDelegate

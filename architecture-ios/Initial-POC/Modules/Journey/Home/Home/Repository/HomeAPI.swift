@@ -9,9 +9,9 @@ import Foundation
 import NetworkingInterfaces
 
 class HomeAPI: HomeRepositoryProtocol {
-    private let httpClient: HTTPClient
+    private let network: NetworkingProviderProtocol
     
-    init(httpClient: HTTPClient) {
-        self.httpClient = httpClient
+    init(network: NetworkingProviderProtocol) {
+        self.network = network
     }
 }
