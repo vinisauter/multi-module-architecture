@@ -1,17 +1,18 @@
 package com.example.security
 
 import android.app.Application
+import android.util.Base64
 
 class SecurityExecutorImpl(private val app: Application) : SecurityExecutor {
     override fun decrypt(text: String): String {
-        TODO("Not yet implemented")
+        return String(Base64.decode(text, Base64.DEFAULT))
     }
 
     override fun encrypt(text: String): String {
-        TODO("Not yet implemented")
+        return Base64.encodeToString(text.toByteArray(), Base64.DEFAULT)
     }
 
     override fun getCertificate(): String {
-        TODO("Not yet implemented")
+        return "Certificate"
     }
 }

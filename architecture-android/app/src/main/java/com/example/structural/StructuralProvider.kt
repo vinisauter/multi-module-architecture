@@ -11,6 +11,7 @@ import com.example.app.SuperApplication
 import com.example.networking.RequestExecutor
 import com.example.security.SecurityExecutor
 import com.example.storage.StorageExecutor
+import com.example.structural.dependencies.NetworkSecureV2DependenciesImpl
 import com.example.structural.networking.NetworkingProvider
 import com.example.structural.networkingsecure.NetworkingSecureProvider
 import com.example.structural.networkingsecurev2.NetworkingSecureProviderV2
@@ -25,7 +26,7 @@ import com.example.tagging.TaggingExecutor
 //    </dist:delivery>
 object StructuralProvider {
     private fun featureFlag(flag: String): Boolean {
-        return true// TODO: MOCK to structural FeatureFlag module
+        return false// TODO: MOCK to structural FeatureFlag module
     }
 
     val defaultStorageExecutor: StorageExecutor by lazy {
@@ -42,7 +43,7 @@ object StructuralProvider {
         load<TaggingProvider>().executor(get())
     }
     val defaultRequestExecutor: RequestExecutor by lazy {
-        secureRequestExecutorV2
+        secureRequestExecutor
     }
     val defaultSecurityExecutor: SecurityExecutor by lazy {
         load<SecurityProvider>().executor(get())
@@ -51,13 +52,9 @@ object StructuralProvider {
         load<NetworkingProvider>().executor(get())
     }
     val secureRequestExecutor: RequestExecutor by lazy {
-        load<NetworkingSecureProvider>().executor(get())
-    }
-    val secureRequestExecutorV2: RequestExecutor by lazy {
         when {
             featureFlag("networking-version-1") -> load<NetworkingSecureProvider>().executor(get())
-            featureFlag("networking-version-2") -> load<NetworkingSecureProviderV2>().executor(get())
-            else -> load<NetworkingSecureProviderV2>().executor(get())
+            else -> load<NetworkingSecureProviderV2>().executor(NetworkSecureV2DependenciesImpl(get(), defaultSecurityExecutor, defaultStorageExecutor))
         }
     }
 
