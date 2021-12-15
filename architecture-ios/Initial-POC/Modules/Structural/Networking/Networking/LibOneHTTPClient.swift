@@ -8,6 +8,13 @@
 import NetworkingInterfaces
 
 public final class LibOneHTTPClient: HTTPClientProtocol {
+    
+    private var certificate: String
+    
+    init(certificate: String) {
+        self.certificate = certificate
+    }
+    
     public func get(_ url: String, completion: @escaping (String) -> Void) {
         execute(url, method: "GET", completion: completion)
     }
@@ -26,6 +33,7 @@ public final class LibOneHTTPClient: HTTPClientProtocol {
     
     private func execute(_ url: String, method: String, completion: @escaping (String) -> Void) {
         debugPrint("======= Using SecureLib to do HTTP \(method) Calls")
+        debugPrint(certificate)
         DispatchQueue.global().asyncAfter(deadline: .now() + 1.0) {
             completion(method)
         }

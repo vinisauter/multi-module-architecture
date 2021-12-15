@@ -8,12 +8,20 @@
 import Foundation
 import NetworkingInterfaces
 
+public protocol NetworkingDependencyProtocol {
+    func getCertificate() -> String
+}
+
 open class NetworkingProvider: NetworkingProviderProtocol {
     
-    public init() {}
+    private var networkingDependency: NetworkingDependencyProtocol
+    
+    public init(networkingDependency: NetworkingDependencyProtocol) {
+        self.networkingDependency = networkingDependency
+    }
     
     public func getSecureHttpClient() -> HTTPClientProtocol {
-        return LibOneHTTPClient()
+        return LibOneHTTPClient(certificate: networkingDependency.getCertificate())
     }
     
     public func getInsecureHttpClient() -> HTTPClientProtocol {
