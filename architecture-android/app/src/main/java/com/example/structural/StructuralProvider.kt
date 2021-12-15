@@ -11,7 +11,6 @@ import com.example.app.SuperApplication
 import com.example.networking.RequestExecutor
 import com.example.security.SecurityExecutor
 import com.example.storage.StorageExecutor
-import com.example.structural.dependencies.NetworkSecureV2DependenciesImpl
 import com.example.structural.networking.NetworkingProvider
 import com.example.structural.networkingsecure.NetworkingSecureProvider
 import com.example.structural.networkingsecurev2.NetworkingSecureProviderV2
@@ -54,7 +53,7 @@ object StructuralProvider {
     val secureRequestExecutor: RequestExecutor by lazy {
         when {
             featureFlag("networking-version-1") -> load<NetworkingSecureProvider>().executor(get())
-            else -> load<NetworkingSecureProviderV2>().executor(NetworkSecureV2DependenciesImpl(get(), defaultSecurityExecutor, defaultStorageExecutor))
+            else -> load<NetworkingSecureProviderV2>().executor()
         }
     }
 
