@@ -12,6 +12,10 @@
 		421ECFC827396FBA00BD353C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 421ECFC627396FBA00BD353C /* Main.storyboard */; };
 		421ECFCA27396FBC00BD353C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 421ECFC927396FBC00BD353C /* Assets.xcassets */; };
 		421ECFCD27396FBC00BD353C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 421ECFCB27396FBC00BD353C /* LaunchScreen.storyboard */; };
+		429B04B52768C74000F07BE0 /* NSecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429B04B32768C74000F07BE0 /* NSecurity.framework */; };
+		429B04B62768C74000F07BE0 /* NSecurity.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 429B04B32768C74000F07BE0 /* NSecurity.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		429B04B72768C74000F07BE0 /* NSecurityInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429B04B42768C74000F07BE0 /* NSecurityInterfaces.framework */; };
+		429B04B82768C74000F07BE0 /* NSecurityInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 429B04B42768C74000F07BE0 /* NSecurityInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		593F263F2739D63000B34547 /* Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 593F263A2739D63000B34547 /* Home.framework */; };
 		593F26402739D63000B34547 /* Home.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 593F263A2739D63000B34547 /* Home.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		593F26412739D63000B34547 /* Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 593F263B2739D63000B34547 /* Login.framework */; };
@@ -43,9 +47,11 @@
 			dstSubfolderSpec = 10;
 			files = (
 				593F26402739D63000B34547 /* Home.framework in Embed Frameworks */,
+				429B04B62768C74000F07BE0 /* NSecurity.framework in Embed Frameworks */,
 				593F26482739D63000B34547 /* Profile.framework in Embed Frameworks */,
 				59C82C46273BFF8D00E84149 /* Core.framework in Embed Frameworks */,
 				59FAED79273D9E2B00C18E6E /* Analytics.framework in Embed Frameworks */,
+				429B04B82768C74000F07BE0 /* NSecurityInterfaces.framework in Embed Frameworks */,
 				593F26462739D63000B34547 /* NetworkingInterfaces.framework in Embed Frameworks */,
 				59FAED7B273D9E2B00C18E6E /* AnalyticsInterfaces.framework in Embed Frameworks */,
 				593F26422739D63000B34547 /* Login.framework in Embed Frameworks */,
@@ -64,6 +70,12 @@
 		421ECFC927396FBC00BD353C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		421ECFCC27396FBC00BD353C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		421ECFCE27396FBC00BD353C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		429B03F02768BD0D00F07BE0 /* Security.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Security.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		429B03F12768BD0D00F07BE0 /* SecurityInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SecurityInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		429B04332768C00200F07BE0 /* Security.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Security.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		429B043A2768C04500F07BE0 /* SecurityInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SecurityInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		429B04B32768C74000F07BE0 /* NSecurity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NSecurity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		429B04B42768C74000F07BE0 /* NSecurityInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NSecurityInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		593F263A2739D63000B34547 /* Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		593F263B2739D63000B34547 /* Login.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Login.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		593F263C2739D63000B34547 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,9 +99,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				593F263F2739D63000B34547 /* Home.framework in Frameworks */,
+				429B04B52768C74000F07BE0 /* NSecurity.framework in Frameworks */,
 				593F26472739D63000B34547 /* Profile.framework in Frameworks */,
 				59C82C45273BFF8D00E84149 /* Core.framework in Frameworks */,
 				59FAED78273D9E2B00C18E6E /* Analytics.framework in Frameworks */,
+				429B04B72768C74000F07BE0 /* NSecurityInterfaces.framework in Frameworks */,
 				593F26452739D63000B34547 /* NetworkingInterfaces.framework in Frameworks */,
 				59FAED7A273D9E2B00C18E6E /* AnalyticsInterfaces.framework in Frameworks */,
 				593F26412739D63000B34547 /* Login.framework in Frameworks */,
@@ -136,6 +150,12 @@
 		421ED0C12739758400BD353C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				429B04B32768C74000F07BE0 /* NSecurity.framework */,
+				429B04B42768C74000F07BE0 /* NSecurityInterfaces.framework */,
+				429B043A2768C04500F07BE0 /* SecurityInterfaces.framework */,
+				429B04332768C00200F07BE0 /* Security.framework */,
+				429B03F02768BD0D00F07BE0 /* Security.framework */,
+				429B03F12768BD0D00F07BE0 /* SecurityInterfaces.framework */,
 				59FAED76273D9E2B00C18E6E /* Analytics.framework */,
 				59FAED77273D9E2B00C18E6E /* AnalyticsInterfaces.framework */,
 				59C82C44273BFF8D00E84149 /* Core.framework */,

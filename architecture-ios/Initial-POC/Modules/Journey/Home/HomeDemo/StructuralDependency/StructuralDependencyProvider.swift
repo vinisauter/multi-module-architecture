@@ -9,6 +9,8 @@ import NetworkingInterfaces
 import Networking
 import AnalyticsInterfaces
 import Analytics
+import NSecurity
+import NSecurityInterfaces
 
 class StructuralDependencyProvider {
     static let shared: StructuralDependencyProvider = StructuralDependencyProvider()
@@ -21,6 +23,10 @@ class StructuralDependencyProvider {
     
     lazy var analytics: AnalyticsProtocol = {
         return Analytics()
+    }()
+    
+    lazy var securityProvider: NSecurityProvider = {
+        return NSecurityProvider()
     }()
 }
 

@@ -7,24 +7,27 @@
 
 import Foundation
 import NetworkingInterfaces
+import NSecurityInterfaces
 
 class LoginAPI: LoginRepositoryProtocol {
     private let secureHttpClient: HTTPClientProtocol
     private let insecureHttpClient: HTTPClientProtocol
+    private let certificate: String
     
-    init(secureHttpClient: HTTPClientProtocol, insecureHttpClient: HTTPClientProtocol) {
+    init(secureHttpClient: HTTPClientProtocol, insecureHttpClient: HTTPClientProtocol, certificate: String) {
         self.secureHttpClient = secureHttpClient
         self.insecureHttpClient = insecureHttpClient
+        self.certificate = certificate
     }
     
     func login(with username: String, and password: String, completion: @escaping (Bool) -> Void) {
-        secureHttpClient.post("some_url") { result in
+        secureHttpClient.post("some_url", certificate: certificate) { result in
             completion(result == "POST")
         }
     }
     
     func changePassword(with newPassword: String, completion: @escaping (Bool) -> Void) {
-        insecureHttpClient.post("some_url") { result in
+        insecureHttpClient.post("some_url", certificate: certificate) { result in
             completion(result == "POST")
         }
     }

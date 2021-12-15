@@ -8,8 +8,8 @@
 import Foundation
 
 public protocol HTTPClientProtocol {
-    func get(_ url: String, completion: @escaping (String) -> Void)
-    func post(_ url: String, completion: @escaping (String) -> Void)
-    func put(_ url: String, completion: @escaping (String) -> Void)
-    func delete(_ url: String, completion: @escaping (String) -> Void)
+    func get(_ url: String, certificate: String, completion: @escaping (String) -> Void)
+    func post(_ url: String, certificate: String, completion: @escaping (String) -> Void)
+    func put(_ url: String, certificate: String, completion: @escaping (String) -> Void)
+    func delete(_ url: String, certificate: String, completion: @escaping (String) -> Void)
 }

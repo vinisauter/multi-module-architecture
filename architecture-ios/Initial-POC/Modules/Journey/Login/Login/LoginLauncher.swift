@@ -8,6 +8,7 @@
 import UIKit
 import NetworkingInterfaces
 import AnalyticsInterfaces
+import NSecurityInterfaces
 import Core
 
 public struct LoginDependencies {
@@ -29,11 +30,12 @@ public struct LoginDependencies {
 public protocol LoginStructuralDependencies {
     var networkingProvider: NetworkingProviderProtocol { get }
     var analytics: AnalyticsProtocol { get }
+    var securityProvider: CertificateProtocol { get }
 }
 
 public class LoginLauncher {
     static public func start(with dependencies: LoginDependencies) -> UIViewController {
-        let loginAPI = LoginAPI(secureHttpClient: dependencies.structuralDependencies.networkingProvider.getSecureHttpClient(), insecureHttpClient: dependencies.structuralDependencies.networkingProvider.getInsecureHttpClient())
+        let loginAPI = LoginAPI(secureHttpClient: dependencies.structuralDependencies.networkingProvider.getSecureHttpClient(), insecureHttpClient: dependencies.structuralDependencies.networkingProvider.getInsecureHttpClient(), certificate: dependencies.structuralDependencies.securityProvider.getCertificate(by: .debug))
         let businessModel = LoginBusinessModel(repository: loginAPI, structuralAnalytics: dependencies.structuralDependencies.analytics)
         let factory = LoginViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependencies.customLoginAnalytics)
         let mainFlow = LoginFlow(factory: factory, deeplink: Deeplink(value: LoginDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
@@ -44,7 +46,7 @@ public class LoginLauncher {
     }
     
     static public func startForgotPassword(with dependencies: LoginDependencies) -> UIViewController {
-        let loginAPI = LoginAPI(secureHttpClient: dependencies.structuralDependencies.networkingProvider.getSecureHttpClient(), insecureHttpClient: dependencies.structuralDependencies.networkingProvider.getInsecureHttpClient())
+        let loginAPI = LoginAPI(secureHttpClient: dependencies.structuralDependencies.networkingProvider.getSecureHttpClient(), insecureHttpClient: dependencies.structuralDependencies.networkingProvider.getInsecureHttpClient(), certificate: dependencies.structuralDependencies.securityProvider.getCertificate(by: .debug))
         let businessModel = LoginBusinessModel(repository: loginAPI, structuralAnalytics: dependencies.structuralDependencies.analytics)
         let factory = LoginViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependencies.customLoginAnalytics)
         let mainFlow = ForgotPasswordFlow(factory: factory, deeplink: Deeplink(value: LoginDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
