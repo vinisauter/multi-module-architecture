@@ -6,14 +6,16 @@ import com.example.security.SecurityExecutor
 import com.example.storage.StorageExecutor
 import java.util.logging.Logger
 
-private const val TOKEN = "NetworkToken"
-
 class NetworkSecureV2DependenciesImpl(
     override val application: Application,
     override val logger: Logger,
     private val securityExecutor: SecurityExecutor,
     private val storageExecutor: StorageExecutor,
 ) : NetworkingSecureV2Dependencies {
+
+    companion object {
+        private const val TOKEN = "NetworkToken"
+    }
 
     override suspend fun getCertificate() = securityExecutor.getCertificate()
 

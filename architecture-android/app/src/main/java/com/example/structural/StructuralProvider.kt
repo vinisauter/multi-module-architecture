@@ -41,11 +41,11 @@ object StructuralProvider {
     val defaultTaggingExecutor: TaggingExecutor by lazy {
         load<TaggingProvider>().executor(get())
     }
-    val defaultRequestExecutor: RequestExecutor by lazy {
-        secureRequestExecutor
-    }
     val defaultSecurityExecutor: SecurityExecutor by lazy {
         load<SecurityProvider>().executor(get())
+    }
+    val defaultRequestExecutor: RequestExecutor by lazy {
+        secureRequestExecutor
     }
     val unsecureRequestExecutor: RequestExecutor by lazy {
         load<NetworkingProvider>().executor(get())
