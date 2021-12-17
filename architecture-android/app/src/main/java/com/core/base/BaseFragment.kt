@@ -7,7 +7,8 @@ import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-import java.lang.reflect.ParameterizedType
+import com.core.extensions.getClassTypeAt
+import com.core.extensions.viewBindingInflate
 
 /**
  * Base Fragment
@@ -19,6 +20,29 @@ abstract class BaseFragment<ViewBindingType : ViewBinding, ViewModelType : BaseV
     Fragment() {
     lateinit var binding: ViewBindingType
     abstract val viewModel: ViewModelType
+
+//    //TODO: InjectionViewModelFactory to DefaultViewModelProviderFactory?
+//    private lateinit var mDefaultFactory: ViewModelProvider.Factory
+//    override fun getDefaultViewModelProviderFactory(): ViewModelProvider.Factory {
+////        return super.getDefaultViewModelProviderFactory()
+//        if (!::mDefaultFactory.isInitialized) {
+//            var application: Application? = null
+//            var appContext = requireContext().applicationContext
+//            while (appContext is ContextWrapper) {
+//                if (appContext is Application) {
+//                    application = appContext
+//                    break
+//                }
+//                appContext = appContext.baseContext
+//            }
+//            mDefaultFactory = InjectionViewModelFactory(
+//                application,
+//                this,
+//                arguments
+//            )
+//        }
+//        return mDefaultFactory
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,25 +61,5 @@ abstract class BaseFragment<ViewBindingType : ViewBinding, ViewModelType : BaseV
     }
 
     abstract fun afterViews(binding: ViewBindingType)
-
-    private fun <T : ViewBinding> viewBindingInflate(
-        clazz: Class<T>,
-        inflater: LayoutInflater,
-        parent: ViewGroup?
-    ): T {
-        val method = clazz.getDeclaredMethod(
-            "inflate",
-            LayoutInflater::class.java,
-            ViewGroup::class.java,
-            Boolean::class.java //boolean
-        )
-        @Suppress("UNCHECKED_CAST")
-        return method.invoke(null, inflater, parent, false) as T
-    }
-
-    private fun <Type> Any.getClassTypeAt(position: Int): Class<Type> {
-        @Suppress("UNCHECKED_CAST")
-        return (this::class.java.genericSuperclass as ParameterizedType).actualTypeArguments[position] as Class<Type>
-    }
 }
 

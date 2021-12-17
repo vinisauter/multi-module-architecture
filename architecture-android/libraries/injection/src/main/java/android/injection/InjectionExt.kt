@@ -1,13 +1,17 @@
 package android.injection
 
+import android.util.Log
+
 val provider = InjectionProvider
 
 inline fun provides(block: InjectionProvider.() -> Unit) = provider.apply(block)
 inline fun module(moduleName: String, block: Module.() -> Unit): Module {
-    provider.moduleRegistry[moduleName]?.let {
-        error("module $moduleName already exists")
+    var module = provider.moduleRegistry[moduleName]
+    if (module != null) {
+        Log.w("injection", "module $moduleName ignored already exists")
+        return module
     }
-    val module = Module(moduleName).apply(block)
+    module = Module(moduleName).apply(block)
     provider.moduleRegistry[moduleName] = module
     return module
 }
