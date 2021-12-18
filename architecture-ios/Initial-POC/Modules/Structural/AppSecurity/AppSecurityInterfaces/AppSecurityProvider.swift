@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol AppSecurityProviderProtocol {
-    func getCertificate() -> String
+    func getCertificate(with publicKey: String) -> String
 }

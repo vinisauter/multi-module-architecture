@@ -16,7 +16,7 @@ class NetworkingDependency: NetworkingDependencyProtocol {
         self.security = security
     }
     
-    func getCertificate() -> String {
-        return security.getCertificate()
+    func getCertificate(with publicKey: String) -> String {
+        return security.getCertificate(with: publicKey)
     }
 }
