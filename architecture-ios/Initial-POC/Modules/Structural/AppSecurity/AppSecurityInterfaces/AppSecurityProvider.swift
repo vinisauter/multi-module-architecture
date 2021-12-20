@@ -7,6 +7,6 @@
 
 import Foundation
 
-public protocol AppSecurityProviderProtocol {
+public protocol AppSecurityProviderProtocol: AnyObject {
     func getCertificate(with publicKey: String) -> String
 }

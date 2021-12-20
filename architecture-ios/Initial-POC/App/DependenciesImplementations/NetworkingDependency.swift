@@ -10,13 +10,13 @@ import Networking
 import AppSecurityInterfaces
 
 class NetworkingDependency: NetworkingDependencyProtocol {
-    private var security: AppSecurityProviderProtocol
+    private weak var security: AppSecurityProviderProtocol?
     
     init(security: AppSecurityProviderProtocol) {
         self.security = security
     }
     
     func getCertificate(with publicKey: String) -> String {
-        return security.getCertificate(with: publicKey)
+        return security?.getCertificate(with: publicKey) ?? ""
     }
 }

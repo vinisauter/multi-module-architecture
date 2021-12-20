@@ -8,7 +8,7 @@
 import Foundation
 import NetworkingInterfaces
 
-public protocol NetworkingDependencyProtocol {
+public protocol NetworkingDependencyProtocol: AnyObject {
     func getCertificate(with publicKey: String) -> String
 }
 
@@ -58,21 +58,23 @@ open class NetworkingProvider: NetworkingProviderProtocol {
     -----END RSA PRIVATE KEY-----
     """
     
+    private var certificate: String?
+    
     public init(networkingDependency: NetworkingDependencyProtocol) {
         self.networkingDependency = networkingDependency
     }
     
     public func getSecureHttpClient() -> HTTPClientProtocol {
-        let encryptedCertificate = networkingDependency.getCertificate(with: publicKey)
-        let certificate = decrypt(fromBase64String: encryptedCertificate, withKey: privateKey) ?? ""
-        return LibOneHTTPClient(certificate: certificate)
+        certificate = certificate == nil ? decrypt(fromBase64String: networkingDependency.getCertificate(with: publicKey), withKey: privateKey) ?? "" : certificate
+        return LibOneHTTPClient(certificate: certificate ?? "")
     }
     
     public func getInsecureHttpClient() -> HTTPClientProtocol {
         return LibTwoHTTPClient()
     }
     
-    private func decrypt(fromBase64String base64String: String, withKey key: String) -> String? {
+    private func decrypt(fromBase64String base64String: String?, withKey key: String) -> String? {
+        guard let base64String = base64String else { return nil }
         let encryptedData = Data(base64Encoded: base64String, options: NSData.Base64DecodingOptions())
         let stringKey = key.replacingOccurrences(of: "-----BEGIN RSA PRIVATE KEY-----\n", with: "").replacingOccurrences(of: "\n-----END RSA PRIVATE KEY-----", with: "").replacingOccurrences(of: "\n", with: "")
         guard let encryptedData = encryptedData, let keyData = Data(base64Encoded: stringKey) else {
