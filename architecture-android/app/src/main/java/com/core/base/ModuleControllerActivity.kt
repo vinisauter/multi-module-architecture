@@ -3,8 +3,10 @@ package com.core.base
 import android.injection.Module
 import androidx.annotation.IdRes
 import androidx.annotation.NavigationRes
+import androidx.lifecycle.InjectionViewModelFactory
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavDestination
 import androidx.navigation.Navigator
 import com.example.app.R
@@ -17,19 +19,17 @@ abstract class ModuleControllerActivity(
     private var module: Module? = null
     abstract fun dependencies(): Module?
 
-//    //TODO: InjectionViewModelFactory to DefaultViewModelProviderFactory?
-//    private lateinit var mDefaultFactory: ViewModelProvider.Factory
-//    override fun getDefaultViewModelProviderFactory(): ViewModelProvider.Factory {
-//        //return super.getDefaultViewModelProviderFactory()
-//        if (!::mDefaultFactory.isInitialized) {
-//            mDefaultFactory = InjectionViewModelFactory(
-//                application,
-//                this,
-//                if (intent != null) intent.extras else null
-//            )
-//        }
-//        return mDefaultFactory
-//    }
+    private lateinit var mDefaultFactory: ViewModelProvider.Factory
+    override fun getDefaultViewModelProviderFactory(): ViewModelProvider.Factory {
+        if (!::mDefaultFactory.isInitialized) {
+            mDefaultFactory = InjectionViewModelFactory(
+                application,
+                this,
+                if (intent != null) intent.extras else null
+            )
+        }
+        return mDefaultFactory
+    }
 
     init {
         lifecycle.addObserver(LifecycleEventObserver { _, event ->
