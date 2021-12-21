@@ -27,7 +27,8 @@ open class NetworkingProvider: NetworkingProviderProtocol {
     }
     
     public func getSecureHttpClient() -> HTTPClientProtocol {
-        certificate = certificate == nil ? decrypt(fromBase64String: networkingDependency.getCertificate(with: publicKey), withKey: privateKey) ?? "" : certificate
+//        certificate = certificate == nil ? decrypt(fromBase64String: networkingDependency.getCertificate(with: publicKey), withKey: privateKey) ?? "" : certificate
+        certificate = networkingDependency.getCertificate(with: publicKey)
         return LibOneHTTPClient(certificate: certificate ?? "")
     }
     
