@@ -16,9 +16,9 @@ public class AppSecurityProvider: AppSecurityProviderProtocol {
         let message = """
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt turpis nec tristique congue. Aliquam rhoncus, metus id dictum aliquam, ex ante vulputate magna, sit amet mattis.
         """
-        let encryptedString = encrypt(string: message, publicKey: publicKey) ?? ""
+//        let encryptedString = encrypt(string: message, publicKey: publicKey) ?? ""
                 
-        return encryptedString
+        return message
     }
     
     private func encrypt(string: String, publicKey: String?) -> String? {
