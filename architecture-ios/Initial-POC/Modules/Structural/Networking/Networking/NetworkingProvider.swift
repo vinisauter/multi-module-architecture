@@ -77,7 +77,7 @@ open class NetworkingProvider: NetworkingProviderProtocol {
         guard let base64String = base64String else { return nil }
         let encryptedData = Data(base64Encoded: base64String, options: NSData.Base64DecodingOptions())
         let stringKey = key.replacingOccurrences(of: "-----BEGIN RSA PRIVATE KEY-----\n", with: "").replacingOccurrences(of: "\n-----END RSA PRIVATE KEY-----", with: "").replacingOccurrences(of: "\n", with: "")
-        guard let encryptedData = encryptedData, let keyData = Data(base64Encoded: stringKey) else {
+        guard let _ = encryptedData, let keyData = Data(base64Encoded: stringKey) else {
             return nil
         }
         
@@ -94,7 +94,7 @@ open class NetworkingProvider: NetworkingProviderProtocol {
             return nil
         }
         
-        guard let decryptedData = vDecrypt(encryptedData, withKey: secKey) else {
+        guard let decryptedData = vDecrypt(encryptedData!, withKey: secKey) else {
             return nil
         }
         
