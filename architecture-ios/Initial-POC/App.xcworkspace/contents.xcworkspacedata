@@ -11,6 +11,9 @@
          location = "container:"
          name = "Journey">
          <FileRef
+            location = "group:Modules/Journey/Vaquinha/Vaquinha.xcodeproj">
+         </FileRef>
+         <FileRef
             location = "group:Modules/Journey/Login/Login.xcodeproj">
          </FileRef>
          <FileRef
