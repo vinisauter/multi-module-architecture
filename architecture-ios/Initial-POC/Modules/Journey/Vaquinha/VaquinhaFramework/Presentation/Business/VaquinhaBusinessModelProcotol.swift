@@ -7,6 +7,4 @@
 
 import Foundation
 
-protocol VaquinhaBusinessModelProtocol {
-    
-}
+public protocol VaquinhaBusinessModelProtocol {}

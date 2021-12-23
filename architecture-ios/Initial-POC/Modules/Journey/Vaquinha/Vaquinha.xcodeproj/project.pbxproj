@@ -19,7 +19,7 @@
 		234AEB0F2773B0CD00990EA5 /* AppSecurityInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 234AEB0E2773B0CD00990EA5 /* AppSecurityInterfaces.framework */; };
 		234AEB172773B12900990EA5 /* VaquinhaFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 234AEAD82773AC8000990EA5 /* VaquinhaFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		234AEB1F2773B16500990EA5 /* NetworkingDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234AEB1E2773B16500990EA5 /* NetworkingDependency.swift */; };
-		234AEB392773B71B00990EA5 /* VaquinhaStarter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234AEB382773B71B00990EA5 /* VaquinhaStarter.swift */; };
+		234AEB392773B71B00990EA5 /* VaquinhaHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234AEB382773B71B00990EA5 /* VaquinhaHandler.swift */; };
 		234AEB3C2773B75A00990EA5 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 234AEB3B2773B75A00990EA5 /* Core.framework */; };
 		234AEB3F2773B7D500990EA5 /* VaquinhaLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234AEB3E2773B7D500990EA5 /* VaquinhaLauncher.swift */; };
 		234AEB442773B84700990EA5 /* VaquinhaRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234AEB432773B84700990EA5 /* VaquinhaRepositoryProtocol.swift */; };
@@ -30,6 +30,11 @@
 		234AEB5E2773BFF600990EA5 /* VaquinhaBusinessModel+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234AEB5D2773BFF600990EA5 /* VaquinhaBusinessModel+Analytics.swift */; };
 		234AEB622773C1B500990EA5 /* VaquinhaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234AEB612773C1B500990EA5 /* VaquinhaViewModel.swift */; };
 		234AEB652773C38700990EA5 /* VaquinhaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234AEB642773C38700990EA5 /* VaquinhaViewController.swift */; };
+		2388CBF22774E15E00F44D8D /* VaquinhaFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2388CBF12774E15E00F44D8D /* VaquinhaFlow.swift */; };
+		2388CBF62774E1F000F44D8D /* VaquinhaViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2388CBF52774E1F000F44D8D /* VaquinhaViewControllerFactory.swift */; };
+		2388CC082775061200F44D8D /* ProfileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2388CC072775061200F44D8D /* ProfileHandler.swift */; };
+		2388CC0B2775063200F44D8D /* Profile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2388CC0A2775063200F44D8D /* Profile.framework */; };
+		23D268AD2774A0FA009C6039 /* VaquinhaFlowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D268AC2774A0FA009C6039 /* VaquinhaFlowProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +77,7 @@
 		234AEB072773B0BF00990EA5 /* AppSecurity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppSecurity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		234AEB0E2773B0CD00990EA5 /* AppSecurityInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppSecurityInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		234AEB1E2773B16500990EA5 /* NetworkingDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingDependency.swift; sourceTree = "<group>"; };
-		234AEB382773B71B00990EA5 /* VaquinhaStarter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaquinhaStarter.swift; sourceTree = "<group>"; };
+		234AEB382773B71B00990EA5 /* VaquinhaHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaquinhaHandler.swift; sourceTree = "<group>"; };
 		234AEB3B2773B75A00990EA5 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		234AEB3E2773B7D500990EA5 /* VaquinhaLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaquinhaLauncher.swift; sourceTree = "<group>"; };
 		234AEB432773B84700990EA5 /* VaquinhaRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaquinhaRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -83,6 +88,11 @@
 		234AEB5D2773BFF600990EA5 /* VaquinhaBusinessModel+Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VaquinhaBusinessModel+Analytics.swift"; sourceTree = "<group>"; };
 		234AEB612773C1B500990EA5 /* VaquinhaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaquinhaViewModel.swift; sourceTree = "<group>"; };
 		234AEB642773C38700990EA5 /* VaquinhaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaquinhaViewController.swift; sourceTree = "<group>"; };
+		2388CBF12774E15E00F44D8D /* VaquinhaFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaquinhaFlow.swift; sourceTree = "<group>"; };
+		2388CBF52774E1F000F44D8D /* VaquinhaViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaquinhaViewControllerFactory.swift; sourceTree = "<group>"; };
+		2388CC072775061200F44D8D /* ProfileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHandler.swift; sourceTree = "<group>"; };
+		2388CC0A2775063200F44D8D /* Profile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Profile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		23D268AC2774A0FA009C6039 /* VaquinhaFlowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaquinhaFlowProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2388CC0B2775063200F44D8D /* Profile.framework in Frameworks */,
 				234AEB3C2773B75A00990EA5 /* Core.framework in Frameworks */,
 				234AEB0F2773B0CD00990EA5 /* AppSecurityInterfaces.framework in Frameworks */,
 				234AEB082773B0BF00990EA5 /* AppSecurity.framework in Frameworks */,
@@ -133,10 +144,10 @@
 		234AEA9E2773A9D900990EA5 /* VaquinhaDemo */ = {
 			isa = PBXGroup;
 			children = (
+				2388CBFE2774FA7000F44D8D /* Handlers */,
 				234AEA9F2773A9D900990EA5 /* AppDelegate.swift */,
 				234AEAE92773AD9D00990EA5 /* StructuralDependencies */,
 				234AEB1D2773B15200990EA5 /* DependenciesImplementation */,
-				234AEAE72773AD3500990EA5 /* Starters */,
 				234AEAAA2773A9DA00990EA5 /* LaunchScreen.storyboard */,
 				234AEAAD2773A9DA00990EA5 /* Info.plist */,
 			);
@@ -146,22 +157,15 @@
 		234AEAD92773AC8000990EA5 /* VaquinhaFramework */ = {
 			isa = PBXGroup;
 			children = (
+				234AEB3E2773B7D500990EA5 /* VaquinhaLauncher.swift */,
+				2388CBEF2774E14500F44D8D /* Flow */,
 				234AEB552773BA6B00990EA5 /* Business */,
 				234AEB502773B98A00990EA5 /* Analytics */,
 				234AEB4A2773B8FA00990EA5 /* Presentation */,
 				234AEB422773B83900990EA5 /* Repository */,
 				234AEADB2773AC8000990EA5 /* Info.plist */,
-				234AEB3E2773B7D500990EA5 /* VaquinhaLauncher.swift */,
 			);
 			path = VaquinhaFramework;
-			sourceTree = "<group>";
-		};
-		234AEAE72773AD3500990EA5 /* Starters */ = {
-			isa = PBXGroup;
-			children = (
-				234AEB382773B71B00990EA5 /* VaquinhaStarter.swift */,
-			);
-			path = Starters;
 			sourceTree = "<group>";
 		};
 		234AEAE92773AD9D00990EA5 /* StructuralDependencies */ = {
@@ -175,6 +179,7 @@
 		234AEAEE2773AF5B00990EA5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2388CC0A2775063200F44D8D /* Profile.framework */,
 				234AEB3B2773B75A00990EA5 /* Core.framework */,
 				234AEB0E2773B0CD00990EA5 /* AppSecurityInterfaces.framework */,
 				234AEB072773B0BF00990EA5 /* AppSecurity.framework */,
@@ -235,6 +240,7 @@
 		234AEB512773B9C700990EA5 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
+				23D268AC2774A0FA009C6039 /* VaquinhaFlowProtocol.swift */,
 			);
 			path = Flow;
 			sourceTree = "<group>";
@@ -269,6 +275,32 @@
 				234AEB562773BA7E00990EA5 /* VaquinhaBusinessModel.swift */,
 			);
 			path = Business;
+			sourceTree = "<group>";
+		};
+		2388CBEF2774E14500F44D8D /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				2388CBF02774E14800F44D8D /* Factory */,
+				2388CBF12774E15E00F44D8D /* VaquinhaFlow.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		2388CBF02774E14800F44D8D /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				2388CBF52774E1F000F44D8D /* VaquinhaViewControllerFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		2388CBFE2774FA7000F44D8D /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				234AEB382773B71B00990EA5 /* VaquinhaHandler.swift */,
+				2388CC072775061200F44D8D /* ProfileHandler.swift */,
+			);
+			path = Handlers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,7 +415,8 @@
 			files = (
 				234AEAEB2773ADC600990EA5 /* StructuralDependencyProvider.swift in Sources */,
 				234AEAA02773A9D900990EA5 /* AppDelegate.swift in Sources */,
-				234AEB392773B71B00990EA5 /* VaquinhaStarter.swift in Sources */,
+				2388CC082775061200F44D8D /* ProfileHandler.swift in Sources */,
+				234AEB392773B71B00990EA5 /* VaquinhaHandler.swift in Sources */,
 				234AEB1F2773B16500990EA5 /* NetworkingDependency.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,7 +432,10 @@
 				234AEB622773C1B500990EA5 /* VaquinhaViewModel.swift in Sources */,
 				234AEB5E2773BFF600990EA5 /* VaquinhaBusinessModel+Analytics.swift in Sources */,
 				234AEB3F2773B7D500990EA5 /* VaquinhaLauncher.swift in Sources */,
+				2388CBF22774E15E00F44D8D /* VaquinhaFlow.swift in Sources */,
+				23D268AD2774A0FA009C6039 /* VaquinhaFlowProtocol.swift in Sources */,
 				234AEB5B2773BBB800990EA5 /* VaquinhaBusinessModelProcotol.swift in Sources */,
+				2388CBF62774E1F000F44D8D /* VaquinhaViewControllerFactory.swift in Sources */,
 				234AEB572773BA7E00990EA5 /* VaquinhaBusinessModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

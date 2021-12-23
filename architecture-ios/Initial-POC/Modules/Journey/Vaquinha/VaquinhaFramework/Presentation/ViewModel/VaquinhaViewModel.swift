@@ -7,22 +7,13 @@
 
 import Core
 
-protocol VaquinhaViewModelProtocol: VaquinhaBusinessModelProtocol, VaquinhaFlowDelegate {}
+public protocol VaquinhaViewModelProtocol: VaquinhaBusinessModelProtocol, VaquinhaFlowProtocol {}
 
-class VaquinhaViewModel: BaseViewModel<VaquinhaBusinessModelProtocol, VaquinhaAnalyticsProtocol, VaquinhaFlowDelegate>, VaquinhaViewModelProtocol {
+class VaquinhaViewModel: BaseViewModel<VaquinhaBusinessModelProtocol, VaquinhaAnalyticsProtocol, VaquinhaFlowProtocol>, VaquinhaViewModelProtocol {
    
     
     func openProfile(in controller: VaquinhaViewController) {
         analytics?.onOpenProfileClick()
         flowDelegate?.openProfile(in: controller)
     }
-    
 }
-
-
-public protocol VaquinhaFlowDelegate: AnyObject {
-    func openProfile(in controller: VaquinhaViewController)
-}
-
-
-//AMNHA CONTINUAR NA VIEWCONTROLLER E DEPOIS FLOW 

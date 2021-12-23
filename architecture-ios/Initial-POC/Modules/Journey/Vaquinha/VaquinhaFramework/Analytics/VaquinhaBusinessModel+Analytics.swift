@@ -6,6 +6,10 @@
 //
 
 extension VaquinhaBusinessModel: VaquinhaAnalyticsProtocol {
+    func onOpenProfileClick() {
+        structuralAnalytics?.track(tag: "PROFILE PAGE - onClickButton")
+    }
+    
     func onClickVaquinha() {
         structuralAnalytics?.track(tag: "VAQUINHA HOME - onClickVaquinha track")
     }

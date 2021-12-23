@@ -7,7 +7,7 @@
 
 import AnalyticsInterfaces
 
-protocol VaquinhaStructuralAnalyticsProtocol {
+public protocol VaquinhaStructuralAnalyticsProtocol {
     var structuralAnalytics: AnalyticsProtocol? { get }
 }
 
