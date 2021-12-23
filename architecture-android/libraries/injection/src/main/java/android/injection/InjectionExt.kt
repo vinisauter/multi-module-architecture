@@ -1,18 +1,35 @@
 package android.injection
 
+import android.app.Activity
 import android.util.Log
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
 
 val provider = InjectionProvider
 
 inline fun provides(block: InjectionProvider.() -> Unit) = provider.apply(block)
-inline fun module(moduleName: String, block: Module.() -> Unit): Module {
-    var module = provider.moduleRegistry[moduleName]
-    if (module != null) {
+inline fun Any.module(
+    moduleName: String = this::class.java.simpleName,
+    lifecycle: Lifecycle,
+    activity: Activity,
+    block: Module.() -> Unit
+): Module {
+    val existingModule = provider.moduleRegistry[moduleName]
+    if (existingModule != null) {
         Log.w("injection", "module $moduleName ignored already exists")
-        return module
+        return existingModule
     }
-    module = Module(moduleName).apply(block)
+    val module = Module(moduleName).apply(block)
     provider.moduleRegistry[moduleName] = module
+
+    lifecycle.addObserver(LifecycleEventObserver { _, event ->
+        if (event == Lifecycle.Event.ON_DESTROY) {
+            val shouldClear = !activity.isChangingConfigurations
+            if (shouldClear) {
+                module.clear()
+            }
+        }
+    })
     return module
 }
 

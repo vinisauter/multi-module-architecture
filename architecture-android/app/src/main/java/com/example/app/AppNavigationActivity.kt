@@ -9,7 +9,7 @@ class AppNavigationActivity : ModuleControllerActivity(
     startDestination = R.id.splash
 ) {
     val deepLink by lazy { intent.data }
-    override fun dependencies(): Module? = null
+    override fun Module.dependencies() {}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

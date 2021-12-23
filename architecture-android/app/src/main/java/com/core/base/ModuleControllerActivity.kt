@@ -1,11 +1,11 @@
 package com.core.base
 
 import android.injection.Module
+import android.injection.module
+import android.os.Bundle
 import androidx.annotation.IdRes
 import androidx.annotation.NavigationRes
 import androidx.lifecycle.InjectionViewModelFactory
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavDestination
 import androidx.navigation.Navigator
@@ -16,8 +16,14 @@ abstract class ModuleControllerActivity(
     @NavigationRes override val graphResId: Int,
     @IdRes override val startDestination: Int = DEFAULT_START_DESTINATION
 ) : NavigationActivity(graphResId, startDestination) {
-    private var module: Module? = null
-    abstract fun dependencies(): Module?
+
+    abstract fun Module.dependencies()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        module(lifecycle = lifecycle, activity = this) {
+            dependencies()
+        }
+    }
 
     private lateinit var mDefaultFactory: ViewModelProvider.Factory
     override fun getDefaultViewModelProviderFactory(): ViewModelProvider.Factory {
@@ -29,20 +35,6 @@ abstract class ModuleControllerActivity(
             )
         }
         return mDefaultFactory
-    }
-
-    init {
-        lifecycle.addObserver(LifecycleEventObserver { _, event ->
-            if (event == Lifecycle.Event.ON_CREATE) {
-                module = dependencies()
-            } else if (event == Lifecycle.Event.ON_DESTROY) {
-                val shouldClear = !isChangingConfigurations
-                if (shouldClear) {
-                    module?.clear()
-                    module = null
-                }
-            }
-        })
     }
 
     override fun customNavigators(): List<Navigator<out NavDestination>> {

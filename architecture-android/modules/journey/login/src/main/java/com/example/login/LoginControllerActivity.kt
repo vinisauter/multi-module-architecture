@@ -1,7 +1,7 @@
 package com.example.login
 
+import android.injection.Module
 import android.injection.get
-import android.injection.module
 import androidx.navigation.navArgs
 import com.core.base.ModuleControllerActivity
 import com.example.journey.login.tracking.LoginTracking
@@ -15,7 +15,7 @@ class LoginControllerActivity : ModuleControllerActivity(R.navigation.login_navi
     private val args: LoginControllerActivityArgs by navArgs()
     private val tracking: LoginTracking by lazy { args.tracking ?: LoginTracking() }
 
-    override fun dependencies() = module("LOGIN") {
+    override fun Module.dependencies() {
         shared<LoginTracking> { tracking }
         sharedWithSuperClasses<LoginBusinessModel> {
             val secureRequestExecutor: RequestExecutor = get(qualifier = "secure")

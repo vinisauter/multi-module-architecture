@@ -2,6 +2,8 @@ package com.core.base
 
 import android.app.Application
 import android.content.ContextWrapper
+import android.injection.Module
+import android.injection.module
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,6 +26,14 @@ abstract class BaseFragment<ViewBindingType : ViewBinding, ViewModelType : BaseV
     Fragment() {
     lateinit var binding: ViewBindingType
     abstract val viewModel: ViewModelType
+
+    fun Module.dependencies() {}
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        module(lifecycle = lifecycle, activity = requireActivity()) {
+            dependencies()
+        }
+    }
 
     private lateinit var mDefaultFactory: ViewModelProvider.Factory
     override fun getDefaultViewModelProviderFactory(): ViewModelProvider.Factory {

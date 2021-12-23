@@ -16,3 +16,13 @@ fun Context.longToast(text: CharSequence) {
 fun Throwable.errorMessage(): String {
     return localizedMessage ?: message ?: javaClass.name
 }
+
+fun Throwable.filterStackTrace(notContains: String): Throwable {
+    val filtered = stackTrace.filterNot { it.className.contains(notContains) }
+    stackTrace = filtered.toTypedArray()
+    cause?.let { cause ->
+        val causeFiltered = cause.stackTrace.filterNot { it.className.contains(notContains) }
+        cause.stackTrace = causeFiltered.toTypedArray()
+    }
+    return this
+}

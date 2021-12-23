@@ -20,6 +20,7 @@ import com.example.structural.tagging.TaggingProvider
 import com.example.tagging.TaggingExecutor
 
 // TODO Split Install validation to enable on-demand delivery, only install-time for now
+//  Maybe use SplitInstallManager implementation: Joy branch dynamic_delivery_on_demand
 //    <dist:delivery>
 //        <dist:on-demand />
 //    </dist:delivery>
