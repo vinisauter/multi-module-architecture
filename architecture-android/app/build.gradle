@@ -44,8 +44,10 @@ android {
 
             ':modules:structural:networking',
             ':modules:structural:networkingsecure',
+            ':modules:structural:networkingsecurev2',
             ':modules:structural:storage',
             ':modules:structural:tagging',
+            ':modules:structural:security',
     ]
 }
 
@@ -55,9 +57,10 @@ dependencies {
     api project(path: ':libraries:bug-finder')
     api project(path: ':libraries:injection')
 
-    api project(path: ':modules:structural:networking-interface')
-    api project(path: ':modules:structural:storage-interface')
-    api project(path: ':modules:structural:tagging-interface')
+    api project(path: ':engineering:interfaces:networking-interface')
+    api project(path: ':engineering:interfaces:storage-interface')
+    api project(path: ':engineering:interfaces:tagging-interface')
+    api project(path: ':engineering:interfaces:security-interface')
 
     api 'androidx.core:core-ktx:1.7.0'
     api 'androidx.activity:activity-ktx:1.4.0'

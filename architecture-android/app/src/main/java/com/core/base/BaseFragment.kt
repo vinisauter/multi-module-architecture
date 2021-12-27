@@ -1,13 +1,20 @@
 package com.core.base
 
+import android.app.Application
+import android.content.ContextWrapper
+import android.injection.Module
+import android.injection.module
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.InjectionViewModelFactory
+import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
-import java.lang.reflect.ParameterizedType
+import com.core.extensions.getClassTypeAt
+import com.core.extensions.viewBindingInflate
 
 /**
  * Base Fragment
@@ -20,6 +27,35 @@ abstract class BaseFragment<ViewBindingType : ViewBinding, ViewModelType : BaseV
     lateinit var binding: ViewBindingType
     abstract val viewModel: ViewModelType
 
+    fun Module.dependencies() {}
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        module(lifecycle = lifecycle, activity = requireActivity()) {
+            dependencies()
+        }
+    }
+
+    private lateinit var mDefaultFactory: ViewModelProvider.Factory
+    override fun getDefaultViewModelProviderFactory(): ViewModelProvider.Factory {
+        if (!::mDefaultFactory.isInitialized) {
+            var application: Application? = null
+            var appContext = requireContext().applicationContext
+            while (appContext is ContextWrapper) {
+                if (appContext is Application) {
+                    application = appContext
+                    break
+                }
+                appContext = appContext.baseContext
+            }
+            mDefaultFactory = InjectionViewModelFactory(
+                application,
+                this,
+                arguments
+            )
+        }
+        return mDefaultFactory
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,33 +64,14 @@ abstract class BaseFragment<ViewBindingType : ViewBinding, ViewModelType : BaseV
         val viewBindingClass: Class<ViewBindingType> = getClassTypeAt(0)
         binding = viewBindingInflate(viewBindingClass, inflater, container)
         if (binding is ViewDataBinding) {
-            val data = (binding as ViewDataBinding)
-            data.lifecycleOwner = this
-            data.executePendingBindings()
+            val viewDataBinding = (binding as ViewDataBinding)
+            viewDataBinding.lifecycleOwner = viewLifecycleOwner
+            viewDataBinding.executePendingBindings()
         }
+        afterViews(binding)
         return binding.root
     }
 
     abstract fun afterViews(binding: ViewBindingType)
-
-     private fun <T : ViewBinding> viewBindingInflate(
-        clazz: Class<T>,
-        inflater: LayoutInflater,
-        parent: ViewGroup?
-    ): T {
-        val method = clazz.getDeclaredMethod(
-            "inflate",
-            LayoutInflater::class.java,
-            ViewGroup::class.java,
-            Boolean::class.java //boolean
-        )
-        @Suppress("UNCHECKED_CAST")
-        return method.invoke(null, inflater, parent, false) as T
-    }
-
-    private fun <Type> Any.getClassTypeAt(position: Int): Class<Type> {
-        @Suppress("UNCHECKED_CAST")
-        return (this::class.java.genericSuperclass as ParameterizedType).actualTypeArguments[position] as Class<Type>
-    }
 }
 

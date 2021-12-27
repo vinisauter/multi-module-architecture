@@ -5,10 +5,11 @@ import androidx.annotation.IdRes
 import androidx.annotation.NavigationRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.NavGraph
+import androidx.navigation.Navigator
 import androidx.navigation.fragment.NavHostFragment
 import com.example.app.R
-
 
 abstract class NavigationActivity(
     @NavigationRes open val graphResId: Int,
@@ -24,11 +25,18 @@ abstract class NavigationActivity(
         supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
     }
 
+    open fun customNavigators(): List<Navigator<out NavDestination>> = listOf()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val graphInflater = navHostFragment.navController.navInflater
-        navGraph = graphInflater.inflate(graphResId)
         navController = navHostFragment.navController
+        navController.apply {
+            for (navigator in customNavigators()) {
+                navigatorProvider.addNavigator(navigator)
+            }
+        }
+        navGraph = graphInflater.inflate(graphResId)
         if (startDestination != DEFAULT_START_DESTINATION) {
             navGraph.setStartDestination(startDestination)
         }

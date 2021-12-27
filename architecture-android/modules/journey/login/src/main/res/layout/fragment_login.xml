@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <import type="com.core.extensions.State" />
+
         <variable
             name="view_model"
             type="com.example.login.presentation.LoginFragmentViewModel" />
@@ -19,6 +22,8 @@
             android:id="@+id/login_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:enabled="@{view_model.onStateChanged == State.Idle}"
+            android:onClick="@{(v) -> view_model.onLoginClicked()}"
             android:text="Login"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/forgot_password_button"
@@ -31,6 +36,8 @@
             android:id="@+id/forgot_password_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:enabled="@{view_model.onStateChanged == State.Idle}"
+            android:onClick="@{(v) -> view_model.onForgotPasswordClicked()}"
             android:text="Forgot Password"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 fun <T> Fragment.consume(flow: Flow<T>, function: (value: T) -> Unit) {
-    lifecycleScope.launch {
+    viewLifecycleOwner.lifecycleScope.launch {
         flow.collect {
             function(it)
         }

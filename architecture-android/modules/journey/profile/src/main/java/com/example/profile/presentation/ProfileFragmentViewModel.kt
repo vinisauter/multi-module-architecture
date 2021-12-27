@@ -18,9 +18,7 @@ class ProfileFragmentViewModel(
 
     fun onExitClicked() = runTask {
         onActionCompletedSharedFlow.emit(
-            ProfileFragmentDirections.actionExit(
-                com.example.app.R.id.splash
-            )
+            ProfileFragmentDirections.actionExit()
         )
     }
 
@@ -37,18 +35,10 @@ class ProfileFragmentViewModel(
             loginClickAuthEvent = Tagging.Event("profile_login", "click", "auth"),
             loginAuthSucceededEvent = Tagging.Event("profile_login", "auth", "succeeded"),
             loginAuthFailedEvent = Tagging.Event("profile_login", "auth", "failed"),
-            loginClickForgotPasswordEvent = Tagging.Event(
-                "profile_login",
-                "click",
-                "forgot_password"
-            ),
+            loginClickForgotPasswordEvent = Tagging.Event("profile_login", "click", "forgot_password"),
             //ForgotPasswordFragment
             forgotPasswordScreenName = Tagging.ScreenName("profile_forgot_password"),
-            forgotPasswordClickExitEvent = Tagging.Event(
-                "profile_forgot_password",
-                "click",
-                "exit"
-            ),
+            forgotPasswordClickExitEvent = Tagging.Event("profile_forgot_password", "click", "exit"),
         )
         onActionCompletedSharedFlow.emit(
             ProfileFragmentDirections.actionLogin(tracking = tracking)

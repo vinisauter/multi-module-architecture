@@ -14,10 +14,10 @@ import java.util.regex.Pattern
 
 object Logger {
     const val TAG = "ARCH"
-    private var LOGGER: Logger? = null
-    var logger: Logger?
+    private lateinit var LOGGER: Logger
+    var logger: Logger
         get() {
-            if (LOGGER == null) {
+            if (!::LOGGER.isInitialized) {
                 LOGGER = Logger.getLogger(TAG)
             }
             return LOGGER
@@ -28,8 +28,8 @@ object Logger {
 
     var fileHandler: LoggerFileHandler? = null
         set(value) {
-            field?.let { logger?.removeHandler(field) }
-            value?.let { logger?.addHandler(it) }
+            field?.let { logger.removeHandler(field) }
+            value?.let { logger.addHandler(it) }
             field = value
         }
 
@@ -46,10 +46,10 @@ object Logger {
 
     var filter: Filter?
         get() {
-            return logger?.filter
+            return logger.filter
         }
         set(filter) {
-            logger?.filter = filter
+            logger.filter = filter
         }
 
     val hasFileHandler: Boolean
@@ -167,7 +167,7 @@ object Logger {
      * @param msg   The string message (or a key in the message catalog)
      */
     private fun log(level: Level, msg: String) {
-        logger?.log(level, msg)
+        logger.log(level, msg)
     }
 
     /**
@@ -187,6 +187,6 @@ object Logger {
      * @param throwable Throwable associated with log message.
      */
     private fun log(level: Level, msg: String, throwable: Throwable) {
-        logger?.log(level, msg, throwable)
+        logger.log(level, msg, throwable)
     }
 }

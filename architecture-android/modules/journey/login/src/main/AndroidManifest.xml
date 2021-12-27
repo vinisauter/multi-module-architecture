@@ -12,9 +12,6 @@
         <dist:fusing dist:include="true" />
     </dist:module>
     <application>
-        <activity
-            android:name=".LoginNavigationActivity"
-            android:exported="false"
-            android:launchMode="singleInstance" />
+        <activity android:name=".LoginControllerActivity" />
     </application>
 </manifest>

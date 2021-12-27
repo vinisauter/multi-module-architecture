@@ -1,9 +1,12 @@
-package com.example.profile
+package com.example.home
 
+import android.injection.Module
 import android.os.Bundle
-import com.core.base.NavigationActivity
+import com.core.base.ModuleControllerActivity
 
-class ProfileNavigationActivity : NavigationActivity(R.navigation.profile_navigation_graph) {
+class HomeControllerActivity : ModuleControllerActivity(R.navigation.home_navigation_graph) {
+    override fun Module.dependencies() {}
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // TODO ADD MODULES DEPENDENCIES

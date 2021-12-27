@@ -2,6 +2,7 @@ package android.injection
 
 import android.injection.factory.DefinitionFactory
 import android.injection.factory.InjectionFactory
+import android.util.Log
 import java.util.concurrent.ConcurrentHashMap
 import kotlin.reflect.KClass
 import kotlin.reflect.full.allSuperclasses
@@ -14,12 +15,14 @@ object InjectionProvider {
     val definitionRegistry: MutableMap<String, InjectionFactory<Any>> = ConcurrentHashMap()
     val moduleRegistry: MutableMap<String, Module> = ConcurrentHashMap()
 
-    inline fun module(name: String, block: Module.() -> Unit) = Module(name).apply {
-        moduleRegistry[name]?.let {
-            error("module $name already exists")
+    inline fun module(moduleName: String, block: Module.() -> Unit) {
+        var module = provider.moduleRegistry[moduleName]
+        if (module != null) {
+            Log.w("injection", "module $moduleName ignored already exists")
+            return
         }
-        block.invoke(this)
-        moduleRegistry[name] = this
+        module = Module(moduleName).apply(block)
+        provider.moduleRegistry[moduleName] = module
     }
 
     @Suppress("UNCHECKED_CAST")

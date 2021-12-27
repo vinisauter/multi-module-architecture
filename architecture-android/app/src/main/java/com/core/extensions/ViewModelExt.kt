@@ -6,9 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineScope
 
-sealed class State {
-    object Idle : State()
-    object Running : State()
+enum class State {
+    Idle,
+    Running
 }
 
 sealed class StateResult {

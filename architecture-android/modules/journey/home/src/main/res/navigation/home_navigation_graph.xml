@@ -11,15 +11,18 @@
         android:name="com.example.home.presentation.HomeFragment"
         android:label="fragment_home"
         app:moduleName="home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_profile"
+            app:destination="@id/profile" />
+        <action
+            android:id="@+id/action_exit"
+            app:destination="@id/exit" />
+    </fragment>
 
-    <action
-        android:id="@+id/action_app_destination"
-        app:destination="@id/app_navigation_graph">
-        <argument
-            android:name="destination_id"
-            app:argType="reference" />
-    </action>
-
-    <include app:graph="@navigation/app_navigation_graph" />
+    <journey
+        android:id="@+id/exit"/>
+    <journey
+        android:id="@+id/profile"
+        app:destiny="@id/profile_navigation" />
 </navigation>

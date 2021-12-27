@@ -24,17 +24,15 @@ class ProfileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // view scope
-        binding = FragmentProfileBinding.inflate(inflater, container, false).apply {
-            viewModel = this@ProfileFragment.viewModel
-            args.queryValue?.let {
-                textMonitor.append("\n${it}")
-            }
-
-            deepLink?.let {
-                textMonitor.append("\n${deepLink}")
-            }
+        binding = FragmentProfileBinding.inflate(inflater, container, false)
+        binding.viewModel = viewModel
+        args.queryValue?.let {
+            binding.textMonitor.append("\n${it}")
         }
+        deepLink?.let {
+            binding.textMonitor.append("\n${deepLink}")
+        }
+
         // view-model scope
         viewModel.apply {
             consume(onActionCompleted) { navDirection: NavDirections ->

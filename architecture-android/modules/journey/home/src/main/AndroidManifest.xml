@@ -14,10 +14,7 @@
     </dist:module>
 
     <application>
-        <activity
-            android:name=".HomeNavigationActivity"
-            android:clearTaskOnLaunch="true"
-            android:exported="false" />
+        <activity android:name=".HomeControllerActivity" />
     </application>
 
 </manifest>

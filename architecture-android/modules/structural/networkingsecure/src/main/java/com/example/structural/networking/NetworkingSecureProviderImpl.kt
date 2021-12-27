@@ -3,7 +3,7 @@ package com.example.structural.networking
 import android.app.Application
 import com.auto.service.ImplementationOf
 import com.example.networking.RequestExecutor
-import com.example.structural.networking.secure.NetworkingSecureProvider
+import com.example.structural.networkingsecure.NetworkingSecureProvider
 
 @ImplementationOf(NetworkingSecureProvider::class)
 class NetworkingSecureProviderImpl : NetworkingSecureProvider {

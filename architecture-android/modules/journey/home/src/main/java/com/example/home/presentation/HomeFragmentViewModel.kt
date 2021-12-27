@@ -16,17 +16,13 @@ class HomeFragmentViewModel(
 
     fun onProfileClicked() = runTask {
         onActionCompletedSharedFlow.emit(
-            HomeFragmentDirections.actionAppDestination(
-                com.example.app.R.id.profile_navigation
-            )
+            HomeFragmentDirections.actionProfile()
         )
     }
 
     fun onExitClicked() = runTask {
         onActionCompletedSharedFlow.emit(
-            HomeFragmentDirections.actionAppDestination(
-                com.example.app.R.id.splash
-            )
+            HomeFragmentDirections.actionExit()
         )
     }
 }

@@ -33,6 +33,8 @@ android {
 
 dependencies {
     implementation project(":app")
+    testImplementation project(path: ':app')
+    androidTestImplementation project(path: ':app')
     ksp project(path: ':libraries:auto-service:processor')
 
     testImplementation 'junit:junit:4.13.2'

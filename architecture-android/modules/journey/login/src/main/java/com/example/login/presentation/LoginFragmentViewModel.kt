@@ -1,12 +1,14 @@
 package com.example.login.presentation
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.NavDirections
-import com.core.extensions.*
-import com.example.app.AppNavigationGraphDirections
+import com.core.base.BaseViewModel
+import com.core.extensions.State
+import com.core.extensions.default
+import com.core.extensions.runTask
 import com.example.journey.login.tracking.LoginTracking
 import com.example.tagging.TaggingExecutor
 import kotlinx.coroutines.flow.Flow
@@ -14,10 +16,11 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 
 class LoginFragmentViewModel(
     private val app: Application,
+    private val savedStateHandle: SavedStateHandle,
     private val tagging: TaggingExecutor,
     private val useCase: LoginFragmentUseCase,
     private val tracking: LoginTracking
-) : AndroidViewModel(app) {
+) : BaseViewModel(app, savedStateHandle) {
     //https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/
 //   TODO use NavigationCommand?
 //    private val onNavigationCommandSharedFlow = MutableSharedFlow<NavigationCommand>()
@@ -25,42 +28,41 @@ class LoginFragmentViewModel(
     val onActionCompleted: Flow<NavDirections>
         get() = onActionCompletedSharedFlow
 
-    private val onStateChangedMutable = MutableLiveData<StateResult>(StateResult.Initial)
-    val onStateChanged: LiveData<StateResult>
+    private val onStateChangedMutable = MutableLiveData<State>(State.Idle)
+    val onStateChanged: LiveData<State>// TODO: handle case of multiple states running at same time
         get() = onStateChangedMutable
 
     fun onLoginViewCreated() {
         tagging.send(tracking.loginScreenName)
     }
 
-    fun onLoginClicked() = runTaskResult(onStateChangedMutable) {
+    fun onLoginClicked() = runTask(onStateChangedMutable) {
         tagging.send(tracking.loginClickAuthEvent)
-        useCase.login("user", "password").let {
-            when(it) {
+        try {
+            when (useCase.login("user", "password")) {
                 true -> {
+                    onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginSucceed())
                     tagging.send(tracking.loginAuthSucceededEvent)
-                    onActionCompletedSharedFlow.emit(
-                        LoginFragmentDirections.actionLoginSucceed(com.example.app.R.id.home_navigation)
-                    )
                 }
-                false ->{
+                false -> {
+                    onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginFailed())
                     tagging.send(tracking.loginAuthFailedEvent)
-                    onActionCompletedSharedFlow.emit(
-                        LoginFragmentDirections.actionLoginFailed()
-                    )
                 }
             }
+        } catch (t: Throwable) {
+            onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginFailed())
+            tagging.send(tracking.loginAuthFailedEvent)
         }
     }
 
-    fun onForgotPasswordClicked() = runTaskResult(onStateChangedMutable) {
+    fun onForgotPasswordClicked() = runTask(onStateChangedMutable) {
         tagging.send(tracking.loginClickForgotPasswordEvent)
         try {
             onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionForgotPassword())
             tagging.send(tracking.loginForgotPasswordSucceededEvent)
         } catch (t: Throwable) {
             onActionCompletedSharedFlow.emit(
-                AppNavigationGraphDirections.actionShowError(
+                LoginFragmentDirections.actionShowError(
                     t.message.default("ERROR")
                 )
             )

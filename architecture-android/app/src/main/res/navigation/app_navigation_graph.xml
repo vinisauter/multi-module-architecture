@@ -1,39 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-  https://github.com/android/app-bundle-samples/blob/main/DynamicFeatureNavigation/XML/app/src/main/res/navigation/nav_graph.xml
+todo: navigation documentation:
   https://developer.android.com/guide/navigation/navigation-dynamic
   https://developer.android.com/guide/navigation/navigation-deep-link
+  https://github.com/android/app-bundle-samples/tree/main/DynamicFeatureNavigation
   -->
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/app_navigation_graph"
-    app:startDestination="@id/navigation_launcher">
+    app:startDestination="@id/splash">
+    <!-- App Destinations
+    All shared destinations must be declared in this file.
+    To access use the follow declaration in your respective nav_graph.xml:
 
-    <dialog
-        android:id="@+id/navigation_launcher"
-        android:name="com.example.journey.NavigationLauncher"
-        android:label="Loader">
-        <argument
-            android:name="destination_id"
-            app:argType="reference" />
-    </dialog>
-
-    <action
-        android:id="@+id/action_show_error"
-        app:destination="@id/splash">
-        <argument
-            android:name="error_message"
-            app:argType="string" />
-    </action>
-    <dialog
-        android:id="@+id/error_dialog"
-        android:name="com.example.app.ErrorDialog"
-        android:label="Error">
-        <argument
-            android:name="error_message"
-            app:argType="string" />
-    </dialog>
-
+    <journey
+        android:id="@+id/login"
+        app:destiny="@id/login_navigation" />
+    -->
     <fragment
         android:id="@+id/splash"
         android:name="com.example.app.SplashFragment"
@@ -43,23 +26,16 @@
             android:id="@+id/action_login"
             app:destination="@id/login_navigation" />
     </fragment>
-
-    <activity
-        android:id="@+id/login_navigation"
-        android:name="com.example.login.LoginNavigationActivity"
-        android:label="LoginNavigationActivity"
-        app:moduleName="login">
-        <deepLink
-            android:id="@+id/deep_link"
-            app:uri="myapp://login" />
-        <argument
-            android:name="tracking"
-            android:defaultValue="@null"
-            app:argType="com.example.journey.login.tracking.LoginTracking"
-            app:nullable="true" />
-    </activity>
     <dialog
-        android:id="@+id/reauthentication"
+        android:id="@+id/error_dialog"
+        android:name="com.example.app.ErrorDialog"
+        android:label="Error">
+        <argument
+            android:name="error_message"
+            app:argType="string" />
+    </dialog>
+    <dialog
+        android:id="@+id/reauthentication_navigation"
         android:name="com.example.login.presentation.reauthentication.ReauthenticationDialog"
         android:label="reauthentication"
         app:moduleName="login"
@@ -70,10 +46,23 @@
             app:argType="com.core.extensions.Direction"
             app:nullable="true" />
     </dialog>
-
+    <activity
+        android:id="@+id/login_navigation"
+        android:name="com.example.login.LoginControllerActivity"
+        android:label="LoginController"
+        app:moduleName="login">
+        <deepLink
+            android:id="@+id/deep_link"
+            app:uri="myapp://login" />
+        <argument
+            android:name="tracking"
+            android:defaultValue="@null"
+            app:argType="com.example.journey.login.tracking.LoginTracking"
+            app:nullable="true" />
+    </activity>
     <activity
         android:id="@+id/home_navigation"
-        android:name="com.example.home.HomeNavigationActivity"
+        android:name="com.example.home.HomeControllerActivity"
         android:label="HomeNavigationActivity"
         app:moduleName="home">
         <deepLink
@@ -82,7 +71,7 @@
     </activity>
     <activity
         android:id="@+id/profile_navigation"
-        android:name="com.example.profile.ProfileNavigationActivity"
+        android:name="com.example.profile.ProfileControllerActivity"
         android:label="ProfileNavigationActivity"
         app:moduleName="profile">
         <deepLink

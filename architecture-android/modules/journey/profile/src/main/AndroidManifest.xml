@@ -12,8 +12,6 @@
         <dist:fusing dist:include="true" />
     </dist:module>
     <application>
-        <activity
-            android:name=".ProfileNavigationActivity"
-            android:exported="false" />
+        <activity android:name=".ProfileControllerActivity" />
     </application>
 </manifest>

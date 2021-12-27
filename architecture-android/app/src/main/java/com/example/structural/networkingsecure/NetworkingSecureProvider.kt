@@ -1,4 +1,4 @@
-package com.example.structural.networking.secure
+package com.example.structural.networkingsecure
 
 import android.app.Application
 import com.example.networking.RequestExecutor
