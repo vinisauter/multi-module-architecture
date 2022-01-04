@@ -7,6 +7,6 @@
 
 import Foundation
 
-public protocol VaquinhaFlowProtocol: AnyObject {
+protocol VaquinhaFlowProtocol: AnyObject {
     func openProfile(in controller: VaquinhaViewController)
 }

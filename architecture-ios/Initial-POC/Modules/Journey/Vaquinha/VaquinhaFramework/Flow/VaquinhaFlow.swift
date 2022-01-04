@@ -32,7 +32,7 @@ class VaquinhaFlow: VaquinhaHomeFlowProtocol, Deeplinkable {
     }
     
     func start() -> UIViewController {
-        return factory.makeVaquinhaViewController()
+        return factory.makeVaquinhaViewController(flow: self)
     }
     
     

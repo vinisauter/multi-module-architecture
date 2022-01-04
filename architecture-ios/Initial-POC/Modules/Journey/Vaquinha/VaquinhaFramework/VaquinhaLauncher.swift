@@ -37,14 +37,13 @@ public class VaquinhaLauncher {
         
         let businessModel = VaquinhaBusinessModel(repository: vaquinhaAPI, structuralAnalytics: dependencies.structuralDependencies.analytics)
         
-        let factory = VaquinhaViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependencies.customVaquinhaAnalytics)
+        let factory = VaquinhaViewControllerFactory(businessModel: businessModel, analytics: dependencies.customVaquinhaAnalytics)
         
         let deepLink = Deeplink(value: VaquinhaDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink)
         
         let mainFlow = VaquinhaFlow(factory: factory, deeplink: deepLink)
         
         mainFlow.delegate = dependencies.flowDelegate
-        factory.flow = mainFlow
         
         return mainFlow.start()
     }

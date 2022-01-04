@@ -55,7 +55,11 @@ public final class AppNavigation {
     }
     
     @discardableResult public func resolve(_ rawDeeplink: String?) -> Bool {
-        guard let rawDeeplink = rawDeeplink, let deeplink = getDeeplink(from: rawDeeplink), let destinationJourney = deeplink.value, let url = deeplink.url, let handler = getHandler(from: destinationJourney) else { return false }
+        guard let rawDeeplink = rawDeeplink,
+              let deeplink = getDeeplink(from: rawDeeplink),
+              let destinationJourney = deeplink.value,
+              let url = deeplink.url,
+              let handler = getHandler(from: destinationJourney) else { return false }
         
         guard handler.canStart() else {
             self.rawDeeplink = rawDeeplink
@@ -80,7 +84,9 @@ public final class AppNavigation {
     }
     
     public func register(_ jorneys: Array<Journey>, with stater: ModuleHandler) {
-        jorneys.forEach{ [weak self] jorney in self?.handlers[jorney] = stater }
+        jorneys.forEach{ [weak self] jorney in
+            self?.handlers[jorney] = stater
+        }
     }
     
     public func getHandler(from jorney: Journey) -> ModuleHandler? {

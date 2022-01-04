@@ -122,6 +122,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2317CF46277A368B006E8D1C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				234AEB4C2773B91500990EA5 /* VaquinhaAnalyticsProtocol.swift */,
+				234AEB5A2773BBB800990EA5 /* VaquinhaBusinessModelProcotol.swift */,
+				23D268AC2774A0FA009C6039 /* VaquinhaFlowProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		234AEA932773A9D900990EA5 = {
 			isa = PBXGroup;
 			children = (
@@ -212,21 +222,11 @@
 		234AEB4A2773B8FA00990EA5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				234AEB4B2773B90300990EA5 /* Analytics */,
+				2317CF46277A368B006E8D1C /* Protocols */,
 				234AEB542773B9E000990EA5 /* ViewController */,
 				234AEB532773B9D900990EA5 /* ViewModel */,
-				234AEB522773B9D100990EA5 /* Business */,
-				234AEB512773B9C700990EA5 /* Flow */,
 			);
 			path = Presentation;
-			sourceTree = "<group>";
-		};
-		234AEB4B2773B90300990EA5 /* Analytics */ = {
-			isa = PBXGroup;
-			children = (
-				234AEB4C2773B91500990EA5 /* VaquinhaAnalyticsProtocol.swift */,
-			);
-			path = Analytics;
 			sourceTree = "<group>";
 		};
 		234AEB502773B98A00990EA5 /* Analytics */ = {
@@ -235,22 +235,6 @@
 				234AEB5D2773BFF600990EA5 /* VaquinhaBusinessModel+Analytics.swift */,
 			);
 			path = Analytics;
-			sourceTree = "<group>";
-		};
-		234AEB512773B9C700990EA5 /* Flow */ = {
-			isa = PBXGroup;
-			children = (
-				23D268AC2774A0FA009C6039 /* VaquinhaFlowProtocol.swift */,
-			);
-			path = Flow;
-			sourceTree = "<group>";
-		};
-		234AEB522773B9D100990EA5 /* Business */ = {
-			isa = PBXGroup;
-			children = (
-				234AEB5A2773BBB800990EA5 /* VaquinhaBusinessModelProcotol.swift */,
-			);
-			path = Business;
 			sourceTree = "<group>";
 		};
 		234AEB532773B9D900990EA5 /* ViewModel */ = {
