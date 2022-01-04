@@ -35,7 +35,7 @@ public class HomeLauncher {
     static public func start(with dependencies: HomeDependencies) -> UIViewController {
         let homeAPI = HomeAPI(secureHttpClient: dependencies.structuralDependencies.networkingProvider.getSecureHttpClient())
         let businessModel = HomeBusinessModel(repository: homeAPI, structuralAnalytics: dependencies.structuralDependencies.analytics)
-        let factory = HomeViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependencies.customHomeAnalytics)
+        let factory = HomeViewControllerFactory(businessModel: businessModel, analytics: dependencies.customHomeAnalytics)
         let mainFlow = HomeFlow(factory: factory, deeplink: Deeplink(value: HomeDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
         mainFlow.delegate = dependencies.flowDelegate
         factory.flow = mainFlow

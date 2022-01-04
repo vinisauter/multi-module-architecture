@@ -35,7 +35,7 @@ public class LoginLauncher {
     static public func start(with dependencies: LoginDependencies) -> UIViewController {
         let loginAPI = LoginAPI(secureHttpClient: dependencies.structuralDependencies.networkingProvider.getSecureHttpClient(), insecureHttpClient: dependencies.structuralDependencies.networkingProvider.getInsecureHttpClient())
         let businessModel = LoginBusinessModel(repository: loginAPI, structuralAnalytics: dependencies.structuralDependencies.analytics)
-        let factory = LoginViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependencies.customLoginAnalytics)
+        let factory = LoginViewControllerFactory(businessModel: businessModel, analytics: businessModel)
         let mainFlow = LoginFlow(factory: factory, deeplink: Deeplink(value: LoginDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
         mainFlow.delegate = dependencies.flowDelegate
         factory.flow = mainFlow
@@ -46,7 +46,7 @@ public class LoginLauncher {
     static public func startForgotPassword(with dependencies: LoginDependencies) -> UIViewController {
         let loginAPI = LoginAPI(secureHttpClient: dependencies.structuralDependencies.networkingProvider.getSecureHttpClient(), insecureHttpClient: dependencies.structuralDependencies.networkingProvider.getInsecureHttpClient())
         let businessModel = LoginBusinessModel(repository: loginAPI, structuralAnalytics: dependencies.structuralDependencies.analytics)
-        let factory = LoginViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependencies.customLoginAnalytics)
+        let factory = LoginViewControllerFactory(businessModel: businessModel, analytics: dependencies.customLoginAnalytics)
         let mainFlow = ForgotPasswordFlow(factory: factory, deeplink: Deeplink(value: LoginDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
         mainFlow.delegate = dependencies.flowDelegate
         factory.flow = mainFlow
