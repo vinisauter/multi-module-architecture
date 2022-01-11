@@ -14,13 +14,22 @@
             location = "group:ModulesSPM/Structural/Analytics">
          </FileRef>
          <FileRef
+            location = "group:ModulesSPM/Structural/AnalyticsInterface">
+         </FileRef>
+         <FileRef
             location = "group:ModulesSPM/Structural/AppSecurity">
+         </FileRef>
+         <FileRef
+            location = "group:ModulesSPM/Structural/AppSecurityInterfaces">
          </FileRef>
          <FileRef
             location = "group:ModulesSPM/Structural/Core">
          </FileRef>
          <FileRef
             location = "group:ModulesSPM/Structural/Networking">
+         </FileRef>
+         <FileRef
+            location = "group:ModulesSPM/Structural/NetworkingInterfaces">
          </FileRef>
       </Group>
       <Group

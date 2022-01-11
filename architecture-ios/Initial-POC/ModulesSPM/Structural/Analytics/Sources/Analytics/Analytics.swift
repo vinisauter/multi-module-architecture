@@ -1,6 +1,18 @@
-public struct Analytics {
-    public private(set) var text = "Hello, World!"
+//
+//  Analytics.swift
+//  Analytics
+//
+//  Created by Nykolas Mayko Maia Barbosa on 11/11/21.
+//
 
-    public init() {
+import Foundation
+import AnalyticsInterfaces
+
+public class Analytics: AnalyticsProtocol {
+    
+    public init() {}
+    
+    public func track(tag: String) {
+        debugPrint("+++++ ANALYTICS: \(tag)")
     }
 }
