@@ -2,7 +2,7 @@ plugins {
     id 'kotlin'
 }
 
-group = "com.auto.service"
+group = "com.github.vinisauter.auto-service"
 version = "1.0-SNAPSHOT"
 
 sourceSets {
