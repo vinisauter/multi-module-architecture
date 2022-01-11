@@ -3,65 +3,32 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C48B507278DB698005B581A /* Analytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0C48B506278DB698005B581A /* Analytics */; };
+		0C48B509278DB69E005B581A /* AnalyticsInterface in Frameworks */ = {isa = PBXBuildFile; productRef = 0C48B508278DB69E005B581A /* AnalyticsInterface */; };
+		0C48B50B278DB6A4005B581A /* AppSecurity in Frameworks */ = {isa = PBXBuildFile; productRef = 0C48B50A278DB6A4005B581A /* AppSecurity */; };
+		0C48B50D278DB6A9005B581A /* AppSecurityInterfaces in Frameworks */ = {isa = PBXBuildFile; productRef = 0C48B50C278DB6A9005B581A /* AppSecurityInterfaces */; };
+		0C48B50F278DB6B2005B581A /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 0C48B50E278DB6B2005B581A /* Core */; };
+		0C48B511278DB6B6005B581A /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = 0C48B510278DB6B6005B581A /* Home */; };
+		0C48B513278DB6BC005B581A /* Login in Frameworks */ = {isa = PBXBuildFile; productRef = 0C48B512278DB6BC005B581A /* Login */; };
+		0C48B515278DB6C1005B581A /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 0C48B514278DB6C1005B581A /* Networking */; };
+		0C48B517278DB6C7005B581A /* NetworkingInterfaces in Frameworks */ = {isa = PBXBuildFile; productRef = 0C48B516278DB6C7005B581A /* NetworkingInterfaces */; };
+		0C48B519278DB6CE005B581A /* Profile in Frameworks */ = {isa = PBXBuildFile; productRef = 0C48B518278DB6CE005B581A /* Profile */; };
 		421ECFC127396FBA00BD353C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421ECFC027396FBA00BD353C /* AppDelegate.swift */; };
 		421ECFC527396FBA00BD353C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421ECFC427396FBA00BD353C /* WelcomeViewController.swift */; };
 		421ECFC827396FBA00BD353C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 421ECFC627396FBA00BD353C /* Main.storyboard */; };
 		421ECFCA27396FBC00BD353C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 421ECFC927396FBC00BD353C /* Assets.xcassets */; };
 		421ECFCD27396FBC00BD353C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 421ECFCB27396FBC00BD353C /* LaunchScreen.storyboard */; };
-		593F263F2739D63000B34547 /* Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 593F263A2739D63000B34547 /* Home.framework */; };
-		593F26402739D63000B34547 /* Home.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 593F263A2739D63000B34547 /* Home.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		593F26412739D63000B34547 /* Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 593F263B2739D63000B34547 /* Login.framework */; };
-		593F26422739D63000B34547 /* Login.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 593F263B2739D63000B34547 /* Login.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		593F26432739D63000B34547 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 593F263C2739D63000B34547 /* Networking.framework */; };
-		593F26442739D63000B34547 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 593F263C2739D63000B34547 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		593F26452739D63000B34547 /* NetworkingInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 593F263D2739D63000B34547 /* NetworkingInterfaces.framework */; };
-		593F26462739D63000B34547 /* NetworkingInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 593F263D2739D63000B34547 /* NetworkingInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		593F26472739D63000B34547 /* Profile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 593F263E2739D63000B34547 /* Profile.framework */; };
-		593F26482739D63000B34547 /* Profile.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 593F263E2739D63000B34547 /* Profile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59644E22273AA19000B3A865 /* StructuralDependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59644E21273AA19000B3A865 /* StructuralDependencyProvider.swift */; };
 		5993F7A9273D852E00B3A695 /* LoginHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5993F7A8273D852E00B3A695 /* LoginHandler.swift */; };
 		5993F7AB273D856C00B3A695 /* HomeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5993F7AA273D856C00B3A695 /* HomeHandler.swift */; };
 		5993F7AD273D85BE00B3A695 /* ProfileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5993F7AC273D85BE00B3A695 /* ProfileHandler.swift */; };
-		59C82C45273BFF8D00E84149 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C82C44273BFF8D00E84149 /* Core.framework */; };
-		59C82C46273BFF8D00E84149 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59C82C44273BFF8D00E84149 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		59D154472768DCD400459773 /* AppSecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D154452768DCD400459773 /* AppSecurity.framework */; };
-		59D154482768DCD400459773 /* AppSecurity.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59D154452768DCD400459773 /* AppSecurity.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		59D154492768DCD400459773 /* AppSecurityInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D154462768DCD400459773 /* AppSecurityInterfaces.framework */; };
-		59D1544A2768DCD400459773 /* AppSecurityInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59D154462768DCD400459773 /* AppSecurityInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59D1544D2768DD5700459773 /* NetworkingDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D1544C2768DD5700459773 /* NetworkingDependency.swift */; };
 		59EABE5427466FB4007E653F /* LoginAnalyticsProfileAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EABE5327466FB4007E653F /* LoginAnalyticsProfileAdapter.swift */; };
-		59FAED78273D9E2B00C18E6E /* Analytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED76273D9E2B00C18E6E /* Analytics.framework */; };
-		59FAED79273D9E2B00C18E6E /* Analytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED76273D9E2B00C18E6E /* Analytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		59FAED7A273D9E2B00C18E6E /* AnalyticsInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED77273D9E2B00C18E6E /* AnalyticsInterfaces.framework */; };
-		59FAED7B273D9E2B00C18E6E /* AnalyticsInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED77273D9E2B00C18E6E /* AnalyticsInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		421ECFF3273972A100BD353C /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				593F26402739D63000B34547 /* Home.framework in Embed Frameworks */,
-				593F26482739D63000B34547 /* Profile.framework in Embed Frameworks */,
-				59C82C46273BFF8D00E84149 /* Core.framework in Embed Frameworks */,
-				59FAED79273D9E2B00C18E6E /* Analytics.framework in Embed Frameworks */,
-				593F26462739D63000B34547 /* NetworkingInterfaces.framework in Embed Frameworks */,
-				59D154482768DCD400459773 /* AppSecurity.framework in Embed Frameworks */,
-				59D1544A2768DCD400459773 /* AppSecurityInterfaces.framework in Embed Frameworks */,
-				59FAED7B273D9E2B00C18E6E /* AnalyticsInterfaces.framework in Embed Frameworks */,
-				593F26422739D63000B34547 /* Login.framework in Embed Frameworks */,
-				593F26442739D63000B34547 /* Networking.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		421ECFBD27396FBA00BD353C /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,16 +63,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				593F263F2739D63000B34547 /* Home.framework in Frameworks */,
-				593F26472739D63000B34547 /* Profile.framework in Frameworks */,
-				59C82C45273BFF8D00E84149 /* Core.framework in Frameworks */,
-				59FAED78273D9E2B00C18E6E /* Analytics.framework in Frameworks */,
-				593F26452739D63000B34547 /* NetworkingInterfaces.framework in Frameworks */,
-				59D154472768DCD400459773 /* AppSecurity.framework in Frameworks */,
-				59D154492768DCD400459773 /* AppSecurityInterfaces.framework in Frameworks */,
-				59FAED7A273D9E2B00C18E6E /* AnalyticsInterfaces.framework in Frameworks */,
-				593F26412739D63000B34547 /* Login.framework in Frameworks */,
-				593F26432739D63000B34547 /* Networking.framework in Frameworks */,
+				0C48B515278DB6C1005B581A /* Networking in Frameworks */,
+				0C48B513278DB6BC005B581A /* Login in Frameworks */,
+				0C48B519278DB6CE005B581A /* Profile in Frameworks */,
+				0C48B50B278DB6A4005B581A /* AppSecurity in Frameworks */,
+				0C48B507278DB698005B581A /* Analytics in Frameworks */,
+				0C48B50F278DB6B2005B581A /* Core in Frameworks */,
+				0C48B517278DB6C7005B581A /* NetworkingInterfaces in Frameworks */,
+				0C48B50D278DB6A9005B581A /* AppSecurityInterfaces in Frameworks */,
+				0C48B509278DB69E005B581A /* AnalyticsInterface in Frameworks */,
+				0C48B511278DB6B6005B581A /* Home in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,13 +176,24 @@
 				421ECFB927396FBA00BD353C /* Sources */,
 				421ECFBA27396FBA00BD353C /* Frameworks */,
 				421ECFBB27396FBA00BD353C /* Resources */,
-				421ECFF3273972A100BD353C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = App;
+			packageProductDependencies = (
+				0C48B506278DB698005B581A /* Analytics */,
+				0C48B508278DB69E005B581A /* AnalyticsInterface */,
+				0C48B50A278DB6A4005B581A /* AppSecurity */,
+				0C48B50C278DB6A9005B581A /* AppSecurityInterfaces */,
+				0C48B50E278DB6B2005B581A /* Core */,
+				0C48B510278DB6B6005B581A /* Home */,
+				0C48B512278DB6BC005B581A /* Login */,
+				0C48B514278DB6C1005B581A /* Networking */,
+				0C48B516278DB6C7005B581A /* NetworkingInterfaces */,
+				0C48B518278DB6CE005B581A /* Profile */,
+			);
 			productName = "Initial-POC";
 			productReference = 421ECFBD27396FBA00BD353C /* App.app */;
 			productType = "com.apple.product-type.application";
@@ -481,6 +459,49 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0C48B506278DB698005B581A /* Analytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Analytics;
+		};
+		0C48B508278DB69E005B581A /* AnalyticsInterface */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AnalyticsInterface;
+		};
+		0C48B50A278DB6A4005B581A /* AppSecurity */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppSecurity;
+		};
+		0C48B50C278DB6A9005B581A /* AppSecurityInterfaces */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppSecurityInterfaces;
+		};
+		0C48B50E278DB6B2005B581A /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Core;
+		};
+		0C48B510278DB6B6005B581A /* Home */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Home;
+		};
+		0C48B512278DB6BC005B581A /* Login */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Login;
+		};
+		0C48B514278DB6C1005B581A /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+		0C48B516278DB6C7005B581A /* NetworkingInterfaces */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkingInterfaces;
+		};
+		0C48B518278DB6CE005B581A /* Profile */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Profile;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 421ECFB527396FBA00BD353C /* Project object */;
 }

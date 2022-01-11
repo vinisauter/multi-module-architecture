@@ -46,37 +46,4 @@
          </FileRef>
       </Group>
    </Group>
-   <Group
-      location = "container:"
-      name = "Modules">
-      <Group
-         location = "container:"
-         name = "Journey">
-         <FileRef
-            location = "group:Modules/Journey/Login/Login.xcodeproj">
-         </FileRef>
-         <FileRef
-            location = "group:Modules/Journey/Home/Home.xcodeproj">
-         </FileRef>
-         <FileRef
-            location = "group:Modules/Journey/Profile/Profile.xcodeproj">
-         </FileRef>
-      </Group>
-      <Group
-         location = "container:"
-         name = "Structural">
-         <FileRef
-            location = "group:Modules/Structural/AppSecurity/AppSecurity.xcodeproj">
-         </FileRef>
-         <FileRef
-            location = "group:Modules/Structural/Core/Core.xcodeproj">
-         </FileRef>
-         <FileRef
-            location = "group:Modules/Structural/Networking/Networking.xcodeproj">
-         </FileRef>
-         <FileRef
-            location = "group:Modules/Structural/Analytics/Analytics.xcodeproj">
-         </FileRef>
-      </Group>
-   </Group>
 </Workspace>
