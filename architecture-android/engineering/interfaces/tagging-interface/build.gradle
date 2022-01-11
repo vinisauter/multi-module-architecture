@@ -3,7 +3,8 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-parcelize'
 }
-
+group = "com.github.vinisauter.interfaces"
+version = "1.0.0"
 android {
     compileSdk 31
 

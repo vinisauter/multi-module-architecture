@@ -2,7 +2,8 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
 }
-
+group = "com.github.vinisauter.interfaces"
+version = "1.0.0"
 android {
     compileSdk 31
 
