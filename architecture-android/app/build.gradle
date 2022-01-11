@@ -42,6 +42,10 @@ android {
             ':modules:journey:home',
             ':modules:journey:profile',
 
+            //TODO: can be moved to engineering:provider?
+            // maybe kotlin
+            // maybe script
+            // maybe plugin import
             ':modules:structural:networking',
             ':modules:structural:networkingsecure',
             ':modules:structural:networkingsecurev2',
@@ -52,15 +56,11 @@ android {
 }
 
 dependencies {
-    api project(path: ':libraries:auto-service:annotations')
+    api project(path: ':libraries:auto-service:android')
     ksp project(path: ':libraries:auto-service:processor')
     api project(path: ':libraries:bug-finder')
-    api project(path: ':libraries:injection')
 
-    api project(path: ':engineering:interfaces:networking-interface')
-    api project(path: ':engineering:interfaces:storage-interface')
-    api project(path: ':engineering:interfaces:tagging-interface')
-    api project(path: ':engineering:interfaces:security-interface')
+    api project(path: ':engineering:provider')
 
     api 'androidx.core:core-ktx:1.7.0'
     api 'androidx.activity:activity-ktx:1.4.0'

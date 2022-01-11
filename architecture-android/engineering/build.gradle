@@ -1,0 +1,46 @@
+//plugins {
+//    id 'kotlin'
+//    id 'maven-publish'
+//}
+//
+//repositories {
+//    google()
+//    mavenCentral()
+//    maven { url "https://artifactory.it4ng.eu/virtual" }
+//    maven { url "https://jitpack.io" }
+//}
+//
+//dependencies {
+//    api 'androidx.core:core-ktx:1.7.0'
+//    api 'com.google.android.play:core-ktx:1.8.1'
+//}
+//
+//publishing {
+//    publications {
+//        maven(MavenPublication) {
+//            groupId = 'me.next'
+//            artifactId = 'app'
+//            version = '1.0.0'
+//            pom.withXml {
+//                asNode().children().last() + {
+//                    resolveStrategy = Closure.DELEGATE_FIRST
+//                    name 'NEXT APP BOM'
+//                    description 'NEXT APP Bill of Materials (BOM)'
+//                    dependencyManagement {
+//                        dependencies {
+//                            project.configurations.each { conf ->
+//                                conf.dependencies.each { dep ->
+//                                    dependency {
+//                                        groupId "${dep.group}"
+//                                        artifactId "${dep.name}"
+//                                        version "${dep.version}"
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}

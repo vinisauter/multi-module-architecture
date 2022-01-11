@@ -7,7 +7,6 @@ import android.content.Context
 import android.injection.get
 import android.injection.provides
 import com.auto.service.load
-import com.example.app.SuperApplication
 import com.example.networking.RequestExecutor
 import com.example.security.SecurityExecutor
 import com.example.storage.StorageExecutor
@@ -25,6 +24,8 @@ import com.example.tagging.TaggingExecutor
 //    <dist:delivery>
 //        <dist:on-demand />
 //    </dist:delivery>
+
+//  TODO: Can be auto generated (KSP)?
 object StructuralProvider {
     private fun featureFlag(flag: String): Boolean {
         return false// TODO: MOCK to structural FeatureFlag module
@@ -59,9 +60,8 @@ object StructuralProvider {
         }
     }
 
-    fun start(app: SuperApplication) {
+    fun start(app: Application) {
         provides {
-            declare<SuperApplication> { app }
             declare<Application> { app }
             declare<Context> { app }
 

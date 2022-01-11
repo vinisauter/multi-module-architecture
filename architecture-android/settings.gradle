@@ -30,6 +30,7 @@ include ':engineering:interfaces:networking-interface'
 include ':engineering:interfaces:storage-interface'
 include ':engineering:interfaces:tagging-interface'
 include ':engineering:interfaces:security-interface'
+include ':engineering:provider'
 include ':engineering:implementations'
 include ':engineering:implementations:networkingsecurev2'
 
