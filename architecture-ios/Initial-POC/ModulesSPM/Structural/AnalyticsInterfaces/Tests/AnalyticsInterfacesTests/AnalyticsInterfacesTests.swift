@@ -1,11 +1,11 @@
 import XCTest
-@testable import AnalyticsInterface
+@testable import AnalyticsInterfaces
 
-final class AnalyticsInterfaceTests: XCTestCase {
+final class AnalyticsInterfacesTests: XCTestCase {
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(AnalyticsInterface().text, "Hello, World!")
+        XCTAssertEqual(AnalyticsInterfaces().text, "Hello, World!")
     }
 }

@@ -11,10 +11,10 @@
          location = "container:"
          name = "Structural">
          <FileRef
-            location = "group:ModulesSPM/Structural/Analytics">
+            location = "group:ModulesSPM/Structural/AnalyticsInterfaces">
          </FileRef>
          <FileRef
-            location = "group:ModulesSPM/Structural/AnalyticsInterface">
+            location = "group:ModulesSPM/Structural/Analytics">
          </FileRef>
          <FileRef
             location = "group:ModulesSPM/Structural/AppSecurity">

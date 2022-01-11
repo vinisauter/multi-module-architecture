@@ -6,6 +6,7 @@
 //
 
 import NetworkingInterfaces
+import Foundation
 
 public final class LibTwoHTTPClient: HTTPClientProtocol {
     public func get(_ url: String, completion: @escaping (String) -> Void) {

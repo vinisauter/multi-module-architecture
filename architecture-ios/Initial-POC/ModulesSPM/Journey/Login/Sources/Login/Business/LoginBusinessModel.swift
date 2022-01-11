@@ -7,6 +7,7 @@
 
 import Core
 import AnalyticsInterfaces
+import Foundation
 
 public protocol LoginAnalyticsProtocol {
     var structuralAnalytics: AnalyticsProtocol? { get }

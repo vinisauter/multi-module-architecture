@@ -6,6 +6,7 @@
 //
 
 import NetworkingInterfaces
+import Foundation
 
 public final class LibOneHTTPClient: HTTPClientProtocol {
     
