@@ -29,19 +29,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    sourceSets.all {
-        it.java.srcDir("build/generated/ksp/${it.name}/kotlin/")
-        it.res.srcDirs("build/generated/ksp/${it.name}/resources/")
-    }
     dynamicFeatures = [
             ':modules:journey:login',
             ':modules:journey:home',
             ':modules:journey:profile',
 
+            //TODO: can be moved to engineering:provider?
+            // maybe kotlin
+            // maybe script
+            // maybe plugin import
             ':modules:structural:networking',
             ':modules:structural:networkingsecure',
             ':modules:structural:networkingsecurev2',
@@ -52,11 +48,17 @@ android {
 }
 
 dependencies {
-    api project(path: ':libraries:auto-service:annotations')
+//    api 'com.github.vinisauter.auto-service:android:androidV1-SNAPSHOT'
+//    ksp 'com.github.vinisauter.auto-service:processor:androidV1-SNAPSHOT'
+    api project(path: ':libraries:auto-service:android')
     ksp project(path: ':libraries:auto-service:processor')
     api project(path: ':libraries:bug-finder')
     api project(path: ':libraries:injection')
 
+//    api 'com.github.vinisauter.interfaces:networking-interface:androidV1-SNAPSHOT'
+//    api 'com.github.vinisauter.interfaces:storage-interface:androidV1-SNAPSHOT'
+//    api 'com.github.vinisauter.interfaces:tagging-interface:androidV1-SNAPSHOT'
+//    api 'com.github.vinisauter.interfaces:security-interface:androidV1-SNAPSHOT'
     api project(path: ':engineering:interfaces:networking-interface')
     api project(path: ':engineering:interfaces:storage-interface')
     api project(path: ':engineering:interfaces:tagging-interface')
