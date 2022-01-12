@@ -28,9 +28,6 @@
          <FileRef
             location = "group:ModulesSPM/Structural/Networking">
          </FileRef>
-         <FileRef
-            location = "group:ModulesSPM/Structural/NetworkingInterfaces">
-         </FileRef>
       </Group>
       <Group
          location = "container:"

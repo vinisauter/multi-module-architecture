@@ -13,7 +13,7 @@ let package = Package(
             targets: ["Networking"]),
     ],
     dependencies: [
-        .package(path: "../NetworkingInterfaces"),
+        .package(url: "https://github.com/brunoccy/NetworkingInterfaces.git", .branch("main")),
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
     ],

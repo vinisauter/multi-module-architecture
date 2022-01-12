@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "NetworkingInterfaces",
+        "repositoryURL": "https://github.com/brunoccy/NetworkingInterfaces.git",
+        "state": {
+          "branch": "main",
+          "revision": "d49e79fd5ff8675693f445cd049d95151d4d46bd",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

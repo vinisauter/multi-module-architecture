@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C334520278E639D0070A31D /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 0C33451F278E639D0070A31D /* Core */; };
 		0C48B507278DB698005B581A /* Analytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0C48B506278DB698005B581A /* Analytics */; };
 		0C48B50B278DB6A4005B581A /* AppSecurity in Frameworks */ = {isa = PBXBuildFile; productRef = 0C48B50A278DB6A4005B581A /* AppSecurity */; };
 		0C48B50D278DB6A9005B581A /* AppSecurityInterfaces in Frameworks */ = {isa = PBXBuildFile; productRef = 0C48B50C278DB6A9005B581A /* AppSecurityInterfaces */; };
-		0C48B50F278DB6B2005B581A /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 0C48B50E278DB6B2005B581A /* Core */; };
 		0C48B511278DB6B6005B581A /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = 0C48B510278DB6B6005B581A /* Home */; };
 		0C48B513278DB6BC005B581A /* Login in Frameworks */ = {isa = PBXBuildFile; productRef = 0C48B512278DB6BC005B581A /* Login */; };
 		0C48B515278DB6C1005B581A /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 0C48B514278DB6C1005B581A /* Networking */; };
-		0C48B517278DB6C7005B581A /* NetworkingInterfaces in Frameworks */ = {isa = PBXBuildFile; productRef = 0C48B516278DB6C7005B581A /* NetworkingInterfaces */; };
 		0C48B519278DB6CE005B581A /* Profile in Frameworks */ = {isa = PBXBuildFile; productRef = 0C48B518278DB6CE005B581A /* Profile */; };
 		0C898871278DD189004556E6 /* AnalyticsInterfaces in Frameworks */ = {isa = PBXBuildFile; productRef = 0C898870278DD189004556E6 /* AnalyticsInterfaces */; };
+		0CE31093278E6272006DFA93 /* NetworkingInterfaces in Frameworks */ = {isa = PBXBuildFile; productRef = 0CE31092278E6272006DFA93 /* NetworkingInterfaces */; };
 		421ECFC127396FBA00BD353C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421ECFC027396FBA00BD353C /* AppDelegate.swift */; };
 		421ECFC527396FBA00BD353C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421ECFC427396FBA00BD353C /* WelcomeViewController.swift */; };
 		421ECFC827396FBA00BD353C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 421ECFC627396FBA00BD353C /* Main.storyboard */; };
@@ -65,12 +65,12 @@
 			files = (
 				0C48B515278DB6C1005B581A /* Networking in Frameworks */,
 				0C48B513278DB6BC005B581A /* Login in Frameworks */,
+				0CE31093278E6272006DFA93 /* NetworkingInterfaces in Frameworks */,
+				0C334520278E639D0070A31D /* Core in Frameworks */,
 				0C48B519278DB6CE005B581A /* Profile in Frameworks */,
 				0C898871278DD189004556E6 /* AnalyticsInterfaces in Frameworks */,
 				0C48B50B278DB6A4005B581A /* AppSecurity in Frameworks */,
 				0C48B507278DB698005B581A /* Analytics in Frameworks */,
-				0C48B50F278DB6B2005B581A /* Core in Frameworks */,
-				0C48B517278DB6C7005B581A /* NetworkingInterfaces in Frameworks */,
 				0C48B50D278DB6A9005B581A /* AppSecurityInterfaces in Frameworks */,
 				0C48B511278DB6B6005B581A /* Home in Frameworks */,
 			);
@@ -186,13 +186,13 @@
 				0C48B506278DB698005B581A /* Analytics */,
 				0C48B50A278DB6A4005B581A /* AppSecurity */,
 				0C48B50C278DB6A9005B581A /* AppSecurityInterfaces */,
-				0C48B50E278DB6B2005B581A /* Core */,
 				0C48B510278DB6B6005B581A /* Home */,
 				0C48B512278DB6BC005B581A /* Login */,
 				0C48B514278DB6C1005B581A /* Networking */,
-				0C48B516278DB6C7005B581A /* NetworkingInterfaces */,
 				0C48B518278DB6CE005B581A /* Profile */,
 				0C898870278DD189004556E6 /* AnalyticsInterfaces */,
+				0CE31092278E6272006DFA93 /* NetworkingInterfaces */,
+				0C33451F278E639D0070A31D /* Core */,
 			);
 			productName = "Initial-POC";
 			productReference = 421ECFBD27396FBA00BD353C /* App.app */;
@@ -221,6 +221,9 @@
 				Base,
 			);
 			mainGroup = 421ECFB427396FBA00BD353C;
+			packageReferences = (
+				0CE31091278E6272006DFA93 /* XCRemoteSwiftPackageReference "NetworkingInterfaces" */,
+			);
 			productRefGroup = 421ECFBE27396FBA00BD353C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -460,7 +463,22 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		0CE31091278E6272006DFA93 /* XCRemoteSwiftPackageReference "NetworkingInterfaces" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/brunoccy/NetworkingInterfaces.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		0C33451F278E639D0070A31D /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Core;
+		};
 		0C48B506278DB698005B581A /* Analytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Analytics;
@@ -472,10 +490,6 @@
 		0C48B50C278DB6A9005B581A /* AppSecurityInterfaces */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppSecurityInterfaces;
-		};
-		0C48B50E278DB6B2005B581A /* Core */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Core;
 		};
 		0C48B510278DB6B6005B581A /* Home */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -489,10 +503,6 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Networking;
 		};
-		0C48B516278DB6C7005B581A /* NetworkingInterfaces */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = NetworkingInterfaces;
-		};
 		0C48B518278DB6CE005B581A /* Profile */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Profile;
@@ -500,6 +510,11 @@
 		0C898870278DD189004556E6 /* AnalyticsInterfaces */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AnalyticsInterfaces;
+		};
+		0CE31092278E6272006DFA93 /* NetworkingInterfaces */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CE31091278E6272006DFA93 /* XCRemoteSwiftPackageReference "NetworkingInterfaces" */;
+			productName = NetworkingInterfaces;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
