@@ -37,7 +37,8 @@ public class ChipLauncher {
         
         let businessModel = ChipBusinessModel(repository: chipAPI, structuralAnalytics: dependencies.structuralDependencies.analytics)
         
-        let factory = ChipViewControllerFactory(businessModel: businessModel, analytics: dependencies.customChipAnalytics ?? businessModel)
+        
+        let factory = ChipViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependencies.customChipAnalytics )
         
         let deepLink = Deeplink(value: ChipDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink)
         

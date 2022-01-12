@@ -11,7 +11,7 @@ class ChipViewControllerFactory: BaseViewControllerFactory<ChipBusinessModel, Ch
         
     func makeChipViewController(flow: ChipHomeFlowProtocol?) -> ChipViewController {
         
-        let analyticsCustom = analytics as? ChipAnalyticsProtocol
+        let analyticsCustom = defaultAnalytics as? ChipAnalyticsProtocol
         let flowDelegate = flow as? ChipFlowProtocol
 
         let chipVM = ChipViewModel(businessModel: businessModel,

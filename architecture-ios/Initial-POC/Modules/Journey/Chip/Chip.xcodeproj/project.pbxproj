@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,7 +20,6 @@
 		234AEB172773B12900990EA5 /* ChipFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 234AEAD82773AC8000990EA5 /* ChipFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		234AEB1F2773B16500990EA5 /* NetworkingDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234AEB1E2773B16500990EA5 /* NetworkingDependency.swift */; };
 		234AEB392773B71B00990EA5 /* ChipHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234AEB382773B71B00990EA5 /* ChipHandler.swift */; };
-		234AEB3C2773B75A00990EA5 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 234AEB3B2773B75A00990EA5 /* Core.framework */; };
 		234AEB3F2773B7D500990EA5 /* ChipLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234AEB3E2773B7D500990EA5 /* ChipLauncher.swift */; };
 		234AEB442773B84700990EA5 /* ChipRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234AEB432773B84700990EA5 /* ChipRepositoryProtocol.swift */; };
 		234AEB482773B85E00990EA5 /* ChipAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234AEB472773B85E00990EA5 /* ChipAPI.swift */; };
@@ -35,6 +34,8 @@
 		2388CC082775061200F44D8D /* ProfileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2388CC072775061200F44D8D /* ProfileHandler.swift */; };
 		2388CC0B2775063200F44D8D /* Profile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2388CC0A2775063200F44D8D /* Profile.framework */; };
 		23D268AD2774A0FA009C6039 /* ChipFlowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D268AC2774A0FA009C6039 /* ChipFlowProtocol.swift */; };
+		23E65A92278F1B09003CBDE5 /* Core.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E65A91278F1B09003CBDE5 /* Core.xcframework */; };
+		23E65A93278F1B09003CBDE5 /* Core.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23E65A91278F1B09003CBDE5 /* Core.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				23E65A93278F1B09003CBDE5 /* Core.xcframework in Embed Frameworks */,
 				234AEB172773B12900990EA5 /* ChipFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -93,6 +95,7 @@
 		2388CC072775061200F44D8D /* ProfileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHandler.swift; sourceTree = "<group>"; };
 		2388CC0A2775063200F44D8D /* Profile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Profile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23D268AC2774A0FA009C6039 /* ChipFlowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipFlowProtocol.swift; sourceTree = "<group>"; };
+		23E65A91278F1B09003CBDE5 /* Core.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Core.xcframework; path = ../../../Carthage/Build/Core.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +103,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23E65A92278F1B09003CBDE5 /* Core.xcframework in Frameworks */,
 				2388CC0B2775063200F44D8D /* Profile.framework in Frameworks */,
-				234AEB3C2773B75A00990EA5 /* Core.framework in Frameworks */,
 				234AEB0F2773B0CD00990EA5 /* AppSecurityInterfaces.framework in Frameworks */,
 				234AEB082773B0BF00990EA5 /* AppSecurity.framework in Frameworks */,
 				234AEB032773B07500990EA5 /* Analytics.framework in Frameworks */,
@@ -189,6 +192,7 @@
 		234AEAEE2773AF5B00990EA5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				23E65A91278F1B09003CBDE5 /* Core.xcframework */,
 				2388CC0A2775063200F44D8D /* Profile.framework */,
 				234AEB3B2773B75A00990EA5 /* Core.framework */,
 				234AEB0E2773B0CD00990EA5 /* AppSecurityInterfaces.framework */,

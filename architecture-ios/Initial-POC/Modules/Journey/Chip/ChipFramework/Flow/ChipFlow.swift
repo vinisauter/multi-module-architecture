@@ -8,14 +8,14 @@
 import UIKit
 import Core
 
-protocol ChipHomeFlowProtocol: class {
+protocol ChipHomeFlowProtocol: AnyObject {
     var factory: ChipViewControllerFactory { get }
     var delegate: ChipFlowDelegate? { get set }
     var deeplink: Deeplink<ChipDeeplink>? { get set }
     func start() -> UIViewController
 }
 
-public protocol ChipFlowDelegate: class {
+public protocol ChipFlowDelegate: AnyObject {
     func goToProfile(from flow: Flow, in controller: UIViewController, with value: Any?)
 }
 

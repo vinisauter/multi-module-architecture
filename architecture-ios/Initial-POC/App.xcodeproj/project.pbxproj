@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23E65A95278F1B9D003CBDE5 /* Core.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E65A94278F1B9D003CBDE5 /* Core.xcframework */; };
+		23E65A96278F1B9D003CBDE5 /* Core.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23E65A94278F1B9D003CBDE5 /* Core.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		421ECFC127396FBA00BD353C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421ECFC027396FBA00BD353C /* AppDelegate.swift */; };
 		421ECFC527396FBA00BD353C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421ECFC427396FBA00BD353C /* WelcomeViewController.swift */; };
 		421ECFC827396FBA00BD353C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 421ECFC627396FBA00BD353C /* Main.storyboard */; };
@@ -26,8 +28,6 @@
 		5993F7A9273D852E00B3A695 /* LoginHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5993F7A8273D852E00B3A695 /* LoginHandler.swift */; };
 		5993F7AB273D856C00B3A695 /* HomeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5993F7AA273D856C00B3A695 /* HomeHandler.swift */; };
 		5993F7AD273D85BE00B3A695 /* ProfileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5993F7AC273D85BE00B3A695 /* ProfileHandler.swift */; };
-		59C82C45273BFF8D00E84149 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C82C44273BFF8D00E84149 /* Core.framework */; };
-		59C82C46273BFF8D00E84149 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59C82C44273BFF8D00E84149 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59D154472768DCD400459773 /* AppSecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D154452768DCD400459773 /* AppSecurity.framework */; };
 		59D154482768DCD400459773 /* AppSecurity.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59D154452768DCD400459773 /* AppSecurity.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59D154492768DCD400459773 /* AppSecurityInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D154462768DCD400459773 /* AppSecurityInterfaces.framework */; };
@@ -49,11 +49,11 @@
 			files = (
 				593F26402739D63000B34547 /* Home.framework in Embed Frameworks */,
 				593F26482739D63000B34547 /* Profile.framework in Embed Frameworks */,
-				59C82C46273BFF8D00E84149 /* Core.framework in Embed Frameworks */,
 				59FAED79273D9E2B00C18E6E /* Analytics.framework in Embed Frameworks */,
 				593F26462739D63000B34547 /* NetworkingInterfaces.framework in Embed Frameworks */,
 				59D154482768DCD400459773 /* AppSecurity.framework in Embed Frameworks */,
 				59D1544A2768DCD400459773 /* AppSecurityInterfaces.framework in Embed Frameworks */,
+				23E65A96278F1B9D003CBDE5 /* Core.xcframework in Embed Frameworks */,
 				59FAED7B273D9E2B00C18E6E /* AnalyticsInterfaces.framework in Embed Frameworks */,
 				593F26422739D63000B34547 /* Login.framework in Embed Frameworks */,
 				593F26442739D63000B34547 /* Networking.framework in Embed Frameworks */,
@@ -64,6 +64,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		23E65A94278F1B9D003CBDE5 /* Core.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Core.xcframework; path = Carthage/Build/Core.xcframework; sourceTree = "<group>"; };
 		421ECFBD27396FBA00BD353C /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		421ECFC027396FBA00BD353C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		421ECFC427396FBA00BD353C /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -98,11 +99,11 @@
 			files = (
 				593F263F2739D63000B34547 /* Home.framework in Frameworks */,
 				593F26472739D63000B34547 /* Profile.framework in Frameworks */,
-				59C82C45273BFF8D00E84149 /* Core.framework in Frameworks */,
 				59FAED78273D9E2B00C18E6E /* Analytics.framework in Frameworks */,
 				593F26452739D63000B34547 /* NetworkingInterfaces.framework in Frameworks */,
 				59D154472768DCD400459773 /* AppSecurity.framework in Frameworks */,
 				59D154492768DCD400459773 /* AppSecurityInterfaces.framework in Frameworks */,
+				23E65A95278F1B9D003CBDE5 /* Core.xcframework in Frameworks */,
 				59FAED7A273D9E2B00C18E6E /* AnalyticsInterfaces.framework in Frameworks */,
 				593F26412739D63000B34547 /* Login.framework in Frameworks */,
 				593F26432739D63000B34547 /* Networking.framework in Frameworks */,
@@ -149,6 +150,7 @@
 		421ED0C12739758400BD353C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				23E65A94278F1B9D003CBDE5 /* Core.xcframework */,
 				59D154452768DCD400459773 /* AppSecurity.framework */,
 				59D154462768DCD400459773 /* AppSecurityInterfaces.framework */,
 				59FAED76273D9E2B00C18E6E /* Analytics.framework */,

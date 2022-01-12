@@ -1,0 +1,28 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "d87302dc1e4c6ff49b8cff67b5f0d593ab42b593",
+  "iOS" : [
+    {
+      "swiftToolchainVersion" : "5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)",
+      "hash" : "d71fcfae21a3e28b1b35267c1ed109e3e2921d79c92d70bbe665dec731ddca54",
+      "name" : "Core",
+      "container" : "Core.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator"
+    },
+    {
+      "swiftToolchainVersion" : "5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)",
+      "hash" : "4258ba88bd78a8ae55197650ad31eb8ce502d72059ccf4d22a078d86b3cd1cc4",
+      "name" : "Core",
+      "container" : "Core.xcframework",
+      "identifier" : "ios-arm64"
+    }
+  ]
+}

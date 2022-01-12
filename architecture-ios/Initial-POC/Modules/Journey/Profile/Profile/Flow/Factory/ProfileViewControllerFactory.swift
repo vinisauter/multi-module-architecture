@@ -11,7 +11,7 @@ public class ProfileViewControllerFactory: BaseViewControllerFactory<ProfileBusi
     weak var flow: ProfileFlowProtocol?
     
     func makeProfileHomeViewController(isIndex: Bool = false) -> ProfileHomeViewController {
-        let viewModel = ProfileHomeViewModel(businessModel: businessModel, analytics: analytics as? ProfileHomeAnalyticsProtocol, flowDelegate: flow as? ProfileHomeFlowDelegate)
+        let viewModel = ProfileHomeViewModel(businessModel: businessModel, analytics: businessModel, flowDelegate: flow as? ProfileHomeFlowDelegate)
         viewModel.isIndex = isIndex
         return ProfileHomeViewController(viewModel: viewModel)
     }
