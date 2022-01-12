@@ -1,25 +1,11 @@
 plugins {
-    id "io.spring.dependency-management" version "1.0.0.RC2"
     id 'version-catalog'
     id 'maven-publish'
-}
-
-dependencyManagement {
-    resolveStrategy = Closure.DELEGATE_FIRST
-    dependencies {
-        dependency 'androidx.core:core-ktx:1.7.0'
-        dependency 'androidx.activity:activity-ktx:1.4.0'
-        dependency 'androidx.fragment:fragment-ktx:1.4.0'
-    }
 }
 catalog {
     // declare the aliases, bundles and versions in this block
     versionCatalog {
-//    create("mn") {
-//        from("me.next:next-app-bom:1.0.0")
-//    }
         alias('androidx.core').to('androidx.core:core-ktx:1.7.0')
-        //https://developer.android.com/jetpack/androidx/releases/navigation
         version('androidx.navigation', '2.4.0-rc01')
         alias('navigation.fragment').to('androidx.navigation', 'navigation-fragment-ktx').versionRef('androidx.navigation')
         alias('navigation.ui').to('androidx.navigation', 'navigation-ui-ktx').versionRef('androidx.navigation')
@@ -31,7 +17,7 @@ publishing {
     publications {
         maven(MavenPublication) {
             groupId = 'me.next'
-            artifactId = 'app'
+            artifactId = 'app-catalog'
             version = '1.0.0'
             from components.versionCatalog
         }

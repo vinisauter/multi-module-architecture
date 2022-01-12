@@ -56,9 +56,9 @@ android {
 }
 
 dependencies {
-    api enforcedPlatform(project(path: ':platform'))
-//    api platform('me.next:platform:1.0.0')
-//    api enforcedPlatform('me.next:app:1.0.0')
+    api enforcedPlatform(project(path: ':app-bom'))
+//    api platform('me.next:app-bom:1.0.0')
+//    api enforcedPlatform('me.next:app-bom:1.0.0')
 
     api project(path: ':libraries:auto-service:android')
     ksp project(path: ':libraries:auto-service:processor')
@@ -75,9 +75,9 @@ dependencies {
     api 'com.google.android.material:material'
     api 'com.google.android.play:core-ktx'
 
-    api "androidx.navigation:navigation-fragment-ktx"
-    api "androidx.navigation:navigation-ui-ktx"
-    api "androidx.navigation:navigation-dynamic-features-fragment"
+    api "androidx.navigation:navigation-fragment-ktx:2.4.0-beta02"// -> 2.4.0-rc01
+    api "androidx.navigation:navigation-ui-ktx:2.4.0-beta02"// -> 2.4.0-rc01
+    api "androidx.navigation:navigation-dynamic-features-fragment:2.4.0-beta02"// -> 2.4.0-rc01
 
     testImplementation 'junit:junit'
     androidTestImplementation 'androidx.test.ext:junit'

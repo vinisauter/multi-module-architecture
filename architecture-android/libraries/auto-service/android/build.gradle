@@ -33,7 +33,7 @@ android {
 }
 
 dependencies {
-    implementation enforcedPlatform(project(path: ':platform'))
+    implementation enforcedPlatform(project(path: ':app-bom'))
     implementation 'org.jetbrains.kotlin:kotlin-reflect'
     implementation 'com.google.android.play:core-ktx'
     api project(path: ':libraries:auto-service:annotations')

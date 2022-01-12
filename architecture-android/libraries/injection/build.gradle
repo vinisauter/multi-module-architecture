@@ -31,7 +31,7 @@ android {
 }
 
 dependencies {
-    implementation enforcedPlatform(project(path: ':platform'))
+    implementation enforcedPlatform(project(path: ':app-bom'))
     implementation 'org.jetbrains.kotlin:kotlin-reflect'
     implementation 'androidx.fragment:fragment-ktx'
     implementation 'androidx.activity:activity-ktx'

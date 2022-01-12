@@ -35,7 +35,7 @@ android {
 }
 
 dependencies {
-    implementation enforcedPlatform(project(path: ':platform'))
+    implementation enforcedPlatform(project(path: ':app-bom'))
     api 'androidx.core:core-ktx'
     api 'com.google.android.play:core-ktx'
 

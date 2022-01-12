@@ -30,7 +30,7 @@ android {
 }
 
 dependencies {
-    api enforcedPlatform(project(path: ':platform'))
+    api enforcedPlatform(project(path: ':app-bom'))
     implementation project(path: ':engineering:interfaces:networking-interface')
     testImplementation 'junit:junit'
     androidTestImplementation 'androidx.test.ext:junit'

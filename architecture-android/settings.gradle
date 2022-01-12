@@ -5,7 +5,6 @@ pluginManagement {
         mavenCentral()
     }
 }
-enableFeaturePreview('VERSION_CATALOGS')
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -15,19 +14,11 @@ dependencyResolutionManagement {
         maven { url "https://artifactory.it4ng.eu/virtual" }
         maven { url "https://jitpack.io" }
     }
-    versionCatalogs {
-        libs {
-            alias('androidx.core').to('androidx.core:core-ktx:1.7.0')
-            version('androidx.navigation', '2.4.0-rc01')
-            alias('navigation.fragment').to('androidx.navigation', 'navigation-fragment-ktx').versionRef('androidx.navigation')
-            alias('navigation.ui').to('androidx.navigation', 'navigation-ui-ktx').versionRef('androidx.navigation')
-            alias('navigation.dynamic').to('androidx.navigation', 'navigation-dynamic-features-fragment').versionRef('androidx.navigation')
-            bundle('androidx.navigation', ['navigation.fragment', 'navigation.ui', 'navigation.dynamic'])
-        }
-    }
 }
 rootProject.name = "ModularFeatureArchitecture"
 include ':app'
+include ':app-bom'
+include ':app-catalog'
 include ':libraries'
 include ':libraries:bug-finder'
 include ':libraries:injection'
@@ -35,9 +26,6 @@ include ':libraries:auto-service'
 include ':libraries:auto-service:android'
 include ':libraries:auto-service:annotations'
 include ':libraries:auto-service:processor'
-
-include ':bom'
-include ':platform'
 
 include ':engineering'
 include ':engineering:interfaces'
