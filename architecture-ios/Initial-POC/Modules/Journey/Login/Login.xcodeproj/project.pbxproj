@@ -3,14 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		591DFAD0278CBCD3004D9EE7 /* NetworkingInterfaces.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 591DFAC7278CBC1F004D9EE7 /* NetworkingInterfaces.xcframework */; };
+		591DFAD1278CBCD3004D9EE7 /* NetworkingInterfaces.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 591DFAC7278CBC1F004D9EE7 /* NetworkingInterfaces.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		593F25AD2739D3E000B34547 /* Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59DC83592739D35D00466A21 /* Login.framework */; };
 		593F25AE2739D3E000B34547 /* Login.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59DC83592739D35D00466A21 /* Login.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		593F26372739D58C00B34547 /* NetworkingInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 593F26362739D58C00B34547 /* NetworkingInterfaces.framework */; };
-		593F26382739D58C00B34547 /* NetworkingInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 593F26362739D58C00B34547 /* NetworkingInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		594380EC2739DE180001D840 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594380EB2739DE180001D840 /* Networking.framework */; };
 		594380ED2739DE180001D840 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 594380EB2739DE180001D840 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5958557A273A8F50008E587C /* LoginLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59585579273A8F50008E587C /* LoginLauncher.swift */; };
@@ -80,8 +80,8 @@
 			dstSubfolderSpec = 10;
 			files = (
 				59C82C40273BFF7B00E84149 /* Core.framework in Embed Frameworks */,
+				591DFAD1278CBCD3004D9EE7 /* NetworkingInterfaces.xcframework in Embed Frameworks */,
 				59FAED8D273D9EA800C18E6E /* AnalyticsInterfaces.framework in Embed Frameworks */,
-				593F26382739D58C00B34547 /* NetworkingInterfaces.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,6 +89,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5908558F278CBAB5005F3623 /* NetworkingInterfaces.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = NetworkingInterfaces.xcframework; path = "/Users/nykolasmayko/Documents/multi-module-architecture/architecture-ios/Initial-POC/Modules/Journey/Home/../../../../../../multi-structural-module/structural-ios/Networking/Carthage/Build/NetworkingInterfaces.xcframework"; sourceTree = "<absolute>"; };
+		591DFAC7278CBC1F004D9EE7 /* NetworkingInterfaces.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = NetworkingInterfaces.xcframework; path = ../../../../../Carthage/Build/NetworkingInterfaces.xcframework; sourceTree = "<group>"; };
 		593F26332739D58500B34547 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		593F26362739D58C00B34547 /* NetworkingInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkingInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		594380EB2739DE180001D840 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,8 +138,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				59C82C3F273BFF7B00E84149 /* Core.framework in Frameworks */,
+				591DFAD0278CBCD3004D9EE7 /* NetworkingInterfaces.xcframework in Frameworks */,
 				59FAED8C273D9EA800C18E6E /* AnalyticsInterfaces.framework in Frameworks */,
-				593F26372739D58C00B34547 /* NetworkingInterfaces.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +160,8 @@
 		593F25AC2739D3E000B34547 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5908558F278CBAB5005F3623 /* NetworkingInterfaces.xcframework */,
+				591DFAC7278CBC1F004D9EE7 /* NetworkingInterfaces.xcframework */,
 				597F1C4127564395006320C9 /* Home.framework */,
 				59FAED8B273D9EA800C18E6E /* AnalyticsInterfaces.framework */,
 				59FAED7C273D9E3D00C18E6E /* Analytics.framework */,
