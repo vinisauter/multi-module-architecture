@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Kingfisher
+import SnapKit
 
 public protocol BaseViewControllerProtocol {
     associatedtype ViewModel

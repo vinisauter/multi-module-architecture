@@ -7,6 +7,8 @@
 
 import UIKit
 import Core
+import Kingfisher
+import SnapKit
 
 final class ChipViewController: BaseViewController<ChipViewModelProtocol> {
     
@@ -24,7 +26,6 @@ final class ChipViewController: BaseViewController<ChipViewModelProtocol> {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
     }
     
