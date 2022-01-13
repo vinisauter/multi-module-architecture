@@ -6,7 +6,7 @@ project 'Modules/Journey/Login/Login.xcodeproj'
 project 'Modules/Journey/Home/Home.xcodeproj'
 project 'Modules/Journey/Profile/Profile.xcodeproj'
 
-#source 'https://github.com/nykolasmayko/StructuralSpecs.git' 
+source 'https://github.com/nykolasmayko/StructuralSpecs.git' 
 
 
 
