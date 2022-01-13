@@ -1,5 +1,9 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-buildscript {}
+buildscript {
+    dependencies {
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+    }
+}
 plugins {
     id 'com.google.devtools.ksp' version '1.6.10-1.0.2'
     id 'org.jetbrains.kotlin.android' version '1.6.10' apply false
@@ -8,7 +12,7 @@ plugins {
     id 'com.android.library' version '7.0.4' apply false
     id 'com.android.dynamic-feature' version '7.0.4' apply false
     id 'androidx.navigation.safeargs.kotlin' version '2.4.0-rc01' apply false
-    id 'maven-publish'
+    id 'com.github.dcendents.android-maven' version '2.1' apply false
 }
 
 task clean(type: Delete) {
