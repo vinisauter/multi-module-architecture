@@ -1,13 +1,14 @@
 plugins {
     id 'kotlin'
     id 'com.google.devtools.ksp'
+    id 'maven-publish'
 }
 
 group = "com.github.vinisauter.auto-service"
 version = "1.0-SNAPSHOT"
 
 dependencies {
-    implementation enforcedPlatform(project(path: ':app-bom'))
+    implementation platform(project(path: ':app-bom'))
     implementation project(path: ':libraries:auto-service:annotations')
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
     implementation "com.squareup:javapoet"
@@ -16,4 +17,13 @@ dependencies {
 
 sourceSets {
     main.java.srcDirs += 'src/main/kotlin'
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.github.vinisauter.auto-service'
+            from components.java
+        }
+    }
 }

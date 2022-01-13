@@ -1,5 +1,6 @@
 plugins {
     id 'kotlin'
+    id 'maven-publish'
 }
 
 group = "com.github.vinisauter.auto-service"
@@ -7,4 +8,15 @@ version = "1.0-SNAPSHOT"
 
 sourceSets {
     main.java.srcDirs += 'src/main/kotlin'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                from components.java
+                groupId = 'com.github.vinisauter.auto-service'
+            }
+        }
+    }
 }
