@@ -11,7 +11,7 @@
          location = "container:"
          name = "Structural">
          <FileRef
-            location = "group:ModulesSPM/Structural/AnalyticsInterfaces">
+            location = "group:ModulesSPM/Structural/Networking">
          </FileRef>
          <FileRef
             location = "group:ModulesSPM/Structural/Analytics">
@@ -21,25 +21,6 @@
          </FileRef>
          <FileRef
             location = "group:ModulesSPM/Structural/AppSecurityInterfaces">
-         </FileRef>
-         <FileRef
-            location = "group:ModulesSPM/Structural/Core">
-         </FileRef>
-         <FileRef
-            location = "group:ModulesSPM/Structural/Networking">
-         </FileRef>
-      </Group>
-      <Group
-         location = "container:"
-         name = "Journey">
-         <FileRef
-            location = "group:ModulesSPM/Journey/Home">
-         </FileRef>
-         <FileRef
-            location = "group:ModulesSPM/Journey/Login">
-         </FileRef>
-         <FileRef
-            location = "group:ModulesSPM/Journey/Profile">
          </FileRef>
       </Group>
    </Group>

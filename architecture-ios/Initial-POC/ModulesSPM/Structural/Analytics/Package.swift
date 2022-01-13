@@ -13,7 +13,7 @@ let package = Package(
             targets: ["Analytics"]),
     ],
     dependencies: [
-        .package(path: "../AnalyticsInterfaces"),
+        .package(url: "https://github.com/brunoccy/AnalyticsInterfaces", .branch("main")),
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
     ],

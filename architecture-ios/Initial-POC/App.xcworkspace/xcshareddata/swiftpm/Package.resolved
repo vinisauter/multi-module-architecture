@@ -2,11 +2,38 @@
   "object": {
     "pins": [
       {
+        "package": "AnalyticsInterfaces",
+        "repositoryURL": "https://github.com/brunoccy/AnalyticsInterfaces",
+        "state": {
+          "branch": "main",
+          "revision": "855c671df6f431e1050fcbde0fba825a6a20e74b",
+          "version": null
+        }
+      },
+      {
+        "package": "Core",
+        "repositoryURL": "https://github.com/brunoccy/Core",
+        "state": {
+          "branch": "main",
+          "revision": "6f7915a6f5097f6a6dc718c81a024d06bf5a635e",
+          "version": null
+        }
+      },
+      {
         "package": "NetworkingInterfaces",
         "repositoryURL": "https://github.com/brunoccy/NetworkingInterfaces.git",
         "state": {
           "branch": "main",
           "revision": "d49e79fd5ff8675693f445cd049d95151d4d46bd",
+          "version": null
+        }
+      },
+      {
+        "package": "pocjournys",
+        "repositoryURL": "https://github.com/brunoccy/pocjourneys",
+        "state": {
+          "branch": "main",
+          "revision": "98a713a7fe47b79e0e87fcaef4f5b9a37bd70af6",
           "version": null
         }
       }
