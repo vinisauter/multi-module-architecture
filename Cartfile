@@ -1,7 +1,0 @@
-###### SEM VPN
-git "git@github.com:FelippeMatos/multi-structural-module.git" "ios/nykolas/networking"
-
-###### VPN
-git "https://nykolas.m.barbosa%40next.b.br@bitbucket.prebanco.com.br/scm/nma/mas_foundation_ios.git" "master"
-
-

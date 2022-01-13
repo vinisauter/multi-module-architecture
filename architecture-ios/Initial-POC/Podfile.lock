@@ -1,0 +1,20 @@
+PODS:
+  - Networking (1.0.0)
+  - NetworkingInterfaces (1.0.0)
+
+DEPENDENCIES:
+  - Networking
+  - NetworkingInterfaces
+
+SPEC REPOS:
+  https://github.com/nykolasmayko/StructuralSpecs.git:
+    - Networking
+    - NetworkingInterfaces
+
+SPEC CHECKSUMS:
+  Networking: 5275ef0074a44b8cfe690286881599622d452f22
+  NetworkingInterfaces: 5e1090a7939a20161c7024731d87310d2699673b
+
+PODFILE CHECKSUM: 4460a56be3bf2a4d1eacc34cac06404dde42ef04
+
+COCOAPODS: 1.11.2

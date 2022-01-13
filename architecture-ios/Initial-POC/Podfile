@@ -1,0 +1,52 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+workspace 'App.xcworkspace'
+project 'App.xcodeproj'
+project 'Modules/Journey/Login/Login.xcodeproj'
+project 'Modules/Journey/Home/Home.xcodeproj'
+project 'Modules/Journey/Profile/Profile.xcodeproj'
+
+#source 'https://github.com/nykolasmayko/StructuralSpecs.git' 
+
+
+
+target 'App' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  project 'App.xcodeproj'
+  use_frameworks!
+
+  # Pods for App
+  pod 'Networking'
+  pod 'NetworkingInterfaces'
+
+end
+
+target 'Login' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  project 'Modules/Journey/Login/Login.xcodeproj'
+  use_frameworks!
+
+  # Pods for Login
+  pod 'NetworkingInterfaces'
+
+end
+
+target 'Home' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  project 'Modules/Journey/Home/Home.xcodeproj'
+  use_frameworks!
+
+  # Pods for Home
+  pod 'NetworkingInterfaces'
+
+end
+
+target 'Profile' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  project 'Modules/Journey/Profile/Profile.xcodeproj'
+  use_frameworks!
+
+  # Pods for Profile
+  pod 'NetworkingInterfaces'
+
+end
