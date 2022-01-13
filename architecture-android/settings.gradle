@@ -35,7 +35,7 @@ include ':engineering:interfaces:tagging-interface'
 include ':engineering:interfaces:security-interface'
 include ':engineering:provider'
 include ':engineering:implementations'
-include ':engineering:implementations:networkingsecurev2'
+include ':engineering:implementations:networking-impl-v2'
 
 include ':modules'
 include ':modules:structural'
