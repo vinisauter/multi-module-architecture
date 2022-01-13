@@ -3,12 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		591DFAD6278CBCD9004D9EE7 /* NetworkingInterfaces.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 591DFAD5278CBCD9004D9EE7 /* NetworkingInterfaces.xcframework */; };
-		591DFAD7278CBCD9004D9EE7 /* NetworkingInterfaces.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 591DFAD5278CBCD9004D9EE7 /* NetworkingInterfaces.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		596283D42757F9F300EEA78C /* HomeIndexFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596283D32757F9F300EEA78C /* HomeIndexFlowDelegate.swift */; };
 		596283D62757FA1500EEA78C /* HomeIndexBusinessModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596283D52757FA1500EEA78C /* HomeIndexBusinessModelProtocol.swift */; };
 		596283D82757FA2800EEA78C /* HomeIndexAnalyticsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596283D72757FA2800EEA78C /* HomeIndexAnalyticsProtocol.swift */; };
@@ -73,7 +71,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				59C82C43273BFF8500E84149 /* Core.framework in Embed Frameworks */,
-				591DFAD7278CBCD9004D9EE7 /* NetworkingInterfaces.xcframework in Embed Frameworks */,
 				59FAED8A273D9E9C00C18E6E /* AnalyticsInterfaces.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -124,7 +121,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				59C82C42273BFF8500E84149 /* Core.framework in Frameworks */,
-				591DFAD6278CBCD9004D9EE7 /* NetworkingInterfaces.xcframework in Frameworks */,
 				59FAED89273D9E9C00C18E6E /* AnalyticsInterfaces.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

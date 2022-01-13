@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,10 +12,6 @@
 		421ECFC827396FBA00BD353C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 421ECFC627396FBA00BD353C /* Main.storyboard */; };
 		421ECFCA27396FBC00BD353C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 421ECFC927396FBC00BD353C /* Assets.xcassets */; };
 		421ECFCD27396FBC00BD353C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 421ECFCB27396FBC00BD353C /* LaunchScreen.storyboard */; };
-		591DFAC0278CBBD3004D9EE7 /* NetworkingInterfaces.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 591DFABE278CBBD3004D9EE7 /* NetworkingInterfaces.xcframework */; };
-		591DFAC1278CBBD3004D9EE7 /* NetworkingInterfaces.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 591DFABE278CBBD3004D9EE7 /* NetworkingInterfaces.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		591DFAC2278CBBD3004D9EE7 /* Networking.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 591DFABF278CBBD3004D9EE7 /* Networking.xcframework */; };
-		591DFAC3278CBBD3004D9EE7 /* Networking.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 591DFABF278CBBD3004D9EE7 /* Networking.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		593F263F2739D63000B34547 /* Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 593F263A2739D63000B34547 /* Home.framework */; };
 		593F26402739D63000B34547 /* Home.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 593F263A2739D63000B34547 /* Home.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		593F26412739D63000B34547 /* Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 593F263B2739D63000B34547 /* Login.framework */; };
@@ -48,14 +44,12 @@
 			dstSubfolderSpec = 10;
 			files = (
 				593F26402739D63000B34547 /* Home.framework in Embed Frameworks */,
-				591DFAC3278CBBD3004D9EE7 /* Networking.xcframework in Embed Frameworks */,
 				593F26482739D63000B34547 /* Profile.framework in Embed Frameworks */,
 				59C82C46273BFF8D00E84149 /* Core.framework in Embed Frameworks */,
 				59FAED79273D9E2B00C18E6E /* Analytics.framework in Embed Frameworks */,
 				59D154482768DCD400459773 /* AppSecurity.framework in Embed Frameworks */,
 				59D1544A2768DCD400459773 /* AppSecurityInterfaces.framework in Embed Frameworks */,
 				59FAED7B273D9E2B00C18E6E /* AnalyticsInterfaces.framework in Embed Frameworks */,
-				591DFAC1278CBBD3004D9EE7 /* NetworkingInterfaces.xcframework in Embed Frameworks */,
 				593F26422739D63000B34547 /* Login.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -101,14 +95,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				593F263F2739D63000B34547 /* Home.framework in Frameworks */,
-				591DFAC2278CBBD3004D9EE7 /* Networking.xcframework in Frameworks */,
 				593F26472739D63000B34547 /* Profile.framework in Frameworks */,
 				59C82C45273BFF8D00E84149 /* Core.framework in Frameworks */,
 				59FAED78273D9E2B00C18E6E /* Analytics.framework in Frameworks */,
 				59D154472768DCD400459773 /* AppSecurity.framework in Frameworks */,
 				59D154492768DCD400459773 /* AppSecurityInterfaces.framework in Frameworks */,
 				59FAED7A273D9E2B00C18E6E /* AnalyticsInterfaces.framework in Frameworks */,
-				591DFAC0278CBBD3004D9EE7 /* NetworkingInterfaces.xcframework in Frameworks */,
 				593F26412739D63000B34547 /* Login.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

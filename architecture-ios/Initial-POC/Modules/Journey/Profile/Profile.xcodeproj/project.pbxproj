@@ -3,12 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		591DFAD8278CBCDC004D9EE7 /* NetworkingInterfaces.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59085589278CBA70005F3623 /* NetworkingInterfaces.xcframework */; };
-		591DFAD9278CBCDC004D9EE7 /* NetworkingInterfaces.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59085589278CBA70005F3623 /* NetworkingInterfaces.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		593F25912739D3C600B34547 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593F25902739D3C600B34547 /* AppDelegate.swift */; };
 		593F259D2739D3C700B34547 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 593F259B2739D3C700B34547 /* LaunchScreen.storyboard */; };
 		593F25A72739D3D300B34547 /* Profile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59DC83892739D38A00466A21 /* Profile.framework */; };
@@ -71,7 +69,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				59C82C3A273BFF6D00E84149 /* Core.framework in Embed Frameworks */,
-				591DFAD9278CBCDC004D9EE7 /* NetworkingInterfaces.xcframework in Embed Frameworks */,
 				59FAED90273D9EB100C18E6E /* AnalyticsInterfaces.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -130,7 +127,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				59C82C39273BFF6D00E84149 /* Core.framework in Frameworks */,
-				591DFAD8278CBCDC004D9EE7 /* NetworkingInterfaces.xcframework in Frameworks */,
 				59FAED8F273D9EB100C18E6E /* AnalyticsInterfaces.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
