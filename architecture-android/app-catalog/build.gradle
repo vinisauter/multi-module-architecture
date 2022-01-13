@@ -2,6 +2,8 @@ plugins {
     id 'version-catalog'
     id 'maven-publish'
 }
+group = "com.github.vinisauter.app-catalog"
+version = "1.0-SNAPSHOT"
 catalog {
     // declare the aliases, bundles and versions in this block
     versionCatalog {
@@ -16,7 +18,7 @@ catalog {
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId = 'me.next'
+            groupId = 'com.github.vinisauter'
             artifactId = 'app-catalog'
             version = '1.0.0'
             from components.versionCatalog

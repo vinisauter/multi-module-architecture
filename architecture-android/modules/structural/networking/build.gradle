@@ -27,8 +27,7 @@ dependencies {
     implementation project(path: ':app')
     ksp project(path: ':libraries:auto-service:processor')
 
-    testImplementation 'junit:junit'
-    androidTestImplementation 'androidx.test.ext:junit'
-    androidTestImplementation 'androidx.test.espresso:espresso-core'
-    androidTestImplementation 'androidx.annotation:annotation'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4-alpha03'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }

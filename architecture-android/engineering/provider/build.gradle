@@ -47,7 +47,7 @@ dependencies {
     api project(path: ':engineering:interfaces:tagging-interface')
     api project(path: ':engineering:interfaces:security-interface')
 
-    testImplementation 'junit:junit'
-    androidTestImplementation 'androidx.test.ext:junit'
-    androidTestImplementation 'androidx.test.espresso:espresso-core'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4-alpha03'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }
