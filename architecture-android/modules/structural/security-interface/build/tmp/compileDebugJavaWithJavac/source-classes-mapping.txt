@@ -1,0 +1,2 @@
+com/example/security/BuildConfig.java
+ com.example.security.BuildConfig
