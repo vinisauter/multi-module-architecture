@@ -11,9 +11,6 @@
          location = "container:"
          name = "Structural">
          <FileRef
-            location = "group:ModulesSPM/Structural/Networking">
-         </FileRef>
-         <FileRef
             location = "group:ModulesSPM/Structural/Analytics">
          </FileRef>
          <FileRef

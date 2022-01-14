@@ -20,6 +20,15 @@
         }
       },
       {
+        "package": "NetworkingPoc",
+        "repositoryURL": "https://github.com/brunoccy/Networking.git",
+        "state": {
+          "branch": "main",
+          "revision": "667af021800162853b7be2dcfe17e13779fe2649",
+          "version": null
+        }
+      },
+      {
         "package": "NetworkingInterfaces",
         "repositoryURL": "https://github.com/brunoccy/NetworkingInterfaces.git",
         "state": {
