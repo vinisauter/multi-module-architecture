@@ -43,17 +43,21 @@ android {
             java.srcDirs("build/generated/ksp/${this.name}/resources/")
         }
     }
+    sourceSets
+
+    fun MutableSet<String>.addAll(vararg items: String) {
+        items.forEach { this.add(it) }
+    }
+
     dynamicFeatures.addAll(
-        mutableSetOf(
-            ":modules:journey:login",
-            ":modules:journey:profile",
-            ":modules:structural:networking",
-            ":modules:structural:networkingsecure",
-            ":modules:structural:networkingsecurev2",
-            ":modules:structural:storage",
-            ":modules:structural:tagging",
-            ":modules:structural:security"
-        )
+        ":modules:journey:login",
+        ":modules:journey:profile",
+        ":modules:structural:networking",
+        ":modules:structural:networkingsecure",
+        ":modules:structural:networkingsecurev2",
+        ":modules:structural:storage",
+        ":modules:structural:tagging",
+        ":modules:structural:security"
     )
 }
 
