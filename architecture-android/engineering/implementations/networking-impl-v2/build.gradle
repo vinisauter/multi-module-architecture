@@ -1,7 +1,11 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
 }
+
+group = 'com.github.vinisauter.interfaces'
+version = '1.0.0'
 
 android {
     compileSdk 31
@@ -26,6 +30,16 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+}
+
+project.afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+            }
+        }
     }
 }
 
