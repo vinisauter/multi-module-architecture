@@ -48,7 +48,9 @@ class ProfileHandler: ModuleHandler {
     }
 }
 
-extension StructuralDependencyProvider: ProfileStructuralDependencies {}
+extension StructuralDependencyProvider: ProfileStructuralDependencies {
+    
+}
 
 extension ProfileHandler: ProfileFlowDelegate {
     func goToHome(from flow: Flow, in controller: UIViewController, with value: Any?) {

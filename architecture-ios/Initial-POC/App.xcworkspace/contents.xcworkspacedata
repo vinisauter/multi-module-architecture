@@ -2,8 +2,41 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "container:/Users/nykolasmayko/Documents/multi-module-architecture/architecture-ios/Initial-POC/App.xcodeproj">
+      location = "container:App.xcodeproj">
    </FileRef>
+   <Group
+      location = "container:"
+      name = "SPNModules">
+      <Group
+         location = "group:SPNModules/Structural"
+         name = "Structural">
+         <FileRef
+            location = "group:Networking">
+         </FileRef>
+         <FileRef
+            location = "group:NetworkSecurity">
+         </FileRef>
+         <FileRef
+            location = "group:Analytics">
+         </FileRef>
+         <FileRef
+            location = "group:Core">
+         </FileRef>
+      </Group>
+      <Group
+         location = "container:SPNModules/Journey"
+         name = "Journey">
+         <FileRef
+            location = "group:Home">
+         </FileRef>
+         <FileRef
+            location = "group:Profile">
+         </FileRef>
+         <FileRef
+            location = "group:Login">
+         </FileRef>
+      </Group>
+   </Group>
    <Group
       location = "container:"
       name = "Modules">
@@ -11,27 +44,15 @@
          location = "container:"
          name = "Journey">
          <FileRef
-            location = "group:Modules/Journey/Login/Login.xcodeproj">
+            location = "group:Modules/Journey/NextTemplate/NextTemplate.xcodeproj">
          </FileRef>
          <FileRef
-            location = "group:Modules/Journey/Home/Home.xcodeproj">
-         </FileRef>
-         <FileRef
-            location = "group:Modules/Journey/Profile/Profile.xcodeproj">
+            location = "group:Modules/Journey/Detail/Detail.xcodeproj">
          </FileRef>
       </Group>
       <Group
          location = "container:"
          name = "Structural">
-         <FileRef
-            location = "group:Modules/Structural/Core/Core.xcodeproj">
-         </FileRef>
-         <FileRef
-            location = "group:Modules/Structural/Networking/Networking.xcodeproj">
-         </FileRef>
-         <FileRef
-            location = "group:Modules/Structural/Analytics/Analytics.xcodeproj">
-         </FileRef>
       </Group>
    </Group>
 </Workspace>

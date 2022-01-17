@@ -13,6 +13,7 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Welcome"
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

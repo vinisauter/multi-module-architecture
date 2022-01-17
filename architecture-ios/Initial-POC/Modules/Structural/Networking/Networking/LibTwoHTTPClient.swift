@@ -6,8 +6,22 @@
 //
 
 import NetworkingInterfaces
+import NetworkSecurity
 
 public final class LibTwoHTTPClient: HTTPClientProtocol {
+   
+    
+    private var managerSecurity: ManagerSecurityNetwork
+    
+    public init(security: ManagerSecurityNetwork) {
+        self.managerSecurity = security
+    }
+    
+    public func getManagerSecurity() -> ManagerSecurityNetwork {
+        return self.managerSecurity
+    }
+    
+    
     public func get(_ url: String, completion: @escaping (String) -> Void) {
         execute(url, method: "GET", completion: completion)
     }

@@ -6,8 +6,20 @@
 //
 
 import NetworkingInterfaces
+import NetworkSecurity
 
 public final class LibOneHTTPClient: HTTPClientProtocol {
+    
+    private var managerSecurirty: ManagerSecurityNetwork
+    
+    public init(security: ManagerSecurityNetwork) {
+        self.managerSecurirty = security
+    }
+    
+    public func getManagerSecurity() -> ManagerSecurityNetwork {
+        return self.managerSecurirty
+    }
+    
     public func get(_ url: String, completion: @escaping (String) -> Void) {
         execute(url, method: "GET", completion: completion)
     }

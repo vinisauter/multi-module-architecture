@@ -5,12 +5,14 @@
 //  Created by Nykolas Mayko Maia Barbosa on 18/11/21.
 //
 
-import AnalyticsInterfaces
 import Core
+import Analytics
+import AnalyticsInterfaces
 import Login
 import Profile
 
 class LoginAnalyticsProfileAdapter: LoginAnalyticsProtocol, LoginIndexAnalyticsProtocol, ForgotPasswordAnalyticsProtocol {
+    
     var structuralAnalytics: AnalyticsProtocol? {
         return profileAnalytics?.structuralAnalytics
     }
