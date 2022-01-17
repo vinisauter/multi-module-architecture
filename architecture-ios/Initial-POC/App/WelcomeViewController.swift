@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Core
+import CoreFramework
 
 class WelcomeViewController: UIViewController {
     override func viewDidLoad() {

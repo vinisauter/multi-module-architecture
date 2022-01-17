@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Core
+import CoreFramework
 
 protocol HomeFlowProtocol: AnyObject {
     var factory: HomeViewControllerFactory { get }

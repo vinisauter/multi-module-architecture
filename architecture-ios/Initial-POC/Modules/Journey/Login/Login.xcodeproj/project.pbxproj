@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		126E4C3196205F899CCD268C /* Pods_Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A397EC4AFE065E492259AF64 /* Pods_Login.framework */; };
 		593F25AD2739D3E000B34547 /* Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59DC83592739D35D00466A21 /* Login.framework */; };
 		593F25AE2739D3E000B34547 /* Login.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59DC83592739D35D00466A21 /* Login.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		594380EC2739DE180001D840 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594380EB2739DE180001D840 /* Networking.framework */; };
@@ -35,15 +36,11 @@
 		59B1E69427721ABE00F3D40A /* NetworkingDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B1E69327721ABE00F3D40A /* NetworkingDependency.swift */; };
 		59B3B1BC273EC36B00CEA77C /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B3B1BB273EC36B00CEA77C /* ForgotPasswordViewModel.swift */; };
 		59B3B1BE273EC39400CEA77C /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B3B1BD273EC39400CEA77C /* ForgotPasswordViewController.swift */; };
-		59C82C3F273BFF7B00E84149 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C82C3E273BFF7B00E84149 /* Core.framework */; };
-		59C82C40273BFF7B00E84149 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59C82C3E273BFF7B00E84149 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59DC835E2739D35D00466A21 /* Login.h in Headers */ = {isa = PBXBuildFile; fileRef = 59DC835C2739D35D00466A21 /* Login.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		59DC836C2739D37000466A21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DC836B2739D37000466A21 /* AppDelegate.swift */; };
 		59DC83782739D37200466A21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59DC83762739D37200466A21 /* LaunchScreen.storyboard */; };
 		59FAED7D273D9E3D00C18E6E /* Analytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED7C273D9E3D00C18E6E /* Analytics.framework */; };
 		59FAED7E273D9E3D00C18E6E /* Analytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED7C273D9E3D00C18E6E /* Analytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		59FAED8C273D9EA800C18E6E /* AnalyticsInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED8B273D9EA800C18E6E /* AnalyticsInterfaces.framework */; };
-		59FAED8D273D9EA800C18E6E /* AnalyticsInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED8B273D9EA800C18E6E /* AnalyticsInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,22 +68,11 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		593F26392739D58C00B34547 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				59C82C40273BFF7B00E84149 /* Core.framework in Embed Frameworks */,
-				59FAED8D273D9EA800C18E6E /* AnalyticsInterfaces.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5908558F278CBAB5005F3623 /* NetworkingInterfaces.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = NetworkingInterfaces.xcframework; path = "/Users/nykolasmayko/Documents/multi-module-architecture/architecture-ios/Initial-POC/Modules/Journey/Home/../../../../../../multi-structural-module/structural-ios/Networking/Carthage/Build/NetworkingInterfaces.xcframework"; sourceTree = "<absolute>"; };
+		59198F032795AE4F00E541CB /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		591DFAC7278CBC1F004D9EE7 /* NetworkingInterfaces.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = NetworkingInterfaces.xcframework; path = ../../../../../Carthage/Build/NetworkingInterfaces.xcframework; sourceTree = "<group>"; };
 		593F26332739D58500B34547 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		593F26362739D58C00B34547 /* NetworkingInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkingInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +113,9 @@
 		59DC83792739D37200466A21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59FAED7C273D9E3D00C18E6E /* Analytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Analytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59FAED8B273D9EA800C18E6E /* AnalyticsInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AnalyticsInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F8B243560B6A867991DD58F /* Pods-Login.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Login.debug.xcconfig"; path = "Target Support Files/Pods-Login/Pods-Login.debug.xcconfig"; sourceTree = "<group>"; };
+		A397EC4AFE065E492259AF64 /* Pods_Login.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Login.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9F937559FC37A8ACDF8DBD6 /* Pods-Login.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Login.release.xcconfig"; path = "Target Support Files/Pods-Login/Pods-Login.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,8 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59C82C3F273BFF7B00E84149 /* Core.framework in Frameworks */,
-				59FAED8C273D9EA800C18E6E /* AnalyticsInterfaces.framework in Frameworks */,
+				126E4C3196205F899CCD268C /* Pods_Login.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +144,7 @@
 		593F25AC2739D3E000B34547 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				59198F032795AE4F00E541CB /* Core.framework */,
 				5908558F278CBAB5005F3623 /* NetworkingInterfaces.xcframework */,
 				591DFAC7278CBC1F004D9EE7 /* NetworkingInterfaces.xcframework */,
 				597F1C4127564395006320C9 /* Home.framework */,
@@ -168,6 +157,7 @@
 				59A9DA712739DC9A003FA91D /* StorageInterfaces.framework */,
 				593F26362739D58C00B34547 /* NetworkingInterfaces.framework */,
 				593F26332739D58500B34547 /* Networking.framework */,
+				A397EC4AFE065E492259AF64 /* Pods_Login.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -360,6 +350,7 @@
 				59DC835B2739D35D00466A21 /* Login */,
 				59DC835A2739D35D00466A21 /* Products */,
 				593F25AC2739D3E000B34547 /* Frameworks */,
+				C8CAA5BDD933E8AECA801DA5 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -400,6 +391,16 @@
 			path = LoginDemo;
 			sourceTree = "<group>";
 		};
+		C8CAA5BDD933E8AECA801DA5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8F8B243560B6A867991DD58F /* Pods-Login.debug.xcconfig */,
+				F9F937559FC37A8ACDF8DBD6 /* Pods-Login.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../../../Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -418,11 +419,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 59DC83612739D35D00466A21 /* Build configuration list for PBXNativeTarget "Login" */;
 			buildPhases = (
+				960225BF937ADAFD4A334012 /* [CP] Check Pods Manifest.lock */,
 				59DC83542739D35D00466A21 /* Headers */,
 				59DC83552739D35D00466A21 /* Sources */,
 				59DC83562739D35D00466A21 /* Frameworks */,
 				59DC83572739D35D00466A21 /* Resources */,
-				593F26392739D58C00B34547 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -506,6 +507,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		960225BF937ADAFD4A334012 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Login-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		59DC83552739D35D00466A21 /* Sources */ = {
@@ -693,6 +719,7 @@
 		};
 		59DC83622739D35D00466A21 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F8B243560B6A867991DD58F /* Pods-Login.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -719,6 +746,7 @@
 		};
 		59DC83632739D35D00466A21 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9F937559FC37A8ACDF8DBD6 /* Pods-Login.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;

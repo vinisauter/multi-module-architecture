@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Core
+import CoreFramework
 
 var isUserLoggedIn: Bool = false
 var isAppLaunched: Bool = false

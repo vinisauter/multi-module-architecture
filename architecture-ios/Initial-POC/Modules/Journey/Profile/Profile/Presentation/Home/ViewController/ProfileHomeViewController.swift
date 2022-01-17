@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Core
+import CoreFramework
 
 open class ProfileHomeViewController: BaseViewController<ProfileHomeViewModelProtocol> {
     // MARK: - Private Properties

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Core
+import CoreFramework
 
 open class LoginIndexViewController: BaseViewController<LoginIndexViewModelProtocol>  {
     // MARK: - Private Properties

@@ -24,13 +24,13 @@
          location = "container:"
          name = "Structural">
          <FileRef
-            location = "group:Modules/Structural/AppSecurity/AppSecurity.xcodeproj">
+            location = "group:Modules/Structural/Analytics/Analytics.xcodeproj">
          </FileRef>
          <FileRef
             location = "group:Modules/Structural/Core/Core.xcodeproj">
          </FileRef>
          <FileRef
-            location = "group:Modules/Structural/Analytics/Analytics.xcodeproj">
+            location = "group:Modules/Structural/AppSecurity/AppSecurity.xcodeproj">
          </FileRef>
       </Group>
    </Group>

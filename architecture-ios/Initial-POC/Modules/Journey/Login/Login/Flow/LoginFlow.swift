@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Core
+import CoreFramework
 
 protocol LoginFlowProtocol: AnyObject {
     var factory: LoginViewControllerFactory { get }

@@ -7,8 +7,8 @@
 
 import NetworkingInterfaces
 import Networking
-import AnalyticsInterfaces
-import Analytics
+import AnalyticsInterfacesFramework
+import AnalyticsFramework
 import AppSecurityInterfaces
 import AppSecurity
 

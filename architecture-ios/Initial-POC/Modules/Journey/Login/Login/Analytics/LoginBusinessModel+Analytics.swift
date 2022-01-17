@@ -5,7 +5,7 @@
 //  Created by Nykolas Mayko Maia Barbosa on 09/11/21.
 //
 
-import AnalyticsInterfaces
+import AnalyticsInterfacesFramework
 
 extension LoginBusinessModel: LoginIndexAnalyticsProtocol {
     public func onForgotPasswordClick() {

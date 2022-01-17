@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Core
+import CoreFramework
 import Login
 
 class LoginHandler: ModuleHandler {

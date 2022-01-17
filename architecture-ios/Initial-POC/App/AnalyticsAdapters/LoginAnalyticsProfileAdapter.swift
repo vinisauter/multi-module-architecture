@@ -5,10 +5,10 @@
 //  Created by Nykolas Mayko Maia Barbosa on 18/11/21.
 //
 
-import AnalyticsInterfaces
-import Core
-import Login
-import Profile
+import AnalyticsInterfacesFramework
+import CoreFramework
+import LoginFramework
+import ProfileFramework
 
 class LoginAnalyticsProfileAdapter: LoginAnalyticsProtocol, LoginIndexAnalyticsProtocol, ForgotPasswordAnalyticsProtocol {
     var structuralAnalytics: AnalyticsProtocol? {

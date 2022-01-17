@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import Core
-import Profile
+import CoreFramework
+import ProfileFramework
 
 class ProfileHandler: ModuleHandler {
     

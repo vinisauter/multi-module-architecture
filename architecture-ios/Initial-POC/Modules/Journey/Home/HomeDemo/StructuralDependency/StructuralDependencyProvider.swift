@@ -7,7 +7,7 @@
 
 import NetworkingInterfaces
 import Networking
-import AnalyticsInterfaces
+import AnalyticsInterfacesFramework
 import Analytics
 
 class StructuralDependencyProvider {
