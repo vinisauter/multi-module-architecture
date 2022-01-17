@@ -1,3 +1,5 @@
+import Dependencies
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -43,21 +45,16 @@ android {
             java.srcDirs("build/generated/ksp/${this.name}/resources/")
         }
     }
-    sourceSets
-
-    fun MutableSet<String>.addAll(vararg items: String) {
-        items.forEach { this.add(it) }
-    }
 
     dynamicFeatures.addAll(
-        ":modules:journey:login",
-        ":modules:journey:profile",
-        ":modules:structural:networking",
-        ":modules:structural:networkingsecure",
-        ":modules:structural:networkingsecurev2",
-        ":modules:structural:storage",
-        ":modules:structural:tagging",
-        ":modules:structural:security"
+        ModuleDependency.LOGIN,
+        ModuleDependency.PROFILE,
+        ModuleDependency.NETWORKING,
+        ModuleDependency.NETWORKING_SECURE,
+        ModuleDependency.NETWORKING_SECUREV2,
+        ModuleDependency.STORAGE,
+        ModuleDependency.TAGGING,
+        ModuleDependency.SECURITY
     )
 }
 
