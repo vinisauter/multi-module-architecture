@@ -1,0 +1,3 @@
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AnalyticsInterfaces.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Core.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NetworkingInterfaces.framework

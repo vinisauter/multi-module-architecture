@@ -27,13 +27,13 @@
          location = "container:"
          name = "Structural">
          <FileRef
+            location = "group:Modules/Structural/Networking/Networking.xcodeproj">
+         </FileRef>
+         <FileRef
             location = "group:Modules/Structural/Core/Core.xcodeproj">
          </FileRef>
          <FileRef
             location = "group:Modules/Structural/AppSecurity/AppSecurity.xcodeproj">
-         </FileRef>
-         <FileRef
-            location = "group:Modules/Structural/Networking/Networking.xcodeproj">
          </FileRef>
          <FileRef
             location = "group:Modules/Structural/Analytics/Analytics.xcodeproj">

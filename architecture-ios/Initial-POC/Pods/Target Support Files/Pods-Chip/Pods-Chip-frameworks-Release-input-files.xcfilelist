@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-Chip/Pods-Chip-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AnalyticsInterfaces/AnalyticsInterfaces.framework
+${BUILT_PRODUCTS_DIR}/Core/Core.framework
+${BUILT_PRODUCTS_DIR}/NetworkingInterfaces/NetworkingInterfaces.framework

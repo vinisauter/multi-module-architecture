@@ -38,6 +38,7 @@
 		2388CC082775061200F44D8D /* ProfileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2388CC072775061200F44D8D /* ProfileHandler.swift */; };
 		2388CC0B2775063200F44D8D /* Profile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2388CC0A2775063200F44D8D /* Profile.framework */; };
 		23D268AD2774A0FA009C6039 /* ChipFlowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D268AC2774A0FA009C6039 /* ChipFlowProtocol.swift */; };
+		470EDFA6DE7637F2D80A7D10 /* Pods_Chip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4035809C4D64DC84D51084 /* Pods_Chip.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		14C4E6377BB83107717B0B53 /* Pods-Chip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chip.release.xcconfig"; path = "Target Support Files/Pods-Chip/Pods-Chip.release.xcconfig"; sourceTree = "<group>"; };
 		2302B9B7279708F0001C1247 /* NetworkingInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkingInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2302B9BA27970947001C1247 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		234AEA9C2773A9D900990EA5 /* Chip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chip.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +112,8 @@
 		2388CC072775061200F44D8D /* ProfileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHandler.swift; sourceTree = "<group>"; };
 		2388CC0A2775063200F44D8D /* Profile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Profile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23D268AC2774A0FA009C6039 /* ChipFlowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipFlowProtocol.swift; sourceTree = "<group>"; };
+		F5DDE49EB1CA9978BF021A31 /* Pods-Chip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chip.debug.xcconfig"; path = "Target Support Files/Pods-Chip/Pods-Chip.debug.xcconfig"; sourceTree = "<group>"; };
+		FA4035809C4D64DC84D51084 /* Pods_Chip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +130,7 @@
 				234AEAF32773B01200990EA5 /* AppSecurity.framework in Frameworks */,
 				2302B9BB27970947001C1247 /* Core.framework in Frameworks */,
 				234AEADF2773AC8000990EA5 /* ChipFramework.framework in Frameworks */,
+				470EDFA6DE7637F2D80A7D10 /* Pods_Chip.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +145,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18E84DEB0BD0B53F74ADF386 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F5DDE49EB1CA9978BF021A31 /* Pods-Chip.debug.xcconfig */,
+				14C4E6377BB83107717B0B53 /* Pods-Chip.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../../../Pods;
+			sourceTree = "<group>";
+		};
 		2317CF46277A368B006E8D1C /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +172,7 @@
 				234AEAD92773AC8000990EA5 /* ChipFramework */,
 				234AEA9D2773A9D900990EA5 /* Products */,
 				234AEAEE2773AF5B00990EA5 /* Frameworks */,
+				18E84DEB0BD0B53F74ADF386 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -218,6 +234,7 @@
 				234AEAF22773B01200990EA5 /* AppSecurity.framework */,
 				234AEAF42773B01200990EA5 /* AppSecurityInterfaces.framework */,
 				234AEAEF2773AF5B00990EA5 /* NetworkingInterfaces.framework */,
+				FA4035809C4D64DC84D51084 /* Pods_Chip.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -324,10 +341,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 234AEAB02773A9DA00990EA5 /* Build configuration list for PBXNativeTarget "Chip" */;
 			buildPhases = (
+				7F0BFE52FD208A3289F4095E /* [CP] Check Pods Manifest.lock */,
 				234AEA982773A9D900990EA5 /* Sources */,
 				234AEA992773A9D900990EA5 /* Frameworks */,
 				234AEA9A2773A9D900990EA5 /* Resources */,
 				234AEAE42773AC8000990EA5 /* Embed Frameworks */,
+				E0E27B2AB478860D7E980273 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -412,6 +431,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7F0BFE52FD208A3289F4095E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Chip-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0E27B2AB478860D7E980273 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Chip/Pods-Chip-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Chip/Pods-Chip-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Chip/Pods-Chip-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		234AEA982773A9D900990EA5 /* Sources */ = {
@@ -585,6 +646,7 @@
 		};
 		234AEAB12773A9DA00990EA5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5DDE49EB1CA9978BF021A31 /* Pods-Chip.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -606,6 +668,7 @@
 		};
 		234AEAB22773A9DA00990EA5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14C4E6377BB83107717B0B53 /* Pods-Chip.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

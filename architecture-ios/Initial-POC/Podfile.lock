@@ -1,27 +1,46 @@
 PODS:
+  - Analytics (1.0.1):
+    - AnalyticsInterfaces (= 1.0.1)
+  - AnalyticsInterfaces (1.0.1)
   - Chip (1.0.1):
-    - Networking (= 1.0.1)
-  - Networking (1.0.1)
+    - AnalyticsInterfaces (= 1.0.1)
+    - Core (= 1.0.1)
+    - NetworkingInterfaces (= 1.0.1)
+  - Core (1.0.1)
+  - Networking (1.0.1):
+    - NetworkingInterfaces (= 1.0.1)
   - NetworkingInterfaces (1.0.1)
 
 DEPENDENCIES:
+  - Analytics (from `Modules/Structural/Analytics/Analytics.podspec`)
+  - AnalyticsInterfaces (from `Modules/Structural/Analytics/AnalyticsInterfaces.podspec`)
   - Chip (from `Modules/Journey/Chip/Chip.podspec`)
+  - Core (from `Modules/Structural/Core/Core.podspec`)
   - Networking (from `Modules/Structural/Networking/Networking.podspec`)
-  - NetworkingInterfaces (from `Modules/Structural/Networking/NetworkingInterfaces/NetworkingInterfaces.podspec`)
+  - NetworkingInterfaces (from `Modules/Structural/Networking/NetworkingInterfaces.podspec`)
 
 EXTERNAL SOURCES:
+  Analytics:
+    :path: Modules/Structural/Analytics/Analytics.podspec
+  AnalyticsInterfaces:
+    :path: Modules/Structural/Analytics/AnalyticsInterfaces.podspec
   Chip:
     :path: Modules/Journey/Chip/Chip.podspec
+  Core:
+    :path: Modules/Structural/Core/Core.podspec
   Networking:
     :path: Modules/Structural/Networking/Networking.podspec
   NetworkingInterfaces:
-    :path: Modules/Structural/Networking/NetworkingInterfaces/NetworkingInterfaces.podspec
+    :path: Modules/Structural/Networking/NetworkingInterfaces.podspec
 
 SPEC CHECKSUMS:
-  Chip: 6fdda89edf61531233c5bcd3b4b9f0ced2a3546b
-  Networking: a5b2fed5cc9cbc383f07cdad5ab07b1809648393
+  Analytics: 990b94466bee13645a459237d656c9e9c78e5843
+  AnalyticsInterfaces: ca50b7f9345c5b5a74a448208b620edf8a6b62ae
+  Chip: 1418d144751b6e54f73a13527d5fbceea5199990
+  Core: 4dbde2089cc1d44c1a976bad59e754f925301706
+  Networking: be167ae7b53d5c5b6edce5cb99b9d38817b41b48
   NetworkingInterfaces: c4e69a7c9e3e0eaf7b8103a00dfccc17c0bd3660
 
-PODFILE CHECKSUM: 0b6eef433845638b44aa98de97b8fe9fe479d1eb
+PODFILE CHECKSUM: fec35e32305d13e6d5da86f870bee7e19debcc4b
 
 COCOAPODS: 1.10.1

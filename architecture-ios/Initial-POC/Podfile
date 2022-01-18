@@ -1,13 +1,100 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '11.0'
+
+workspace 'App.xcworkspace'
+project 'App.xcodeproj'
+project 'Modules/Journey/Chip/Chip.xcodeproj'
+project 'Modules/Journey/Home/Home.xcodeproj'
+project 'Modules/Journey/Login/Login.xcodeproj'
+project 'Modules/Journey/Profile/Profile.xcodeproj'
+
+def networking
+  pod 'Networking', :path => 'Modules/Structural/Networking/Networking.podspec'
+end
+
+def networking_interfaces
+  pod 'AnalyticsInterfaces', :path => 'Modules/Structural/Analytics/AnalyticsInterfaces.podspec'
+end
+
+def analytics
+  pod 'Analytics', :path => 'Modules/Structural/Analytics/Analytics.podspec'
+end
+
+def analytics_interfaces
+  pod 'NetworkingInterfaces', :path => 'Modules/Structural/Networking/NetworkingInterfaces.podspec'
+end
+
+def core
+  pod 'Core', :path => 'Modules/Structural/Core/Core.podspec'
+end
+
 
 target 'App' do
   # Comment the next line if you don't want to use dynamic frameworks
+  project 'App.xcodeproj'
   use_frameworks!
 
   # Pods for App
   pod 'Chip', :path => 'Modules/Journey/Chip/Chip.podspec'
-  pod 'Networking', :path => 'Modules/Structural/Networking/Networking.podspec'
-  pod 'NetworkingInterfaces', :path => 'Modules/Structural/Networking/NetworkingInterfaces/NetworkingInterfaces.podspec'
+  core
+  networking
+  networking_interfaces
+  analytics
+  analytics_interfaces
+
 
 end
+
+target 'Chip' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  project 'Modules/Journey/Chip/Chip.xcodeproj'
+  use_frameworks!
+
+  # Pods for Login
+
+  core
+  networking_interfaces
+  analytics_interfaces
+  
+end
+
+target 'Home' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  project 'Modules/Journey/Home/Home.xcodeproj'
+  use_frameworks!
+
+  # Pods for Login
+
+  core
+  networking_interfaces
+  analytics_interfaces
+  
+end
+
+target 'Login' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  project 'Modules/Journey/Login/Login.xcodeproj'
+  use_frameworks!
+
+  # Pods for Login
+  
+  core
+  networking_interfaces
+  analytics_interfaces
+  
+end
+
+target 'Profile' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  project 'Modules/Journey/Profile/Profile.xcodeproj'
+  use_frameworks!
+
+  # Pods for Login
+  
+  core
+  networking_interfaces
+  analytics_interfaces
+  
+end
+
+

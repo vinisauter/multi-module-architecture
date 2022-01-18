@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
     s.exclude_files = 'Networking/Config/*.{plist}'
   
     s.source_files = 'Networking', 'Networking/**/*'
-    
+    s.dependency 'NetworkingInterfaces', '1.0.1'
   end

@@ -7,8 +7,6 @@
 
 import UIKit
 import Core
-import Kingfisher
-import SnapKit
 
 final class ChipViewController: BaseViewController<ChipViewModelProtocol> {
     

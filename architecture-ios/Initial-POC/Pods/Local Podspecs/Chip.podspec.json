@@ -24,7 +24,13 @@
     "ChipFramework/**/*"
   ],
   "dependencies": {
-    "Networking": [
+    "NetworkingInterfaces": [
+      "1.0.1"
+    ],
+    "AnalyticsInterfaces": [
+      "1.0.1"
+    ],
+    "Core": [
       "1.0.1"
     ]
   }

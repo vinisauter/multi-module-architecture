@@ -13,5 +13,7 @@ Pod::Spec.new do |s|
     s.exclude_files = 'ChipFramework/*.{plist}'
   
     s.source_files = 'Chip', 'ChipFramework/**/*'
-    s.dependency 'Networking', '1.0.1'
+    s.dependency 'NetworkingInterfaces', '1.0.1'
+    s.dependency 'AnalyticsInterfaces', '1.0.1'
+    s.dependency 'Core', '1.0.1'
   end

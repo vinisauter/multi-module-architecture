@@ -1,0 +1,6 @@
+framework module NetworkingInterfaces {
+  umbrella header "NetworkingInterfaces-umbrella.h"
+
+  export *
+  module * { export * }
+}

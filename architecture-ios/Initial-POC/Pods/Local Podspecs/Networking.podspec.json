@@ -22,5 +22,10 @@
   "source_files": [
     "Networking",
     "Networking/**/*"
-  ]
+  ],
+  "dependencies": {
+    "NetworkingInterfaces": [
+      "1.0.1"
+    ]
+  }
 }
