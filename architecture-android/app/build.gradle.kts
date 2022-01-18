@@ -1,4 +1,6 @@
-import Dependencies
+import libary.Version
+import modules.Dependencies
+import modules.addAll
 
 plugins {
     id("com.android.application")
@@ -47,14 +49,14 @@ android {
     }
 
     dynamicFeatures.addAll(
-        ModuleDependency.LOGIN,
-        ModuleDependency.PROFILE,
-        ModuleDependency.NETWORKING,
-        ModuleDependency.NETWORKING_SECURE,
-        ModuleDependency.NETWORKING_SECUREV2,
-        ModuleDependency.STORAGE,
-        ModuleDependency.TAGGING,
-        ModuleDependency.SECURITY
+        Dependencies.LOGIN,
+        Dependencies.PROFILE,
+        Dependencies.NETWORKING,
+        Dependencies.NETWORKING_SECURE,
+        Dependencies.NETWORKING_SECUREV2,
+        Dependencies.STORAGE,
+        Dependencies.TAGGING,
+        Dependencies.SECURITY
     )
 }
 
@@ -70,20 +72,20 @@ dependencies {
     api(project(path = (":engineering:interfaces:tagging-interface")))
     api(project(path = (":engineering:interfaces:security-interface")))
 
-    api("androidx.core:core-ktx:1.7.0")
-    api("androidx.activity:activity-ktx:1.4.0")
-    api("androidx.fragment:fragment-ktx:1.4.0")
+    api("androidx.core:core-ktx:${Version.CORE}")
+    api("androidx.activity:activity-ktx:${Version.ACTIVITIY}")
+    api("androidx.fragment:fragment-ktx:${Version.FRAGMENT}")
 
-    api("androidx.appcompat:appcompat:1.3.1")
-    api("androidx.constraintlayout:constraintlayout:2.1.1")
-    api("com.google.android.material:material:1.4.0")
-    api("com.google.android.play:core-ktx:1.8.1")
+    api("androidx.appcompat:appcompat:${Version.APPCOMPAT}")
+    api("androidx.constraintlayout:constraintlayout:${Version.CONSTRAINTLAYOUT}")
+    api("com.google.android.material:material:${Version.MATERIAL}")
+    api("com.google.android.play:core-ktx:${Version.PLAYCORE}")
 
-    api("androidx.navigation:navigation-fragment-ktx:2.4.0-beta02")
-    api("androidx.navigation:navigation-ui-ktx:2.4.0-beta02")
-    api("androidx.navigation:navigation-dynamic-features-fragment:2.4.0-beta02")
+    api("androidx.navigation:navigation-fragment-ktx:${Version.NAVIGATON}")
+    api("androidx.navigation:navigation-ui-ktx:${Version.NAVIGATON}")
+    api("androidx.navigation:navigation-dynamic-features-fragment:${Version.NAVIGATON}")
 
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+    testImplementation("junit:junit:${Version.JUNIT}")
+    androidTestImplementation("androidx.test.ext:junit:${Version.JUNIT_TEST}")
+    androidTestImplementation("androidx.test.espresso:espresso-core:${Version.ESPRESSO}")
 }

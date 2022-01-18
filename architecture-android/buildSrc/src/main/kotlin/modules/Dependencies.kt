@@ -1,3 +1,4 @@
+package modules
 
 object Dependencies {
     const val LOGIN = ":modules:journey:login"
