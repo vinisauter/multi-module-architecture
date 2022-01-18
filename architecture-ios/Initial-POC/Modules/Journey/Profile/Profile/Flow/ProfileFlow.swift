@@ -56,7 +56,7 @@ class ProfileFlow: ProfileFlowProtocol, Deeplinkable {
     }
     
     private func getForgotPassword() -> UIViewController? {
-        guard let forgotPasswordVC = dataSource?.getForgotPassword(from: .main, with: factory.defaultAnalytics ?? factory.customAnalytics) else { return nil}
+        guard let forgotPasswordVC = dataSource?.getForgotPassword(from: .main, with: factory.analytics) else { return nil}
         return forgotPasswordVC
     }
 }
@@ -69,8 +69,7 @@ extension ProfileFlow: ProfileHomeFlowDelegate {
     }
     
     func callLogin(in controller: ProfileHomeViewController) {
-        guard let loginVC = dataSource?.getLogin(from: .main, with: factory.defaultAnalytics ?? factory.customAnalytics) else { return }
-        
+        guard let loginVC = dataSource?.getLogin(from: .main, with: factory.analytics) else { return }
         
         let navigationController = UINavigationController(rootViewController: loginVC)
         navigationController.modalPresentationStyle = .fullScreen

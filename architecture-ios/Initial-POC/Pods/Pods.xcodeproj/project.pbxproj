@@ -3,178 +3,239 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		2C7A3396C21AFC631B4EDEA323D22A58 /* NetworkingInterfaces */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = FF06DF90CB10D9280D013E3BF00B465A /* Build configuration list for PBXAggregateTarget "NetworkingInterfaces" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = NetworkingInterfaces;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		07C9B2EB0DFC45435872E8179D112491 /* ChipBusinessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A116DE4721B6E59E3730E5696F88362C /* ChipBusinessModel.swift */; };
-		109B889CB06CE4D7CC71EB8505CD36B7 /* ChipFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CE76F4262012B743964602AA8A76A9 /* ChipFlow.swift */; };
-		23203C252797052D0035712D /* NetworkingInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23203C242797052D0035712D /* NetworkingInterfaces.framework */; };
-		23203C262797052D0035712D /* NetworkingInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23203C242797052D0035712D /* NetworkingInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		23203C292797053F0035712D /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23203C282797053F0035712D /* Networking.framework */; };
-		23203C2A2797053F0035712D /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23203C282797053F0035712D /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		292AFC899D518C1AF77E102B34F8DFC5 /* ChipLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9313DB3C6C3C3DBB729D93F541EE8040 /* ChipLauncher.swift */; };
-		512DB5FB4C6174BC244AE5A7E1B0E21C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		53580875C7DF4CE4D2D36E2C4AFF8360 /* ChipAnalyticsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8FA256BA563D98411E55A780A8A98 /* ChipAnalyticsProtocol.swift */; };
-		6B26F6F4045F27B65863EACD9ADF8112 /* ChipFlowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD4500F911D6B7873547B833A30AB51 /* ChipFlowProtocol.swift */; };
-		6EA6E9B50B3ACC8BA4A2144B4B23FADF /* ChipRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA60B3679EB2200BD62B27204C98773 /* ChipRepositoryProtocol.swift */; };
-		85C497F1EF5B4CD344706369061EE733 /* Pods-App-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D748E1EB3CD22A59197E91481E3FBE9 /* Pods-App-dummy.m */; };
-		8AE4A46ED34B6C947CDF58DDD3AE5D02 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		8D9BEC3A066F2BEA10DB0177F9B70C8A /* Chip-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4E8824071D0176DCF58DF2A47A28BA /* Chip-dummy.m */; };
-		9B464A146C20DE5E701B45B140F09F6D /* ChipBusinessModel+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F591321AFACEFE0011C1EF1F9FD6B /* ChipBusinessModel+Analytics.swift */; };
-		9C0803DD9B04C118B09DE2336697BC1C /* ChipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB135AD4A71908233BBBE7BE60B99E /* ChipViewController.swift */; };
-		B4F954521E94B84057EE87AAE35931F9 /* ChipViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DE6AFB6AAFF9E1321480012A824DBF /* ChipViewModel.swift */; };
-		C329BFA8C5CF2A1BB84AEDB50AB7670B /* Pods-App-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E75B29AE1472628C750F928572B5885 /* Pods-App-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C50E61EF6F8BBFA7E49FFFC37F165666 /* ChipAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA298BF94DECBB1D9449AFD9FB09AFC /* ChipAPI.swift */; };
-		DAFC8A17764CFCF1FF99DAB4FF8E18D2 /* ChipBusinessModelProcotol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DB31C89CDDB319614C772494A10B58 /* ChipBusinessModelProcotol.swift */; };
-		E79A281F90BAE1382D0FDFCFB1C70D24 /* ChipViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8352A5180BC41E3DADAC7EAE34C2497 /* ChipViewControllerFactory.swift */; };
-		ED895CCD8600B848B7C317F7D4FF72A0 /* Chip-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CAF04B5E7E81906E40EF7E9F5D2DCC9D /* Chip-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0068333B00C6D4EF3646D8BDF7997D1A /* LibOneHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0291F23E2F8C3537476A3FD2B84225C2 /* LibOneHTTPClient.swift */; };
+		017782A55F0A8AF58D93441844B3D159 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B24D4B1471833A4805A54E8330F304 /* Foundation.framework */; };
+		06416024AC37DEA7C5812E720AC2F909 /* ChipAnalyticsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235AA60F896AC4FA6EC7A6C2BA140E5D /* ChipAnalyticsProtocol.swift */; };
+		075D031042F66C77827870981BB06C3B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B24D4B1471833A4805A54E8330F304 /* Foundation.framework */; };
+		239187F0411E8B6AA00F761E2B0873C8 /* ChipRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08ED70D1F363E88BA45A1B12FC6BA5 /* ChipRepositoryProtocol.swift */; };
+		26EB71D5066FC54FEFE6F28E49E72808 /* Pods-App-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E75B29AE1472628C750F928572B5885 /* Pods-App-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		279181B61D5D41CE50D7CB5E34F5E695 /* Networking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8FBCA41FB71EF20A52FD3B8617C988 /* Networking-dummy.m */; };
+		2DA9C66F37BF5216128A8AA5B518560C /* NetworkingProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B92B0E06E01D398E246C458F0A930ED /* NetworkingProvider.swift */; };
+		2F156D810A51FA17BBA7EA7CFEAC9B47 /* ChipViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03D3C97D928B80B4B44EBE545E5B0E3 /* ChipViewControllerFactory.swift */; };
+		30ADF85341ECD9715369E921D9FC0C83 /* ChipBusinessModel+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA39F899FFE21860118D5A58977141 /* ChipBusinessModel+Analytics.swift */; };
+		30CA9C41CA5C1A77CA899077334E6FF4 /* ChipFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC5BBD3FE60C5F155EAECEA9C21E50B /* ChipFlow.swift */; };
+		3C1FB1D1424219954E6897DADF51D6F2 /* ChipAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6B97987CF7F852C336AB352E8F94C1 /* ChipAPI.swift */; };
+		3DFCDB3D704797526BF06CE01ADCD707 /* ChipLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477984C6228A7E4C9F93E496F9E3012C /* ChipLauncher.swift */; };
+		3F2165C557BCD66E040A96826548EB35 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B24D4B1471833A4805A54E8330F304 /* Foundation.framework */; };
+		44BB2FE981ED8CD6160EBADF241ED2EA /* ChipBusinessModelProcotol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D448E3D05C2858D57E74268B825F0B /* ChipBusinessModelProcotol.swift */; };
+		61A5A113C620F35CD8C0AA4FB3EA451A /* ChipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F28A64058B0E0159CDAC8BE6129BF24 /* ChipViewController.swift */; };
+		72498C9A10EBF932A50C9E71D60A6C60 /* ChipViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7644017C22C41B4691FF8CADE4F410 /* ChipViewModel.swift */; };
+		752FF10BCA8B035DE75C8A62A09733A4 /* LibTwoHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A7B6D6F7A8002BA0929783FF9039F /* LibTwoHTTPClient.swift */; };
+		8EA3BBFB21F905841DF9AEB7ED3C2A0D /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B887A4BEAF19A7F2540A9CFE98E5D68 /* Networking.framework */; };
+		901131E6EB2123BB8CECD396EF4D8AD0 /* Networking-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 510A925FDBD2DFD1C41BFFA45E99BADF /* Networking-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9ED952CA193D3C39B1788A19E873EC5F /* ChipBusinessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481D37472603BCF88BE7846126E80741 /* ChipBusinessModel.swift */; };
+		B36EA008CD5889C54A22046741D9ECE6 /* Chip-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EA5A53ADFEF8DFDEDEAAC0600DE748C4 /* Chip-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D67F623013633BC327F3C7999110595D /* Chip-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0945B58F8A24ACBC016C0885746FD5 /* Chip-dummy.m */; };
+		D7A69F7991D81C56C4655AC3A45567A6 /* ChipFlowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4831DD48690F8F40505EE0FEE83E71 /* ChipFlowProtocol.swift */; };
+		DFF26FB115B6B67679CE6265A7C7E3A9 /* Pods-App-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D748E1EB3CD22A59197E91481E3FBE9 /* Pods-App-dummy.m */; };
+		E6E086CF5BCC52936C729EBDE93CEBCC /* Networking.h in Headers */ = {isa = PBXBuildFile; fileRef = 5099B05F0930D9ED22B4FD9E9160E0A1 /* Networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		506161B7BCFF9CC8DAE86BABA078E893 /* PBXContainerItemProxy */ = {
+		217F9215E0FBE6700C730DE534C57866 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 03FF84CB6477DCA13AF017DBF7810FD1;
 			remoteInfo = Chip;
 		};
+		34E3A622D66135A7CEFA1A1FF993F4F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B2267C2D9D018961E49AA58CF3DC094C;
+			remoteInfo = Networking;
+		};
+		3A3A06CFDDE2D419825A20696B6BCE6B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B2267C2D9D018961E49AA58CF3DC094C;
+			remoteInfo = Networking;
+		};
+		7B6150AF94E1A1DFA454ABC13857D61D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C7A3396C21AFC631B4EDEA323D22A58;
+			remoteInfo = NetworkingInterfaces;
+		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		23203C272797052D0035712D /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				23203C2A2797053F0035712D /* Networking.framework in Embed Frameworks */,
-				23203C262797052D0035712D /* NetworkingInterfaces.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		0291F23E2F8C3537476A3FD2B84225C2 /* LibOneHTTPClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LibOneHTTPClient.swift; path = Networking/LibOneHTTPClient.swift; sourceTree = "<group>"; };
 		09209143938B2386BB3906033655559D /* Pods-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-App.debug.xcconfig"; sourceTree = "<group>"; };
-		0C9F591321AFACEFE0011C1EF1F9FD6B /* ChipBusinessModel+Analytics.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "ChipBusinessModel+Analytics.swift"; sourceTree = "<group>"; };
-		23203C242797052D0035712D /* NetworkingInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkingInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		23203C282797053F0035712D /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		24B8FA256BA563D98411E55A780A8A98 /* ChipAnalyticsProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChipAnalyticsProtocol.swift; sourceTree = "<group>"; };
-		41DE6AFB6AAFF9E1321480012A824DBF /* ChipViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChipViewModel.swift; sourceTree = "<group>"; };
-		49CE76F4262012B743964602AA8A76A9 /* ChipFlow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChipFlow.swift; sourceTree = "<group>"; };
-		4BE5E4354BBE33FCAB8058C3C03D7596 /* Chip.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Chip.modulemap; sourceTree = "<group>"; };
-		5B129F5F803BF7D9651E5B63D7B85A89 /* Chip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Chip.release.xcconfig; sourceTree = "<group>"; };
-		5BEF4602752E47C46E8C10FB8B4B57F2 /* Pods_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5EA60B3679EB2200BD62B27204C98773 /* ChipRepositoryProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChipRepositoryProtocol.swift; sourceTree = "<group>"; };
+		0F28A64058B0E0159CDAC8BE6129BF24 /* ChipViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChipViewController.swift; sourceTree = "<group>"; };
+		108430133E58C8C5277789702DE64400 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Networking.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C767D0573849C2C8C068E6DBA01E190 /* Chip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Chip.debug.xcconfig; sourceTree = "<group>"; };
+		235AA60F896AC4FA6EC7A6C2BA140E5D /* ChipAnalyticsProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChipAnalyticsProtocol.swift; sourceTree = "<group>"; };
+		23B6375E86B569D2D1C066697899DAD1 /* Chip-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Chip-prefix.pch"; sourceTree = "<group>"; };
+		29AE2CA5BA8376C8FB63A918E0FAB686 /* Chip.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Chip.modulemap; sourceTree = "<group>"; };
+		2BB36B5A4D3C541028EB17A4E81633DA /* NetworkingInterfaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NetworkingInterfaces.release.xcconfig; sourceTree = "<group>"; };
+		2E08ED70D1F363E88BA45A1B12FC6BA5 /* ChipRepositoryProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChipRepositoryProtocol.swift; sourceTree = "<group>"; };
+		30482228E3F1C10F8FBD52C5467B9955 /* Networking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Networking.release.xcconfig; sourceTree = "<group>"; };
+		344387A34647AFDDC91DDF1BD5FC56BE /* Chip-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Chip-Info.plist"; sourceTree = "<group>"; };
+		3E9BDE80F263AF45A4E00B3B4B9C1838 /* Networking.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Networking.modulemap; sourceTree = "<group>"; };
+		42B24D4B1471833A4805A54E8330F304 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		477984C6228A7E4C9F93E496F9E3012C /* ChipLauncher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChipLauncher.swift; path = ChipFramework/ChipLauncher.swift; sourceTree = "<group>"; };
+		481D37472603BCF88BE7846126E80741 /* ChipBusinessModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChipBusinessModel.swift; sourceTree = "<group>"; };
+		493B85929CAB3B678B1A73E7146BFC40 /* Networking-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Networking-Info.plist"; sourceTree = "<group>"; };
+		4B6B97987CF7F852C336AB352E8F94C1 /* ChipAPI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChipAPI.swift; sourceTree = "<group>"; };
+		4B92B0E06E01D398E246C458F0A930ED /* NetworkingProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkingProvider.swift; path = Networking/NetworkingProvider.swift; sourceTree = "<group>"; };
+		5099B05F0930D9ED22B4FD9E9160E0A1 /* Networking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
+		510A925FDBD2DFD1C41BFFA45E99BADF /* Networking-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Networking-umbrella.h"; sourceTree = "<group>"; };
+		52B0D21362A896DDC8704178CA60066B /* Chip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Chip.release.xcconfig; sourceTree = "<group>"; };
+		5B887A4BEAF19A7F2540A9CFE98E5D68 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BEF4602752E47C46E8C10FB8B4B57F2 /* Pods_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_App.framework; path = "Pods-App.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61B12281162B2669A9CD4FDB2800B3FF /* Pods-App-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-App-frameworks.sh"; sourceTree = "<group>"; };
+		6B7644017C22C41B4691FF8CADE4F410 /* ChipViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChipViewModel.swift; sourceTree = "<group>"; };
 		6D748E1EB3CD22A59197E91481E3FBE9 /* Pods-App-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-App-dummy.m"; sourceTree = "<group>"; };
-		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		76836226476D35BC62A098CF501DF10B /* Pods-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-App.release.xcconfig"; sourceTree = "<group>"; };
+		76EC80F3FF06EE4DCD76EAB9F4E45F79 /* NetworkingInterfaces.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = NetworkingInterfaces.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		79D7A380E2CBB08C55B18415CD1215CB /* Pods-App-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-App-acknowledgements.plist"; sourceTree = "<group>"; };
-		7EA298BF94DECBB1D9449AFD9FB09AFC /* ChipAPI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChipAPI.swift; sourceTree = "<group>"; };
+		7A8FBCA41FB71EF20A52FD3B8617C988 /* Networking-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Networking-dummy.m"; sourceTree = "<group>"; };
+		7AF829B6BAE1BF7B149C0C114F5DD895 /* Chip.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Chip.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		7CC5BBD3FE60C5F155EAECEA9C21E50B /* ChipFlow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChipFlow.swift; sourceTree = "<group>"; };
 		8773B2E5D7F8A99B50F36D80B9AF21E1 /* Pods-App.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-App.modulemap"; sourceTree = "<group>"; };
-		87DB31C89CDDB319614C772494A10B58 /* ChipBusinessModelProcotol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChipBusinessModelProcotol.swift; sourceTree = "<group>"; };
-		88AB135AD4A71908233BBBE7BE60B99E /* ChipViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChipViewController.swift; sourceTree = "<group>"; };
-		88E995359946A921E8E01BED4BB4F6B5 /* Chip-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Chip-Info.plist"; sourceTree = "<group>"; };
 		8E75B29AE1472628C750F928572B5885 /* Pods-App-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-App-umbrella.h"; sourceTree = "<group>"; };
-		9313DB3C6C3C3DBB729D93F541EE8040 /* ChipLauncher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChipLauncher.swift; path = ChipFramework/ChipLauncher.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A116DE4721B6E59E3730E5696F88362C /* ChipBusinessModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChipBusinessModel.swift; sourceTree = "<group>"; };
-		AC4E8824071D0176DCF58DF2A47A28BA /* Chip-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Chip-dummy.m"; sourceTree = "<group>"; };
+		92EA39F899FFE21860118D5A58977141 /* ChipBusinessModel+Analytics.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "ChipBusinessModel+Analytics.swift"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9EBB6B074D9F0C94805C21609F119148 /* Networking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Networking.debug.xcconfig; sourceTree = "<group>"; };
+		A60D997CBCEC614B124E96B9B52206B5 /* Networking-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Networking-prefix.pch"; sourceTree = "<group>"; };
 		B76D7FFEF4333335EAFA0B2827258173 /* Pods-App-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-App-Info.plist"; sourceTree = "<group>"; };
-		B8352A5180BC41E3DADAC7EAE34C2497 /* ChipViewControllerFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChipViewControllerFactory.swift; sourceTree = "<group>"; };
-		CAF04B5E7E81906E40EF7E9F5D2DCC9D /* Chip-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Chip-umbrella.h"; sourceTree = "<group>"; };
 		CF07BD63D9C5EA55B4B7E9E538E996E1 /* Pods-App-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-App-acknowledgements.markdown"; sourceTree = "<group>"; };
-		D58CDD095B6826BDB2912CDD4ADD6930 /* Chip.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = Chip.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		EA218E988CB0A016A76A2F9431CD275F /* Chip-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Chip-prefix.pch"; sourceTree = "<group>"; };
-		EC7FBF0A3DB4EF5215BE5165D239E849 /* Chip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Chip.debug.xcconfig; sourceTree = "<group>"; };
-		ECD4500F911D6B7873547B833A30AB51 /* ChipFlowProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChipFlowProtocol.swift; sourceTree = "<group>"; };
-		F806BCAF2C25B5EF881C33B1AF895010 /* Chip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Chip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1798D9FE1C2672E2918C4C4E1E00FFA /* NetworkingInterfaces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NetworkingInterfaces.debug.xcconfig; sourceTree = "<group>"; };
+		E03D3C97D928B80B4B44EBE545E5B0E3 /* ChipViewControllerFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChipViewControllerFactory.swift; sourceTree = "<group>"; };
+		E81A7B6D6F7A8002BA0929783FF9039F /* LibTwoHTTPClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LibTwoHTTPClient.swift; path = Networking/LibTwoHTTPClient.swift; sourceTree = "<group>"; };
+		EA5A53ADFEF8DFDEDEAAC0600DE748C4 /* Chip-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Chip-umbrella.h"; sourceTree = "<group>"; };
+		EE4831DD48690F8F40505EE0FEE83E71 /* ChipFlowProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChipFlowProtocol.swift; sourceTree = "<group>"; };
+		F5D448E3D05C2858D57E74268B825F0B /* ChipBusinessModelProcotol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChipBusinessModelProcotol.swift; sourceTree = "<group>"; };
+		F806BCAF2C25B5EF881C33B1AF895010 /* Chip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Chip.framework; path = Chip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB0945B58F8A24ACBC016C0885746FD5 /* Chip-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Chip-dummy.m"; sourceTree = "<group>"; };
+		FB326B4CF46F160A912A1928D07CC8FE /* Networking.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Networking.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AD5D10C1C3EE557B9B0B2E5D5A3C66A1 /* Frameworks */ = {
+		47C22EA87CF9E2D4D199DB6B62229F6C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				512DB5FB4C6174BC244AE5A7E1B0E21C /* Foundation.framework in Frameworks */,
+				3F2165C557BCD66E040A96826548EB35 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ECF9A786EA50CCC837787CBE07D6FAEB /* Frameworks */ = {
+		8CA14145ADB750C17FB55699C8E8B82C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23203C252797052D0035712D /* NetworkingInterfaces.framework in Frameworks */,
-				8AE4A46ED34B6C947CDF58DDD3AE5D02 /* Foundation.framework in Frameworks */,
-				23203C292797053F0035712D /* Networking.framework in Frameworks */,
+				017782A55F0A8AF58D93441844B3D159 /* Foundation.framework in Frameworks */,
+				8EA3BBFB21F905841DF9AEB7ED3C2A0D /* Networking.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1A1471DD237608174963548AFE379CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				075D031042F66C77827870981BB06C3B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2BA1FBE691F05A77F3596337FC94EF43 /* Products */ = {
+		1CBA84DA35B09D186123FC8D76447569 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				42B24D4B1471833A4805A54E8330F304 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		2C5970C267044A13D9E7C7FA40D3FE60 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				F806BCAF2C25B5EF881C33B1AF895010 /* Chip.framework */,
+				108430133E58C8C5277789702DE64400 /* Networking.framework */,
 				5BEF4602752E47C46E8C10FB8B4B57F2 /* Pods_App.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		45B3EB02393D4496E534C08B9B99C491 /* Presentation */ = {
+		357CE3F57E21E619E3770716DCDF8F76 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				FEC87F5194B28BF643712166F5F8E6D2 /* Protocols */,
-				4C7E07F481203C5A7BEF86D3DCBA61C4 /* ViewController */,
-				CF9A4FCECB032F52B9D52AF53B6BCE14 /* ViewModel */,
+				0291F23E2F8C3537476A3FD2B84225C2 /* LibOneHTTPClient.swift */,
+				E81A7B6D6F7A8002BA0929783FF9039F /* LibTwoHTTPClient.swift */,
+				4B92B0E06E01D398E246C458F0A930ED /* NetworkingProvider.swift */,
+				6A30943993A437E5E59F528BAC2034CA /* Config */,
+				7DE0A8AB9651B05F6B219D3C1F0D7F37 /* Pod */,
+				904781B3D07110B14A640258E9F292E7 /* Support Files */,
+			);
+			name = Networking;
+			path = ../Modules/Structural/Networking;
+			sourceTree = "<group>";
+		};
+		393A888EA8E1ADA1989A86DC28F521A5 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				5A87464C3E4511717F15CEE16BD322B9 /* Protocols */,
+				8C2CC6FDFA0CB1B442B13D9F98AE975F /* ViewController */,
+				C2B399B620B32EACC805518D24DC36EA /* ViewModel */,
 			);
 			name = Presentation;
 			path = ChipFramework/Presentation;
 			sourceTree = "<group>";
 		};
-		4A80B6697797D08627C4ED398ADB313C /* Analytics */ = {
+		3C165B4C8A565115913AF5A1815EAAE6 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				0C9F591321AFACEFE0011C1EF1F9FD6B /* ChipBusinessModel+Analytics.swift */,
+				29AE2CA5BA8376C8FB63A918E0FAB686 /* Chip.modulemap */,
+				FB0945B58F8A24ACBC016C0885746FD5 /* Chip-dummy.m */,
+				344387A34647AFDDC91DDF1BD5FC56BE /* Chip-Info.plist */,
+				23B6375E86B569D2D1C066697899DAD1 /* Chip-prefix.pch */,
+				EA5A53ADFEF8DFDEDEAAC0600DE748C4 /* Chip-umbrella.h */,
+				1C767D0573849C2C8C068E6DBA01E190 /* Chip.debug.xcconfig */,
+				52B0D21362A896DDC8704178CA60066B /* Chip.release.xcconfig */,
 			);
-			name = Analytics;
-			path = ChipFramework/Analytics;
+			name = "Support Files";
+			path = "../../../Pods/Target Support Files/Chip";
 			sourceTree = "<group>";
 		};
-		4C7E07F481203C5A7BEF86D3DCBA61C4 /* ViewController */ = {
+		460E29DEF87E3FCBACF2918BBF0E0EB2 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
-				88AB135AD4A71908233BBBE7BE60B99E /* ChipViewController.swift */,
+				7CC5BBD3FE60C5F155EAECEA9C21E50B /* ChipFlow.swift */,
+				CC97A4AD3621D6AECC1AAAFC6288B012 /* Factory */,
 			);
-			path = ViewController;
+			name = Flow;
+			path = ChipFramework/Flow;
 			sourceTree = "<group>";
 		};
-		5699F3938FA9F43507CF2CB416B2A5FA /* Chip */ = {
+		56E77551B2FAF051A724FE6921632C36 /* NetworkingInterfaces */ = {
 			isa = PBXGroup;
 			children = (
-				9313DB3C6C3C3DBB729D93F541EE8040 /* ChipLauncher.swift */,
-				4A80B6697797D08627C4ED398ADB313C /* Analytics */,
-				98AA0515D3B23FCF7DF669A55ED6216C /* Business */,
-				DBC009DA63F6203952D335A7EC0153C0 /* Flow */,
-				EDC81B6227378201C2C7CF490D701682 /* Pod */,
-				45B3EB02393D4496E534C08B9B99C491 /* Presentation */,
-				96B818D09C7B3332CF0203359EEAE11E /* Repository */,
-				A8F59553270C00A27CA18177A8B21A52 /* Support Files */,
+				AC70049A72FBA8C287BC8FEBDAA0393E /* Pod */,
+				9F0F003FD59A8AC199F35D426BB43D97 /* Support Files */,
 			);
-			name = Chip;
-			path = ../Modules/Journey/Chip;
-			sourceTree = "<group>";
-		};
-		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
-			);
-			name = iOS;
+			name = NetworkingInterfaces;
+			path = ../Modules/Structural/Networking/NetworkingInterfaces;
 			sourceTree = "<group>";
 		};
 		5832643698C9991C79E97F6C009112D1 /* Pods-App */ = {
@@ -194,6 +255,42 @@
 			path = "Target Support Files/Pods-App";
 			sourceTree = "<group>";
 		};
+		5A87464C3E4511717F15CEE16BD322B9 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				235AA60F896AC4FA6EC7A6C2BA140E5D /* ChipAnalyticsProtocol.swift */,
+				F5D448E3D05C2858D57E74268B825F0B /* ChipBusinessModelProcotol.swift */,
+				EE4831DD48690F8F40505EE0FEE83E71 /* ChipFlowProtocol.swift */,
+			);
+			name = Protocols;
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		6A30943993A437E5E59F528BAC2034CA /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				5099B05F0930D9ED22B4FD9E9160E0A1 /* Networking.h */,
+			);
+			name = Config;
+			path = Networking/Config;
+			sourceTree = "<group>";
+		};
+		799287F70235D5E5238EADDB2720F32B /* Chip */ = {
+			isa = PBXGroup;
+			children = (
+				477984C6228A7E4C9F93E496F9E3012C /* ChipLauncher.swift */,
+				863B36E1CAB149B84B0B83C4F36505A8 /* Analytics */,
+				ED40E8DAE2679DA653461DFEC088C671 /* Business */,
+				460E29DEF87E3FCBACF2918BBF0E0EB2 /* Flow */,
+				ECCF82573C0530A726AF7B464A5E7CDD /* Pod */,
+				393A888EA8E1ADA1989A86DC28F521A5 /* Presentation */,
+				F7DBC92FDCD09AB3B2A2E38D1BB35C87 /* Repository */,
+				3C165B4C8A565115913AF5A1815EAAE6 /* Support Files */,
+			);
+			name = Chip;
+			path = ../Modules/Journey/Chip;
+			sourceTree = "<group>";
+		};
 		7C6D044F0CD972C5CAB37A7A0E4EE782 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,45 +299,99 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		96B818D09C7B3332CF0203359EEAE11E /* Repository */ = {
+		7DE0A8AB9651B05F6B219D3C1F0D7F37 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				7EA298BF94DECBB1D9449AFD9FB09AFC /* ChipAPI.swift */,
-				5EA60B3679EB2200BD62B27204C98773 /* ChipRepositoryProtocol.swift */,
+				FB326B4CF46F160A912A1928D07CC8FE /* Networking.podspec */,
 			);
-			name = Repository;
-			path = ChipFramework/Repository;
+			name = Pod;
 			sourceTree = "<group>";
 		};
-		98AA0515D3B23FCF7DF669A55ED6216C /* Business */ = {
+		863B36E1CAB149B84B0B83C4F36505A8 /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
-				A116DE4721B6E59E3730E5696F88362C /* ChipBusinessModel.swift */,
+				92EA39F899FFE21860118D5A58977141 /* ChipBusinessModel+Analytics.swift */,
 			);
-			name = Business;
-			path = ChipFramework/Business;
+			name = Analytics;
+			path = ChipFramework/Analytics;
 			sourceTree = "<group>";
 		};
-		A8F59553270C00A27CA18177A8B21A52 /* Support Files */ = {
+		8C2CC6FDFA0CB1B442B13D9F98AE975F /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				4BE5E4354BBE33FCAB8058C3C03D7596 /* Chip.modulemap */,
-				AC4E8824071D0176DCF58DF2A47A28BA /* Chip-dummy.m */,
-				88E995359946A921E8E01BED4BB4F6B5 /* Chip-Info.plist */,
-				EA218E988CB0A016A76A2F9431CD275F /* Chip-prefix.pch */,
-				CAF04B5E7E81906E40EF7E9F5D2DCC9D /* Chip-umbrella.h */,
-				EC7FBF0A3DB4EF5215BE5165D239E849 /* Chip.debug.xcconfig */,
-				5B129F5F803BF7D9651E5B63D7B85A89 /* Chip.release.xcconfig */,
+				0F28A64058B0E0159CDAC8BE6129BF24 /* ChipViewController.swift */,
+			);
+			name = ViewController;
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		904781B3D07110B14A640258E9F292E7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3E9BDE80F263AF45A4E00B3B4B9C1838 /* Networking.modulemap */,
+				7A8FBCA41FB71EF20A52FD3B8617C988 /* Networking-dummy.m */,
+				493B85929CAB3B678B1A73E7146BFC40 /* Networking-Info.plist */,
+				A60D997CBCEC614B124E96B9B52206B5 /* Networking-prefix.pch */,
+				510A925FDBD2DFD1C41BFFA45E99BADF /* Networking-umbrella.h */,
+				9EBB6B074D9F0C94805C21609F119148 /* Networking.debug.xcconfig */,
+				30482228E3F1C10F8FBD52C5467B9955 /* Networking.release.xcconfig */,
 			);
 			name = "Support Files";
-			path = "../../../Pods/Target Support Files/Chip";
+			path = "../../../Pods/Target Support Files/Networking";
 			sourceTree = "<group>";
 		};
-		CA8B974DA96A223182F24E46E8332936 /* Factory */ = {
+		9F0F003FD59A8AC199F35D426BB43D97 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				B8352A5180BC41E3DADAC7EAE34C2497 /* ChipViewControllerFactory.swift */,
+				D1798D9FE1C2672E2918C4C4E1E00FFA /* NetworkingInterfaces.debug.xcconfig */,
+				2BB36B5A4D3C541028EB17A4E81633DA /* NetworkingInterfaces.release.xcconfig */,
 			);
+			name = "Support Files";
+			path = "../../../../Pods/Target Support Files/NetworkingInterfaces";
+			sourceTree = "<group>";
+		};
+		A1F7EDAD26913A97765D2A15BA614582 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				799287F70235D5E5238EADDB2720F32B /* Chip */,
+				357CE3F57E21E619E3770716DCDF8F76 /* Networking */,
+				56E77551B2FAF051A724FE6921632C36 /* NetworkingInterfaces */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		AC70049A72FBA8C287BC8FEBDAA0393E /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				76EC80F3FF06EE4DCD76EAB9F4E45F79 /* NetworkingInterfaces.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		B484754BF9A0948D5A7F0BD78E214771 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B887A4BEAF19A7F2540A9CFE98E5D68 /* Networking.framework */,
+				1CBA84DA35B09D186123FC8D76447569 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C2B399B620B32EACC805518D24DC36EA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6B7644017C22C41B4691FF8CADE4F410 /* ChipViewModel.swift */,
+			);
+			name = ViewModel;
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CC97A4AD3621D6AECC1AAAFC6288B012 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				E03D3C97D928B80B4B44EBE545E5B0E3 /* ChipViewControllerFactory.swift */,
+			);
+			name = Factory;
 			path = Factory;
 			sourceTree = "<group>";
 		};
@@ -248,83 +399,65 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				DCA5C9554E91FB5A99C225A62A70921F /* Development Pods */,
-				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				2BA1FBE691F05A77F3596337FC94EF43 /* Products */,
+				A1F7EDAD26913A97765D2A15BA614582 /* Development Pods */,
+				B484754BF9A0948D5A7F0BD78E214771 /* Frameworks */,
+				2C5970C267044A13D9E7C7FA40D3FE60 /* Products */,
 				7C6D044F0CD972C5CAB37A7A0E4EE782 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		CF9A4FCECB032F52B9D52AF53B6BCE14 /* ViewModel */ = {
+		ECCF82573C0530A726AF7B464A5E7CDD /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				41DE6AFB6AAFF9E1321480012A824DBF /* ChipViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				23203C282797053F0035712D /* Networking.framework */,
-				23203C242797052D0035712D /* NetworkingInterfaces.framework */,
-				578452D2E740E91742655AC8F1636D1F /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		DBC009DA63F6203952D335A7EC0153C0 /* Flow */ = {
-			isa = PBXGroup;
-			children = (
-				49CE76F4262012B743964602AA8A76A9 /* ChipFlow.swift */,
-				CA8B974DA96A223182F24E46E8332936 /* Factory */,
-			);
-			name = Flow;
-			path = ChipFramework/Flow;
-			sourceTree = "<group>";
-		};
-		DCA5C9554E91FB5A99C225A62A70921F /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5699F3938FA9F43507CF2CB416B2A5FA /* Chip */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		EDC81B6227378201C2C7CF490D701682 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				D58CDD095B6826BDB2912CDD4ADD6930 /* Chip.podspec */,
+				7AF829B6BAE1BF7B149C0C114F5DD895 /* Chip.podspec */,
 			);
 			name = Pod;
 			sourceTree = "<group>";
 		};
-		FEC87F5194B28BF643712166F5F8E6D2 /* Protocols */ = {
+		ED40E8DAE2679DA653461DFEC088C671 /* Business */ = {
 			isa = PBXGroup;
 			children = (
-				24B8FA256BA563D98411E55A780A8A98 /* ChipAnalyticsProtocol.swift */,
-				87DB31C89CDDB319614C772494A10B58 /* ChipBusinessModelProcotol.swift */,
-				ECD4500F911D6B7873547B833A30AB51 /* ChipFlowProtocol.swift */,
+				481D37472603BCF88BE7846126E80741 /* ChipBusinessModel.swift */,
 			);
-			path = Protocols;
+			name = Business;
+			path = ChipFramework/Business;
+			sourceTree = "<group>";
+		};
+		F7DBC92FDCD09AB3B2A2E38D1BB35C87 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				4B6B97987CF7F852C336AB352E8F94C1 /* ChipAPI.swift */,
+				2E08ED70D1F363E88BA45A1B12FC6BA5 /* ChipRepositoryProtocol.swift */,
+			);
+			name = Repository;
+			path = ChipFramework/Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		02BCCF6E80252AE178A2DE58BC7264F6 /* Headers */ = {
+		784B4ABE4EA1E196B840A93349D52654 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C329BFA8C5CF2A1BB84AEDB50AB7670B /* Pods-App-umbrella.h in Headers */,
+				B36EA008CD5889C54A22046741D9ECE6 /* Chip-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4F8673CBE23340384404D40AA58CE3BA /* Headers */ = {
+		8DC59A125B7505E0AB30CA4CEE72AC21 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED895CCD8600B848B7C317F7D4FF72A0 /* Chip-umbrella.h in Headers */,
+				26EB71D5066FC54FEFE6F28E49E72808 /* Pods-App-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3D23113D5B63EE451519FC75C92DA36 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6E086CF5BCC52936C729EBDE93CEBCC /* Networking.h in Headers */,
+				901131E6EB2123BB8CECD396EF4D8AD0 /* Networking-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,17 +466,17 @@
 /* Begin PBXNativeTarget section */
 		03FF84CB6477DCA13AF017DBF7810FD1 /* Chip */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5D092BD53497D39E0B7ABA30CC581964 /* Build configuration list for PBXNativeTarget "Chip" */;
+			buildConfigurationList = 1D779438EE4E4E21A6ADC0D843D48A47 /* Build configuration list for PBXNativeTarget "Chip" */;
 			buildPhases = (
-				4F8673CBE23340384404D40AA58CE3BA /* Headers */,
-				7B8FC2007D89998479F9C49550EC2578 /* Sources */,
-				ECF9A786EA50CCC837787CBE07D6FAEB /* Frameworks */,
-				545840CD13DC4A8800E0AFA24B9484F1 /* Resources */,
-				23203C272797052D0035712D /* Embed Frameworks */,
+				784B4ABE4EA1E196B840A93349D52654 /* Headers */,
+				3E7B05A3D5DC66D99A418C711DE909C5 /* Sources */,
+				8CA14145ADB750C17FB55699C8E8B82C /* Frameworks */,
+				8251E2BF77C05C791F50D51C749A2B30 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C22487D189CD86326E1937627F629869 /* PBXTargetDependency */,
 			);
 			name = Chip;
 			productName = Chip;
@@ -352,21 +485,41 @@
 		};
 		5C415F33D02A6F89DB713EFB9D75A3FB /* Pods-App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 51CE6DD1174C940DD83EF6BAEC98068C /* Build configuration list for PBXNativeTarget "Pods-App" */;
+			buildConfigurationList = 5605397A3798BFD2A28F389094D68AAC /* Build configuration list for PBXNativeTarget "Pods-App" */;
 			buildPhases = (
-				02BCCF6E80252AE178A2DE58BC7264F6 /* Headers */,
-				F541C094559DCEF81EF0843857441C31 /* Sources */,
-				AD5D10C1C3EE557B9B0B2E5D5A3C66A1 /* Frameworks */,
-				C059C73CBF006C54EEF534661CF664D2 /* Resources */,
+				8DC59A125B7505E0AB30CA4CEE72AC21 /* Headers */,
+				D57A45FD1C57844FAD5404752107A023 /* Sources */,
+				47C22EA87CF9E2D4D199DB6B62229F6C /* Frameworks */,
+				228FB9FCC0AC4C85E63C37D41DD4342D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				64BF2D84D93DF2C91CC25BD67CA679FB /* PBXTargetDependency */,
+				671E07ED6FC68B3F71FE6B0B54EF5E37 /* PBXTargetDependency */,
+				3AE5B95DD4289F0DC9A66EA44B3EEC9E /* PBXTargetDependency */,
+				C729B8B268ECF57D9EC2714FB13A9A8A /* PBXTargetDependency */,
 			);
 			name = "Pods-App";
 			productName = "Pods-App";
 			productReference = 5BEF4602752E47C46E8C10FB8B4B57F2 /* Pods_App.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B2267C2D9D018961E49AA58CF3DC094C /* Networking */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 76E09188683DACE43A77841F81FFBFAC /* Build configuration list for PBXNativeTarget "Networking" */;
+			buildPhases = (
+				B3D23113D5B63EE451519FC75C92DA36 /* Headers */,
+				4B28448D1C8D64786B3E1BA2B5593DD9 /* Sources */,
+				D1A1471DD237608174963548AFE379CF /* Frameworks */,
+				60BAFFF85F3A0D7C83ED20B34DC8E916 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Networking;
+			productName = Networking;
+			productReference = 108430133E58C8C5277789702DE64400 /* Networking.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -379,7 +532,7 @@
 				LastUpgradeCheck = 1240;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 11.0";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -387,25 +540,34 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 2BA1FBE691F05A77F3596337FC94EF43 /* Products */;
+			productRefGroup = 2C5970C267044A13D9E7C7FA40D3FE60 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				03FF84CB6477DCA13AF017DBF7810FD1 /* Chip */,
+				B2267C2D9D018961E49AA58CF3DC094C /* Networking */,
+				2C7A3396C21AFC631B4EDEA323D22A58 /* NetworkingInterfaces */,
 				5C415F33D02A6F89DB713EFB9D75A3FB /* Pods-App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		545840CD13DC4A8800E0AFA24B9484F1 /* Resources */ = {
+		228FB9FCC0AC4C85E63C37D41DD4342D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C059C73CBF006C54EEF534661CF664D2 /* Resources */ = {
+		60BAFFF85F3A0D7C83ED20B34DC8E916 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8251E2BF77C05C791F50D51C749A2B30 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -415,49 +577,78 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		7B8FC2007D89998479F9C49550EC2578 /* Sources */ = {
+		3E7B05A3D5DC66D99A418C711DE909C5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D9BEC3A066F2BEA10DB0177F9B70C8A /* Chip-dummy.m in Sources */,
-				53580875C7DF4CE4D2D36E2C4AFF8360 /* ChipAnalyticsProtocol.swift in Sources */,
-				C50E61EF6F8BBFA7E49FFFC37F165666 /* ChipAPI.swift in Sources */,
-				07C9B2EB0DFC45435872E8179D112491 /* ChipBusinessModel.swift in Sources */,
-				9B464A146C20DE5E701B45B140F09F6D /* ChipBusinessModel+Analytics.swift in Sources */,
-				DAFC8A17764CFCF1FF99DAB4FF8E18D2 /* ChipBusinessModelProcotol.swift in Sources */,
-				109B889CB06CE4D7CC71EB8505CD36B7 /* ChipFlow.swift in Sources */,
-				6B26F6F4045F27B65863EACD9ADF8112 /* ChipFlowProtocol.swift in Sources */,
-				292AFC899D518C1AF77E102B34F8DFC5 /* ChipLauncher.swift in Sources */,
-				6EA6E9B50B3ACC8BA4A2144B4B23FADF /* ChipRepositoryProtocol.swift in Sources */,
-				9C0803DD9B04C118B09DE2336697BC1C /* ChipViewController.swift in Sources */,
-				E79A281F90BAE1382D0FDFCFB1C70D24 /* ChipViewControllerFactory.swift in Sources */,
-				B4F954521E94B84057EE87AAE35931F9 /* ChipViewModel.swift in Sources */,
+				D67F623013633BC327F3C7999110595D /* Chip-dummy.m in Sources */,
+				06416024AC37DEA7C5812E720AC2F909 /* ChipAnalyticsProtocol.swift in Sources */,
+				3C1FB1D1424219954E6897DADF51D6F2 /* ChipAPI.swift in Sources */,
+				9ED952CA193D3C39B1788A19E873EC5F /* ChipBusinessModel.swift in Sources */,
+				30ADF85341ECD9715369E921D9FC0C83 /* ChipBusinessModel+Analytics.swift in Sources */,
+				44BB2FE981ED8CD6160EBADF241ED2EA /* ChipBusinessModelProcotol.swift in Sources */,
+				30CA9C41CA5C1A77CA899077334E6FF4 /* ChipFlow.swift in Sources */,
+				D7A69F7991D81C56C4655AC3A45567A6 /* ChipFlowProtocol.swift in Sources */,
+				3DFCDB3D704797526BF06CE01ADCD707 /* ChipLauncher.swift in Sources */,
+				239187F0411E8B6AA00F761E2B0873C8 /* ChipRepositoryProtocol.swift in Sources */,
+				61A5A113C620F35CD8C0AA4FB3EA451A /* ChipViewController.swift in Sources */,
+				2F156D810A51FA17BBA7EA7CFEAC9B47 /* ChipViewControllerFactory.swift in Sources */,
+				72498C9A10EBF932A50C9E71D60A6C60 /* ChipViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F541C094559DCEF81EF0843857441C31 /* Sources */ = {
+		4B28448D1C8D64786B3E1BA2B5593DD9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85C497F1EF5B4CD344706369061EE733 /* Pods-App-dummy.m in Sources */,
+				0068333B00C6D4EF3646D8BDF7997D1A /* LibOneHTTPClient.swift in Sources */,
+				752FF10BCA8B035DE75C8A62A09733A4 /* LibTwoHTTPClient.swift in Sources */,
+				279181B61D5D41CE50D7CB5E34F5E695 /* Networking-dummy.m in Sources */,
+				2DA9C66F37BF5216128A8AA5B518560C /* NetworkingProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D57A45FD1C57844FAD5404752107A023 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFF26FB115B6B67679CE6265A7C7E3A9 /* Pods-App-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		64BF2D84D93DF2C91CC25BD67CA679FB /* PBXTargetDependency */ = {
+		3AE5B95DD4289F0DC9A66EA44B3EEC9E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Networking;
+			target = B2267C2D9D018961E49AA58CF3DC094C /* Networking */;
+			targetProxy = 3A3A06CFDDE2D419825A20696B6BCE6B /* PBXContainerItemProxy */;
+		};
+		671E07ED6FC68B3F71FE6B0B54EF5E37 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Chip;
 			target = 03FF84CB6477DCA13AF017DBF7810FD1 /* Chip */;
-			targetProxy = 506161B7BCFF9CC8DAE86BABA078E893 /* PBXContainerItemProxy */;
+			targetProxy = 217F9215E0FBE6700C730DE534C57866 /* PBXContainerItemProxy */;
+		};
+		C22487D189CD86326E1937627F629869 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Networking;
+			target = B2267C2D9D018961E49AA58CF3DC094C /* Networking */;
+			targetProxy = 34E3A622D66135A7CEFA1A1FF993F4F9 /* PBXContainerItemProxy */;
+		};
+		C729B8B268ECF57D9EC2714FB13A9A8A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NetworkingInterfaces;
+			target = 2C7A3396C21AFC631B4EDEA323D22A58 /* NetworkingInterfaces */;
+			targetProxy = 7B6150AF94E1A1DFA454ABC13857D61D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		06E8DA4BCED882454850A73CA9766AEA /* Release */ = {
+		29A727E4A5B5958E4DBAD787DF4FE353 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B129F5F803BF7D9651E5B63D7B85A89 /* Chip.release.xcconfig */;
+			baseConfigurationReference = 30482228E3F1C10F8FBD52C5467B9955 /* Networking.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -468,8 +659,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Chip/Chip-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Chip/Chip-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Networking/Networking-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Networking/Networking-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -477,51 +668,13 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/Chip/Chip.modulemap";
-				PRODUCT_MODULE_NAME = Chip;
-				PRODUCT_NAME = Chip;
+				MODULEMAP_FILE = "Target Support Files/Networking/Networking.modulemap";
+				PRODUCT_MODULE_NAME = Networking;
+				PRODUCT_NAME = Networking;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		251E302FBE1E3DC9FD73F57C3E6086EB /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 76836226476D35BC62A098CF501DF10B /* Pods-App.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-App/Pods-App-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-App/Pods-App.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -591,9 +744,61 @@
 			};
 			name = Release;
 		};
-		78AD8269F09E2A72399A8F1C811F7E53 /* Debug */ = {
+		7B7817C01FB67FBB9535E6B78D1C047D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EC7FBF0A3DB4EF5215BE5165D239E849 /* Chip.debug.xcconfig */;
+			baseConfigurationReference = 9EBB6B074D9F0C94805C21609F119148 /* Networking.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Networking/Networking-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Networking/Networking-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Networking/Networking.modulemap";
+				PRODUCT_MODULE_NAME = Networking;
+				PRODUCT_NAME = Networking;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		903C8E9C3D6B18950215A5A54647F1A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1798D9FE1C2672E2918C4C4E1E00FFA /* NetworkingInterfaces.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9CBB72A252D4D09E9CFFF055DF5A5B39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C767D0573849C2C8C068E6DBA01E190 /* Chip.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -692,7 +897,7 @@
 			};
 			name = Debug;
 		};
-		D05E8ECFA14A3C359C2FD8CE7DF40380 /* Debug */ = {
+		AC3EF6E452137B5BF1827022712241E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 09209143938B2386BB3906033655559D /* Pods-App.debug.xcconfig */;
 			buildSettings = {
@@ -729,9 +934,110 @@
 			};
 			name = Debug;
 		};
+		BF43D7675326F3759CFA2B06CA523506 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BB36B5A4D3C541028EB17A4E81633DA /* NetworkingInterfaces.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F4A2C00960BE8A03CCDD0317C9277BE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52B0D21362A896DDC8704178CA60066B /* Chip.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Chip/Chip-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Chip/Chip-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Chip/Chip.modulemap";
+				PRODUCT_MODULE_NAME = Chip;
+				PRODUCT_NAME = Chip;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FFDA47CEB5082747E013C4755696B42A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76836226476D35BC62A098CF501DF10B /* Pods-App.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-App/Pods-App-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-App/Pods-App.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1D779438EE4E4E21A6ADC0D843D48A47 /* Build configuration list for PBXNativeTarget "Chip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CBB72A252D4D09E9CFFF055DF5A5B39 /* Debug */,
+				F4A2C00960BE8A03CCDD0317C9277BE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -741,20 +1047,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		51CE6DD1174C940DD83EF6BAEC98068C /* Build configuration list for PBXNativeTarget "Pods-App" */ = {
+		5605397A3798BFD2A28F389094D68AAC /* Build configuration list for PBXNativeTarget "Pods-App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D05E8ECFA14A3C359C2FD8CE7DF40380 /* Debug */,
-				251E302FBE1E3DC9FD73F57C3E6086EB /* Release */,
+				AC3EF6E452137B5BF1827022712241E6 /* Debug */,
+				FFDA47CEB5082747E013C4755696B42A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5D092BD53497D39E0B7ABA30CC581964 /* Build configuration list for PBXNativeTarget "Chip" */ = {
+		76E09188683DACE43A77841F81FFBFAC /* Build configuration list for PBXNativeTarget "Networking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				78AD8269F09E2A72399A8F1C811F7E53 /* Debug */,
-				06E8DA4BCED882454850A73CA9766AEA /* Release */,
+				7B7817C01FB67FBB9535E6B78D1C047D /* Debug */,
+				29A727E4A5B5958E4DBAD787DF4FE353 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF06DF90CB10D9280D013E3BF00B465A /* Build configuration list for PBXAggregateTarget "NetworkingInterfaces" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				903C8E9C3D6B18950215A5A54647F1A2 /* Debug */,
+				BF43D7675326F3759CFA2B06CA523506 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

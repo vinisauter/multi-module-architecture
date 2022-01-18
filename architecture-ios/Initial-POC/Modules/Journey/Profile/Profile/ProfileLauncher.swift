@@ -37,7 +37,7 @@ public class ProfileLauncher {
     static public func start(with dependencies: ProfileDependencies) -> UIViewController {
         let profileAPI = ProfileAPI(httpClient: dependencies.structuralDependencies.networkingProvider.getSecureHttpClient())
         let businessModel = ProfileBusinessModel(repository: profileAPI, structuralAnalytics: dependencies.structuralDependencies.analytics)
-        let factory = ProfileViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependencies.customProfileAnalytics)
+        let factory = ProfileViewControllerFactory(businessModel: businessModel, analytics: dependencies.customProfileAnalytics)
         let mainFlow = ProfileFlow(factory: factory, deeplink: Deeplink(value: ProfileDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
         mainFlow.delegate = dependencies.flowDelegate
         mainFlow.dataSource = dependencies.flowDataSource

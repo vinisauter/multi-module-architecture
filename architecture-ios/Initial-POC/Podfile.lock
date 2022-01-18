@@ -1,16 +1,27 @@
 PODS:
-  - Chip (1.0.1)
+  - Chip (1.0.1):
+    - Networking (= 1.0.1)
+  - Networking (1.0.1)
+  - NetworkingInterfaces (1.0.1)
 
 DEPENDENCIES:
   - Chip (from `Modules/Journey/Chip/Chip.podspec`)
+  - Networking (from `Modules/Structural/Networking/Networking.podspec`)
+  - NetworkingInterfaces (from `Modules/Structural/Networking/NetworkingInterfaces/NetworkingInterfaces.podspec`)
 
 EXTERNAL SOURCES:
   Chip:
     :path: Modules/Journey/Chip/Chip.podspec
+  Networking:
+    :path: Modules/Structural/Networking/Networking.podspec
+  NetworkingInterfaces:
+    :path: Modules/Structural/Networking/NetworkingInterfaces/NetworkingInterfaces.podspec
 
 SPEC CHECKSUMS:
-  Chip: 56ce28801b67db337db5332b7fbbf267438f4f50
+  Chip: 6fdda89edf61531233c5bcd3b4b9f0ced2a3546b
+  Networking: a5b2fed5cc9cbc383f07cdad5ab07b1809648393
+  NetworkingInterfaces: c4e69a7c9e3e0eaf7b8103a00dfccc17c0bd3660
 
-PODFILE CHECKSUM: 9165b16b6e3e002d2e06e49dd50de7c542ef1469
+PODFILE CHECKSUM: 0b6eef433845638b44aa98de97b8fe9fe479d1eb
 
 COCOAPODS: 1.10.1

@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-App/Pods-App-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Chip/Chip.framework
+${BUILT_PRODUCTS_DIR}/Networking/Networking.framework

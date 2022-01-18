@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
-    s.name             = 'Chip'
+    s.name             = 'Networking'
     s.version          = '1.0.1'
-    s.summary          = 'Chip base library'
-    s.description      = 'Library with Chip classes'
+    s.summary          = 'Networking base library'
+    s.description      = 'Library with Networking base classes'
   
     s.homepage         = 'https://github.com/FelippeMatos/multi-structural-module'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -10,8 +10,8 @@ Pod::Spec.new do |s|
     s.source           = { :git => 'https://github.com/FelippeMatos/multi-structural-module.git', :tag => s.version.to_s }
   
     s.ios.deployment_target = '11.0'
-    s.exclude_files = 'ChipFramework/*.{plist}'
+    s.exclude_files = 'Networking/Config/*.{plist}'
   
-    s.source_files = 'Chip', 'ChipFramework/**/*'
-    s.dependency 'Networking', '1.0.1'
+    s.source_files = 'Networking', 'Networking/**/*'
+    
   end

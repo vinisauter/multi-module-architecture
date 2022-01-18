@@ -7,5 +7,7 @@ target 'App' do
 
   # Pods for App
   pod 'Chip', :path => 'Modules/Journey/Chip/Chip.podspec'
+  pod 'Networking', :path => 'Modules/Structural/Networking/Networking.podspec'
+  pod 'NetworkingInterfaces', :path => 'Modules/Structural/Networking/NetworkingInterfaces/NetworkingInterfaces.podspec'
 
 end

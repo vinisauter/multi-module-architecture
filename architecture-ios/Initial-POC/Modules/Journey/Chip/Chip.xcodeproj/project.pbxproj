@@ -3,14 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		23244645278F710700D7AC73 /* SnapKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23244643278F710700D7AC73 /* SnapKit.xcframework */; };
-		23244646278F710700D7AC73 /* SnapKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23244643278F710700D7AC73 /* SnapKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		23244647278F710700D7AC73 /* Kingfisher.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23244644278F710700D7AC73 /* Kingfisher.xcframework */; };
-		23244648278F710700D7AC73 /* Kingfisher.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23244644278F710700D7AC73 /* Kingfisher.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2302B9B8279708F0001C1247 /* NetworkingInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2302B9B7279708F0001C1247 /* NetworkingInterfaces.framework */; };
+		2302B9B9279708F0001C1247 /* NetworkingInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2302B9B7279708F0001C1247 /* NetworkingInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2302B9BB27970947001C1247 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2302B9BA27970947001C1247 /* Core.framework */; };
+		2302B9BC27970947001C1247 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2302B9BA27970947001C1247 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		234AEAA02773A9D900990EA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234AEA9F2773A9D900990EA5 /* AppDelegate.swift */; };
 		234AEAAC2773A9DA00990EA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 234AEAAA2773A9DA00990EA5 /* LaunchScreen.storyboard */; };
 		234AEADF2773AC8000990EA5 /* ChipFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 234AEAD82773AC8000990EA5 /* ChipFramework.framework */; };
@@ -38,8 +38,6 @@
 		2388CC082775061200F44D8D /* ProfileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2388CC072775061200F44D8D /* ProfileHandler.swift */; };
 		2388CC0B2775063200F44D8D /* Profile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2388CC0A2775063200F44D8D /* Profile.framework */; };
 		23D268AD2774A0FA009C6039 /* ChipFlowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D268AC2774A0FA009C6039 /* ChipFlowProtocol.swift */; };
-		23E65A92278F1B09003CBDE5 /* Core.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E65A91278F1B09003CBDE5 /* Core.xcframework */; };
-		23E65A93278F1B09003CBDE5 /* Core.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23E65A91278F1B09003CBDE5 /* Core.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,8 +57,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				23244646278F710700D7AC73 /* SnapKit.xcframework in Embed Frameworks */,
-				23244648278F710700D7AC73 /* Kingfisher.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,7 +67,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				23E65A93278F1B09003CBDE5 /* Core.xcframework in Embed Frameworks */,
+				2302B9B9279708F0001C1247 /* NetworkingInterfaces.framework in Embed Frameworks */,
+				2302B9BC27970947001C1247 /* Core.framework in Embed Frameworks */,
 				234AEB172773B12900990EA5 /* ChipFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -80,8 +77,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		23244643278F710700D7AC73 /* SnapKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SnapKit.xcframework; path = ../../../Carthage/Build/SnapKit.xcframework; sourceTree = "<group>"; };
-		23244644278F710700D7AC73 /* Kingfisher.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Kingfisher.xcframework; path = ../../../Carthage/Build/Kingfisher.xcframework; sourceTree = "<group>"; };
+		2302B9B7279708F0001C1247 /* NetworkingInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkingInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2302B9BA27970947001C1247 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		234AEA9C2773A9D900990EA5 /* Chip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		234AEA9F2773A9D900990EA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		234AEAAB2773A9DA00990EA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -113,7 +110,6 @@
 		2388CC072775061200F44D8D /* ProfileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHandler.swift; sourceTree = "<group>"; };
 		2388CC0A2775063200F44D8D /* Profile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Profile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23D268AC2774A0FA009C6039 /* ChipFlowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipFlowProtocol.swift; sourceTree = "<group>"; };
-		23E65A91278F1B09003CBDE5 /* Core.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Core.xcframework; path = ../../../Carthage/Build/Core.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,13 +117,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23E65A92278F1B09003CBDE5 /* Core.xcframework in Frameworks */,
 				2388CC0B2775063200F44D8D /* Profile.framework in Frameworks */,
 				234AEB0F2773B0CD00990EA5 /* AppSecurityInterfaces.framework in Frameworks */,
 				234AEB082773B0BF00990EA5 /* AppSecurity.framework in Frameworks */,
+				2302B9B8279708F0001C1247 /* NetworkingInterfaces.framework in Frameworks */,
 				234AEB032773B07500990EA5 /* Analytics.framework in Frameworks */,
 				234AEAFB2773B05000990EA5 /* Networking.framework in Frameworks */,
 				234AEAF32773B01200990EA5 /* AppSecurity.framework in Frameworks */,
+				2302B9BB27970947001C1247 /* Core.framework in Frameworks */,
 				234AEADF2773AC8000990EA5 /* ChipFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,8 +133,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23244647278F710700D7AC73 /* Kingfisher.xcframework in Frameworks */,
-				23244645278F710700D7AC73 /* SnapKit.xcframework in Frameworks */,
 				234AEAF02773AF5B00990EA5 /* NetworkingInterfaces.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,9 +207,8 @@
 		234AEAEE2773AF5B00990EA5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				23244644278F710700D7AC73 /* Kingfisher.xcframework */,
-				23244643278F710700D7AC73 /* SnapKit.xcframework */,
-				23E65A91278F1B09003CBDE5 /* Core.xcframework */,
+				2302B9BA27970947001C1247 /* Core.framework */,
+				2302B9B7279708F0001C1247 /* NetworkingInterfaces.framework */,
 				2388CC0A2775063200F44D8D /* Profile.framework */,
 				234AEB3B2773B75A00990EA5 /* Core.framework */,
 				234AEB0E2773B0CD00990EA5 /* AppSecurityInterfaces.framework */,
