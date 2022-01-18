@@ -1,0 +1,37 @@
+{
+  "name": "Login",
+  "version": "1.0.1",
+  "summary": "Login base library",
+  "description": "Library with Login classes",
+  "homepage": "https://github.com/FelippeMatos/multi-structural-module",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "giovane_barreira@hotmail.com": "giovane.barreira@avanade.com"
+  },
+  "source": {
+    "git": "https://github.com/FelippeMatos/multi-structural-module.git",
+    "tag": "1.0.1"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "exclude_files": "Login/*.{plist}",
+  "source_files": [
+    "Login",
+    "Login/**/*"
+  ],
+  "dependencies": {
+    "NetworkingInterfaces": [
+      "1.0.1"
+    ],
+    "AnalyticsInterfaces": [
+      "1.0.1"
+    ],
+    "Core": [
+      "1.0.1"
+    ]
+  }
+}

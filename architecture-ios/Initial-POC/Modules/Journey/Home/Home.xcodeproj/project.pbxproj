@@ -7,23 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		23DF0D19279742A6004F190D /* NetworkingInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23DF0D18279742A6004F190D /* NetworkingInterfaces.framework */; };
-		23DF0D1A279742A6004F190D /* NetworkingInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23DF0D18279742A6004F190D /* NetworkingInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1E66076A15C0EB2657A83B4F /* Pods_Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8C58BDCD7B7A13AC4A73417 /* Pods_Home.framework */; };
 		596283D42757F9F300EEA78C /* HomeIndexFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596283D32757F9F300EEA78C /* HomeIndexFlowDelegate.swift */; };
 		596283D62757FA1500EEA78C /* HomeIndexBusinessModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596283D52757FA1500EEA78C /* HomeIndexBusinessModelProtocol.swift */; };
 		596283D82757FA2800EEA78C /* HomeIndexAnalyticsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596283D72757FA2800EEA78C /* HomeIndexAnalyticsProtocol.swift */; };
-		597F1C4E27564896006320C9 /* Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 597F1C4D27564896006320C9 /* Login.framework */; };
-		597F1C4F27564896006320C9 /* Login.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 597F1C4D27564896006320C9 /* Login.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		597F1C5627564942006320C9 /* LoginStarter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F1C5527564942006320C9 /* LoginStarter.swift */; };
 		597F1C582756494D006320C9 /* HomeStarter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F1C572756494D006320C9 /* HomeStarter.swift */; };
 		597F1C5A2756499D006320C9 /* StructuralDependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F1C592756499D006320C9 /* StructuralDependencyProvider.swift */; };
 		59A9DA372739DC46003FA91D /* Home.h in Headers */ = {isa = PBXBuildFile; fileRef = 59A9DA352739DC46003FA91D /* Home.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		59A9DA452739DC56003FA91D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A9DA442739DC56003FA91D /* AppDelegate.swift */; };
 		59A9DA512739DC58003FA91D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59A9DA4F2739DC58003FA91D /* LaunchScreen.storyboard */; };
-		59A9DA592739DC63003FA91D /* Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A9DA322739DC46003FA91D /* Home.framework */; };
-		59A9DA5A2739DC63003FA91D /* Home.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59A9DA322739DC46003FA91D /* Home.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		59A9DA602739DC6E003FA91D /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A9DA5E2739DC6E003FA91D /* Networking.framework */; };
-		59A9DA612739DC6E003FA91D /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59A9DA5E2739DC6E003FA91D /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59AECDCE273AB27200252E87 /* HomeLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AECDCD273AB27200252E87 /* HomeLauncher.swift */; };
 		59AECDD6273AB2BA00252E87 /* HomeIndexViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AECDD5273AB2BA00252E87 /* HomeIndexViewModel.swift */; };
 		59AECDD8273AB2C700252E87 /* HomeIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AECDD7273AB2C700252E87 /* HomeIndexViewController.swift */; };
@@ -33,40 +26,12 @@
 		59AECDE0273AB30900252E87 /* HomeRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AECDDF273AB30900252E87 /* HomeRepositoryProtocol.swift */; };
 		59AECDE2273AB31800252E87 /* HomeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AECDE1273AB31800252E87 /* HomeAPI.swift */; };
 		59AECDE4273AB32800252E87 /* HomeBusinessModel+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AECDE3273AB32800252E87 /* HomeBusinessModel+Analytics.swift */; };
-		59FAED80273D9E4700C18E6E /* Analytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED7F273D9E4700C18E6E /* Analytics.framework */; };
-		59FAED81273D9E4700C18E6E /* Analytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED7F273D9E4700C18E6E /* Analytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		59A9DA5B2739DC63003FA91D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 59A9DA292739DC46003FA91D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 59A9DA312739DC46003FA91D;
-			remoteInfo = Home;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		59A9DA5D2739DC63003FA91D /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				597F1C4F27564896006320C9 /* Login.framework in Embed Frameworks */,
-				59A9DA612739DC6E003FA91D /* Networking.framework in Embed Frameworks */,
-				59A9DA5A2739DC63003FA91D /* Home.framework in Embed Frameworks */,
-				59FAED81273D9E4700C18E6E /* Analytics.framework in Embed Frameworks */,
-				23DF0D1A279742A6004F190D /* NetworkingInterfaces.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		23DF0D18279742A6004F190D /* NetworkingInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkingInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		23DF0D1E27974E95004F190D /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		23DF0D1F27974E95004F190D /* NetworkingInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkingInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		596283D32757F9F300EEA78C /* HomeIndexFlowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeIndexFlowDelegate.swift; sourceTree = "<group>"; };
 		596283D52757FA1500EEA78C /* HomeIndexBusinessModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeIndexBusinessModelProtocol.swift; sourceTree = "<group>"; };
 		596283D72757FA2800EEA78C /* HomeIndexAnalyticsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeIndexAnalyticsProtocol.swift; sourceTree = "<group>"; };
@@ -99,9 +64,9 @@
 		59C82C41273BFF8500E84149 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59FAED7F273D9E4700C18E6E /* Analytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Analytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59FAED88273D9E9C00C18E6E /* AnalyticsInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AnalyticsInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B65A552C790A93066061C16C /* Pods-Home.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Home.release.xcconfig"; path = "Target Support Files/Pods-Home/Pods-Home.release.xcconfig"; sourceTree = "<group>"; };
-		CBAFE2D250625C3A1B2D6189 /* Pods_Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D46F26B46996FA46369A16F4 /* Pods-Home.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Home.debug.xcconfig"; path = "Target Support Files/Pods-Home/Pods-Home.debug.xcconfig"; sourceTree = "<group>"; };
+		81B6642307C98018E79CD968 /* Pods-Home.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Home.debug.xcconfig"; path = "Target Support Files/Pods-Home/Pods-Home.debug.xcconfig"; sourceTree = "<group>"; };
+		8C8EFD1A98C6C71747795A71 /* Pods-Home.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Home.release.xcconfig"; path = "Target Support Files/Pods-Home/Pods-Home.release.xcconfig"; sourceTree = "<group>"; };
+		C8C58BDCD7B7A13AC4A73417 /* Pods_Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E66076A15C0EB2657A83B4F /* Pods_Home.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,17 +82,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				597F1C4E27564896006320C9 /* Login.framework in Frameworks */,
-				59A9DA602739DC6E003FA91D /* Networking.framework in Frameworks */,
-				59A9DA592739DC63003FA91D /* Home.framework in Frameworks */,
-				59FAED80273D9E4700C18E6E /* Analytics.framework in Frameworks */,
-				23DF0D19279742A6004F190D /* NetworkingInterfaces.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2425534D77D1B7A134C65DB9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				81B6642307C98018E79CD968 /* Pods-Home.debug.xcconfig */,
+				8C8EFD1A98C6C71747795A71 /* Pods-Home.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../../../Pods;
+			sourceTree = "<group>";
+		};
 		596283CE2757F9BC00EEA78C /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,7 +170,7 @@
 				59A9DA342739DC46003FA91D /* Home */,
 				59A9DA332739DC46003FA91D /* Products */,
 				59A9DA582739DC63003FA91D /* Frameworks */,
-				6EF449F2ADA3E612B24A23E3 /* Pods */,
+				2425534D77D1B7A134C65DB9 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -242,6 +213,8 @@
 		59A9DA582739DC63003FA91D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				23DF0D1E27974E95004F190D /* Networking.framework */,
+				23DF0D1F27974E95004F190D /* NetworkingInterfaces.framework */,
 				23DF0D18279742A6004F190D /* NetworkingInterfaces.framework */,
 				597F1C502756489C006320C9 /* Profile.framework */,
 				597F1C4D27564896006320C9 /* Login.framework */,
@@ -253,7 +226,7 @@
 				59A9DA652739DC79003FA91D /* StorageInterfaces.framework */,
 				59A9DA5E2739DC6E003FA91D /* Networking.framework */,
 				59A9DA5F2739DC6E003FA91D /* Storage.framework */,
-				CBAFE2D250625C3A1B2D6189 /* Pods_Home.framework */,
+				C8C58BDCD7B7A13AC4A73417 /* Pods_Home.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -312,16 +285,6 @@
 			path = Index;
 			sourceTree = "<group>";
 		};
-		6EF449F2ADA3E612B24A23E3 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D46F26B46996FA46369A16F4 /* Pods-Home.debug.xcconfig */,
-				B65A552C790A93066061C16C /* Pods-Home.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../../../Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -340,7 +303,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 59A9DA3A2739DC46003FA91D /* Build configuration list for PBXNativeTarget "Home" */;
 			buildPhases = (
-				9F964BC215AF71D1C028A2D3 /* [CP] Check Pods Manifest.lock */,
+				E48F4BECDFC0B103207A1AF1 /* [CP] Check Pods Manifest.lock */,
 				59A9DA2D2739DC46003FA91D /* Headers */,
 				59A9DA2E2739DC46003FA91D /* Sources */,
 				59A9DA2F2739DC46003FA91D /* Frameworks */,
@@ -362,12 +325,10 @@
 				59A9DA3E2739DC56003FA91D /* Sources */,
 				59A9DA3F2739DC56003FA91D /* Frameworks */,
 				59A9DA402739DC56003FA91D /* Resources */,
-				59A9DA5D2739DC63003FA91D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				59A9DA5C2739DC63003FA91D /* PBXTargetDependency */,
 			);
 			name = HomeDemo;
 			productName = HomeDemo;
@@ -430,7 +391,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9F964BC215AF71D1C028A2D3 /* [CP] Check Pods Manifest.lock */ = {
+		E48F4BECDFC0B103207A1AF1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -486,14 +447,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		59A9DA5C2739DC63003FA91D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 59A9DA312739DC46003FA91D /* Home */;
-			targetProxy = 59A9DA5B2739DC63003FA91D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		59A9DA4F2739DC58003FA91D /* LaunchScreen.storyboard */ = {
@@ -633,7 +586,7 @@
 		};
 		59A9DA3B2739DC46003FA91D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D46F26B46996FA46369A16F4 /* Pods-Home.debug.xcconfig */;
+			baseConfigurationReference = 81B6642307C98018E79CD968 /* Pods-Home.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -660,7 +613,7 @@
 		};
 		59A9DA3C2739DC46003FA91D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B65A552C790A93066061C16C /* Pods-Home.release.xcconfig */;
+			baseConfigurationReference = 8C8EFD1A98C6C71747795A71 /* Pods-Home.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -687,7 +640,6 @@
 		59A9DA542739DC58003FA91D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CWQ8X44CMX;
@@ -706,7 +658,6 @@
 		59A9DA552739DC58003FA91D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CWQ8X44CMX;

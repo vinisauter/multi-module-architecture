@@ -54,7 +54,8 @@ open class ForgotPasswordViewController: BaseViewController<ForgotPasswordViewMo
     private func setupLoadingContainer() {
         loadingContainer.backgroundColor = .init(red: 0, green: 0, blue: 0, alpha: 0.5)
         loadingContainer.isHidden = true
-        let activityIndicator = UIActivityIndicatorView(style: .large)
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.transform = CGAffineTransform(scaleX: 2.5, y: 2.5)
         activityIndicator.startAnimating()
         activityIndicator.color = .white
 

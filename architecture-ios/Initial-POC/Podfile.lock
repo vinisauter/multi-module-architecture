@@ -10,9 +10,21 @@ PODS:
     - Core (= 1.0.1)
     - NetworkingInterfaces (= 1.0.1)
   - Core (1.0.1)
+  - Home (1.0.1):
+    - AnalyticsInterfaces (= 1.0.1)
+    - Core (= 1.0.1)
+    - NetworkingInterfaces (= 1.0.1)
+  - Login (1.0.1):
+    - AnalyticsInterfaces (= 1.0.1)
+    - Core (= 1.0.1)
+    - NetworkingInterfaces (= 1.0.1)
   - Networking (1.0.1):
     - NetworkingInterfaces (= 1.0.1)
   - NetworkingInterfaces (1.0.1)
+  - Profile (1.0.1):
+    - AnalyticsInterfaces (= 1.0.1)
+    - Core (= 1.0.1)
+    - NetworkingInterfaces (= 1.0.1)
 
 DEPENDENCIES:
   - Analytics (from `Modules/Structural/Analytics/Analytics.podspec`)
@@ -21,8 +33,11 @@ DEPENDENCIES:
   - AppSecurityInterfaces (from `Modules/Structural/AppSecurity/AppSecurityInterfaces.podspec`)
   - Chip (from `Modules/Journey/Chip/Chip.podspec`)
   - Core (from `Modules/Structural/Core/Core.podspec`)
+  - Home (from `Modules/Journey/Home/Home.podspec`)
+  - Login (from `Modules/Journey/Login/Login.podspec`)
   - Networking (from `Modules/Structural/Networking/Networking.podspec`)
   - NetworkingInterfaces (from `Modules/Structural/Networking/NetworkingInterfaces.podspec`)
+  - Profile (from `Modules/Journey/Profile/Profile.podspec`)
 
 EXTERNAL SOURCES:
   Analytics:
@@ -37,10 +52,16 @@ EXTERNAL SOURCES:
     :path: Modules/Journey/Chip/Chip.podspec
   Core:
     :path: Modules/Structural/Core/Core.podspec
+  Home:
+    :path: Modules/Journey/Home/Home.podspec
+  Login:
+    :path: Modules/Journey/Login/Login.podspec
   Networking:
     :path: Modules/Structural/Networking/Networking.podspec
   NetworkingInterfaces:
     :path: Modules/Structural/Networking/NetworkingInterfaces.podspec
+  Profile:
+    :path: Modules/Journey/Profile/Profile.podspec
 
 SPEC CHECKSUMS:
   Analytics: 990b94466bee13645a459237d656c9e9c78e5843
@@ -49,9 +70,12 @@ SPEC CHECKSUMS:
   AppSecurityInterfaces: ad558639e95e060587a33aff92cca1895643b2aa
   Chip: 1418d144751b6e54f73a13527d5fbceea5199990
   Core: 4dbde2089cc1d44c1a976bad59e754f925301706
+  Home: 4de01bc7c6492bf416fe7ca4c289626993036018
+  Login: b63258e2f6e443a09eebd89b5e2dc8744398b52b
   Networking: be167ae7b53d5c5b6edce5cb99b9d38817b41b48
   NetworkingInterfaces: c4e69a7c9e3e0eaf7b8103a00dfccc17c0bd3660
+  Profile: c0597d650e6e587bc34609a4f0b1d16b48d3f7a4
 
-PODFILE CHECKSUM: db93cf0ff2b07a1638cd9e30512d0121559ad2fc
+PODFILE CHECKSUM: a7378a26df03408320229ac52cb6cde030d76c9e
 
 COCOAPODS: 1.10.1
