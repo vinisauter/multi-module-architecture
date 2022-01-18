@@ -1,7 +1,7 @@
 plugins {
-    id("com.android.dynamic-feature")
-    id("org.jetbrains.kotlin.android")
-    id("com.google.devtools.ksp")
+    id(BuildPlugins.ANDROID_DYNAMIC_FEATURE)
+    id(BuildPlugins.KOTLIN_JETBRAIN_KOTLIN_ANDROID)
+    id(BuildPlugins.KOTLIN_KSP)
 }
 android {
     compileSdk = 31
@@ -15,8 +15,8 @@ android {
         getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
-                    getDefaultProguardFile("proguard-android-optimize.txt"),
-                    "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
             )
         }
     }
@@ -30,8 +30,8 @@ android {
 }
 
 dependencies {
-    implementation(project(path = ":app"))
-    ksp(project(path = ":libraries:auto-service:processor"))
+    implementation(project(path = BuildModules.APP))
+    ksp(project(path = BuildModules.Libraries.LIBRARIES_AUTO_SERVICE_PROCESSOR))
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
