@@ -75,8 +75,6 @@ target 'App' do
   analytics_interfaces
   appsecurity
   appsecurity_interfaces
-
-
 end
 
 target 'Chip' do
@@ -84,9 +82,8 @@ target 'Chip' do
   project 'Modules/Journey/Chip/Chip.xcodeproj'
   use_frameworks!
 
-  # Pods for Login
-
   core
+  networking
   networking_interfaces
   analytics_interfaces
   
@@ -96,8 +93,6 @@ target 'Home' do
   # Comment the next line if you don't want to use dynamic frameworks
   project 'Modules/Journey/Home/Home.xcodeproj'
   use_frameworks!
-
-  # Pods for Login
 
   core
   networking_interfaces
@@ -109,21 +104,31 @@ target 'Login' do
   # Comment the next line if you don't want to use dynamic frameworks
   project 'Modules/Journey/Login/Login.xcodeproj'
   use_frameworks!
-
-  # Pods for Login
   
   core
+  networking
   networking_interfaces
   analytics_interfaces
-  
 end
+
+
+#target 'LoginDemo' do
+#  # Comment the next line if you don't want to use dynamic frameworks
+#  project 'Modules/Journey/Login/Login.xcodeproj'
+#  use_frameworks!
+#  
+#  core
+#  home
+#  networking
+#  networking_interfaces
+#  analytics
+#  analytics_interfaces
+#end
 
 target 'Profile' do
   # Comment the next line if you don't want to use dynamic frameworks
   project 'Modules/Journey/Profile/Profile.xcodeproj'
   use_frameworks!
-
-  # Pods for Login
   
   core
   networking_interfaces

@@ -175,14 +175,18 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Analytics/Analytics.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AnalyticsInterfaces/AnalyticsInterfaces.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Core/Core.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Home/Home.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Networking/Networking.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/NetworkingInterfaces/NetworkingInterfaces.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Analytics/Analytics.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AnalyticsInterfaces/AnalyticsInterfaces.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Core/Core.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Home/Home.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Networking/Networking.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/NetworkingInterfaces/NetworkingInterfaces.framework"
 fi
