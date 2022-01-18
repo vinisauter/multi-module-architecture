@@ -1,0 +1,41 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+//    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://artifactory.it4ng.eu/virtual" }
+        maven { url "https://jitpack.io" }
+    }
+}
+rootProject.name = "ModularFeatureArchitecture"
+include ':app'
+include ':libraries'
+include ':libraries:bug-finder'
+
+include ':modules'
+include ':modules:structural'
+include ':modules:structural:networking-interface'
+include ':modules:structural:networking'
+include ':modules:structural:storage-interface'
+include ':modules:structural:storage'
+include ':modules:structural:flutter'
+include ':modules:structural:flutter:implementation'
+
+include ':modules:journey'
+include ':modules:journey:login'
+include ':modules:journey:home'
+include ':modules:journey:profile'
+
+setBinding(new Binding([gradle: this]))
+evaluate(new File(
+        settingsDir.parentFile,
+        './architecture-flutter/launcher_build_module/.android/include_flutter.groovy'
+))

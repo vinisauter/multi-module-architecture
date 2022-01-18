@@ -1,0 +1,32 @@
+name: launcher_build_module
+description: Module Launcher build module
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.14.4 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.4
+
+  home_business_module:
+    path: ../home_business_module
+
+  profile_business_module:
+    path: ../profile_business_module
+
+flutter:
+  uses-material-design: true
+
+  module:
+    androidX: true
+    androidPackage: com.example.launcher_build_module
+    iosBundleIdentifier: com.example.launcher_build_module
