@@ -55,10 +55,10 @@ android {
 }
 
 dependencies {
-    api enforcedPlatform(project(path: ':app-bom'))
+//    api enforcedPlatform(project(path: ':app-bom'))
 //    api platform('com.github.vinisauter:app-bom:1.0.0')
 //    api enforcedPlatform('com.github.vinisauter:app-bom:1.0.0')
-//    api enforcedPlatform('com.github.vinisauter.multi-module-architecture:app-bom:android~version_management-SNAPSHOT')
+    api enforcedPlatform('com.github.vinisauter.multi-module-architecture:app-bom:android-1.0.0')
 
     api project(path: ':libraries:auto-service:android')
     ksp project(path: ':libraries:auto-service:processor')
@@ -66,6 +66,7 @@ dependencies {
 
     api project(path: ':engineering:provider')
 
+//    api libs.androidx.core
     api 'androidx.core:core-ktx'
     api 'androidx.activity:activity-ktx'
     api 'androidx.fragment:fragment-ktx'
@@ -75,6 +76,10 @@ dependencies {
     api 'com.google.android.material:material'
     api 'com.google.android.play:core-ktx'
 
+//    api libs.navigation.fragment
+//    api libs.navigation.ui
+//    api libs.navigation.dynamic
+//    api libs.bundles.navigation
     api "androidx.navigation:navigation-fragment-ktx:2.4.0-beta02"// -> 2.4.0-rc01
     api "androidx.navigation:navigation-ui-ktx:2.4.0-beta02"// -> 2.4.0-rc01
     api "androidx.navigation:navigation-dynamic-features-fragment:2.4.0-beta02"// -> 2.4.0-rc01
