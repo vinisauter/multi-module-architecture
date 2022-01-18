@@ -1,0 +1,6 @@
+framework module Chip {
+  umbrella header "Chip-umbrella.h"
+
+  export *
+  module * { export * }
+}

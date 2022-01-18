@@ -7,6 +7,7 @@
 
 import UIKit
 import Core
+import Chip
 
 class WelcomeViewController: UIViewController {
     override func viewDidLoad() {

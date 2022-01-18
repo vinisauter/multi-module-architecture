@@ -1,0 +1,16 @@
+PODS:
+  - Chip (1.0.1)
+
+DEPENDENCIES:
+  - Chip (from `Modules/Journey/Chip/Chip.podspec`)
+
+EXTERNAL SOURCES:
+  Chip:
+    :path: Modules/Journey/Chip/Chip.podspec
+
+SPEC CHECKSUMS:
+  Chip: 56ce28801b67db337db5332b7fbbf267438f4f50
+
+PODFILE CHECKSUM: 9165b16b6e3e002d2e06e49dd50de7c542ef1469
+
+COCOAPODS: 1.10.1
