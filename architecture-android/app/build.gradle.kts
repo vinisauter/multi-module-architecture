@@ -43,7 +43,7 @@ android {
             java.srcDirs("build/generated/ksp/${this.name}/resources/")
         }
     }
-    sourceSets
+
 
     fun MutableSet<String>.addAll(vararg items: String) {
         items.forEach { this.add(it) }
