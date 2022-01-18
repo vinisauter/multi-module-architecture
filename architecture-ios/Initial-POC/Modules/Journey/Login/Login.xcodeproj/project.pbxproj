@@ -37,14 +37,11 @@
 		59B1E69427721ABE00F3D40A /* NetworkingDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B1E69327721ABE00F3D40A /* NetworkingDependency.swift */; };
 		59B3B1BC273EC36B00CEA77C /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B3B1BB273EC36B00CEA77C /* ForgotPasswordViewModel.swift */; };
 		59B3B1BE273EC39400CEA77C /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B3B1BD273EC39400CEA77C /* ForgotPasswordViewController.swift */; };
-		59C82C3F273BFF7B00E84149 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C82C3E273BFF7B00E84149 /* Core.framework */; };
-		59C82C40273BFF7B00E84149 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59C82C3E273BFF7B00E84149 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59DC835E2739D35D00466A21 /* Login.h in Headers */ = {isa = PBXBuildFile; fileRef = 59DC835C2739D35D00466A21 /* Login.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		59DC836C2739D37000466A21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DC836B2739D37000466A21 /* AppDelegate.swift */; };
 		59DC83782739D37200466A21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59DC83762739D37200466A21 /* LaunchScreen.storyboard */; };
 		59FAED7D273D9E3D00C18E6E /* Analytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED7C273D9E3D00C18E6E /* Analytics.framework */; };
 		59FAED7E273D9E3D00C18E6E /* Analytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED7C273D9E3D00C18E6E /* Analytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D829C32DBC16ACAC0E322533 /* Pods_Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13DCE8D4E8DA8362124F97CB /* Pods_Login.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,17 +65,6 @@
 				593F25AE2739D3E000B34547 /* Login.framework in Embed Frameworks */,
 				59FAED7E273D9E3D00C18E6E /* Analytics.framework in Embed Frameworks */,
 				597F1C4327564395006320C9 /* Home.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		593F26392739D58C00B34547 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				59C82C40273BFF7B00E84149 /* Core.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,8 +123,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59C82C3F273BFF7B00E84149 /* Core.framework in Frameworks */,
-				D829C32DBC16ACAC0E322533 /* Pods_Login.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,7 +424,6 @@
 				59DC83552739D35D00466A21 /* Sources */,
 				59DC83562739D35D00466A21 /* Frameworks */,
 				59DC83572739D35D00466A21 /* Resources */,
-				593F26392739D58C00B34547 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

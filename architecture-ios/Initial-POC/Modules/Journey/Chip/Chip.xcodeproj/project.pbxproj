@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,7 +15,6 @@
 		234AEAAC2773A9DA00990EA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 234AEAAA2773A9DA00990EA5 /* LaunchScreen.storyboard */; };
 		234AEADF2773AC8000990EA5 /* ChipFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 234AEAD82773AC8000990EA5 /* ChipFramework.framework */; };
 		234AEAEB2773ADC600990EA5 /* StructuralDependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234AEAEA2773ADC600990EA5 /* StructuralDependencyProvider.swift */; };
-		234AEAF02773AF5B00990EA5 /* NetworkingInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 234AEAEF2773AF5B00990EA5 /* NetworkingInterfaces.framework */; };
 		234AEAF32773B01200990EA5 /* AppSecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 234AEAF22773B01200990EA5 /* AppSecurity.framework */; };
 		234AEAFB2773B05000990EA5 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 234AEAFA2773B05000990EA5 /* Networking.framework */; };
 		234AEB032773B07500990EA5 /* Analytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 234AEB022773B07500990EA5 /* Analytics.framework */; };
@@ -138,7 +137,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				234AEAF02773AF5B00990EA5 /* NetworkingInterfaces.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
