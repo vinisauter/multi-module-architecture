@@ -35,6 +35,9 @@
          <FileRef
             location = "group:Modules/Structural/Analytics/Analytics.xcodeproj">
          </FileRef>
+         <FileRef
+            location = "group:Modules/Structural/FlutterModule/FlutterModule.xcodeproj">
+         </FileRef>
       </Group>
    </Group>
 </Workspace>
