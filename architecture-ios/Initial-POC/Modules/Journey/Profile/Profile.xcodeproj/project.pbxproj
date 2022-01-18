@@ -29,12 +29,9 @@
 		59AECDF8273AB45A00252E87 /* ProfileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AECDF7273AB45A00252E87 /* ProfileAPI.swift */; };
 		59AECDFA273AB46600252E87 /* ProfileFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AECDF9273AB46600252E87 /* ProfileFlow.swift */; };
 		59AECDFC273AB47C00252E87 /* ProfileViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AECDFB273AB47C00252E87 /* ProfileViewControllerFactory.swift */; };
-		59C82C39273BFF6D00E84149 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C82C38273BFF6D00E84149 /* Core.framework */; };
-		59C82C3A273BFF6D00E84149 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59C82C38273BFF6D00E84149 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59DC838E2739D38A00466A21 /* Profile.h in Headers */ = {isa = PBXBuildFile; fileRef = 59DC838C2739D38A00466A21 /* Profile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		59FAED83273D9E5300C18E6E /* Analytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED82273D9E5300C18E6E /* Analytics.framework */; };
 		59FAED84273D9E5300C18E6E /* Analytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED82273D9E5300C18E6E /* Analytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A6F9198A5409CDB01578F503 /* Pods_Profile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC84CF7294C180ECF974F6E5 /* Pods_Profile.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,17 +54,6 @@
 				593F262D2739D55F00B34547 /* Networking.framework in Embed Frameworks */,
 				593F25A82739D3D300B34547 /* Profile.framework in Embed Frameworks */,
 				59FAED84273D9E5300C18E6E /* Analytics.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		593F26312739D56F00B34547 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				59C82C3A273BFF6D00E84149 /* Core.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,8 +112,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59C82C39273BFF6D00E84149 /* Core.framework in Frameworks */,
-				A6F9198A5409CDB01578F503 /* Pods_Profile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,7 +353,6 @@
 				59DC83852739D38A00466A21 /* Sources */,
 				59DC83862739D38A00466A21 /* Frameworks */,
 				59DC83872739D38A00466A21 /* Resources */,
-				593F26312739D56F00B34547 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

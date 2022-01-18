@@ -9,35 +9,9 @@
 /* Begin PBXBuildFile section */
 		5961F8352739D9C1007780C9 /* Analytics.h in Headers */ = {isa = PBXBuildFile; fileRef = 5961F8332739D9C1007780C9 /* Analytics.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5961F8452739D9E7007780C9 /* AnalyticsInterfaces.h in Headers */ = {isa = PBXBuildFile; fileRef = 5961F8432739D9E7007780C9 /* AnalyticsInterfaces.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5961F84C2739D9F8007780C9 /* AnalyticsInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5961F8412739D9E7007780C9 /* AnalyticsInterfaces.framework */; };
-		5961F84D2739D9F8007780C9 /* AnalyticsInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5961F8412739D9E7007780C9 /* AnalyticsInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59FAED92273D9EDD00C18E6E /* AnalyticsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FAED91273D9EDD00C18E6E /* AnalyticsProtocol.swift */; };
 		59FAED95273D9F2B00C18E6E /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FAED94273D9F2B00C18E6E /* Analytics.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		5961F84E2739D9F8007780C9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5961F8272739D9C1007780C9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5961F8402739D9E7007780C9;
-			remoteInfo = StorageInterfaces;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		5961F8502739D9F8007780C9 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				5961F84D2739D9F8007780C9 /* AnalyticsInterfaces.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5961F8302739D9C1007780C9 /* Analytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Analytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,7 +29,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5961F84C2739D9F8007780C9 /* AnalyticsInterfaces.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,12 +134,10 @@
 				5961F82C2739D9C1007780C9 /* Sources */,
 				5961F82D2739D9C1007780C9 /* Frameworks */,
 				5961F82E2739D9C1007780C9 /* Resources */,
-				5961F8502739D9F8007780C9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5961F84F2739D9F8007780C9 /* PBXTargetDependency */,
 			);
 			name = Analytics;
 			productName = Storage;
@@ -263,14 +234,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		5961F84F2739D9F8007780C9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5961F8402739D9E7007780C9 /* AnalyticsInterfaces */;
-			targetProxy = 5961F84E2739D9F8007780C9 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		5961F8362739D9C1007780C9 /* Debug */ = {

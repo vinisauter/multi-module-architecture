@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		238AE8F12797300D005EB3D1 /* NetworkingInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 593F26082739D4A500B34547 /* NetworkingInterfaces.framework */; };
-		238AE8F22797300D005EB3D1 /* NetworkingInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 593F26082739D4A500B34547 /* NetworkingInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		593F25FC2739D47900B34547 /* Networking.h in Headers */ = {isa = PBXBuildFile; fileRef = 593F25FA2739D47900B34547 /* Networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		593F260C2739D4A500B34547 /* NetworkingInterfaces.h in Headers */ = {isa = PBXBuildFile; fileRef = 593F260A2739D4A500B34547 /* NetworkingInterfaces.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		593F261A2739D4CC00B34547 /* HTTPClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593F26192739D4CC00B34547 /* HTTPClientProtocol.swift */; };
@@ -17,30 +15,6 @@
 		598AC4C1275A2BD20081C1FD /* LibTwoHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598AC4C0275A2BD20081C1FD /* LibTwoHTTPClient.swift */; };
 		59FF604B27610C800096F78F /* NetworkingProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FF604A27610C800096F78F /* NetworkingProviderProtocol.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		238AE8F32797300D005EB3D1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 593F25EE2739D47900B34547 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 593F26072739D4A500B34547;
-			remoteInfo = NetworkingInterfaces;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		238AE8F52797300D005EB3D1 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				238AE8F22797300D005EB3D1 /* NetworkingInterfaces.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		593F25F72739D47900B34547 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,7 +38,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				238AE8F12797300D005EB3D1 /* NetworkingInterfaces.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,12 +159,10 @@
 				593F25F32739D47900B34547 /* Sources */,
 				593F25F42739D47900B34547 /* Frameworks */,
 				593F25F52739D47900B34547 /* Resources */,
-				238AE8F52797300D005EB3D1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				238AE8F42797300D005EB3D1 /* PBXTargetDependency */,
 			);
 			name = Networking;
 			productName = Networking;
@@ -316,14 +287,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		238AE8F42797300D005EB3D1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 593F26072739D4A500B34547 /* NetworkingInterfaces */;
-			targetProxy = 238AE8F32797300D005EB3D1 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		593F25FD2739D47900B34547 /* Debug */ = {
