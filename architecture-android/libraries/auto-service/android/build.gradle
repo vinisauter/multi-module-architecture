@@ -27,7 +27,7 @@ android {
 }
 
 dependencies {
-    implementation platform(project(path: ':app-bom'))
+//    implementation platform(project(path: ':app-bom'))
     implementation 'org.jetbrains.kotlin:kotlin-reflect'
     implementation 'com.google.android.play:core-ktx'
     api project(path: ':libraries:auto-service:annotations')

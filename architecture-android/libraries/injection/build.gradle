@@ -24,7 +24,7 @@ android {
 }
 
 dependencies {
-    implementation platform(project(path: ':app-bom'))
+//    implementation platform(project(path: ':app-bom'))
     implementation 'org.jetbrains.kotlin:kotlin-reflect'
     implementation 'androidx.fragment:fragment-ktx'
     implementation 'androidx.activity:activity-ktx'

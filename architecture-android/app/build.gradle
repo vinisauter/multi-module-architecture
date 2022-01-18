@@ -58,7 +58,7 @@ dependencies {
 //    api enforcedPlatform(project(path: ':app-bom'))
 //    api platform('com.github.vinisauter:app-bom:1.0.0')
 //    api enforcedPlatform('com.github.vinisauter:app-bom:1.0.0')
-    api enforcedPlatform('com.github.vinisauter.multi-module-architecture:app-bom:android-1.0.0')
+//    api enforcedPlatform('com.github.vinisauter.multi-module-architecture:app-bom:android-1.0.0')
 
     api project(path: ':libraries:auto-service:android')
     ksp project(path: ':libraries:auto-service:processor')

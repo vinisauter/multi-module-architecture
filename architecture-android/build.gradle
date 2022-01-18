@@ -13,3 +13,45 @@ plugins {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+subprojects {
+    afterEvaluate {
+        if (it.hasProperty('java')) {
+            dependencies {
+                implementation enforcedPlatform('com.github.vinisauter.multi-module-architecture:app-bom:android-1.0.0')
+            }
+        }
+    }
+}
+
+//subprojects {
+//    afterEvaluate {
+//        if (it.hasProperty('android')) {
+//            plugins.withId('com.android.library') {
+//                android {
+//                    defaultConfig {
+//                        buildConfigField 'int', 'VERSION_CODE', "1"
+//                        buildConfigField 'String', 'VERSION_NAME', "\"1.0\""
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}
+
+//subprojects {
+//    apply plugin: 'java'
+//    apply plugin: 'maven-publish'
+//
+//    publishing {
+//        publications {
+//            beta(MavenPublication) {
+//                from components.java
+////                from components.release
+//            }
+//        }
+//    }
+//
+//    // Alias for the task publishBetaPublicationToMavenLocal that publishes the individual integration jars to the local Maven repo
+//    task install(dependsOn: 'publishBetaPublicationToMavenLocal') {}
+//}

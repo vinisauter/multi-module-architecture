@@ -24,7 +24,7 @@ android {
 }
 
 dependencies {
-    api platform(project(path: ':app-bom'))
+//    api platform(project(path: ':app-bom'))
     implementation project(path: ':engineering:interfaces:networking-interface')
 
     testImplementation 'junit:junit:4.13.2'
