@@ -1,0 +1,6 @@
+framework module AppSecurityInterfaces {
+  umbrella header "AppSecurityInterfaces-umbrella.h"
+
+  export *
+  module * { export * }
+}

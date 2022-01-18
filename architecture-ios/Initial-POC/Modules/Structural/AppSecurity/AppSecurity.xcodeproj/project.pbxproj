@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		59D1541C2768D9D600459773 /* AppSecurity.h in Headers */ = {isa = PBXBuildFile; fileRef = 59D1541A2768D9D600459773 /* AppSecurity.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		59D1542D2768D9FC00459773 /* AppSecurityInterfaces.h in Headers */ = {isa = PBXBuildFile; fileRef = 59D1542B2768D9FC00459773 /* AppSecurityInterfaces.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		59D154352768DA1500459773 /* AppSecurityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D154342768DA1500459773 /* AppSecurityProvider.swift */; };
+		59D154352768DA1500459773 /* AppSecurityProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D154342768DA1500459773 /* AppSecurityProviderProtocol.swift */; };
 		59D154392768DA6300459773 /* AppSecurityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D154382768DA6300459773 /* AppSecurityProvider.swift */; };
 		59D1543D2768DA6C00459773 /* AppSecurityInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D154292768D9FC00459773 /* AppSecurityInterfaces.framework */; };
 		59D1543E2768DA6C00459773 /* AppSecurityInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59D154292768D9FC00459773 /* AppSecurityInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -46,7 +46,7 @@
 		59D154292768D9FC00459773 /* AppSecurityInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppSecurityInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D1542B2768D9FC00459773 /* AppSecurityInterfaces.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppSecurityInterfaces.h; sourceTree = "<group>"; };
 		59D1542C2768D9FC00459773 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		59D154342768DA1500459773 /* AppSecurityProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSecurityProvider.swift; sourceTree = "<group>"; };
+		59D154342768DA1500459773 /* AppSecurityProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSecurityProviderProtocol.swift; sourceTree = "<group>"; };
 		59D154382768DA6300459773 /* AppSecurityProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSecurityProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,7 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				59D154332768DA0100459773 /* Config */,
-				59D154342768DA1500459773 /* AppSecurityProvider.swift */,
+				59D154342768DA1500459773 /* AppSecurityProviderProtocol.swift */,
 			);
 			path = AppSecurityInterfaces;
 			sourceTree = "<group>";
@@ -258,7 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59D154352768DA1500459773 /* AppSecurityProvider.swift in Sources */,
+				59D154352768DA1500459773 /* AppSecurityProviderProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

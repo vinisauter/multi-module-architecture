@@ -1,0 +1,31 @@
+{
+  "name": "AppSecurity",
+  "version": "1.0.1",
+  "summary": "AppSecurity base library",
+  "description": "Library with AppSecurity classes",
+  "homepage": "https://github.com/FelippeMatos/multi-structural-module",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "giovane_barreira@hotmail.com": "giovane.barreira@avanade.com"
+  },
+  "source": {
+    "git": "https://github.com/FelippeMatos/multi-structural-module.git",
+    "tag": "1.0.1"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "exclude_files": "AppSecurity/Config/*.{plist}",
+  "source_files": [
+    "AppSecurity",
+    "AppSecurity/**/*"
+  ],
+  "dependencies": {
+    "AppSecurityInterfaces": [
+      "1.0.1"
+    ]
+  }
+}

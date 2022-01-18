@@ -24,6 +24,14 @@ def analytics_interfaces
   pod 'NetworkingInterfaces', :path => 'Modules/Structural/Networking/NetworkingInterfaces.podspec'
 end
 
+def appsecurity
+  pod 'AppSecurity', :path => 'Modules/Structural/AppSecurity/AppSecurity.podspec'
+end
+
+def appsecurity_interfaces
+  pod 'AppSecurityInterfaces', :path => 'Modules/Structural/AppSecurity/AppSecurityInterfaces.podspec'
+end
+
 def core
   pod 'Core', :path => 'Modules/Structural/Core/Core.podspec'
 end
@@ -41,6 +49,8 @@ target 'App' do
   networking_interfaces
   analytics
   analytics_interfaces
+  appsecurity
+  appsecurity_interfaces
 
 
 end

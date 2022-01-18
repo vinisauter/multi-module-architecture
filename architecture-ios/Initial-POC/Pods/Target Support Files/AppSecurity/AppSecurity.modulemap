@@ -1,0 +1,6 @@
+framework module AppSecurity {
+  umbrella header "AppSecurity-umbrella.h"
+
+  export *
+  module * { export * }
+}
