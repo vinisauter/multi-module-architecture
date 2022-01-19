@@ -12,3 +12,13 @@ plugins {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+subprojects {
+    afterEvaluate {
+        if (it.hasProperty('java')) {
+            dependencies {
+                implementation enforcedPlatform('com.github.vinisauter.multi-module-architecture:app-bom:android-1.0.0')
+            }
+        }
+    }
+}

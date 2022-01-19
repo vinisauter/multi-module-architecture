@@ -25,7 +25,7 @@ android {
 
 dependencies {
     implementation project(path: ':app')
-    implementation project(path: ':engineering:implementations:networkingsecurev2')
+    implementation 'com.github.TiliaSNogueira.module:implementation:v1.0.6'
     ksp project(path: ':libraries:auto-service:processor')
 
     testImplementation 'junit:junit:4.13.2'

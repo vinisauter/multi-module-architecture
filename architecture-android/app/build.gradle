@@ -57,7 +57,7 @@ dependencies {
     api project(path: ':libraries:bug-finder')
     api project(path: ':libraries:injection')
 
-    api project(path: ':engineering:interfaces:networking-interface')
+    api 'com.github.TiliaSNogueira.module:interface:v1.0.6'
     api project(path: ':engineering:interfaces:storage-interface')
     api project(path: ':engineering:interfaces:tagging-interface')
     api project(path: ':engineering:interfaces:security-interface')
