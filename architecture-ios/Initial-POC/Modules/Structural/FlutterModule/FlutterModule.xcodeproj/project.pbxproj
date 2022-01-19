@@ -3,13 +3,45 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		5E78F51C27973E8400751393 /* FlutterModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E78F51A27973E8400751393 /* FlutterModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E78F52C27973E9100751393 /* FlutterModuleInterfaces.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E78F52A27973E9100751393 /* FlutterModuleInterfaces.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E78F54227973F7600751393 /* FlutterModuleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E78F54127973F7600751393 /* FlutterModuleProtocol.swift */; };
+		5E78F5462797402900751393 /* FlutterModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E78F5452797402900751393 /* FlutterModule.swift */; };
+		5E78F54A2797404A00751393 /* FlutterModuleInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E78F52827973E9100751393 /* FlutterModuleInterfaces.framework */; };
+		5E78F54B2797404A00751393 /* FlutterModuleInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5E78F52827973E9100751393 /* FlutterModuleInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5E78F5532797439000751393 /* Frameworks in Resources */ = {isa = PBXBuildFile; fileRef = 5E78F5522797439000751393 /* Frameworks */; };
+		5E78F556279743B000751393 /* Flutter.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E78F555279743B000751393 /* Flutter.xcframework */; };
+		5E78F557279743B000751393 /* Flutter.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5E78F555279743B000751393 /* Flutter.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5E78F54C2797404A00751393 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E78F50E27973E8400751393 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E78F52727973E9100751393;
+			remoteInfo = FlutterModuleInterfaces;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5E78F54E2797404A00751393 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5E78F557279743B000751393 /* Flutter.xcframework in Embed Frameworks */,
+				5E78F54B2797404A00751393 /* FlutterModuleInterfaces.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5E78F51727973E8400751393 /* FlutterModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FlutterModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -18,6 +50,10 @@
 		5E78F52827973E9100751393 /* FlutterModuleInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FlutterModuleInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E78F52A27973E9100751393 /* FlutterModuleInterfaces.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlutterModuleInterfaces.h; sourceTree = "<group>"; };
 		5E78F52B27973E9100751393 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E78F54127973F7600751393 /* FlutterModuleProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlutterModuleProtocol.swift; sourceTree = "<group>"; };
+		5E78F5452797402900751393 /* FlutterModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlutterModule.swift; sourceTree = "<group>"; };
+		5E78F5522797439000751393 /* Frameworks */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Frameworks; sourceTree = "<group>"; };
+		5E78F555279743B000751393 /* Flutter.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Flutter.xcframework; path = Frameworks/Debug/Flutter.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -25,6 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E78F556279743B000751393 /* Flutter.xcframework in Frameworks */,
+				5E78F54A2797404A00751393 /* FlutterModuleInterfaces.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,9 +79,11 @@
 		5E78F50D27973E8400751393 = {
 			isa = PBXGroup;
 			children = (
+				5E78F5522797439000751393 /* Frameworks */,
 				5E78F51927973E8400751393 /* FlutterModule */,
 				5E78F52927973E9100751393 /* FlutterModuleInterfaces */,
 				5E78F51827973E8400751393 /* Products */,
+				5E78F5492797404A00751393 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,8 +99,8 @@
 		5E78F51927973E8400751393 /* FlutterModule */ = {
 			isa = PBXGroup;
 			children = (
-				5E78F51A27973E8400751393 /* FlutterModule.h */,
-				5E78F51B27973E8400751393 /* Info.plist */,
+				5E78F54027973F5500751393 /* Config */,
+				5E78F5452797402900751393 /* FlutterModule.swift */,
 			);
 			path = FlutterModule;
 			sourceTree = "<group>";
@@ -68,10 +108,36 @@
 		5E78F52927973E9100751393 /* FlutterModuleInterfaces */ = {
 			isa = PBXGroup;
 			children = (
+				5E78F53F27973F4B00751393 /* Config */,
+				5E78F54127973F7600751393 /* FlutterModuleProtocol.swift */,
+			);
+			path = FlutterModuleInterfaces;
+			sourceTree = "<group>";
+		};
+		5E78F53F27973F4B00751393 /* Config */ = {
+			isa = PBXGroup;
+			children = (
 				5E78F52A27973E9100751393 /* FlutterModuleInterfaces.h */,
 				5E78F52B27973E9100751393 /* Info.plist */,
 			);
-			path = FlutterModuleInterfaces;
+			path = Config;
+			sourceTree = "<group>";
+		};
+		5E78F54027973F5500751393 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				5E78F51A27973E8400751393 /* FlutterModule.h */,
+				5E78F51B27973E8400751393 /* Info.plist */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		5E78F5492797404A00751393 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E78F555279743B000751393 /* Flutter.xcframework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,10 +170,12 @@
 				5E78F51327973E8400751393 /* Sources */,
 				5E78F51427973E8400751393 /* Frameworks */,
 				5E78F51527973E8400751393 /* Resources */,
+				5E78F54E2797404A00751393 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5E78F54D2797404A00751393 /* PBXTargetDependency */,
 			);
 			name = FlutterModule;
 			productName = FlutterModule;
@@ -142,9 +210,11 @@
 				TargetAttributes = {
 					5E78F51627973E8400751393 = {
 						CreatedOnToolsVersion = 12.1;
+						LastSwiftMigration = 1210;
 					};
 					5E78F52727973E9100751393 = {
 						CreatedOnToolsVersion = 12.1;
+						LastSwiftMigration = 1210;
 					};
 				};
 			};
@@ -172,6 +242,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E78F5532797439000751393 /* Frameworks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E78F5462797402900751393 /* FlutterModule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,10 +268,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E78F54227973F7600751393 /* FlutterModuleProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5E78F54D2797404A00751393 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E78F52727973E9100751393 /* FlutterModuleInterfaces */;
+			targetProxy = 5E78F54C2797404A00751393 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		5E78F51D27973E8400751393 /* Debug */ = {
@@ -327,12 +408,13 @@
 		5E78F52027973E8400751393 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = FlutterModule/Info.plist;
+				INFOPLIST_FILE = FlutterModule/Config/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -342,7 +424,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ailton.FlutterModule;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "Frameworks/$(CONFIGURATION)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -350,12 +434,13 @@
 		5E78F52127973E8400751393 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = FlutterModule/Info.plist;
+				INFOPLIST_FILE = FlutterModule/Config/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -366,6 +451,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "Frameworks/$(CONFIGURATION)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -373,12 +459,13 @@
 		5E78F52E27973E9100751393 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = FlutterModuleInterfaces/Info.plist;
+				INFOPLIST_FILE = FlutterModuleInterfaces/Config/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -388,6 +475,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ailton.FlutterModuleInterfaces;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -396,12 +484,13 @@
 		5E78F52F27973E9100751393 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = FlutterModuleInterfaces/Info.plist;
+				INFOPLIST_FILE = FlutterModuleInterfaces/Config/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
