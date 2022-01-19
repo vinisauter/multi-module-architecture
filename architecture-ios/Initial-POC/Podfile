@@ -1,4 +1,3 @@
-# Uncomment the next line to define a global platform for your project
 platform :ios, '11.0'
 
 workspace 'App.xcworkspace'
@@ -59,11 +58,9 @@ end
 ############## Journey Targets ##############
 
 target 'App' do
-  # Comment the next line if you don't want to use dynamic frameworks
   project 'App.xcodeproj'
   use_frameworks!
 
-  # Pods for App
   home
   profile
   login
@@ -78,7 +75,6 @@ target 'App' do
 end
 
 target 'Chip' do
-  # Comment the next line if you don't want to use dynamic frameworks
   project 'Modules/Journey/Chip/Chip.xcodeproj'
   use_frameworks!
 
@@ -90,7 +86,6 @@ target 'Chip' do
 end
 
 target 'Home' do
-  # Comment the next line if you don't want to use dynamic frameworks
   project 'Modules/Journey/Home/Home.xcodeproj'
   use_frameworks!
 
@@ -101,7 +96,6 @@ target 'Home' do
 end
 
 target 'Login' do
-  # Comment the next line if you don't want to use dynamic frameworks
   project 'Modules/Journey/Login/Login.xcodeproj'
   use_frameworks!
   
@@ -112,7 +106,6 @@ target 'Login' do
 end
 
 target 'Profile' do
-  # Comment the next line if you don't want to use dynamic frameworks
   project 'Modules/Journey/Profile/Profile.xcodeproj'
   use_frameworks!
   
@@ -125,7 +118,6 @@ end
 ############## Demonstration Targets ##############
 
 target 'LoginDemo' do
-  # Comment the next line if you don't want to use dynamic frameworks
   project 'Modules/Journey/Login/Login.xcodeproj'
   use_frameworks!
   
