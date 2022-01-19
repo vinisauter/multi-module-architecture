@@ -8,7 +8,7 @@ project 'Modules/Journey/Home/Home.xcodeproj'
 project 'Modules/Journey/Login/Login.xcodeproj'
 project 'Modules/Journey/Profile/Profile.xcodeproj'
 
-##### Base modules ######
+############## Base modules ##############
 
 def networking
   pod 'Networking', :path => 'Modules/Structural/Networking/Networking.podspec'
@@ -38,7 +38,7 @@ def core
   pod 'Core', :path => 'Modules/Structural/Core/Core.podspec'
 end
   
-##### Journey modules ######
+############## Journey modules ##############
 
 def chip
   pod 'Chip', :path => 'Modules/Journey/Chip/Chip.podspec'
@@ -56,7 +56,7 @@ def home
   pod 'Home', :path => 'Modules/Journey/Home/Home.podspec'
 end
 
-##### Targets configurations ######
+############## Journey Targets ##############
 
 target 'App' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -111,6 +111,18 @@ target 'Login' do
   analytics_interfaces
 end
 
+target 'Profile' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  project 'Modules/Journey/Profile/Profile.xcodeproj'
+  use_frameworks!
+  
+  core
+  networking_interfaces
+  analytics_interfaces
+  
+end
+
+############## Demonstration Targets ##############
 
 target 'LoginDemo' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -125,16 +137,3 @@ target 'LoginDemo' do
   analytics_interfaces
   login
 end
-
-target 'Profile' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  project 'Modules/Journey/Profile/Profile.xcodeproj'
-  use_frameworks!
-  
-  core
-  networking_interfaces
-  analytics_interfaces
-  
-end
-
-
