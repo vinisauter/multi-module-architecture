@@ -7,5 +7,14 @@
    <Group
       location = "container:"
       name = "ModulesSPM">
+      <FileRef
+         location = "group:ModulesSPM/Journeys/Login">
+      </FileRef>
+      <FileRef
+         location = "group:ModulesSPM/Journeys/Profile">
+      </FileRef>
+      <FileRef
+         location = "group:ModulesSPM/Journeys/Home">
+      </FileRef>
    </Group>
 </Workspace>

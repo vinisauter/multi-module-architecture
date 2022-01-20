@@ -7,19 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C48B507278DB698005B581A /* Analytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0C48B506278DB698005B581A /* Analytics */; };
-		0C48B50B278DB6A4005B581A /* AppSecurity in Frameworks */ = {isa = PBXBuildFile; productRef = 0C48B50A278DB6A4005B581A /* AppSecurity */; };
-		0C48B50D278DB6A9005B581A /* AppSecurityInterfaces in Frameworks */ = {isa = PBXBuildFile; productRef = 0C48B50C278DB6A9005B581A /* AppSecurityInterfaces */; };
-		0CBCCBEE279995DD006CF6B1 /* Analytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBCCBED279995DD006CF6B1 /* Analytics */; };
-		0CBCCBF0279995DD006CF6B1 /* AnalyticsInterfaces in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBCCBEF279995DD006CF6B1 /* AnalyticsInterfaces */; };
-		0CBCCBF2279995DD006CF6B1 /* AppSecurity in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBCCBF1279995DD006CF6B1 /* AppSecurity */; };
-		0CBCCBF4279995DD006CF6B1 /* AppSecurityInterfaces in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBCCBF3279995DD006CF6B1 /* AppSecurityInterfaces */; };
-		0CBCCBF6279995DD006CF6B1 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBCCBF5279995DD006CF6B1 /* Core */; };
-		0CBCCBF8279995DD006CF6B1 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBCCBF7279995DD006CF6B1 /* Networking */; };
-		0CBCCBFA279995DD006CF6B1 /* NetworkingInterfaces in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBCCBF9279995DD006CF6B1 /* NetworkingInterfaces */; };
-		0CBCCBFD27999607006CF6B1 /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBCCBFC27999607006CF6B1 /* Home */; };
-		0CBCCBFF27999607006CF6B1 /* Login in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBCCBFE27999607006CF6B1 /* Login */; };
-		0CBCCC0127999607006CF6B1 /* Profile in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBCCC0027999607006CF6B1 /* Profile */; };
+		0CAAAC092799BB9A00FA721A /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = 0CAAAC082799BB9A00FA721A /* Home */; };
+		0CAAAC0B2799BB9D00FA721A /* Login in Frameworks */ = {isa = PBXBuildFile; productRef = 0CAAAC0A2799BB9D00FA721A /* Login */; };
+		0CAAAC0D2799BBA000FA721A /* Profile in Frameworks */ = {isa = PBXBuildFile; productRef = 0CAAAC0C2799BBA000FA721A /* Profile */; };
+		0CAAAC0F2799BBA700FA721A /* Analytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0CAAAC0E2799BBA700FA721A /* Analytics */; };
+		0CAAAC112799BBA700FA721A /* AnalyticsInterfaces in Frameworks */ = {isa = PBXBuildFile; productRef = 0CAAAC102799BBA700FA721A /* AnalyticsInterfaces */; };
+		0CAAAC132799BBA700FA721A /* AppSecurity in Frameworks */ = {isa = PBXBuildFile; productRef = 0CAAAC122799BBA700FA721A /* AppSecurity */; };
+		0CAAAC152799BBA700FA721A /* AppSecurityInterfaces in Frameworks */ = {isa = PBXBuildFile; productRef = 0CAAAC142799BBA700FA721A /* AppSecurityInterfaces */; };
+		0CAAAC172799BBA700FA721A /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 0CAAAC162799BBA700FA721A /* Core */; };
+		0CAAAC192799BBA700FA721A /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 0CAAAC182799BBA700FA721A /* Networking */; };
+		0CAAAC1B2799BBA700FA721A /* NetworkingInterfaces in Frameworks */ = {isa = PBXBuildFile; productRef = 0CAAAC1A2799BBA700FA721A /* NetworkingInterfaces */; };
 		421ECFC127396FBA00BD353C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421ECFC027396FBA00BD353C /* AppDelegate.swift */; };
 		421ECFC527396FBA00BD353C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421ECFC427396FBA00BD353C /* WelcomeViewController.swift */; };
 		421ECFC827396FBA00BD353C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 421ECFC627396FBA00BD353C /* Main.storyboard */; };
@@ -41,24 +38,12 @@
 		421ECFC927396FBC00BD353C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		421ECFCC27396FBC00BD353C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		421ECFCE27396FBC00BD353C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		593F263A2739D63000B34547 /* Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		593F263B2739D63000B34547 /* Login.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Login.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		593F263C2739D63000B34547 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		593F263D2739D63000B34547 /* NetworkingInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkingInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		593F263E2739D63000B34547 /* Profile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Profile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59644E21273AA19000B3A865 /* StructuralDependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructuralDependencyProvider.swift; sourceTree = "<group>"; };
 		5993F7A8273D852E00B3A695 /* LoginHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHandler.swift; sourceTree = "<group>"; };
 		5993F7AA273D856C00B3A695 /* HomeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHandler.swift; sourceTree = "<group>"; };
 		5993F7AC273D85BE00B3A695 /* ProfileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHandler.swift; sourceTree = "<group>"; };
-		59A9DA772739DCB6003FA91D /* Storage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Storage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		59A9DA782739DCB6003FA91D /* StorageInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StorageInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		59C82C44273BFF8D00E84149 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		59D154452768DCD400459773 /* AppSecurity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppSecurity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		59D154462768DCD400459773 /* AppSecurityInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppSecurityInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D1544C2768DD5700459773 /* NetworkingDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingDependency.swift; sourceTree = "<group>"; };
 		59EABE5327466FB4007E653F /* LoginAnalyticsProfileAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAnalyticsProfileAdapter.swift; sourceTree = "<group>"; };
-		59FAED76273D9E2B00C18E6E /* Analytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Analytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		59FAED77273D9E2B00C18E6E /* AnalyticsInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AnalyticsInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,31 +51,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CBCCBF8279995DD006CF6B1 /* Networking in Frameworks */,
-				0CBCCBF2279995DD006CF6B1 /* AppSecurity in Frameworks */,
-				0CBCCBFA279995DD006CF6B1 /* NetworkingInterfaces in Frameworks */,
-				0CBCCC0127999607006CF6B1 /* Profile in Frameworks */,
-				0CBCCBF4279995DD006CF6B1 /* AppSecurityInterfaces in Frameworks */,
-				0C48B50B278DB6A4005B581A /* AppSecurity in Frameworks */,
-				0CBCCBEE279995DD006CF6B1 /* Analytics in Frameworks */,
-				0CBCCBFF27999607006CF6B1 /* Login in Frameworks */,
-				0C48B507278DB698005B581A /* Analytics in Frameworks */,
-				0CBCCBF6279995DD006CF6B1 /* Core in Frameworks */,
-				0CBCCBF0279995DD006CF6B1 /* AnalyticsInterfaces in Frameworks */,
-				0C48B50D278DB6A9005B581A /* AppSecurityInterfaces in Frameworks */,
-				0CBCCBFD27999607006CF6B1 /* Home in Frameworks */,
+				0CAAAC192799BBA700FA721A /* Networking in Frameworks */,
+				0CAAAC132799BBA700FA721A /* AppSecurity in Frameworks */,
+				0CAAAC1B2799BBA700FA721A /* NetworkingInterfaces in Frameworks */,
+				0CAAAC152799BBA700FA721A /* AppSecurityInterfaces in Frameworks */,
+				0CAAAC0D2799BBA000FA721A /* Profile in Frameworks */,
+				0CAAAC0F2799BBA700FA721A /* Analytics in Frameworks */,
+				0CAAAC0B2799BB9D00FA721A /* Login in Frameworks */,
+				0CAAAC172799BBA700FA721A /* Core in Frameworks */,
+				0CAAAC112799BBA700FA721A /* AnalyticsInterfaces in Frameworks */,
+				0CAAAC092799BB9A00FA721A /* Home in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CAAAC062799BA9C00FA721A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		421ECFB427396FBA00BD353C = {
 			isa = PBXGroup;
 			children = (
 				421ECFBF27396FBA00BD353C /* App */,
 				421ECFBE27396FBA00BD353C /* Products */,
-				421ED0C12739758400BD353C /* Frameworks */,
+				0CAAAC062799BA9C00FA721A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,25 +106,6 @@
 				5999E0C22747D71A0044427F /* AnalyticsAdapters */,
 			);
 			path = App;
-			sourceTree = "<group>";
-		};
-		421ED0C12739758400BD353C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				59D154452768DCD400459773 /* AppSecurity.framework */,
-				59D154462768DCD400459773 /* AppSecurityInterfaces.framework */,
-				59FAED76273D9E2B00C18E6E /* Analytics.framework */,
-				59FAED77273D9E2B00C18E6E /* AnalyticsInterfaces.framework */,
-				59C82C44273BFF8D00E84149 /* Core.framework */,
-				59A9DA772739DCB6003FA91D /* Storage.framework */,
-				59A9DA782739DCB6003FA91D /* StorageInterfaces.framework */,
-				593F263A2739D63000B34547 /* Home.framework */,
-				593F263B2739D63000B34547 /* Login.framework */,
-				593F263C2739D63000B34547 /* Networking.framework */,
-				593F263D2739D63000B34547 /* NetworkingInterfaces.framework */,
-				593F263E2739D63000B34547 /* Profile.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		597F1C3D27556AC1006320C9 /* Handlers */ = {
@@ -189,19 +159,16 @@
 			);
 			name = App;
 			packageProductDependencies = (
-				0C48B506278DB698005B581A /* Analytics */,
-				0C48B50A278DB6A4005B581A /* AppSecurity */,
-				0C48B50C278DB6A9005B581A /* AppSecurityInterfaces */,
-				0CBCCBED279995DD006CF6B1 /* Analytics */,
-				0CBCCBEF279995DD006CF6B1 /* AnalyticsInterfaces */,
-				0CBCCBF1279995DD006CF6B1 /* AppSecurity */,
-				0CBCCBF3279995DD006CF6B1 /* AppSecurityInterfaces */,
-				0CBCCBF5279995DD006CF6B1 /* Core */,
-				0CBCCBF7279995DD006CF6B1 /* Networking */,
-				0CBCCBF9279995DD006CF6B1 /* NetworkingInterfaces */,
-				0CBCCBFC27999607006CF6B1 /* Home */,
-				0CBCCBFE27999607006CF6B1 /* Login */,
-				0CBCCC0027999607006CF6B1 /* Profile */,
+				0CAAAC082799BB9A00FA721A /* Home */,
+				0CAAAC0A2799BB9D00FA721A /* Login */,
+				0CAAAC0C2799BBA000FA721A /* Profile */,
+				0CAAAC0E2799BBA700FA721A /* Analytics */,
+				0CAAAC102799BBA700FA721A /* AnalyticsInterfaces */,
+				0CAAAC122799BBA700FA721A /* AppSecurity */,
+				0CAAAC142799BBA700FA721A /* AppSecurityInterfaces */,
+				0CAAAC162799BBA700FA721A /* Core */,
+				0CAAAC182799BBA700FA721A /* Networking */,
+				0CAAAC1A2799BBA700FA721A /* NetworkingInterfaces */,
 			);
 			productName = "Initial-POC";
 			productReference = 421ECFBD27396FBA00BD353C /* App.app */;
@@ -232,7 +199,6 @@
 			mainGroup = 421ECFB427396FBA00BD353C;
 			packageReferences = (
 				0CBCCBEC279995DD006CF6B1 /* XCRemoteSwiftPackageReference "multi-structural-module" */,
-				0CBCCBFB27999607006CF6B1 /* XCRemoteSwiftPackageReference "pocjourneys" */,
 			);
 			productRefGroup = 421ECFBE27396FBA00BD353C /* Products */;
 			projectDirPath = "";
@@ -482,78 +448,55 @@
 				kind = branch;
 			};
 		};
-		0CBCCBFB27999607006CF6B1 /* XCRemoteSwiftPackageReference "pocjourneys" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/brunoccy/pocjourneys";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0C48B506278DB698005B581A /* Analytics */ = {
+		0CAAAC082799BB9A00FA721A /* Home */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Analytics;
+			productName = Home;
 		};
-		0C48B50A278DB6A4005B581A /* AppSecurity */ = {
+		0CAAAC0A2799BB9D00FA721A /* Login */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = AppSecurity;
+			productName = Login;
 		};
-		0C48B50C278DB6A9005B581A /* AppSecurityInterfaces */ = {
+		0CAAAC0C2799BBA000FA721A /* Profile */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = AppSecurityInterfaces;
+			productName = Profile;
 		};
-		0CBCCBED279995DD006CF6B1 /* Analytics */ = {
+		0CAAAC0E2799BBA700FA721A /* Analytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0CBCCBEC279995DD006CF6B1 /* XCRemoteSwiftPackageReference "multi-structural-module" */;
 			productName = Analytics;
 		};
-		0CBCCBEF279995DD006CF6B1 /* AnalyticsInterfaces */ = {
+		0CAAAC102799BBA700FA721A /* AnalyticsInterfaces */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0CBCCBEC279995DD006CF6B1 /* XCRemoteSwiftPackageReference "multi-structural-module" */;
 			productName = AnalyticsInterfaces;
 		};
-		0CBCCBF1279995DD006CF6B1 /* AppSecurity */ = {
+		0CAAAC122799BBA700FA721A /* AppSecurity */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0CBCCBEC279995DD006CF6B1 /* XCRemoteSwiftPackageReference "multi-structural-module" */;
 			productName = AppSecurity;
 		};
-		0CBCCBF3279995DD006CF6B1 /* AppSecurityInterfaces */ = {
+		0CAAAC142799BBA700FA721A /* AppSecurityInterfaces */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0CBCCBEC279995DD006CF6B1 /* XCRemoteSwiftPackageReference "multi-structural-module" */;
 			productName = AppSecurityInterfaces;
 		};
-		0CBCCBF5279995DD006CF6B1 /* Core */ = {
+		0CAAAC162799BBA700FA721A /* Core */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0CBCCBEC279995DD006CF6B1 /* XCRemoteSwiftPackageReference "multi-structural-module" */;
 			productName = Core;
 		};
-		0CBCCBF7279995DD006CF6B1 /* Networking */ = {
+		0CAAAC182799BBA700FA721A /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0CBCCBEC279995DD006CF6B1 /* XCRemoteSwiftPackageReference "multi-structural-module" */;
 			productName = Networking;
 		};
-		0CBCCBF9279995DD006CF6B1 /* NetworkingInterfaces */ = {
+		0CAAAC1A2799BBA700FA721A /* NetworkingInterfaces */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0CBCCBEC279995DD006CF6B1 /* XCRemoteSwiftPackageReference "multi-structural-module" */;
 			productName = NetworkingInterfaces;
-		};
-		0CBCCBFC27999607006CF6B1 /* Home */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0CBCCBFB27999607006CF6B1 /* XCRemoteSwiftPackageReference "pocjourneys" */;
-			productName = Home;
-		};
-		0CBCCBFE27999607006CF6B1 /* Login */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0CBCCBFB27999607006CF6B1 /* XCRemoteSwiftPackageReference "pocjourneys" */;
-			productName = Login;
-		};
-		0CBCCC0027999607006CF6B1 /* Profile */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0CBCCBFB27999607006CF6B1 /* XCRemoteSwiftPackageReference "pocjourneys" */;
-			productName = Profile;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

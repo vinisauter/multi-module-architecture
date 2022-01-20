@@ -1,0 +1,52 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "AnalyticsInterfaces",
+        "repositoryURL": "https://github.com/brunoccy/AnalyticsInterfaces",
+        "state": {
+          "branch": "main",
+          "revision": "855c671df6f431e1050fcbde0fba825a6a20e74b",
+          "version": null
+        }
+      },
+      {
+        "package": "Core",
+        "repositoryURL": "https://github.com/brunoccy/Core",
+        "state": {
+          "branch": "main",
+          "revision": "1509a12e8997630549fb243b653819f08570e8d5",
+          "version": null
+        }
+      },
+      {
+        "package": "StructuralSPM",
+        "repositoryURL": "https://github.com/FelippeMatos/multi-structural-module",
+        "state": {
+          "branch": "ios/bruno-spm",
+          "revision": "0f4d1081c706ed55a2a7157c9b11cada15b45c42",
+          "version": null
+        }
+      },
+      {
+        "package": "NetworkingInterfaces",
+        "repositoryURL": "https://github.com/brunoccy/NetworkingInterfaces",
+        "state": {
+          "branch": "main",
+          "revision": "a2fc0fb0bc9759cd9015fb19a2db111ca2b47651",
+          "version": null
+        }
+      },
+      {
+        "package": "pocjournys",
+        "repositoryURL": "https://github.com/brunoccy/pocjourneys",
+        "state": {
+          "branch": "main",
+          "revision": "7d9b4c19d3793397bf443dc73ac780a0572698b7",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
