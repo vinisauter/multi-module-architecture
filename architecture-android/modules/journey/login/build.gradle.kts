@@ -1,27 +1,32 @@
+import libary.Project.APP
+
 plugins {
-    id ("com.android.dynamic-feature")
-    id ("kotlin-android")
-    id ("kotlin-kapt")
-    id ("kotlin-parcelize")
-    id ("com.google.devtools.ksp")
-    id ("androidx.navigation.safeargs.kotlin")
+    id(GradlePluginId.DYNAMIC_FEATURE)
+    id(GradlePluginId.KOTLIN_ANDROID)
+    id(GradlePluginId.KOTLIN_KAPT)
+    id(GradlePluginId.KOTLIN_PARCELIZE)
+    id(GradlePluginId.DEV_TOOLS)
+    id(GradlePluginId.SAFE_ARGS)
 }
 android {
     compileSdk = (31)
 
     defaultConfig {
-        minSdk = (21)
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        minSdk = AndroidConfig.MIN_SDK
+        testInstrumentationRunner = AndroidConfig.TEST_INSTRUMENTATION_RUNNER
+    }
+    buildFeatures {
+        viewBinding = AndroidConfig.BuildFeatures.VIEW_BINDING
+        dataBinding = AndroidConfig.BuildFeatures.DATA_BINDING
     }
 
-    buildFeatures {
-        viewBinding = true
-        dataBinding = true
-    }
     buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        getByName(AndroidConfig.BuildType.RELEASE) {
+            isMinifyEnabled = AndroidConfig.BuildTypeRelease.isMinifyEnabled
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     sourceSets {
@@ -33,13 +38,13 @@ android {
 }
 
 dependencies {
-    implementation(project(":app"))
-    testImplementation(project(path = ":app"))
-    androidTestImplementation(project(path= ":app"))
-    ksp(project(path = ":libraries:auto-service:processor"))
+    implementation(project(path = "$APP"))
+    testImplementation(project(path = "$APP"))
+    androidTestImplementation(project(path = "$APP"))
+    ksp(project(path = ("${libary.Project.AUTO_SERVICE_PROCESSOR}")))
 
-    testImplementation ("junit:junit:4.13.2")
-    androidTestImplementation ("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation ("androidx.test.espresso:espresso-core:3.4.0")
-    androidTestImplementation ("androidx.annotation:annotation:1.3.0")
+    testImplementation("${libary.LibrariesAndroid.JUNIT}${libary.Version.JUNIT}")
+    androidTestImplementation("${libary.LibrariesAndroid.JUNIT_TEST}${libary.Version.JUNIT_TEST}")
+    androidTestImplementation("${libary.LibrariesAndroid.EXPRESSO}${libary.Version.ESPRESSO}")
+    androidTestImplementation("${libary.LibrariesAndroid.ANNOTATION}${libary.Version.ANNOTATION}")
 }

@@ -1,35 +1,46 @@
+
+import libary.LibrariesAndroid.ACTIVITY
+import libary.Project.AUTO_SERVICE_ANNOTATION
+import libary.Project.AUTO_SERVICE_PROCESSOR
+import libary.Project.BUG_FINDER
+import libary.Project.INJECTION
+import libary.Project.INTERFACE_NETWORK
+import libary.Project.INTERFACE_SECURUTY
+import libary.Project.INTERFACE_STORAGE
+import libary.Project.INTERFACE_TAGGING
 import libary.Version
-import modules.Dependencies
+import libary.Version.CORE
+import modules.ModuleDependencies
 import modules.addAll
 
 plugins {
-    id("com.android.application")
-    id("kotlin-android")
-    id("kotlin-kapt")
-    id("kotlin-parcelize")
-    id("com.google.devtools.ksp")
-    id("androidx.navigation.safeargs.kotlin")
+    id(GradlePluginId.ANDROID_APPLICATION)
+    id(GradlePluginId.KOTLIN_ANDROID)
+    id(GradlePluginId.KOTLIN_KAPT)
+    id(GradlePluginId.KOTLIN_PARCELIZE)
+    id(GradlePluginId.DEV_TOOLS)
+    id(GradlePluginId.SAFE_ARGS)
 }
 
 android {
     compileSdk = (31)
 
     defaultConfig {
-        applicationId = ("com.example.app")
-        minSdk = (21)
-        targetSdk = (31)
-        versionCode = (1)
-        versionName = ("1.0")
+        applicationId = (AndroidConfig.APPLICATION_ID)
+        minSdk = (AndroidConfig.MIN_SDK)
+        targetSdk = (AndroidConfig.TARGET_SDK)
+        versionCode = (AndroidConfig.VERSION_CODE)
+        versionName = (AndroidConfig.VERSION_NAME)
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = AndroidConfig.TEST_INSTRUMENTATION_RUNNER
     }
     buildFeatures {
-        viewBinding = true
-        dataBinding = true
+        viewBinding = AndroidConfig.BuildFeatures.VIEW_BINDING
+        dataBinding = AndroidConfig.BuildFeatures.DATA_BINDING
     }
     buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
+        getByName(AndroidConfig.BuildType.RELEASE) {
+            isMinifyEnabled = AndroidConfig.BuildTypeRelease.isMinifyEnabled
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -49,43 +60,45 @@ android {
     }
 
     dynamicFeatures.addAll(
-        Dependencies.LOGIN,
-        Dependencies.PROFILE,
-        Dependencies.NETWORKING,
-        Dependencies.NETWORKING_SECURE,
-        Dependencies.NETWORKING_SECUREV2,
-        Dependencies.STORAGE,
-        Dependencies.TAGGING,
-        Dependencies.SECURITY
+        ModuleDependencies.Negotial.LOGIN,
+        ModuleDependencies.Negotial.PROFILE,
+        ModuleDependencies.Negotial.HOME,
+        ModuleDependencies.Structural.NETWORKING,
+        ModuleDependencies.Structural.NETWORKING_SECURE,
+        ModuleDependencies.Structural.NETWORKING_SECUREV2,
+        ModuleDependencies.Structural.STORAGE,
+        ModuleDependencies.Structural.TAGGING,
+        ModuleDependencies.Structural.SECURITY
     )
 }
 
 dependencies {
 
-    api(project(path = (":libraries:auto-service:annotations")))
-    ksp(project(path = (":libraries:auto-service:processor")))
-    api(project(path = (":libraries:bug-finder")))
-    api(project(path = (":libraries:injection")))
+    api(project(path = ("${AUTO_SERVICE_ANNOTATION}")))
+    ksp(project(path = ("$AUTO_SERVICE_PROCESSOR")))
+    api(project(path = ("$BUG_FINDER")))
+    api(project(path = ("$INJECTION")))
 
-    api(project(path = (":engineering:interfaces:networking-interface")))
-    api(project(path = (":engineering:interfaces:storage-interface")))
-    api(project(path = (":engineering:interfaces:tagging-interface")))
-    api(project(path = (":engineering:interfaces:security-interface")))
+    api(project(path = ("$INTERFACE_NETWORK")))
+    api(project(path = ("$INTERFACE_SECURUTY")))
+    api(project(path = (INTERFACE_STORAGE)))
+    api(project(path = ("$INTERFACE_TAGGING")))
 
-    api("androidx.core:core-ktx:${Version.CORE}")
-    api("androidx.activity:activity-ktx:${Version.ACTIVITIY}")
-    api("androidx.fragment:fragment-ktx:${Version.FRAGMENT}")
 
-    api("androidx.appcompat:appcompat:${Version.APPCOMPAT}")
-    api("androidx.constraintlayout:constraintlayout:${Version.CONSTRAINTLAYOUT}")
-    api("com.google.android.material:material:${Version.MATERIAL}")
-    api("com.google.android.play:core-ktx:${Version.PLAYCORE}")
+    api("${libary.LibrariesAndroid.CORE}${Version.CORE}")
+    api("${libary.LibrariesAndroid.ACTIVITY}${Version.ACTIVITY}")
+    api("${libary.LibrariesAndroid.FRAGMENT}${Version.FRAGMENT}")
 
-    api("androidx.navigation:navigation-fragment-ktx:${Version.NAVIGATON}")
-    api("androidx.navigation:navigation-ui-ktx:${Version.NAVIGATON}")
-    api("androidx.navigation:navigation-dynamic-features-fragment:${Version.NAVIGATON}")
+    api("${libary.LibrariesAndroid.APPCOMPAT}${Version.APPCOMPAT}")
+    api("${libary.LibrariesAndroid.CONSTRAINTLAYOUT}${Version.CONSTRAINTLAYOUT}")
+    api("${libary.LibrariesAndroid.MATERIAL}${Version.MATERIAL}")
+    api("${libary.LibrariesAndroid.PLAY_CORE}${Version.PLAY_CORE}")
 
-    testImplementation("junit:junit:${Version.JUNIT}")
-    androidTestImplementation("androidx.test.ext:junit:${Version.JUNIT_TEST}")
-    androidTestImplementation("androidx.test.espresso:espresso-core:${Version.ESPRESSO}")
+    api("${libary.LibrariesAndroid.NAVIGATON}${Version.NAVIGATON}")
+    api("${libary.LibrariesAndroid.NAVIGATON_UI}${Version.NAVIGATON}")
+    api("${libary.LibrariesAndroid.NAVIGATON_DYNAMIC_FEATURES}${Version.NAVIGATON}")
+
+    testImplementation("${libary.LibrariesAndroid.JUNIT}${Version.JUNIT}")
+    androidTestImplementation("${libary.LibrariesAndroid.JUNIT_TEST}${Version.JUNIT_TEST}")
+    androidTestImplementation("${libary.LibrariesAndroid.EXPRESSO}${Version.ESPRESSO}")
 }
