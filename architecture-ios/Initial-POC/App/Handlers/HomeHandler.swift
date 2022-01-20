@@ -41,6 +41,10 @@ class HomeHandler: ModuleHandler {
             isUserLoggedIn = false
             break
             
+        case .task:
+            AppNavigation.shared.push(journey, from: viewController)
+            break
+            
         default: break
         }
     }
@@ -55,6 +59,10 @@ extension StructuralDependencyProvider: HomeStructuralDependencies {}
 extension HomeHandler: HomeFlowDelegate {
     func goToProfile(from flow: Flow, in controller: UIViewController, with value: Any?) {
         baseFlowDelegate?.perform(.goTo(.profile, currentJourney: .home), in: controller, with: value)
+    }
+    
+    func goToTask(from flow: Flow, in controller: UIViewController, with value: Any?) {
+        baseFlowDelegate?.perform(.goTo(.task, currentJourney: .home), in: controller, with: value)
     }
     
     func goToLogin(from flow: Flow, in controller: UIViewController, with value: Any?) {

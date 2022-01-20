@@ -8,6 +8,6 @@
 import Foundation
 import UIKit
 
-public protocol FlutterModuleProtocol {
-    func getViewController(entrypoint: String, for bundle: Bundle) -> UIViewController
+public protocol FlutterModuleProtocol: AnyObject {
+    func getViewController(entrypoint: String, in bundle: Bundle) -> UIViewController
 }

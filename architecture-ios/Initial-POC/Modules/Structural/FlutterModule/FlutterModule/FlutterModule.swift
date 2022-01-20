@@ -8,18 +8,32 @@
 import Foundation
 import FlutterModuleInterfaces
 import Flutter
+import FlutterPluginRegistrant
 
 public class FlutterModule: FlutterModuleProtocol {
-    private var engines: FlutterEngineGroup?
+    public static let shared = FlutterModule()
+    
+    var engines: FlutterEngineGroup!
+    
+    private let useGroup: Bool = false
     
     public init() {
-        engines = FlutterEngineGroup(name: "flutter-module", project: nil)
+        if useGroup {
+//            engines = FlutterEngineGroup(name: "flutter-module", project: FlutterDartProject(precompiledDartBundle: Bundle(for: Self.self)))
+        }
     }
     
-    public func getViewController(entrypoint: String, for bundle: Bundle) -> UIViewController {
-        let dartProject = FlutterDartProject(precompiledDartBundle: bundle)
-//        let newEngine = engines?.makeEngine(withEntrypoint: entrypoint, libraryURI: nil, initialRoute: nil)
-        let controller = FlutterViewController(project: dartProject, initialRoute: "", nibName: nil, bundle: bundle)
+    public func getViewController(entrypoint: String, in bundle: Bundle) -> UIViewController {
+        let controller: FlutterModuleViewController
+//        let engine: FlutterEngine
+        if useGroup {
+            if engines == nil {
+                engines = FlutterEngineGroup(name: "flutter-module", project: FlutterDartProject(precompiledDartBundle: bundle))
+            }
+            controller = FlutterModuleViewController(from: engines, entrypoint: entrypoint)
+        } else {
+            controller = FlutterModuleViewController(from: bundle)
+        }
         return controller
     }
 }

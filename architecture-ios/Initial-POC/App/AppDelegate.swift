@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppNavigation.shared.register([.login, .forgotPassword], with: LoginHandler())
         AppNavigation.shared.register([.home], with: HomeHandler())
         AppNavigation.shared.register([.profile], with: ProfileHandler())
+        AppNavigation.shared.register([.task], with: TaskHandler())
                 
         setupRootViewController()
         
@@ -57,4 +58,5 @@ extension Journey {
     static let forgotPassword: Journey = Journey(rawValue: "forgotPassword")
     static let home: Journey = Journey(rawValue: "home")
     static let profile: Journey = Journey(rawValue: "profile")
+    static let task: Journey = Journey(rawValue: "task")
 }
