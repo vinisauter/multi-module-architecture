@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C1083362790D338001D2FAE /* Login in Frameworks */ = {isa = PBXBuildFile; productRef = 0C1083352790D338001D2FAE /* Login */; };
-		0C1083382790D33F001D2FAE /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = 0C1083372790D33F001D2FAE /* Home */; };
-		0C10833A2790D346001D2FAE /* Profile in Frameworks */ = {isa = PBXBuildFile; productRef = 0C1083392790D346001D2FAE /* Profile */; };
 		0C48B507278DB698005B581A /* Analytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0C48B506278DB698005B581A /* Analytics */; };
 		0C48B50B278DB6A4005B581A /* AppSecurity in Frameworks */ = {isa = PBXBuildFile; productRef = 0C48B50A278DB6A4005B581A /* AppSecurity */; };
 		0C48B50D278DB6A9005B581A /* AppSecurityInterfaces in Frameworks */ = {isa = PBXBuildFile; productRef = 0C48B50C278DB6A9005B581A /* AppSecurityInterfaces */; };
-		0CA0041E2790B37B00CE9D39 /* AnalyticsInterfaces in Frameworks */ = {isa = PBXBuildFile; productRef = 0CA0041D2790B37B00CE9D39 /* AnalyticsInterfaces */; };
-		0CF46E7427921D2B00A2176D /* NetworkingInterfaces in Frameworks */ = {isa = PBXBuildFile; productRef = 0CF46E7327921D2B00A2176D /* NetworkingInterfaces */; };
-		0CF46E7727921D4500A2176D /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 0CF46E7627921D4500A2176D /* Networking */; };
+		0CBCCBEE279995DD006CF6B1 /* Analytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBCCBED279995DD006CF6B1 /* Analytics */; };
+		0CBCCBF0279995DD006CF6B1 /* AnalyticsInterfaces in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBCCBEF279995DD006CF6B1 /* AnalyticsInterfaces */; };
+		0CBCCBF2279995DD006CF6B1 /* AppSecurity in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBCCBF1279995DD006CF6B1 /* AppSecurity */; };
+		0CBCCBF4279995DD006CF6B1 /* AppSecurityInterfaces in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBCCBF3279995DD006CF6B1 /* AppSecurityInterfaces */; };
+		0CBCCBF6279995DD006CF6B1 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBCCBF5279995DD006CF6B1 /* Core */; };
+		0CBCCBF8279995DD006CF6B1 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBCCBF7279995DD006CF6B1 /* Networking */; };
+		0CBCCBFA279995DD006CF6B1 /* NetworkingInterfaces in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBCCBF9279995DD006CF6B1 /* NetworkingInterfaces */; };
+		0CBCCBFD27999607006CF6B1 /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBCCBFC27999607006CF6B1 /* Home */; };
+		0CBCCBFF27999607006CF6B1 /* Login in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBCCBFE27999607006CF6B1 /* Login */; };
+		0CBCCC0127999607006CF6B1 /* Profile in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBCCC0027999607006CF6B1 /* Profile */; };
 		421ECFC127396FBA00BD353C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421ECFC027396FBA00BD353C /* AppDelegate.swift */; };
 		421ECFC527396FBA00BD353C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421ECFC427396FBA00BD353C /* WelcomeViewController.swift */; };
 		421ECFC827396FBA00BD353C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 421ECFC627396FBA00BD353C /* Main.storyboard */; };
@@ -62,15 +66,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CF46E7727921D4500A2176D /* Networking in Frameworks */,
-				0CF46E7427921D2B00A2176D /* NetworkingInterfaces in Frameworks */,
-				0CA0041E2790B37B00CE9D39 /* AnalyticsInterfaces in Frameworks */,
+				0CBCCBF8279995DD006CF6B1 /* Networking in Frameworks */,
+				0CBCCBF2279995DD006CF6B1 /* AppSecurity in Frameworks */,
+				0CBCCBFA279995DD006CF6B1 /* NetworkingInterfaces in Frameworks */,
+				0CBCCC0127999607006CF6B1 /* Profile in Frameworks */,
+				0CBCCBF4279995DD006CF6B1 /* AppSecurityInterfaces in Frameworks */,
 				0C48B50B278DB6A4005B581A /* AppSecurity in Frameworks */,
+				0CBCCBEE279995DD006CF6B1 /* Analytics in Frameworks */,
+				0CBCCBFF27999607006CF6B1 /* Login in Frameworks */,
 				0C48B507278DB698005B581A /* Analytics in Frameworks */,
-				0C1083362790D338001D2FAE /* Login in Frameworks */,
+				0CBCCBF6279995DD006CF6B1 /* Core in Frameworks */,
+				0CBCCBF0279995DD006CF6B1 /* AnalyticsInterfaces in Frameworks */,
 				0C48B50D278DB6A9005B581A /* AppSecurityInterfaces in Frameworks */,
-				0C10833A2790D346001D2FAE /* Profile in Frameworks */,
-				0C1083382790D33F001D2FAE /* Home in Frameworks */,
+				0CBCCBFD27999607006CF6B1 /* Home in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,12 +192,16 @@
 				0C48B506278DB698005B581A /* Analytics */,
 				0C48B50A278DB6A4005B581A /* AppSecurity */,
 				0C48B50C278DB6A9005B581A /* AppSecurityInterfaces */,
-				0CA0041D2790B37B00CE9D39 /* AnalyticsInterfaces */,
-				0C1083352790D338001D2FAE /* Login */,
-				0C1083372790D33F001D2FAE /* Home */,
-				0C1083392790D346001D2FAE /* Profile */,
-				0CF46E7327921D2B00A2176D /* NetworkingInterfaces */,
-				0CF46E7627921D4500A2176D /* Networking */,
+				0CBCCBED279995DD006CF6B1 /* Analytics */,
+				0CBCCBEF279995DD006CF6B1 /* AnalyticsInterfaces */,
+				0CBCCBF1279995DD006CF6B1 /* AppSecurity */,
+				0CBCCBF3279995DD006CF6B1 /* AppSecurityInterfaces */,
+				0CBCCBF5279995DD006CF6B1 /* Core */,
+				0CBCCBF7279995DD006CF6B1 /* Networking */,
+				0CBCCBF9279995DD006CF6B1 /* NetworkingInterfaces */,
+				0CBCCBFC27999607006CF6B1 /* Home */,
+				0CBCCBFE27999607006CF6B1 /* Login */,
+				0CBCCC0027999607006CF6B1 /* Profile */,
 			);
 			productName = "Initial-POC";
 			productReference = 421ECFBD27396FBA00BD353C /* App.app */;
@@ -219,11 +231,8 @@
 			);
 			mainGroup = 421ECFB427396FBA00BD353C;
 			packageReferences = (
-				0CE31091278E6272006DFA93 /* XCRemoteSwiftPackageReference "NetworkingInterfaces" */,
-				0CA004192790B20700CE9D39 /* XCRemoteSwiftPackageReference "Core" */,
-				0CA0041C2790B37B00CE9D39 /* XCRemoteSwiftPackageReference "AnalyticsInterfaces" */,
-				0CA0041F2790B56600CE9D39 /* XCRemoteSwiftPackageReference "pocjourneys" */,
-				0CF46E7527921D4500A2176D /* XCRemoteSwiftPackageReference "Networking" */,
+				0CBCCBEC279995DD006CF6B1 /* XCRemoteSwiftPackageReference "multi-structural-module" */,
+				0CBCCBFB27999607006CF6B1 /* XCRemoteSwiftPackageReference "pocjourneys" */,
 			);
 			productRefGroup = 421ECFBE27396FBA00BD353C /* Products */;
 			projectDirPath = "";
@@ -465,41 +474,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0CA004192790B20700CE9D39 /* XCRemoteSwiftPackageReference "Core" */ = {
+		0CBCCBEC279995DD006CF6B1 /* XCRemoteSwiftPackageReference "multi-structural-module" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/brunoccy/Core";
+			repositoryURL = "https://github.com/FelippeMatos/multi-structural-module";
 			requirement = {
-				branch = main;
+				branch = "ios/bruno-spm";
 				kind = branch;
 			};
 		};
-		0CA0041C2790B37B00CE9D39 /* XCRemoteSwiftPackageReference "AnalyticsInterfaces" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/brunoccy/AnalyticsInterfaces";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-		0CA0041F2790B56600CE9D39 /* XCRemoteSwiftPackageReference "pocjourneys" */ = {
+		0CBCCBFB27999607006CF6B1 /* XCRemoteSwiftPackageReference "pocjourneys" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/brunoccy/pocjourneys";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-		0CE31091278E6272006DFA93 /* XCRemoteSwiftPackageReference "NetworkingInterfaces" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/brunoccy/NetworkingInterfaces.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-		0CF46E7527921D4500A2176D /* XCRemoteSwiftPackageReference "Networking" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/brunoccy/Networking.git";
 			requirement = {
 				branch = main;
 				kind = branch;
@@ -508,21 +493,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0C1083352790D338001D2FAE /* Login */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0CA0041F2790B56600CE9D39 /* XCRemoteSwiftPackageReference "pocjourneys" */;
-			productName = Login;
-		};
-		0C1083372790D33F001D2FAE /* Home */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0CA0041F2790B56600CE9D39 /* XCRemoteSwiftPackageReference "pocjourneys" */;
-			productName = Home;
-		};
-		0C1083392790D346001D2FAE /* Profile */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0CA0041F2790B56600CE9D39 /* XCRemoteSwiftPackageReference "pocjourneys" */;
-			productName = Profile;
-		};
 		0C48B506278DB698005B581A /* Analytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Analytics;
@@ -535,20 +505,55 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = AppSecurityInterfaces;
 		};
-		0CA0041D2790B37B00CE9D39 /* AnalyticsInterfaces */ = {
+		0CBCCBED279995DD006CF6B1 /* Analytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0CA0041C2790B37B00CE9D39 /* XCRemoteSwiftPackageReference "AnalyticsInterfaces" */;
+			package = 0CBCCBEC279995DD006CF6B1 /* XCRemoteSwiftPackageReference "multi-structural-module" */;
+			productName = Analytics;
+		};
+		0CBCCBEF279995DD006CF6B1 /* AnalyticsInterfaces */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CBCCBEC279995DD006CF6B1 /* XCRemoteSwiftPackageReference "multi-structural-module" */;
 			productName = AnalyticsInterfaces;
 		};
-		0CF46E7327921D2B00A2176D /* NetworkingInterfaces */ = {
+		0CBCCBF1279995DD006CF6B1 /* AppSecurity */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0CE31091278E6272006DFA93 /* XCRemoteSwiftPackageReference "NetworkingInterfaces" */;
+			package = 0CBCCBEC279995DD006CF6B1 /* XCRemoteSwiftPackageReference "multi-structural-module" */;
+			productName = AppSecurity;
+		};
+		0CBCCBF3279995DD006CF6B1 /* AppSecurityInterfaces */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CBCCBEC279995DD006CF6B1 /* XCRemoteSwiftPackageReference "multi-structural-module" */;
+			productName = AppSecurityInterfaces;
+		};
+		0CBCCBF5279995DD006CF6B1 /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CBCCBEC279995DD006CF6B1 /* XCRemoteSwiftPackageReference "multi-structural-module" */;
+			productName = Core;
+		};
+		0CBCCBF7279995DD006CF6B1 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CBCCBEC279995DD006CF6B1 /* XCRemoteSwiftPackageReference "multi-structural-module" */;
+			productName = Networking;
+		};
+		0CBCCBF9279995DD006CF6B1 /* NetworkingInterfaces */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CBCCBEC279995DD006CF6B1 /* XCRemoteSwiftPackageReference "multi-structural-module" */;
 			productName = NetworkingInterfaces;
 		};
-		0CF46E7627921D4500A2176D /* Networking */ = {
+		0CBCCBFC27999607006CF6B1 /* Home */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0CF46E7527921D4500A2176D /* XCRemoteSwiftPackageReference "Networking" */;
-			productName = Networking;
+			package = 0CBCCBFB27999607006CF6B1 /* XCRemoteSwiftPackageReference "pocjourneys" */;
+			productName = Home;
+		};
+		0CBCCBFE27999607006CF6B1 /* Login */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CBCCBFB27999607006CF6B1 /* XCRemoteSwiftPackageReference "pocjourneys" */;
+			productName = Login;
+		};
+		0CBCCC0027999607006CF6B1 /* Profile */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CBCCBFB27999607006CF6B1 /* XCRemoteSwiftPackageReference "pocjourneys" */;
+			productName = Profile;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
