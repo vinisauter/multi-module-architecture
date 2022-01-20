@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0CAAAC092799BB9A00FA721A /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = 0CAAAC082799BB9A00FA721A /* Home */; };
-		0CAAAC0B2799BB9D00FA721A /* Login in Frameworks */ = {isa = PBXBuildFile; productRef = 0CAAAC0A2799BB9D00FA721A /* Login */; };
-		0CAAAC0D2799BBA000FA721A /* Profile in Frameworks */ = {isa = PBXBuildFile; productRef = 0CAAAC0C2799BBA000FA721A /* Profile */; };
-		0CAAAC0F2799BBA700FA721A /* Analytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0CAAAC0E2799BBA700FA721A /* Analytics */; };
-		0CAAAC112799BBA700FA721A /* AnalyticsInterfaces in Frameworks */ = {isa = PBXBuildFile; productRef = 0CAAAC102799BBA700FA721A /* AnalyticsInterfaces */; };
-		0CAAAC132799BBA700FA721A /* AppSecurity in Frameworks */ = {isa = PBXBuildFile; productRef = 0CAAAC122799BBA700FA721A /* AppSecurity */; };
-		0CAAAC152799BBA700FA721A /* AppSecurityInterfaces in Frameworks */ = {isa = PBXBuildFile; productRef = 0CAAAC142799BBA700FA721A /* AppSecurityInterfaces */; };
-		0CAAAC172799BBA700FA721A /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 0CAAAC162799BBA700FA721A /* Core */; };
-		0CAAAC192799BBA700FA721A /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 0CAAAC182799BBA700FA721A /* Networking */; };
-		0CAAAC1B2799BBA700FA721A /* NetworkingInterfaces in Frameworks */ = {isa = PBXBuildFile; productRef = 0CAAAC1A2799BBA700FA721A /* NetworkingInterfaces */; };
+		0CBD572F2799D650005458BB /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBD572E2799D650005458BB /* Home */; };
+		0CBD57312799D650005458BB /* Login in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBD57302799D650005458BB /* Login */; };
+		0CBD57332799D650005458BB /* Profile in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBD57322799D650005458BB /* Profile */; };
+		0CBD57352799D650005458BB /* Analytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBD57342799D650005458BB /* Analytics */; };
+		0CBD57372799D650005458BB /* AnalyticsInterfaces in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBD57362799D650005458BB /* AnalyticsInterfaces */; };
+		0CBD57392799D651005458BB /* AppSecurity in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBD57382799D651005458BB /* AppSecurity */; };
+		0CBD573B2799D651005458BB /* AppSecurityInterfaces in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBD573A2799D651005458BB /* AppSecurityInterfaces */; };
+		0CBD573D2799D651005458BB /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBD573C2799D651005458BB /* Core */; };
+		0CBD573F2799D651005458BB /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBD573E2799D651005458BB /* Networking */; };
+		0CBD57412799D651005458BB /* NetworkingInterfaces in Frameworks */ = {isa = PBXBuildFile; productRef = 0CBD57402799D651005458BB /* NetworkingInterfaces */; };
 		421ECFC127396FBA00BD353C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421ECFC027396FBA00BD353C /* AppDelegate.swift */; };
 		421ECFC527396FBA00BD353C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421ECFC427396FBA00BD353C /* WelcomeViewController.swift */; };
 		421ECFC827396FBA00BD353C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 421ECFC627396FBA00BD353C /* Main.storyboard */; };
@@ -51,16 +51,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CAAAC192799BBA700FA721A /* Networking in Frameworks */,
-				0CAAAC132799BBA700FA721A /* AppSecurity in Frameworks */,
-				0CAAAC1B2799BBA700FA721A /* NetworkingInterfaces in Frameworks */,
-				0CAAAC152799BBA700FA721A /* AppSecurityInterfaces in Frameworks */,
-				0CAAAC0D2799BBA000FA721A /* Profile in Frameworks */,
-				0CAAAC0F2799BBA700FA721A /* Analytics in Frameworks */,
-				0CAAAC0B2799BB9D00FA721A /* Login in Frameworks */,
-				0CAAAC172799BBA700FA721A /* Core in Frameworks */,
-				0CAAAC112799BBA700FA721A /* AnalyticsInterfaces in Frameworks */,
-				0CAAAC092799BB9A00FA721A /* Home in Frameworks */,
+				0CBD573F2799D651005458BB /* Networking in Frameworks */,
+				0CBD57392799D651005458BB /* AppSecurity in Frameworks */,
+				0CBD57412799D651005458BB /* NetworkingInterfaces in Frameworks */,
+				0CBD573B2799D651005458BB /* AppSecurityInterfaces in Frameworks */,
+				0CBD57332799D650005458BB /* Profile in Frameworks */,
+				0CBD57352799D650005458BB /* Analytics in Frameworks */,
+				0CBD57312799D650005458BB /* Login in Frameworks */,
+				0CBD573D2799D651005458BB /* Core in Frameworks */,
+				0CBD57372799D650005458BB /* AnalyticsInterfaces in Frameworks */,
+				0CBD572F2799D650005458BB /* Home in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,16 +159,16 @@
 			);
 			name = App;
 			packageProductDependencies = (
-				0CAAAC082799BB9A00FA721A /* Home */,
-				0CAAAC0A2799BB9D00FA721A /* Login */,
-				0CAAAC0C2799BBA000FA721A /* Profile */,
-				0CAAAC0E2799BBA700FA721A /* Analytics */,
-				0CAAAC102799BBA700FA721A /* AnalyticsInterfaces */,
-				0CAAAC122799BBA700FA721A /* AppSecurity */,
-				0CAAAC142799BBA700FA721A /* AppSecurityInterfaces */,
-				0CAAAC162799BBA700FA721A /* Core */,
-				0CAAAC182799BBA700FA721A /* Networking */,
-				0CAAAC1A2799BBA700FA721A /* NetworkingInterfaces */,
+				0CBD572E2799D650005458BB /* Home */,
+				0CBD57302799D650005458BB /* Login */,
+				0CBD57322799D650005458BB /* Profile */,
+				0CBD57342799D650005458BB /* Analytics */,
+				0CBD57362799D650005458BB /* AnalyticsInterfaces */,
+				0CBD57382799D651005458BB /* AppSecurity */,
+				0CBD573A2799D651005458BB /* AppSecurityInterfaces */,
+				0CBD573C2799D651005458BB /* Core */,
+				0CBD573E2799D651005458BB /* Networking */,
+				0CBD57402799D651005458BB /* NetworkingInterfaces */,
 			);
 			productName = "Initial-POC";
 			productReference = 421ECFBD27396FBA00BD353C /* App.app */;
@@ -451,49 +451,49 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0CAAAC082799BB9A00FA721A /* Home */ = {
+		0CBD572E2799D650005458BB /* Home */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Home;
 		};
-		0CAAAC0A2799BB9D00FA721A /* Login */ = {
+		0CBD57302799D650005458BB /* Login */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Login;
 		};
-		0CAAAC0C2799BBA000FA721A /* Profile */ = {
+		0CBD57322799D650005458BB /* Profile */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Profile;
 		};
-		0CAAAC0E2799BBA700FA721A /* Analytics */ = {
+		0CBD57342799D650005458BB /* Analytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0CBCCBEC279995DD006CF6B1 /* XCRemoteSwiftPackageReference "multi-structural-module" */;
 			productName = Analytics;
 		};
-		0CAAAC102799BBA700FA721A /* AnalyticsInterfaces */ = {
+		0CBD57362799D650005458BB /* AnalyticsInterfaces */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0CBCCBEC279995DD006CF6B1 /* XCRemoteSwiftPackageReference "multi-structural-module" */;
 			productName = AnalyticsInterfaces;
 		};
-		0CAAAC122799BBA700FA721A /* AppSecurity */ = {
+		0CBD57382799D651005458BB /* AppSecurity */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0CBCCBEC279995DD006CF6B1 /* XCRemoteSwiftPackageReference "multi-structural-module" */;
 			productName = AppSecurity;
 		};
-		0CAAAC142799BBA700FA721A /* AppSecurityInterfaces */ = {
+		0CBD573A2799D651005458BB /* AppSecurityInterfaces */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0CBCCBEC279995DD006CF6B1 /* XCRemoteSwiftPackageReference "multi-structural-module" */;
 			productName = AppSecurityInterfaces;
 		};
-		0CAAAC162799BBA700FA721A /* Core */ = {
+		0CBD573C2799D651005458BB /* Core */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0CBCCBEC279995DD006CF6B1 /* XCRemoteSwiftPackageReference "multi-structural-module" */;
 			productName = Core;
 		};
-		0CAAAC182799BBA700FA721A /* Networking */ = {
+		0CBD573E2799D651005458BB /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0CBCCBEC279995DD006CF6B1 /* XCRemoteSwiftPackageReference "multi-structural-module" */;
 			productName = Networking;
 		};
-		0CAAAC1A2799BBA700FA721A /* NetworkingInterfaces */ = {
+		0CBD57402799D651005458BB /* NetworkingInterfaces */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0CBCCBEC279995DD006CF6B1 /* XCRemoteSwiftPackageReference "multi-structural-module" */;
 			productName = NetworkingInterfaces;
