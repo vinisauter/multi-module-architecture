@@ -50,6 +50,7 @@ android {
     }
 
     dynamicFeatures.addAll(
+        ":modules:journey:home",
         ":modules:journey:login",
         ":modules:journey:profile",
         ":modules:structural:networking",
