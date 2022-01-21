@@ -1,3 +1,5 @@
+import extensions.addTestsDependencies
+
 plugins {
     id(BuildPlugins.ANDROID_DYNAMIC_FEATURE)
     id(BuildPlugins.KOTLIN_JETBRAIN_KOTLIN_ANDROID)
@@ -34,7 +36,5 @@ dependencies {
     ksp(project(path = BuildModules.Libraries.LIBRARIES_AUTO_SERVICE_PROCESSOR))
 
     testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
-    androidTestImplementation("androidx.annotation:annotation:1.3.0")
+    addTestsDependencies()
 }
