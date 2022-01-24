@@ -7,10 +7,7 @@ plugins {
     id 'androidx.navigation.safeargs.kotlin'
 }
 android {
-    compileSdk 31
-
     defaultConfig {
-        minSdk 21
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -25,17 +22,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    sourceSets.all {
-        it.java.srcDir("build/generated/ksp/${it.name}/kotlin/")
-        it.res.srcDirs("build/generated/ksp/${it.name}/resources/")
-    }
 }
 
 dependencies {
     implementation project(":app")
     testImplementation project(path: ':app')
     androidTestImplementation project(path: ':app')
-    ksp project(path: ':libraries:auto-service:processor')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4-alpha03'

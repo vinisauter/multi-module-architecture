@@ -15,29 +15,47 @@ task clean(type: Delete) {
 }
 
 subprojects {
+//    println('>' + it.identityPath + '->' + it.pluginManager.hasPlugin('com.android.dynamic-feature'))
+//    it.class.properties.each { println('      ' + it.key + ': ' + it.value) }
+//    beforeEvaluate {
+//        println('beforeEvaluate->' + it.name + '->' + it.pluginManager.hasPlugin('com.android.dynamic-feature'))
+//    }
     afterEvaluate {
-        if (it.hasProperty('java')) {
+//        println('afterEvaluate->' + it.name + '->' + it.pluginManager.hasPlugin('com.android.dynamic-feature'))
+//        it.properties.each { println('      ' + it.key + ': ' + it.value) }
+
+        if (it.hasProperty('android')) {
+            android {
+                compileSdk 31
+                defaultConfig {
+                    minSdk 21
+                    targetSdk 31
+                }
+            }
             dependencies {
+                // implementation enforcedPlatform(project(path: ':app-bom'))
                 implementation enforcedPlatform('com.github.vinisauter.multi-module-architecture:app-bom:android-1.0.0')
+            }
+            if (it.pluginManager.hasPlugin('com.google.devtools.ksp')) {
+                android {
+                    sourceSets.all {
+                        it.java.srcDir("build/generated/ksp/${it.name}/kotlin/")
+                        it.res.srcDirs("build/generated/ksp/${it.name}/resources/")
+                    }
+                }
+                dependencies {
+                    implementation project(path: ':libraries:auto-service:android')
+                    ksp project(path: ':libraries:auto-service:processor')
+                }
+            }
+        } else if (it.hasProperty('java')) {
+            dependencies {
+                // implementation platform(project(path: ':app-bom'))
+                implementation platform('com.github.vinisauter.multi-module-architecture:app-bom:android-1.0.0')
             }
         }
     }
 }
-
-//subprojects {
-//    afterEvaluate {
-//        if (it.hasProperty('android')) {
-//            plugins.withId('com.android.library') {
-//                android {
-//                    defaultConfig {
-//                        buildConfigField 'int', 'VERSION_CODE', "1"
-//                        buildConfigField 'String', 'VERSION_NAME', "\"1.0\""
-//                    }
-//                }
-//            }
-//        }
-//    }
-//}
 
 //subprojects {
 //    apply plugin: 'java'

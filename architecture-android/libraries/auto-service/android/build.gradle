@@ -8,12 +8,7 @@ group = "com.github.vinisauter.auto-service"
 version = "1.0-SNAPSHOT"
 
 android {
-    compileSdk 31
-
     defaultConfig {
-        minSdk 21
-        targetSdk 31
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }

@@ -8,12 +8,9 @@ plugins {
 }
 
 android {
-    compileSdk 31
 
     defaultConfig {
         applicationId "com.example.app"
-        minSdk 21
-        targetSdk 31
         versionCode 1
         versionName "1.0"
 
@@ -31,10 +28,6 @@ android {
     }
     lintOptions {
         abortOnError false
-    }
-    sourceSets.all {
-        it.java.srcDir("build/generated/ksp/${it.name}/kotlin/")
-        it.res.srcDirs("build/generated/ksp/${it.name}/resources/")
     }
     dynamicFeatures = [
             ':modules:journey:login',
@@ -55,13 +48,12 @@ android {
 }
 
 dependencies {
+//    api platform(project(path: ':app-bom'))
 //    api enforcedPlatform(project(path: ':app-bom'))
 //    api platform('com.github.vinisauter:app-bom:1.0.0')
 //    api enforcedPlatform('com.github.vinisauter:app-bom:1.0.0')
 //    api enforcedPlatform('com.github.vinisauter.multi-module-architecture:app-bom:android-1.0.0')
 
-    api project(path: ':libraries:auto-service:android')
-    ksp project(path: ':libraries:auto-service:processor')
     api project(path: ':libraries:bug-finder')
 
     api project(path: ':engineering:provider')
