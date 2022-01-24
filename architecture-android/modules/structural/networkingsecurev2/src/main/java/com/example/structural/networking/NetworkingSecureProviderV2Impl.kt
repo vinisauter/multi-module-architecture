@@ -1,6 +1,6 @@
 package com.example.structural.networking
 
-import android.injection.get
+import android.app.Application
 import com.auto.service.ImplementationOf
 import com.core.logger.Logger
 import com.example.networking.RequestExecutor
@@ -14,10 +14,10 @@ class NetworkingSecureProviderV2Impl : NetworkingSecureProviderV2 {
 //    val security: SecurityExecutor by lazy {
 //        load<SecurityProvider>().executor(get())
 //    }
-    override fun executor(): RequestExecutor {
+    override fun executor(application: Application): RequestExecutor {
         return RequestExecutorSecureV2(
             NetworkSecureV2DependenciesImpl(
-                application = get(),
+                application = application,
                 logger = Logger.logger,
                 securityExecutor = StructuralProvider.defaultSecurityExecutor,
                 storageExecutor = StructuralProvider.defaultStorageExecutor

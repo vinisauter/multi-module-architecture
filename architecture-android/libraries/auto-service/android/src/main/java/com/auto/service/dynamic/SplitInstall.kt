@@ -284,7 +284,7 @@ class SplitInstall(
 
         private fun observeRequiresUserConfirmation(activity: Activity) {
             val owner = activity as LifecycleOwner
-            onRequiresUserConfirmation.observe(owner, {
+            onRequiresUserConfirmation.observe(owner) {
                 if (it?.second?.status() == SplitInstallSessionStatus.REQUIRES_USER_CONFIRMATION) {
                     val splitInstallManager: SplitInstallManager = it.first
                     val splitInstallSessionState: SplitInstallSessionState = it.second
@@ -295,7 +295,7 @@ class SplitInstall(
                         REQUEST_CODE_REQUIRES_USER_CONFIRMATION
                     )
                 }
-            })
+            }
         }
 
         private fun removeObserverRequiresUserConfirmation(owner: LifecycleOwner) {

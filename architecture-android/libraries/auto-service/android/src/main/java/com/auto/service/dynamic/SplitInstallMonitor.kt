@@ -12,7 +12,7 @@ import com.google.android.play.core.splitinstall.SplitInstallSessionState
  * You also can perform various checks on installation state directly through this monitor.
  *
  * In order to enable installation and monitoring of progress you'll have to provide an instance
- * of this class to [DynamicExtras].
+ * of this class to [Dynamic Extras].
  */
 class SplitInstallMonitor {
 

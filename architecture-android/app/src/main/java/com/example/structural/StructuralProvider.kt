@@ -21,6 +21,7 @@ import com.example.tagging.TaggingExecutor
 
 // TODO Split Install validation to enable on-demand delivery, only install-time for now
 //  Maybe use SplitInstallManager implementation: Joy branch dynamic_delivery_on_demand
+//  Or SplitInstall (navigation equivalent with interface & class instead of nav xml) from: https://github.com/vinisauter/SplitInstallAutoService/blob/master/annotations/auto/android/src/main/java/com/auto/service/dynamic/SplitInstall.kt
 //    <dist:delivery>
 //        <dist:on-demand />
 //    </dist:delivery>
@@ -54,7 +55,7 @@ object StructuralProvider {
     val secureRequestExecutor: RequestExecutor by lazy {
         when {
             featureFlag("networking-version-1") -> load<NetworkingSecureProvider>().executor(get())
-            else -> load<NetworkingSecureProviderV2>().executor()
+            else -> load<NetworkingSecureProviderV2>().executor(get())
         }
     }
 
