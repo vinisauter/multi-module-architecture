@@ -19,8 +19,8 @@ public final class LibOneHTTPClient: HTTPClientProtocol {
         execute(url, method: "GET", completion: completion)
     }
 
-    public func post(_ url: String, completion: @escaping (String) -> Void) {
-        execute(url, method: "POST", completion: completion)
+    public func post(_ request: URLRequest, completion: @escaping (Bool) -> Void) {
+//        execute(request.url?.absoluteString ?? "", method: "POST", completion: completion)
     }
 
     public func put(_ url: String, completion: @escaping (String) -> Void) {

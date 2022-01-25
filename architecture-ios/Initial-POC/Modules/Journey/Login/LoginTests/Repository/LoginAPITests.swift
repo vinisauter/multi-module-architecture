@@ -30,21 +30,22 @@ final class LoginAPITests: XCTestCase {
     
     // MARK: - Login Tests
     func test_login_requestData() {
-        sut?.login(with: "a", and: "b", completion: { _ in })
+        sut?.login(with: "", and: "", completion: { _ in })
         
-        XCTAssertEqual(secureHttpClientSpy.urls, ["username:a password:b"], "It Should be equal to array with 1 url elements")
+        XCTAssertEqual(secureHttpClientSpy.urls, ["http://www.example.com/"], "It Should be equal to array with 1 url elements")
     }
     
     func test_loginTwice_requestData() {
-        sut?.login(with: "a", and: "b", completion: { _ in })
-        sut?.login(with: "a", and: "b", completion: { _ in })
+        sut?.login(with: "", and: "", completion: { _ in })
+        sut?.login(with: "", and: "", completion: { _ in })
         
-        XCTAssertEqual(secureHttpClientSpy.urls, ["username:a password:b","username:a password:b"], "It Should be equal to array with 2 url elements")
+        XCTAssertEqual(secureHttpClientSpy.urls, ["http://www.example.com/","http://www.example.com/"], "It Should be equal to array with 2 url elements")
     }
     
     func test_login_validAutentication() {
         var value = false
         
+        secureHttpClientSpy.isValidAuthentication = true
         sut?.login(with: "", and: "", completion: { result in
             value = result
         })

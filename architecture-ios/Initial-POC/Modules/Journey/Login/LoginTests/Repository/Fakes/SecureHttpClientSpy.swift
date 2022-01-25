@@ -11,14 +11,15 @@ import CoreMedia
 
 class SecureHttpClientSpy: HTTPClientProtocol {
     var urls = [String]()
+    var isValidAuthentication = false
     
     func get(_ url: String, completion: @escaping (String) -> Void) {
     }
     
-    func post(_ url: String, completion: @escaping (String) -> Void) {
-        urls.append(url)
+    func post(_ request: URLRequest, completion: @escaping (Bool) -> Void) {
+        urls.append(request.url?.absoluteString ?? "")
         
-        completion("Passed")
+        completion(isValidAuthentication)
     }
     
     func put(_ url: String, completion: @escaping (String) -> Void) {

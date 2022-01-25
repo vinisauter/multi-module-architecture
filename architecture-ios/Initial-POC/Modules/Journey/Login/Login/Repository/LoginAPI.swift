@@ -19,14 +19,22 @@ class LoginAPI: LoginRepositoryProtocol {
     }
     
     func login(with username: String, and password: String, completion: @escaping (Bool) -> Void) {
-        secureHttpClient.post("username:\(username) password:\(password)") { result in
-            completion(result == "Passed")
+        var request: URLRequest = URLRequest(url: URL(string: "http://www.example.com/")!)
+        request.httpMethod = "POST"
+        request.addValue("\(username):\(password)", forHTTPHeaderField: "Authorization")
+        
+        secureHttpClient.post(request) { result in
+            completion(result)
         }
     }
     
     func changePassword(with newPassword: String, completion: @escaping (Bool) -> Void) {
-        insecureHttpClient.post("some_url") { result in
-            completion(result == "POST")
+        var request: URLRequest = URLRequest(url: URL(string: "http://www.example.com/")!)
+        request.httpMethod = "POST"
+        request.addValue("password:\(newPassword)", forHTTPHeaderField: "Authorization")
+        
+        insecureHttpClient.post(request) { result in
+            completion(result)
         }
     }
 }
