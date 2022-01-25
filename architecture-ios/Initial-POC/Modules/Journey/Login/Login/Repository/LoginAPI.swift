@@ -19,8 +19,8 @@ class LoginAPI: LoginRepositoryProtocol {
     }
     
     func login(with username: String, and password: String, completion: @escaping (Bool) -> Void) {
-        secureHttpClient.post("some_url") { result in
-            completion(result == "POST")
+        secureHttpClient.post("username:\(username) password:\(password)") { result in
+            completion(result == "Passed")
         }
     }
     

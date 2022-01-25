@@ -9,25 +9,57 @@ import XCTest
 import NetworkingInterfaces
 @testable import Login
 
-class LoginAPITests: XCTestCase {
+final class LoginAPITests: XCTestCase {
     
-    var sut: LoginRepositoryProtocol? = nil
+    private var sut: LoginRepositoryProtocol!
+    
+    private var secureHttpClientSpy: SecureHttpClientSpy!
+    private var insecureHttpClientSpy: InsecureHttpClientSpy!
     
     override func setUp() {
-        let secureHttpClientDummy: HTTPClientProtocol = SecureHttpClientDummy()
-        let insecureHttpClientDummy: HTTPClientProtocol = InsecureHttpClientDummy()
+        secureHttpClientSpy = SecureHttpClientSpy()
+        insecureHttpClientSpy = InsecureHttpClientSpy()
         
-        sut = LoginAPI(secureHttpClient: secureHttpClientDummy, insecureHttpClient: insecureHttpClientDummy)
+        sut = LoginAPI(secureHttpClient: secureHttpClientSpy, insecureHttpClient: insecureHttpClientSpy)
     }
     
-    // MARK: - Simple Instance Test
-    func testSimpleSutInstance() throws {
+    // MARK: - Simple Sut Instance Test
+    func test_sut_simpleInstance() {
         XCTAssertNotNil(sut, "Sut shouldn't be nil")
     }
     
     // MARK: - Login Tests
-    func testExample() throws {
+    func test_login_requestData() {
+        sut?.login(with: "a", and: "b", completion: { _ in })
         
+        XCTAssertEqual(secureHttpClientSpy.urls, ["username:a password:b"], "It Should be equal to array with 1 url elements")
+    }
+    
+    func test_loginTwice_requestData() {
+        sut?.login(with: "a", and: "b", completion: { _ in })
+        sut?.login(with: "a", and: "b", completion: { _ in })
+        
+        XCTAssertEqual(secureHttpClientSpy.urls, ["username:a password:b","username:a password:b"], "It Should be equal to array with 2 url elements")
+    }
+    
+    func test_login_validAutentication() {
+        var value = false
+        
+        sut?.login(with: "", and: "", completion: { result in
+            value = result
+        })
+
+        XCTAssertEqual(value, true , "It should have been authenticated")
+    }
+    
+    func test_login_invalidAutentication() {
+        var value = false
+        
+        sut?.login(with: "", and: "", completion: { result in
+            value = result
+        })
+
+        XCTAssertEqual(value, false , "It shouldn't have been authenticated")
     }
 
 }
