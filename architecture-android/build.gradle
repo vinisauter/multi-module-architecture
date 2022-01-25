@@ -33,8 +33,8 @@ subprojects {
                 }
             }
             dependencies {
-                // implementation enforcedPlatform(project(path: ':app-bom'))
-                implementation enforcedPlatform('com.github.vinisauter.multi-module-architecture:app-bom:android-1.0.0')
+                 implementation enforcedPlatform(project(path: ':app-bom'))
+//                implementation enforcedPlatform('com.github.vinisauter.multi-module-architecture:app-bom:android-1.0.0')
             }
             if (it.pluginManager.hasPlugin('com.google.devtools.ksp')) {
                 android {
@@ -50,8 +50,8 @@ subprojects {
             }
         } else if (it.hasProperty('java')) {
             dependencies {
-                // implementation platform(project(path: ':app-bom'))
-                implementation platform('com.github.vinisauter.multi-module-architecture:app-bom:android-1.0.0')
+                 implementation platform(project(path: ':app-bom'))
+//                implementation platform('com.github.vinisauter.multi-module-architecture:app-bom:android-1.0.0')
             }
         }
     }

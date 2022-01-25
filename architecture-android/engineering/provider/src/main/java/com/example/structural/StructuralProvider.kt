@@ -25,7 +25,7 @@ import com.example.tagging.TaggingExecutor
 //        <dist:on-demand />
 //    </dist:delivery>
 
-//  TODO: Can be auto generated (KSP)?
+//  TODO: Can be auto generated (KSP)? maybe generate interfaces?
 object StructuralProvider {
     private fun featureFlag(flag: String): Boolean {
         return false// TODO: MOCK to structural FeatureFlag module
