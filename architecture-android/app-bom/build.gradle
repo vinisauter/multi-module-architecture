@@ -6,9 +6,8 @@ group = "com.github.vinisauter.app-bom"
 version = "1.0-SNAPSHOT"
 dependencies {
     constraints {
-        api 'junit:junit:4.13.2'
-        api 'androidx.test.ext:junit:1.1.4-alpha03'
-        api 'androidx.test.espresso:espresso-core:3.4.0'
+        // Option to declined any dependency
+        api 'androidx.webkit:webkit:DECLINED-DEPENDENCY'
 
         api 'androidx.core:core-ktx:1.7.0'
         api 'androidx.activity:activity:1.4.0'//1.0.0, 1.4.0
