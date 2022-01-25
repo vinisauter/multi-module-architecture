@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "container:/Users/nykolasmayko/Documents/multi-module-architecture/architecture-ios/Initial-POC/App.xcodeproj">
+      location = "group:App.xcodeproj">
    </FileRef>
    <Group
       location = "container:"
