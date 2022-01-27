@@ -6,27 +6,53 @@
 //
 
 import XCTest
+import Nimble
+import Core
+import Login
+
+@testable import App
 
 class LoginHandlerXCTestAndNimbleTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testGetNameShouldReturnLoginName() {
+        expect(self.makeSUT().getName()) == "login"
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testCanStartShouldReturnTrue() {
+        expect(self.makeSUT().canStart()).to(beTrue())
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testStartWhenSubJorneyIsNilShouldReturnLoginIndexViewController() {
+        expect(self.makeSUT().start(from: nil, with: self.mockBaseFlowDelegate, self.mockBaseFlowDataSource, nil, nil, nil)).to(beAKindOf(LoginIndexViewController.self))
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testStartWhenSubJorneyIsFogotPasswordShouldReturnForgotPasswordViewController() {
+        expect(self.makeSUT().start(from: nil, with: self.mockBaseFlowDelegate, self.mockBaseFlowDataSource, nil, .forgotPassword, nil)).to(beAKindOf(ForgotPasswordViewController.self))
     }
-
+    
+    func testHandleGetWhenIsFromProfileShouldReturnLoginIndexViewController() {
+        let sut = makeSUT()
+        
+        mockAppNavigation.register([.login], with: sut)
+        
+        expect(sut.handleGet(from: .profile, to: nil, with: self.mockBaseFlowDelegate, analytics: nil)).to(beAKindOf(LoginIndexViewController.self))
+    }
+    
+    func testHandleGetWhenIsFromFakeJourneyShouldReturnLoginIndexViewController() {
+        let sut = makeSUT()
+        
+        mockAppNavigation.register([.login], with: sut)
+        
+        expect(sut.handleGet(from: .init(rawValue: "FakeJourney"), to: nil, with: self.mockBaseFlowDelegate, analytics: nil)).to(beAKindOf(LoginIndexViewController.self))
+    }
+    
+    // MARK: - Helpers
+    
+    let mockBaseFlowDelegate = MockBaseFlowDelegate()
+    let mockBaseFlowDataSource = MockBaseFlowDataSource()
+    let mockAppNavigation = MockAppNavigation()
+    
+    func makeSUT() -> LoginHandler {
+        return LoginHandler(appNavigation: mockAppNavigation)
+    }
 }

@@ -5,4 +5,11 @@
 //  Created by Nykolas Mayko Maia Barbosa on 27/01/22.
 //
 
-import Foundation
+import UIKit
+import Core
+
+class MockBaseFlowDataSource: BaseFlowDataSource {
+    func get(_ journey: Journey, from currentJourney: Journey, with baseFlowDelegate: BaseFlowDelegate, customAnalytics: Any?) -> UIViewController {
+        return UIViewController()
+    }
+}
