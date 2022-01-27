@@ -7,17 +7,30 @@
 
 import UIKit
 
-public final class AppNavigation {
-    public static let shared: AppNavigation = AppNavigation()
-    
+public protocol AppNavigationProtocol {
+    func push(_ journey: Journey, from currentViewController: UIViewController?, animated: Bool)
+    func popViewController(animated: Bool)
+    func popToViewControllerWithType<T: UIViewController>(_ type: T.Type) -> Array<UIViewController>?
+    func present(_ viewController: UIViewController, animated: Bool, completion: (() -> Void)?)
+    func resolve(_ rawDeeplink: String?) -> Bool
+    func resolveDeeplinkIfNeeded()
+    func register(_ jorneys: Array<Journey>, with stater: ModuleHandler)
+    func getHandler(from jorney: Journey) -> ModuleHandler?
+    func start(_ journey: Journey, to subJourney: Journey?, from currentJourney: Journey?, with url: URL?, baseFlowDelegate: BaseFlowDelegate?, baseFlowDataSource: BaseFlowDataSource?, customModuleAnalytics: Any?, value: Any?) -> UIViewController
+    func show(_ journeys: Array<Journey>, from currentViewController: UIViewController?, animated: Bool)
+}
+
+
+public final class AppNavigation: AppNavigationProtocol {
     public let navigationController: UINavigationController = UINavigationController()
+    
     private var currentJourney: Journey?
     private var rawDeeplink: String?
     private var handlers: Dictionary<Journey, ModuleHandler> = [:]
     
     // MARK: - Initializer
     
-    private init () {}
+    public init () {}
     
     // MARK: - Action Functions
     
@@ -87,13 +100,13 @@ public final class AppNavigation {
         return handlers[jorney]
     }
     
-    public func start(_ journey: Journey, to subJourney: Journey? = nil, from currentJourney: Journey? = nil, with url: URL? = nil, baseFlowDelegate: BaseFlowDelegate = AppNavigation.shared, baseFlowDataSource: BaseFlowDataSource = AppNavigation.shared, customModuleAnalytics: Any? = nil, value: Any? = nil) -> UIViewController {
+    public func start(_ journey: Journey, to subJourney: Journey? = nil, from currentJourney: Journey? = nil, with url: URL? = nil, baseFlowDelegate: BaseFlowDelegate? = nil, baseFlowDataSource: BaseFlowDataSource? = nil, customModuleAnalytics: Any? = nil, value: Any? = nil) -> UIViewController {
         
         guard let handler = getHandler(from: journey) else { return UIViewController() }
 
         self.currentJourney = currentJourney == nil ? journey : currentJourney!
         
-        return handler.start(from: url, with: baseFlowDelegate, baseFlowDataSource, customModuleAnalytics, subJourney, value)
+        return handler.start(from: url, with: baseFlowDelegate ?? self, baseFlowDataSource ?? self, customModuleAnalytics, subJourney, value)
     }
     
     public func show(_ journeys: Array<Journey>, from currentViewController: UIViewController? = nil, animated: Bool) {

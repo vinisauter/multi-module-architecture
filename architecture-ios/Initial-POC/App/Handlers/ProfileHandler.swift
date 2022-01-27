@@ -13,8 +13,9 @@ class ProfileHandler: ModuleHandler {
     
     private weak var baseFlowDelegate: BaseFlowDelegate?
     private weak var baseFlowDataSource: BaseFlowDataSource?
+    private let appNavigation: AppNavigation
     
-    init() {}
+    init(appNavigation: AppNavigation) { self.appNavigation = appNavigation }
     
     func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: Journey?, _ value: Any?) -> UIViewController {
         self.baseFlowDelegate = baseFlowDelegate
@@ -36,7 +37,7 @@ class ProfileHandler: ModuleHandler {
     func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?) {
         switch journey {
         case .home:
-            AppNavigation.shared.show([.home], from: viewController, animated: true)
+            appNavigation.show([.home], from: viewController, animated: true)
             break
             
         default: break
@@ -44,7 +45,7 @@ class ProfileHandler: ModuleHandler {
     }
     
     func handleGet(from journey: Journey, to subJourney: Journey?, with baseFlowDelegate: BaseFlowDelegate, analytics: Any?) -> UIViewController {
-        return start(from: nil, with: baseFlowDelegate, AppNavigation.shared, analytics, subJourney, nil)
+        return start(from: nil, with: baseFlowDelegate, appNavigation, analytics, subJourney, nil)
     }
 }
 

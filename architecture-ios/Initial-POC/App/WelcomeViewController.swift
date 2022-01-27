@@ -9,6 +9,8 @@ import UIKit
 import Core
 
 class WelcomeViewController: UIViewController {
+    public var appNavigation: AppNavigation?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,14 +23,24 @@ class WelcomeViewController: UIViewController {
     }
     
     @IBAction func goToLogin(_ sender: Any) {
-        show(AppNavigation.shared.start(.login), sender: nil)
+        let vc = appNavigation?.start(.login, baseFlowDelegate: appNavigation!, baseFlowDataSource: appNavigation!)
+        show(vc!, sender: nil)
     }
 }
 
 
 class WelcomeHandler: ModuleHandler {
+    private weak var appNavigation: AppNavigation?
+    
+    init(appNavigation: AppNavigation) {
+        self.appNavigation = appNavigation
+    }
+    
     func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: Journey?, _ value: Any?) -> UIViewController {
-        return UIViewController.instantiateViewController(ofType: WelcomeViewController.self)!
+        let vc = UIViewController.instantiateViewController(ofType: WelcomeViewController.self)!
+        vc.appNavigation = appNavigation!
+        
+        return vc
     }
     
     func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?) {

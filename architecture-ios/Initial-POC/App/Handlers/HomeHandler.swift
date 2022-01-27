@@ -11,8 +11,9 @@ import Home
 
 class HomeHandler: ModuleHandler {
     private weak var baseFlowDelegate: BaseFlowDelegate?
+    private let appNavigation: AppNavigation
     
-    init() {}
+    init(appNavigation: AppNavigation) { self.appNavigation = appNavigation }
     
     func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: Journey?, _ value: Any?) -> UIViewController {
         self.baseFlowDelegate = baseFlowDelegate
@@ -33,11 +34,11 @@ class HomeHandler: ModuleHandler {
     func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?) {
         switch journey {
         case .profile:
-            AppNavigation.shared.push(journey, from: viewController)
+            appNavigation.push(journey, from: viewController)
             break
             
         case .login:
-            AppNavigation.shared.show([.welcome, .login], from: viewController, animated: false)
+            appNavigation.show([.welcome, .login], from: viewController, animated: false)
             isUserLoggedIn = false
             break
             
@@ -46,7 +47,7 @@ class HomeHandler: ModuleHandler {
     }
     
     func handleGet(from journey: Journey, to subJourney: Journey?, with baseFlowDelegate: BaseFlowDelegate, analytics: Any?) -> UIViewController {
-        return start(from: nil, with: baseFlowDelegate, AppNavigation.shared, analytics, subJourney, nil)
+        return start(from: nil, with: baseFlowDelegate, appNavigation, analytics, subJourney, nil)
     }
 }
 

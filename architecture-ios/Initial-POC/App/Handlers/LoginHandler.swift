@@ -11,8 +11,9 @@ import Login
 
 class LoginHandler: ModuleHandler {
     private weak var baseFlowDelegate: BaseFlowDelegate?
+    private let appNavigation: AppNavigationProtocol
     
-    init() {}
+    init(appNavigation: AppNavigationProtocol) { self.appNavigation = appNavigation }
     
     func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: Journey?, _ value: Any?) -> UIViewController {
         self.baseFlowDelegate = baseFlowDelegate
@@ -43,12 +44,12 @@ class LoginHandler: ModuleHandler {
         isUserLoggedIn = journey == .home
         switch journey {
         case .home:
-            AppNavigation.shared.show([.home], from: viewController, animated: true)
-            AppNavigation.shared.resolveDeeplinkIfNeeded()
+            appNavigation.show([.home], from: viewController, animated: true)
+            appNavigation.resolveDeeplinkIfNeeded()
             break
             
         case .welcome:
-            AppNavigation.shared.show([.welcome], from: viewController, animated: true)
+            appNavigation.show([.welcome], from: viewController, animated: true)
             break
             
         default: break
@@ -57,8 +58,8 @@ class LoginHandler: ModuleHandler {
     
     func handleGet(from journey: Journey, to subJourney: Journey?, with baseFlowDelegate: BaseFlowDelegate, analytics: Any?) -> UIViewController {
         switch journey {
-        case .profile: return AppNavigation.shared.start(.login, to: subJourney, from: journey, baseFlowDelegate: baseFlowDelegate, customModuleAnalytics: analytics != nil ? LoginAnalyticsProfileAdapter(profileAnalytics: analytics) : nil)
-        default: return AppNavigation.shared.start(.login, from: journey, baseFlowDelegate: baseFlowDelegate)
+        case .profile: return appNavigation.start(.login, to: subJourney, from: journey, with: nil, baseFlowDelegate: baseFlowDelegate, baseFlowDataSource: nil, customModuleAnalytics: analytics != nil ? LoginAnalyticsProfileAdapter(profileAnalytics: analytics) : nil, value: nil)
+        default: return appNavigation.start(.login, to: nil, from: journey, with: nil, baseFlowDelegate: baseFlowDelegate, baseFlowDataSource: nil, customModuleAnalytics: nil, value: nil)
         }
     }
 }

@@ -14,18 +14,19 @@ var isAppLaunched: Bool = false
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+    let appNavigation: AppNavigation = AppNavigation()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        AppNavigation.shared.register([.welcome], with: WelcomeHandler())
-        AppNavigation.shared.register([.login, .forgotPassword], with: LoginHandler())
-        AppNavigation.shared.register([.home], with: HomeHandler())
-        AppNavigation.shared.register([.profile], with: ProfileHandler())
+        appNavigation.register([.welcome], with: WelcomeHandler(appNavigation: appNavigation))
+        appNavigation.register([.login, .forgotPassword], with: LoginHandler(appNavigation: appNavigation))
+        appNavigation.register([.home], with: HomeHandler(appNavigation: appNavigation))
+        appNavigation.register([.profile], with: ProfileHandler(appNavigation: appNavigation))
                 
         setupRootViewController()
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = AppNavigation.shared.navigationController
+        window?.rootViewController = appNavigation.navigationController
         window?.makeKeyAndVisible()
         
         return true
@@ -41,12 +42,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setupRootViewController(with deeplink: String? = nil) {
         if !isAppLaunched {
-            AppNavigation.shared.show([.welcome], animated: true)
+            appNavigation.show([.welcome], animated: true)
             isAppLaunched = true
         } else if isAppLaunched && !isUserLoggedIn {
-            if !AppNavigation.shared.resolve(deeplink) { AppNavigation.shared.show([.welcome, .login], animated: true) }
+            if !appNavigation.resolve(deeplink) { appNavigation.show([.welcome, .login], animated: true) }
         } else {
-            AppNavigation.shared.resolve(deeplink)
+            appNavigation.resolve(deeplink)
         }
     }
 }
