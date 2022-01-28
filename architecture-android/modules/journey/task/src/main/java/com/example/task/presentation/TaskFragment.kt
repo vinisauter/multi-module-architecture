@@ -24,7 +24,10 @@ class TaskFragment: Fragment() {
     private val viewModel: TaskFragmentViewModel by injectViewModel()
     private val deepLink by lazy { deepLinkIntent?.data }
 
+    private val engineCache: FlutterEngineCache = FlutterEngineCache.getInstance()
+
     private lateinit var engineId: String
+    private lateinit var engine: FlutterEngine
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -63,6 +66,15 @@ class TaskFragment: Fragment() {
             .commit()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        engineCache.get(engineId)?.let {
+            it.destroy()
+            engineCache.remove(engineId)
+        }
+    }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
@@ -73,10 +85,6 @@ class TaskFragment: Fragment() {
         engine.dartExecutor.executeDartEntrypoint(
             DartExecutor.DartEntrypoint.createDefault()
         )
-        FlutterEngineCache.getInstance().put(engineId, engine)
-    }
-
-    override fun onDetach() {
-        super.onDetach()
+        engineCache.put(engineId, engine)
     }
 }
