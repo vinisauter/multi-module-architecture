@@ -1,5 +1,6 @@
 package com.example.task.presentation
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,12 +13,18 @@ import com.core.extensions.consume
 import com.core.extensions.deepLinkIntent
 import com.core.extensions.navigate
 import com.example.task.databinding.FragmentTaskBinding
+import io.flutter.embedding.android.FlutterFragment
+import io.flutter.embedding.engine.FlutterEngine
+import io.flutter.embedding.engine.FlutterEngineCache
+import io.flutter.embedding.engine.dart.DartExecutor
 
 class TaskFragment: Fragment() {
     private lateinit var binding: FragmentTaskBinding
-//    private val args: TaskFragmentArgs by navArgs()
+    private val args: TaskFragmentArgs by navArgs()
     private val viewModel: TaskFragmentViewModel by injectViewModel()
     private val deepLink by lazy { deepLinkIntent?.data }
+
+    private lateinit var engineId: String
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,9 +33,9 @@ class TaskFragment: Fragment() {
     ): View {
         binding = FragmentTaskBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel
-//        args.queryValue?.let {
-//            binding.textMonitor.append("\n${it}")
-//        }
+        args.queryValue?.let {
+            binding.textMonitor.append("\n${it}")
+        }
         deepLink?.let {
             binding.textMonitor.append("\n${deepLink}")
         }
@@ -40,5 +47,36 @@ class TaskFragment: Fragment() {
             }
         }
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val childFragment = FlutterFragment
+            .withCachedEngine(engineId)
+            .destroyEngineWithFragment(true)
+            .build<FlutterFragment>()
+
+        childFragmentManager
+            .beginTransaction()
+            .add(binding.childFragmentContainer.id, childFragment)
+            .commit()
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
+        val engine = FlutterEngine(context)
+        engineId = engine.hashCode().toString()
+
+        engine.navigationChannel.setInitialRoute("")
+        engine.dartExecutor.executeDartEntrypoint(
+            DartExecutor.DartEntrypoint.createDefault()
+        )
+        FlutterEngineCache.getInstance().put(engineId, engine)
+    }
+
+    override fun onDetach() {
+        super.onDetach()
     }
 }

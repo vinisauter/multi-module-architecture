@@ -12,6 +12,8 @@ dependencyResolutionManagement {
         mavenCentral()
         maven { url "https://artifactory.it4ng.eu/virtual" }
         maven { url "https://jitpack.io" }
+        maven { url '../architecture-flutter/flutter-libs' }
+        maven { url "https://storage.googleapis.com/download.flutter.io" }
     }
 }
 rootProject.name = "ModularFeatureArchitecture"

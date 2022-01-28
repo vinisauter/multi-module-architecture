@@ -15,8 +15,8 @@ class TaskFragmentViewModel(
         get() = onActionCompletedSharedFlow
 
     fun onExitClicked() = runTask {
-//        onActionCompletedSharedFlow.emit(
-//            TaskFragmentDirections.actionExit()
-//        )
+        onActionCompletedSharedFlow.emit(
+            TaskFragmentDirections.actionExit()
+        )
     }
 }

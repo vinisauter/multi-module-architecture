@@ -41,4 +41,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     androidTestImplementation 'androidx.annotation:annotation:1.3.0'
+
+    debugImplementation 'com.example.task_business_module:flutter_debug:1.0'
+//    profileImplementation 'com.example.task_business_module:flutter_profile:1.0'
+    releaseImplementation 'com.example.task_business_module:flutter_release:1.0'
 }
