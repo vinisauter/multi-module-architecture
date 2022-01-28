@@ -32,5 +32,5 @@ pushd "modules"
 
 popd
 
-find build/host/outputs/repo -mindepth 1 -maxdepth 1 -type d -exec mv {} build/ \;
+find build/host/outputs/repo -mindepth 1 -maxdepth 1 -type d -exec rsync -a {} build/ \;
 rm -rf build/host/
