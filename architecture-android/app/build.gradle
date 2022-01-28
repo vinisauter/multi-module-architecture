@@ -42,6 +42,7 @@ android {
             ':modules:journey:home',
             ':modules:journey:profile',
             ':modules:journey:task',
+            ':modules:journey:note',
 
             ':modules:structural:networking',
             ':modules:structural:networkingsecure',

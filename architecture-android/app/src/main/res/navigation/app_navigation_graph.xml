@@ -87,4 +87,13 @@ todo: navigation documentation:
             android:id="@+id/deep_link"
             app:uri="myapp://task" />
     </activity>
+    <activity
+        android:id="@+id/note_navigation"
+        android:name="com.example.note.NoteControllerActivity"
+        android:label="NoteControllerActivity"
+        app:moduleName="note">
+        <deepLink
+            android:id="@+id/deep_link"
+            app:uri="myapp://note" />
+    </activity>
 </navigation>
