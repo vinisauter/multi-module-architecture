@@ -1,8 +1,12 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '14.1'
+platform :ios, '12.0'
 
 workspace 'App.xcworkspace'
 
+def pod_tests
+  pod 'Quick', '~> 4.0.0'
+  pod 'Nimble', '~> 9.2.1'
+end
 
 target 'App' do
   project 'App.xcodeproj'
@@ -14,7 +18,16 @@ target 'App' do
 
   abstract_target 'Tests' do
     target "HandlersTests"
-    pod 'Quick', '~> 4.0.0'
-    pod 'Nimble', '~> 9.2.1'
+    pod_tests
+  end
+end
+
+target 'Login' do
+  project 'Modules/Journey/Login/Login.xcodeproj'
+  use_frameworks!
+  
+  abstract_target 'Tests' do
+    target "BusinessModelTests"
+    pod_tests
   end
 end
