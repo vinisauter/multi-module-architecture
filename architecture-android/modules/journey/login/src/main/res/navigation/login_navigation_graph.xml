@@ -15,7 +15,7 @@
             app:argType="com.example.journey.login.tracking.LoginTracking" />
         <action
             android:id="@+id/action_login_succeed"
-            app:destination="@id/task_navigation"
+            app:destination="@id/task"
             app:popUpTo="@id/task"
             app:popUpToInclusive="true" />
         <action
