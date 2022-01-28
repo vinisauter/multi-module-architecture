@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Core
+import CoreFramework
 
 protocol ProfileFlowProtocol: AnyObject {
     var factory: ProfileViewControllerFactory { get }

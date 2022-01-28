@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Core
+import CoreFramework
 
 open class HomeIndexViewController: BaseViewController<HomeIndexViewModelProtocol> {
     // MARK: - Private Properties

@@ -5,7 +5,7 @@
 //  Created by Nykolas Mayko Maia Barbosa on 12/11/21.
 //
 
-import Core
+import CoreFramework
 
 public protocol ForgotPasswordViewModelProtocol: ForgotPasswordBusinessModelProtocol, ForgotPasswordFlowDelegate {}
 

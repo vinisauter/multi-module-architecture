@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import Core
-import Login
+import CoreFramework
+import LoginFramework
 
 class LoginHandler: ModuleHandler {
     private weak var baseFlowDelegate: BaseFlowDelegate?

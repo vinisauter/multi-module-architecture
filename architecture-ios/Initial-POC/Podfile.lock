@@ -1,0 +1,62 @@
+PODS:
+  - AnalyticsFramework (1.0.0):
+    - AnalyticsInterfacesFramework
+  - AnalyticsInterfacesFramework (1.0.0)
+  - CoreFramework (1.0.0)
+  - HomeFramework (1.0.0):
+    - AnalyticsInterfacesFramework
+    - CoreFramework
+    - NetworkingInterfaces (~> 1.0.0)
+  - LoginFramework (1.0.0):
+    - AnalyticsInterfacesFramework
+    - CoreFramework
+    - NetworkingInterfaces (~> 1.0.0)
+  - Networking (1.0.0)
+  - NetworkingInterfaces (1.0.0)
+  - ProfileFramework (1.0.0):
+    - AnalyticsInterfacesFramework
+    - CoreFramework
+    - NetworkingInterfaces (~> 1.0.0)
+
+DEPENDENCIES:
+  - AnalyticsFramework (from `Modules/Structural/Analytics/AnalyticsFramework.podspec`)
+  - AnalyticsInterfacesFramework (from `Modules/Structural/Analytics/AnalyticsInterfacesFramework.podspec`)
+  - CoreFramework (from `Modules/Structural/Core/CoreFramework.podspec`)
+  - HomeFramework (from `Modules/Journey/Home/HomeFramework.podspec`)
+  - LoginFramework (from `Modules/Journey/Login/LoginFramework.podspec`)
+  - Networking
+  - NetworkingInterfaces
+  - ProfileFramework (from `Modules/Journey/Profile/ProfileFramework.podspec`)
+
+SPEC REPOS:
+  https://github.com/nykolasmayko/StructuralSpecs.git:
+    - Networking
+    - NetworkingInterfaces
+
+EXTERNAL SOURCES:
+  AnalyticsFramework:
+    :path: Modules/Structural/Analytics/AnalyticsFramework.podspec
+  AnalyticsInterfacesFramework:
+    :path: Modules/Structural/Analytics/AnalyticsInterfacesFramework.podspec
+  CoreFramework:
+    :path: Modules/Structural/Core/CoreFramework.podspec
+  HomeFramework:
+    :path: Modules/Journey/Home/HomeFramework.podspec
+  LoginFramework:
+    :path: Modules/Journey/Login/LoginFramework.podspec
+  ProfileFramework:
+    :path: Modules/Journey/Profile/ProfileFramework.podspec
+
+SPEC CHECKSUMS:
+  AnalyticsFramework: 3c27eea01b529e760d18c6404777c02faaceb477
+  AnalyticsInterfacesFramework: 9e8f37b61234c0b5caf04faa7e28c448889ec262
+  CoreFramework: 9bc5aeaa5a395adba52887304df6751d55045793
+  HomeFramework: f080c80a6ac013aa41598818d0f5f1d4259f8a0e
+  LoginFramework: c185aa499fffd2d3516306e147d0822e8efa5592
+  Networking: 5275ef0074a44b8cfe690286881599622d452f22
+  NetworkingInterfaces: 5e1090a7939a20161c7024731d87310d2699673b
+  ProfileFramework: 3313e3cff0f6abcb809f595fc53cb5d978315366
+
+PODFILE CHECKSUM: 4fb4de77766a99b9a2a468be3cadc331f9d94ece
+
+COCOAPODS: 1.11.2

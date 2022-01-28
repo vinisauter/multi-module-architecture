@@ -5,8 +5,8 @@
 //  Created by Nykolas Mayko Maia Barbosa on 09/11/21.
 //
 
-import AnalyticsInterfaces
-import Core
+import AnalyticsInterfacesFramework
+import CoreFramework
 
 extension ProfileBusinessModel: ProfileHomeAnalyticsProtocol {
     public func onGoToMenuClick() {

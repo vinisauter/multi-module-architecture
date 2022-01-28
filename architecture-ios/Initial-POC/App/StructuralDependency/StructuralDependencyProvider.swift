@@ -7,9 +7,10 @@
 
 import NetworkingInterfaces
 import Networking
-
-import AnalyticsInterfaces
-import Analytics
+import AnalyticsInterfacesFramework
+import AnalyticsFramework
+import AppSecurityInterfaces
+import AppSecurity
 
 import NetworkSecurity
 
@@ -20,16 +21,14 @@ class StructuralDependencyProvider {
     private init() {}
     
     lazy var networkingProvider: NetworkingProviderProtocol = {
-        NetworkingProvider.addProvider(name: "security", ob: self.networkSecurityProvider as AnyObject)
-        NetworkingProvider.addProvider(name: "analytics", ob: self.analytics as AnyObject)
-        return NetworkingProvider(typeProvider: NetworkingProvider.self)
+        return NetworkingProvider(networkingDependency: NetworkingDependency(security: security))
     }()
     
     lazy var analytics: AnalyticsProtocol = {
         return Analytics()
     }()
     
-    lazy var networkSecurityProvider: NetworkSecurityProviderProtocol = {
-        return NetworkSecurityProvider(typeProvider: NetworkSecurityProvider.self)
+    lazy var security: AppSecurityProviderProtocol = {
+        return AppSecurityProvider()
     }()
 }

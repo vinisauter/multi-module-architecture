@@ -5,8 +5,8 @@
 //  Created by Nykolas Mayko Maia Barbosa on 09/11/21.
 //
 
-import Core
-import AnalyticsInterfaces
+import CoreFramework
+import AnalyticsInterfacesFramework
 
 public protocol ProfileAnalyticsProtocol {
     var structuralAnalytics: AnalyticsProtocol? { get }

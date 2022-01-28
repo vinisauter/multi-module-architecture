@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Core
+import CoreFramework
 
 open class ForgotPasswordViewController: BaseViewController<ForgotPasswordViewModelProtocol> {
     // MARK: - Private Properties

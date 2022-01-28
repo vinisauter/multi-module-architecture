@@ -5,7 +5,7 @@
 //  Created by Nykolas Mayko Maia Barbosa on 09/11/21.
 //
 
-import Core
+import CoreFramework
 
 public class ProfileViewControllerFactory: BaseViewControllerFactory<ProfileBusinessModel, ProfileAnalyticsProtocol> {
     weak var flow: ProfileFlowProtocol?

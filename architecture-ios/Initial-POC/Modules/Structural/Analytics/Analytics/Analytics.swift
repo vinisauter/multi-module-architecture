@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import AnalyticsInterfaces
+import AnalyticsInterfacesFramework
 
 public class Analytics: AnalyticsProtocol {
     

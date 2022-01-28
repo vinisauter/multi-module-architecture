@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -29,6 +29,11 @@
 		5993F7A9273D852E00B3A695 /* LoginHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5993F7A8273D852E00B3A695 /* LoginHandler.swift */; };
 		5993F7AB273D856C00B3A695 /* HomeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5993F7AA273D856C00B3A695 /* HomeHandler.swift */; };
 		5993F7AD273D85BE00B3A695 /* ProfileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5993F7AC273D85BE00B3A695 /* ProfileHandler.swift */; };
+		59D154472768DCD400459773 /* AppSecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D154452768DCD400459773 /* AppSecurity.framework */; };
+		59D154482768DCD400459773 /* AppSecurity.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59D154452768DCD400459773 /* AppSecurity.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		59D154492768DCD400459773 /* AppSecurityInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D154462768DCD400459773 /* AppSecurityInterfaces.framework */; };
+		59D1544A2768DCD400459773 /* AppSecurityInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59D154462768DCD400459773 /* AppSecurityInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		59D1544D2768DD5700459773 /* NetworkingDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D1544C2768DD5700459773 /* NetworkingDependency.swift */; };
 		59EABE5427466FB4007E653F /* LoginAnalyticsProfileAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EABE5327466FB4007E653F /* LoginAnalyticsProfileAdapter.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +54,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0C706D1D27A451D100DEE675 /* XCTest.framework in Embed Frameworks */,
+				59D154482768DCD400459773 /* AppSecurity.framework in Embed Frameworks */,
+				59D1544A2768DCD400459773 /* AppSecurityInterfaces.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,10 +77,28 @@
 		421ECFC927396FBC00BD353C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		421ECFCC27396FBC00BD353C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		421ECFCE27396FBC00BD353C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59085592278CBACD005F3623 /* NetworkingInterfaces.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = NetworkingInterfaces.xcframework; path = "../../../multi-structural-module/structural-ios/Networking/Carthage/Build/NetworkingInterfaces.xcframework"; sourceTree = "<group>"; };
+		59085593278CBACD005F3623 /* Networking.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Networking.xcframework; path = "../../../multi-structural-module/structural-ios/Networking/Carthage/Build/Networking.xcframework"; sourceTree = "<group>"; };
+		591DFABE278CBBD3004D9EE7 /* NetworkingInterfaces.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = NetworkingInterfaces.xcframework; path = ../../Carthage/Build/NetworkingInterfaces.xcframework; sourceTree = "<group>"; };
+		591DFABF278CBBD3004D9EE7 /* Networking.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Networking.xcframework; path = ../../Carthage/Build/Networking.xcframework; sourceTree = "<group>"; };
+		593F263A2739D63000B34547 /* Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		593F263B2739D63000B34547 /* Login.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Login.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		593F263C2739D63000B34547 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		593F263D2739D63000B34547 /* NetworkingInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkingInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		593F263E2739D63000B34547 /* Profile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Profile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		595EC4B0279203BB0047BDD0 /* NewModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NewModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59644E21273AA19000B3A865 /* StructuralDependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructuralDependencyProvider.swift; sourceTree = "<group>"; };
 		5993F7A8273D852E00B3A695 /* LoginHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHandler.swift; sourceTree = "<group>"; };
 		5993F7AA273D856C00B3A695 /* HomeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHandler.swift; sourceTree = "<group>"; };
 		5993F7AC273D85BE00B3A695 /* ProfileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHandler.swift; sourceTree = "<group>"; };
+		59A9DA772739DCB6003FA91D /* Storage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Storage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59A9DA782739DCB6003FA91D /* StorageInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StorageInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59C82C44273BFF8D00E84149 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59D154452768DCD400459773 /* AppSecurity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppSecurity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59D154462768DCD400459773 /* AppSecurityInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppSecurityInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59D1544C2768DD5700459773 /* NetworkingDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingDependency.swift; sourceTree = "<group>"; };
+		59D3454727958C5000C2B1C9 /* Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59D345CA27959DB100C2B1C9 /* Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59EABE5327466FB4007E653F /* LoginAnalyticsProfileAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAnalyticsProfileAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,15 +114,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CBE7A63279769A8006B570F /* NetworkSecurity in Frameworks */,
-				0C706CFE27A44CAF00DEE675 /* Analytics in Frameworks */,
-				0C706D2427A4526100DEE675 /* Cuckoo in Frameworks */,
-				0C706CC927A4461F00DEE675 /* Profile in Frameworks */,
-				0CBE7A5F279769A8006B570F /* Login in Frameworks */,
-				0CBE7A61279769A8006B570F /* Networking in Frameworks */,
-				0CBE7A71279869B8006B570F /* Home in Frameworks */,
-				0C706CFC27A44CAA00DEE675 /* Core in Frameworks */,
-				0C706D1C27A451D100DEE675 /* XCTest.framework in Frameworks */,
+				59D154472768DCD400459773 /* AppSecurity.framework in Frameworks */,
+				59D154492768DCD400459773 /* AppSecurityInterfaces.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +164,7 @@
 				0C706CBB27A4416700DEE675 /* AppTests */,
 				421ECFBE27396FBA00BD353C /* Products */,
 				421ED0C12739758400BD353C /* Frameworks */,
+				95B64C775EECF947D694A05D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -170,7 +188,7 @@
 				421ECFCE27396FBC00BD353C /* Info.plist */,
 				597F1C3D27556AC1006320C9 /* Handlers */,
 				5993F7A7273D850900B3A695 /* StructuralDependency */,
-				0C546DAF276B7FA400DC33C5 /* StructuralDependencyInjection */,
+				59D1544B2768DD1800459773 /* DependenciesImplementations */,
 				5999E0C22747D71A0044427F /* AnalyticsAdapters */,
 			);
 			path = App;
@@ -179,7 +197,25 @@
 		421ED0C12739758400BD353C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0C706CA627A18F9D00DEE675 /* XCTest.framework */,
+				59D345CA27959DB100C2B1C9 /* Home.framework */,
+				59D3454727958C5000C2B1C9 /* Home.framework */,
+				595EC4B0279203BB0047BDD0 /* NewModule.framework */,
+				59085593278CBACD005F3623 /* Networking.xcframework */,
+				591DFABF278CBBD3004D9EE7 /* Networking.xcframework */,
+				59085592278CBACD005F3623 /* NetworkingInterfaces.xcframework */,
+				591DFABE278CBBD3004D9EE7 /* NetworkingInterfaces.xcframework */,
+				59D154452768DCD400459773 /* AppSecurity.framework */,
+				59D154462768DCD400459773 /* AppSecurityInterfaces.framework */,
+				59FAED76273D9E2B00C18E6E /* Analytics.framework */,
+				59FAED77273D9E2B00C18E6E /* AnalyticsInterfaces.framework */,
+				59C82C44273BFF8D00E84149 /* Core.framework */,
+				59A9DA772739DCB6003FA91D /* Storage.framework */,
+				59A9DA782739DCB6003FA91D /* StorageInterfaces.framework */,
+				593F263A2739D63000B34547 /* Home.framework */,
+				593F263B2739D63000B34547 /* Login.framework */,
+				593F263C2739D63000B34547 /* Networking.framework */,
+				593F263D2739D63000B34547 /* NetworkingInterfaces.framework */,
+				593F263E2739D63000B34547 /* Profile.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -208,6 +244,21 @@
 				59EABE5327466FB4007E653F /* LoginAnalyticsProfileAdapter.swift */,
 			);
 			path = AnalyticsAdapters;
+			sourceTree = "<group>";
+		};
+		59D1544B2768DD1800459773 /* DependenciesImplementations */ = {
+			isa = PBXGroup;
+			children = (
+				59D1544C2768DD5700459773 /* NetworkingDependency.swift */,
+			);
+			path = DependenciesImplementations;
+			sourceTree = "<group>";
+		};
+		95B64C775EECF947D694A05D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,6 +409,7 @@
 				59644E22273AA19000B3A865 /* StructuralDependencyProvider.swift in Sources */,
 				5993F7A9273D852E00B3A695 /* LoginHandler.swift in Sources */,
 				5993F7AB273D856C00B3A695 /* HomeHandler.swift in Sources */,
+				59D1544D2768DD5700459773 /* NetworkingDependency.swift in Sources */,
 				421ECFC527396FBA00BD353C /* WelcomeViewController.swift in Sources */,
 				0C706CA527A18EE400DEE675 /* LoginTest.swift in Sources */,
 				421ECFC127396FBA00BD353C /* AppDelegate.swift in Sources */,

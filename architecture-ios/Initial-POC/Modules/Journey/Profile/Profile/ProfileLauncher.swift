@@ -6,9 +6,13 @@
 //
 
 import UIKit
+<<<<<<< HEAD
 import Core	
+=======
+import CoreFramework
+>>>>>>> 8d21c778caa3364768971b256379a0e708797006
 import NetworkingInterfaces
-import AnalyticsInterfaces
+import AnalyticsInterfacesFramework
 
 public struct ProfileDependencies {
     var deeplink: URL?

@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import Core
-import Home
+import CoreFramework
+import HomeFramework
 
 class HomeHandler: ModuleHandler {
     private weak var baseFlowDelegate: BaseFlowDelegate?

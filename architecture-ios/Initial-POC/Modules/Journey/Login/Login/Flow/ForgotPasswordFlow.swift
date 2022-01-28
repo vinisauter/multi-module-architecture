@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Core
+import CoreFramework
 
 class ForgotPasswordFlow: LoginFlowProtocol, Deeplinkable {
     var factory: LoginViewControllerFactory

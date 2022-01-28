@@ -7,8 +7,8 @@
 
 import UIKit
 import NetworkingInterfaces
-import AnalyticsInterfaces
-import Core
+import AnalyticsInterfacesFramework
+import CoreFramework
 
 public struct LoginDependencies {
     var deeplink: URL?

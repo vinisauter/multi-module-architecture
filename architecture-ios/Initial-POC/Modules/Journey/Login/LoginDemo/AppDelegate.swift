@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Core
+import CoreFramework
 
 var isUserLoggedIn: Bool = false
 var isAppLaunched: Bool = false
@@ -17,8 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        AppNavigation.shared.register([.login, .forgotPassword], with: LoginStarter())
-        AppNavigation.shared.register([.home], with: HomeStarter())
+        AppNavigation.shared.register([.login, .forgotPassword], with: LoginHandler())
+        AppNavigation.shared.register([.home], with: HomeHandler())
         
         setupRootViewController()
         
@@ -47,5 +47,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             AppNavigation.shared.resolve(deeplink)
         }
     }
+}
+
+extension Journey {
+    static let login: Journey = Journey(rawValue: "login")
+    static let forgotPassword: Journey = Journey(rawValue: "forgotPassword")
+    static let home: Journey = Journey(rawValue: "home")
 }
 
