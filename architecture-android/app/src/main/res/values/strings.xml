@@ -9,4 +9,5 @@
     <string name="title_storage">Storage-Implementation</string>
     <string name="title_tagging">Tagging-Implementation</string>
     <string name="title_security">security</string>
+    <string name="title_task">Task</string>
 </resources>

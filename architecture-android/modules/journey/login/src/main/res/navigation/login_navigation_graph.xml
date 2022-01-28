@@ -15,8 +15,8 @@
             app:argType="com.example.journey.login.tracking.LoginTracking" />
         <action
             android:id="@+id/action_login_succeed"
-            app:destination="@id/home"
-            app:popUpTo="@id/home"
+            app:destination="@id/task_navigation"
+            app:popUpTo="@id/task"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_login_failed"
@@ -59,6 +59,9 @@
     <journey
         android:id="@+id/home"
         app:destiny="@id/home_navigation" />
+    <journey
+        android:id="@+id/task"
+        app:destiny="@id/task_navigation" />
     <journey
         android:id="@+id/error"
         app:destiny="@id/error_dialog" />

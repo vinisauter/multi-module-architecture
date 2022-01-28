@@ -78,4 +78,13 @@ todo: navigation documentation:
             android:id="@+id/deep_link"
             app:uri="myapp://profile" />
     </activity>
+    <activity
+        android:id="@+id/task_navigation"
+        android:name="com.example.task.TaskControllerActivity"
+        android:label="TaskControllerActivity"
+        app:moduleName="task">
+        <deepLink
+            android:id="@+id/deep_link"
+            app:uri="myapp://task" />
+    </activity>
 </navigation>

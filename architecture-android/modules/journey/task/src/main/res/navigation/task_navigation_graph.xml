@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/task_navigation_graph"
+    app:moduleName="@string/title_task"
+    app:startDestination="@+id/task_fragment">
+
+    <journey android:id="@+id/exit" />
+
+    <fragment
+        android:id="@+id/task_fragment"
+        android:name="com.example.task.presentation.TaskFragment"
+        android:label="fragment_task"
+        app:moduleName="@string/title_task"
+        tools:layout="@layout/fragment_task">
+        <argument
+            android:name="query_value"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <action
+        android:id="@+id/action_exit"
+        app:destination="@id/exit" />
+</navigation>
