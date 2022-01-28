@@ -10,21 +10,10 @@ import NetworkSecurity
 
 public final class LibOneHTTPClient: HTTPClientProtocol {
     
-<<<<<<< HEAD
-    private var managerSecurirty: ManagerSecurityNetwork
-    
-    public init(security: ManagerSecurityNetwork) {
-        self.managerSecurirty = security
-    }
-    
-    public func getManagerSecurity() -> ManagerSecurityNetwork {
-        return self.managerSecurirty
-=======
     private var certificate: String
     
     init(certificate: String) {
         self.certificate = certificate
->>>>>>> 8d21c778caa3364768971b256379a0e708797006
     }
     
     public func get(_ url: String, completion: @escaping (String) -> Void) {
