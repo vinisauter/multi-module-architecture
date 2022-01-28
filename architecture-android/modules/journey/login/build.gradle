@@ -25,16 +25,31 @@ android {
 }
 
 dependencies {
-    implementation project(":app")
-    testImplementation project(path: ':app')
-    androidTestImplementation project(path: ':app')
+    implementation project(':app')
+//    testImplementation project(path: ':app')
+//    androidTestImplementation project(path: ':app')
 
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'androidx.arch.core:core-testing:2.1.0'
-    testImplementation "org.mockito.kotlin:mockito-kotlin:4.0.0"
+    testImplementation 'org.mockito.kotlin:mockito-kotlin:4.0.0'
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0'
-    testImplementation "io.mockk:mockk:1.12.2"
-    testImplementation 'app.cash.turbine:turbine:0.5.1'
+    testImplementation 'io.mockk:mockk:1.12.2'
+
     androidTestImplementation 'androidx.test.ext:junit:1.1.4-alpha03'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+//    testImplementation 'junit:junit:+'
+//    testImplementation 'org.mockito:mockito-core:+'
+//    testImplementation 'org.hamcrest:hamcrest-all:+'
+//    testImplementation 'androidx.arch.core:core-testing:+'
+//    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:+'
+//    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:+'
+//    testImplementation 'org.robolectric:robolectric:+'
+//    testImplementation 'androidx.test.espresso:espresso-core:+'
+//    testImplementation 'androidx.test.espresso:espresso-contrib:+'
+//    testImplementation 'androidx.test.espresso:espresso-intents:+'
+//    testImplementation 'com.google.truth:truth:+'
+//    testImplementation 'androidx.test:core-ktx:+'
+//    testImplementation 'androidx.test.ext:junit-ktx:+'
+//    testImplementation 'androidx.test:rules:+'
 }

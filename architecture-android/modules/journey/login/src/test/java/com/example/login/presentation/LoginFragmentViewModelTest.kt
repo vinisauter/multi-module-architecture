@@ -1,64 +1,48 @@
 package com.example.login.presentation
 
-import android.app.Application
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import androidx.lifecycle.SavedStateHandle
-import app.cash.turbine.test
 import com.core.extensions.State
 import com.example.journey.login.tracking.LoginTracking
-import com.example.tagging.TaggingExecutor
+import com.example.login.TaskScopeExecutorRule
 import io.mockk.*
-import io.mockk.impl.annotations.InjectMockKs
-import io.mockk.impl.annotations.MockK
-import junit.framework.Assert.assertEquals
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.runBlocking
+import junit.framework.TestCase.assertEquals
+import kotlinx.coroutines.flow.single
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import kotlin.time.ExperimentalTime
+import org.junit.runner.RunWith
+import org.junit.runners.JUnit4
+import org.mockito.kotlin.any
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.stub
 
-@ExperimentalTime
-@ExperimentalCoroutinesApi
+@RunWith(JUnit4::class)
 internal class LoginFragmentViewModelTest {
-
     @get:Rule
-    val instantExecutorRule = InstantTaskExecutorRule()
+    var rule = TaskScopeExecutorRule()
 
-    @MockK
-    lateinit var app: Application
-
-    @MockK
-    lateinit var savedStateHandle: SavedStateHandle
-
-    @MockK
-    lateinit var tagging: TaggingExecutor
-
-    @MockK
+    //MOCK
     lateinit var useCase: LoginFragmentUseCase
 
-    @MockK(relaxed = true, relaxUnitFun = true)
-    lateinit var tracking: LoginTracking
-
-    @InjectMockKs
-    lateinit var subject: LoginFragmentViewModel
+    //SUBJECT
+    lateinit var vm: LoginFragmentViewModel
 
     @Before
-    @Throws(Exception::class)
     fun setUp() {
-        MockKAnnotations.init(this, relaxUnitFun = true)
+        useCase = mock()
+        vm = LoginFragmentViewModel(mock(), SavedStateHandle(), mock(), useCase, LoginTracking())
     }
 
     @Test
-    fun `on login change loader state`() {
+    fun `on login change loader state`() = rule.launchTest {
         //GIVEN
         val observer = mockk<Observer<State>> { every { onChanged(any()) } just Runs }
-        subject.onStateChanged.observeForever(observer)
-        coEvery { useCase.login(any(), any()) } returns true
+        vm.onStateChanged.observeForever(observer)
+        useCase.stub { onBlocking { useCase.login(any(), any()) }.doReturn(true) }
         // WHEN
-        subject.onLoginClicked()
+        vm.onLoginClicked()
         // THEN
         verifySequence {
             observer.onChanged(State.Idle)
@@ -68,31 +52,25 @@ internal class LoginFragmentViewModelTest {
     }
 
     @Test
-    fun `on login succeed set action to direction login succeed`() {
+    fun `on login succeed set action to direction login succeed`() = rule.launchTest {
         //GIVEN
-        coEvery { useCase.login(any(), any()) } returns true
-        // whenever(useCase.login(any(), any())).thenReturn(true)
+        useCase.stub { onBlocking { useCase.login(any(), any()) }.doReturn(true) }
         // WHEN
-        subject.onLoginClicked()
+        vm.onLoginClicked()
         // THEN
-        runBlocking(Dispatchers.Default) {
-            subject.onActionCompleted.test {
-                assertEquals(LoginFragmentDirections.actionLoginSucceed(), expectItem())
-            }
+        vm.onActionCompleted.collect {
+            assertEquals(LoginFragmentDirections.actionLoginSucceed(), it)
         }
     }
 
     @Test
-    fun `on login failed set action to direction login succeed`() {
+    fun `on login failed set action to direction login succeed`() = rule.launchTest {
         //GIVEN
-        coEvery { useCase.login(any(), any()) } returns false
+        useCase.stub { onBlocking { useCase.login(any(), any()) }.doReturn(true) }
         // WHEN
-        subject.onLoginClicked()
+        vm.onLoginClicked()
         // THEN
-        runBlocking(Dispatchers.Default) {
-            subject.onActionCompleted.test {
-                assertEquals(LoginFragmentDirections.actionLoginFailed(), expectItem())
-            }
-        }
+        val result = vm.onActionCompleted.single()
+        assertEquals(LoginFragmentDirections.actionLoginFailed(), result)
     }
 }
