@@ -32,6 +32,9 @@ public protocol LoginStructuralDependencies {
 }
 
 public class LoginLauncher {
+    
+    public static var text = "Hello world !!!"
+    
     static public func start(with dependencies: LoginDependencies) -> UIViewController {
         
         // API

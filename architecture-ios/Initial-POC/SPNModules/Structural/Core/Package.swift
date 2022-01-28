@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "Core",
     platforms:[
-        .iOS(.v13)
+        .iOS(.v14)
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
@@ -24,7 +24,7 @@ let package = Package(
         .target(
             name: "Core",
             dependencies: [],
-            exclude: ["Info.plist"]),
+            exclude: ["Config/Info.plist"]),
         .testTarget(
             name: "CoreTests",
             dependencies: ["Core"]),
