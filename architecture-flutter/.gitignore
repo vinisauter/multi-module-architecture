@@ -1,1 +1,10 @@
-/build
+!/build
+
+build/*
+!build/com/
+
+build/com/*
+!build/com/example/
+
+build/com/example/*
+!build/com/example/flutter_module/

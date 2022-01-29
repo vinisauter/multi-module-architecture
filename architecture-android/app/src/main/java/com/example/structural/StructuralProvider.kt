@@ -8,9 +8,11 @@ import android.injection.get
 import android.injection.provides
 import com.auto.service.load
 import com.example.app.SuperApplication
+import com.example.flutter.FlutterExecutor
 import com.example.networking.RequestExecutor
 import com.example.security.SecurityExecutor
 import com.example.storage.StorageExecutor
+import com.example.structural.flutter.FlutterProvider
 import com.example.structural.networking.NetworkingProvider
 import com.example.structural.networkingsecure.NetworkingSecureProvider
 import com.example.structural.networkingsecurev2.NetworkingSecureProviderV2
@@ -59,6 +61,10 @@ object StructuralProvider {
         }
     }
 
+    val defaultFlutterExecutor: FlutterExecutor by lazy {
+        load<FlutterProvider>().executor(get())
+    }
+
     fun start(app: SuperApplication) {
         provides {
             declare<SuperApplication> { app }
@@ -72,6 +78,8 @@ object StructuralProvider {
 
             declare<RequestExecutor>(qualifier = "secure") { secureRequestExecutor }
             declare<RequestExecutor>(qualifier = "unsecure") { unsecureRequestExecutor }
+
+            declare<FlutterExecutor> { defaultFlutterExecutor }
         }
     }
 }
