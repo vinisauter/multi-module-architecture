@@ -49,7 +49,7 @@ class NoteFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val childFragment = flutter.getFragment(requireContext(), "task")
+        val childFragment = flutter.getFragment(requireContext(), "note")
 
         childFragmentManager
             .beginTransaction()

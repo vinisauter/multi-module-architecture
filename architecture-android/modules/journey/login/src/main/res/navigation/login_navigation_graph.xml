@@ -23,7 +23,7 @@
             app:destination="@id/profile_navigation" />
         <action
             android:id="@+id/action_forgot_password"
-            app:destination="@id/forgot_password_fragment" />
+            app:destination="@id/note" />
     </fragment>
     <fragment
         android:id="@+id/forgot_password_fragment"
@@ -62,6 +62,9 @@
     <journey
         android:id="@+id/task"
         app:destiny="@id/task_navigation" />
+    <journey
+        android:id="@+id/note"
+        app:destiny="@id/note_navigation" />
     <journey
         android:id="@+id/error"
         app:destiny="@id/error_dialog" />

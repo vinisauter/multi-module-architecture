@@ -8,3 +8,12 @@ build/com/*
 
 build/com/example/*
 !build/com/example/flutter_module/
+
+**/.android
+**/.dart_tool
+**/.idea
+**/.ios
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/.packages
+**/macos
