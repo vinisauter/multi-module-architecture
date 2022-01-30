@@ -30,9 +30,9 @@ dependencies {
     implementation project(path: ':app')
     ksp project(path: ':libraries:auto-service:processor')
 
-    api 'com.example.flutter_module:flutter_debug:1.0'
-//    profileImplementation 'com.example.flutter_module:flutter_profile:1.0'
-//    implementation 'com.example.flutter_module:flutter_release:1.0'
+    debugApi 'com.example.flutter_module:flutter_debug:1.0'
+    profileApi 'com.example.flutter_module:flutter_profile:1.0'
+    releaseApi 'com.example.flutter_module:flutter_release:1.0'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
