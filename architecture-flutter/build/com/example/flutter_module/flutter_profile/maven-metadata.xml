@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-  <groupId>com.example.task_business_module</groupId>
+  <groupId>com.example.flutter_module</groupId>
   <artifactId>flutter_profile</artifactId>
   <versioning>
     <release>1.0</release>
