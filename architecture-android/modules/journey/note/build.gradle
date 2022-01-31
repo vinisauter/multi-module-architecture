@@ -31,6 +31,7 @@ android {
     sourceSets.all {
         it.java.srcDir("build/generated/ksp/${it.name}/kotlin/")
         it.res.srcDirs("build/generated/ksp/${it.name}/resources/")
+        jniLibs.srcDir 'src/main/libs'
     }
 }
 
@@ -40,7 +41,7 @@ dependencies {
     implementation project(":app")
     ksp project(path: ':libraries:auto-service:processor')
 
-    debugImplementation('com.example.note_business_module:flutter_debug:1.0@aar')
+//    debugImplementation('com.example.note_business_module:flutter_debug:1.0@aar')
 //    profileImplementation 'com.example.note_business_module:flutter_profile:1.0@aar'
 //    releaseImplementation 'com.example.note_business_module:flutter_release:1.0@aar'
 
