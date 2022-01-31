@@ -7,6 +7,9 @@
     app:startDestination="@+id/task_fragment">
 
     <journey android:id="@+id/exit" />
+    <journey
+        android:id="@+id/note"
+        app:destiny="@id/note_navigation" />
 
     <fragment
         android:id="@+id/task_fragment"
@@ -23,4 +26,8 @@
     <action
         android:id="@+id/action_exit"
         app:destination="@id/exit" />
+
+    <action
+        android:id="@+id/action_note"
+        app:destination="@id/note" />
 </navigation>

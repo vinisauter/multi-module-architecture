@@ -19,4 +19,10 @@ class TaskFragmentViewModel(
             TaskFragmentDirections.actionExit()
         )
     }
+
+    fun onNotesClicked() = runTask {
+        onActionCompletedSharedFlow.emit(
+            TaskFragmentDirections.actionNote()
+        )
+    }
 }

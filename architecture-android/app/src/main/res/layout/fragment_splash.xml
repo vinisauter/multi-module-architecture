@@ -57,7 +57,7 @@
             android:layout_marginEnd="16dp"
             android:ems="10"
             android:inputType="textUri"
-            android:text="myapp://profile?query_value=foo_bar"
+            android:text="myapp://task?query_value=foo_bar"
             app:layout_constraintEnd_toStartOf="@+id/deep_link_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login_button" />
