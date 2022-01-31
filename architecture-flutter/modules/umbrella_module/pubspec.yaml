@@ -1,0 +1,129 @@
+name: umbrella_module
+description: A new flutter module project.
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+#
+# This version is used _only_ for the Runner app, which is used if you just do
+# a `flutter run` or a `flutter make-host-app-editable`. It has no impact
+# on any other native host app that you embed your Flutter project into.
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.15.1 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_gallery_assets: ^1.0.2
+  rally_assets: ^3.0.1
+  shrine_images: ^2.0.1
+  google_fonts: ^2.2.0
+  url_launcher: ^6.0.18
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.0
+
+  note_business_module:
+    path: ../note_business_module
+
+  task_business_module:
+    path: ../task_business_module
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+flutter:
+  deferred-components:
+    - name: note
+      libraries:
+        - package:note_business_module/main.dart
+      assets:
+        - packages/flutter_gallery_assets/crane/destinations/eat_1.jpg
+        - packages/flutter_gallery_assets/crane/destinations/eat_2.jpg
+        - packages/flutter_gallery_assets/crane/destinations/eat_3.jpg
+        - packages/flutter_gallery_assets/crane/destinations/eat_4.jpg
+        - packages/flutter_gallery_assets/crane/destinations/eat_5.jpg
+        - packages/flutter_gallery_assets/crane/destinations/eat_6.jpg
+        - packages/flutter_gallery_assets/crane/destinations/eat_7.jpg
+        - packages/flutter_gallery_assets/crane/destinations/eat_8.jpg
+        - packages/flutter_gallery_assets/crane/destinations/eat_9.jpg
+        - packages/flutter_gallery_assets/crane/destinations/eat_10.jpg
+        - packages/flutter_gallery_assets/crane/destinations/fly_0.jpg
+        - packages/flutter_gallery_assets/crane/destinations/fly_1.jpg
+        - packages/flutter_gallery_assets/crane/destinations/fly_2.jpg
+        - packages/flutter_gallery_assets/crane/destinations/fly_3.jpg
+        - packages/flutter_gallery_assets/crane/destinations/fly_4.jpg
+        - packages/flutter_gallery_assets/crane/destinations/fly_5.jpg
+        - packages/flutter_gallery_assets/crane/destinations/fly_6.jpg
+        - packages/flutter_gallery_assets/crane/destinations/fly_7.jpg
+        - packages/flutter_gallery_assets/crane/destinations/fly_8.jpg
+        - packages/flutter_gallery_assets/crane/destinations/fly_9.jpg
+        - packages/flutter_gallery_assets/crane/destinations/fly_10.jpg
+        - packages/flutter_gallery_assets/crane/destinations/fly_11.jpg
+        - packages/flutter_gallery_assets/crane/destinations/fly_12.jpg
+        - packages/flutter_gallery_assets/crane/destinations/fly_13.jpg
+        - packages/flutter_gallery_assets/crane/destinations/sleep_0.jpg
+        - packages/flutter_gallery_assets/crane/destinations/sleep_1.jpg
+        - packages/flutter_gallery_assets/crane/destinations/sleep_2.jpg
+        - packages/flutter_gallery_assets/crane/destinations/sleep_3.jpg
+        - packages/flutter_gallery_assets/crane/destinations/sleep_4.jpg
+        - packages/flutter_gallery_assets/crane/destinations/sleep_5.jpg
+        - packages/flutter_gallery_assets/crane/destinations/sleep_6.jpg
+        - packages/flutter_gallery_assets/crane/destinations/sleep_7.jpg
+        - packages/flutter_gallery_assets/crane/destinations/sleep_8.jpg
+        - packages/flutter_gallery_assets/crane/destinations/sleep_9.jpg
+        - packages/flutter_gallery_assets/crane/destinations/sleep_10.jpg
+        - packages/flutter_gallery_assets/crane/destinations/sleep_11.jpg
+        - packages/flutter_gallery_assets/crane/logo/logo.png
+        - packages/flutter_gallery_assets/fonts/google_fonts/Raleway-Medium.ttf
+        - packages/flutter_gallery_assets/fonts/google_fonts/Raleway-SemiBold.ttf
+        - packages/flutter_gallery_assets/fonts/google_fonts/Raleway-Regular.ttf
+        - packages/flutter_gallery_assets/fonts/google_fonts/Raleway-Light.ttf
+    - name: task
+      libraries:
+        - package:task_business_module/main.dart
+      assets:
+        - packages/flutter_gallery_assets/fortnightly/fortnightly_army.png
+        - packages/flutter_gallery_assets/fortnightly/fortnightly_bees.jpg
+        - packages/flutter_gallery_assets/fortnightly/fortnightly_chart.png
+        - packages/flutter_gallery_assets/fortnightly/fortnightly_fabrics.png
+        - packages/flutter_gallery_assets/fortnightly/fortnightly_feminists.jpg
+        - packages/flutter_gallery_assets/fortnightly/fortnightly_gas.png
+        - packages/flutter_gallery_assets/fortnightly/fortnightly_healthcare.jpg
+        - packages/flutter_gallery_assets/fortnightly/fortnightly_stocks.png
+        - packages/flutter_gallery_assets/fortnightly/fortnightly_title.png
+        - packages/flutter_gallery_assets/fortnightly/fortnightly_war.png
+        - packages/flutter_gallery_assets/fonts/google_fonts/Merriweather-Regular.ttf
+        - packages/flutter_gallery_assets/fonts/google_fonts/Merriweather-Light.ttf
+        - packages/flutter_gallery_assets/fonts/google_fonts/Merriweather-BoldItalic.ttf
+        - packages/flutter_gallery_assets/fonts/google_fonts/LibreFranklin-Regular.ttf
+        - packages/flutter_gallery_assets/fonts/google_fonts/LibreFranklin-ExtraBold.ttf
+        - packages/flutter_gallery_assets/fonts/google_fonts/LibreFranklin-Bold.ttf
+        - packages/flutter_gallery_assets/fonts/google_fonts/LibreFranklin-SemiBold.ttf
+        - packages/flutter_gallery_assets/fonts/google_fonts/LibreFranklin-Medium.ttf
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  fonts:
+    - family: GalleryIcons
+      fonts:
+        - asset: packages/flutter_gallery_assets/fonts/GalleryIcons.ttf

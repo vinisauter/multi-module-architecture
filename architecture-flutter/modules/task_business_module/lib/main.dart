@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(const TaskApp());
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class TaskApp extends StatelessWidget {
+  const TaskApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -13,22 +13,22 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      home: const MyHomePage(title: 'Task Module'),
+      home: const TaskHomePage(title: 'Task Module'),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+class TaskHomePage extends StatefulWidget {
+  const TaskHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<TaskHomePage> createState() => _TaskHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _TaskHomePageState extends State<TaskHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
