@@ -28,6 +28,8 @@ target 'Login' do
   
   abstract_target 'Tests' do
     target "BusinessModelTests"
+    target "LoginFlowTests"
+    
     pod_tests
   end
 end
