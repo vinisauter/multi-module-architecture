@@ -64,9 +64,9 @@ internal class LoginFragmentViewModelTest {
     }
 
     @Test
-    fun `on login failed set action to direction login succeed`() = rule.launchTest {
+    fun `on login failed set action to direction login failed`() = rule.launchTest {
         //GIVEN
-        useCase.stub { onBlocking { useCase.login(any(), any()) }.doReturn(true) }
+        useCase.stub { onBlocking { useCase.login(any(), any()) }.doReturn(false) }
         // WHEN
         vm.onLoginClicked()
         // THEN
