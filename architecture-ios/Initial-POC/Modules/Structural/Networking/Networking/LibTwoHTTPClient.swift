@@ -12,7 +12,7 @@ public final class LibTwoHTTPClient: HTTPClientProtocol {
         execute(url, method: "GET", completion: completion)
     }
 
-    public func post(_ request: URLRequest, completion: @escaping (Bool) -> Void) {
+    public func post(_ request: URLRequest, completion: @escaping (String) -> Void) {
 //        execute(request.url?.absoluteString ?? "", method: "POST", completion: completion)
     }
     

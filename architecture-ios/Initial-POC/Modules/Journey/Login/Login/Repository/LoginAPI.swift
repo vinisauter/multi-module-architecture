@@ -16,6 +16,11 @@ class LoginAPI: LoginRepositoryProtocol {
     init(secureHttpClient: HTTPClientProtocol, insecureHttpClient: HTTPClientProtocol) {
         self.secureHttpClient = secureHttpClient
         self.insecureHttpClient = insecureHttpClient
+        print(" >>>> INIT from \(self)")
+    }
+    
+    deinit {
+        print(" >>>> DEINIT from \(self)")
     }
     
     func login(with username: String, and password: String, completion: @escaping (Bool) -> Void) {
@@ -24,8 +29,10 @@ class LoginAPI: LoginRepositoryProtocol {
         request.addValue("\(username):\(password)", forHTTPHeaderField: "Authorization")
         
         secureHttpClient.post(request) { result in
-            completion(result)
+            completion(result == "valid")
         }
+        
+        print(" >>>> METHOD 1 from \(self)")
     }
     
     func changePassword(with newPassword: String, completion: @escaping (Bool) -> Void) {
@@ -34,7 +41,8 @@ class LoginAPI: LoginRepositoryProtocol {
         request.addValue("password:\(newPassword)", forHTTPHeaderField: "Authorization")
         
         insecureHttpClient.post(request) { result in
-            completion(result)
+            completion(result == "valid")
         }
+        print(" >>>> METHOD 2 from \(self)")
     }
 }

@@ -16,11 +16,24 @@ final class LoginAPITests: XCTestCase {
     private var secureHttpClientSpy: SecureHttpClientSpy!
     private var insecureHttpClientSpy: InsecureHttpClientSpy!
     
+    func test_sut_loadQuickly() {
+        measure {
+            _ = LoginAPI(secureHttpClient: SecureHttpClientSpy(), insecureHttpClient: InsecureHttpClientSpy())
+        }
+    }
+    
     override func setUp() {
         secureHttpClientSpy = SecureHttpClientSpy()
         insecureHttpClientSpy = InsecureHttpClientSpy()
         
         sut = LoginAPI(secureHttpClient: secureHttpClientSpy, insecureHttpClient: insecureHttpClientSpy)
+    }
+    
+    override func tearDown() {
+        sut = nil
+        
+        secureHttpClientSpy = nil
+        insecureHttpClientSpy = nil
     }
     
     // MARK: - Simple Sut Instance Test
@@ -42,25 +55,40 @@ final class LoginAPITests: XCTestCase {
         XCTAssertEqual(secureHttpClientSpy.urls, ["http://www.example.com/","http://www.example.com/"], "It Should be equal to array with 2 url elements")
     }
     
-    func test_login_validAutentication() {
-        var value = false
+    func test_login_validCredentials() {
+        sut?.login(with: "username", and: "password", completion: { _ in })
         
-        secureHttpClientSpy.isValidAuthentication = true
-        sut?.login(with: "", and: "", completion: { result in
-            value = result
-        })
-
-        XCTAssertEqual(value, true , "It should have been authenticated")
+        XCTAssertEqual(secureHttpClientSpy.requestValue, ["username:password"], "It should have been authenticated")
     }
     
-    func test_login_invalidAutentication() {
-        var value = false
+    func test_login_validAutentication() {
+        var result = [Bool]()
+        secureHttpClientSpy.result = "valid"
         
-        sut?.login(with: "", and: "", completion: { result in
-            value = result
+        sut?.login(with: "username", and: "password", completion: { loginResult in
+            result.append(loginResult)
         })
-
-        XCTAssertEqual(value, false , "It shouldn't have been authenticated")
+        
+        XCTAssertEqual(result, [true], "It should have been authenticated")
     }
+    
+    
+    func test_login_invalidAutentication() {
+        var result = [Bool]()
+        secureHttpClientSpy.result = "inValid"
+        
+        sut?.login(with: "username", and: "password", completion: { loginResult in
+            result.append(loginResult)
+        })
+        
+        XCTAssertEqual(result, [false], "It should have been authenticated")
+    }
+    
+    // MARK: - Change Password Tests
+//    func test_changePassword_requestData() {
+//        sut?.changePassword(with: "", completion: { _ in })
+//        
+//        XCTAssertEqual(secureHttpClientSpy.urls, ["http://www.example.com/"], "It Should be equal to array with 1 url elements")
+//    }
 
 }

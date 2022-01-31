@@ -13,8 +13,8 @@ class InsecureHttpClientSpy: HTTPClientProtocol {
         completion("")
     }
     
-    func post(_ request: URLRequest, completion: @escaping (Bool) -> Void) {
-        completion(true)
+    func post(_ request: URLRequest, completion: @escaping (String) -> Void) {
+        completion("")
     }
     
     func put(_ url: String, completion: @escaping (String) -> Void) {
