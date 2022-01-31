@@ -19,6 +19,9 @@
          <FileRef
             location = "group:Modules/Journey/Profile/Profile.xcodeproj">
          </FileRef>
+         <FileRef
+            location = "group:Modules/Journey/Task/Task.xcodeproj">
+         </FileRef>
       </Group>
       <Group
          location = "container:"
@@ -37,4 +40,7 @@
          </FileRef>
       </Group>
    </Group>
+   <FileRef
+      location = "group:App.xcodeproj">
+   </FileRef>
 </Workspace>

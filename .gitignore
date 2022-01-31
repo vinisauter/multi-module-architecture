@@ -1,7 +1,2 @@
 .DS_Store
 /.idea
-
-## iOS 
-
-*.xcuserstate
-xcuserdata/

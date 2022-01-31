@@ -15,6 +15,12 @@ class HomeIndexViewModel: BaseViewModel<HomeIndexBusinessModelProtocol, HomeInde
         flowDelegate?.openProfile(in: controller)
     }
     
+    func openTask(in controller: HomeIndexViewController) {
+        analytics?.onOpenTaskClick()
+        flowDelegate?.openTask(in: controller)
+    }
+    
+    
     func logout(in controller: HomeIndexViewController) {
         analytics?.onLogoutClick()
         flowDelegate?.logout(in: controller)

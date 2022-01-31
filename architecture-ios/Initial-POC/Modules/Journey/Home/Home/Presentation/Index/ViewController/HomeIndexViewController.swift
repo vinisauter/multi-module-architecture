@@ -12,6 +12,7 @@ open class HomeIndexViewController: BaseViewController<HomeIndexViewModelProtoco
     // MARK: - Private Properties
     
     private let button: UIButton = UIButton()
+    private let taskButton: UIButton = UIButton()
     private let logoutButton: UIButton = UIButton()
     
     // MARK: - Life Cycle
@@ -50,6 +51,16 @@ open class HomeIndexViewController: BaseViewController<HomeIndexViewModelProtoco
         button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
+        taskButton.setTitleColor(.blue, for: .normal)
+        taskButton.setTitle("Open Task", for: .normal)
+        taskButton.addTarget(self, action: #selector(openTask), for: .touchUpInside)
+        
+        taskButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(taskButton)
+        
+        taskButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        taskButton.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 10).isActive = true
+        
         logoutButton.setTitleColor(.blue, for: .normal)
         logoutButton.setTitle("Logout", for: .normal)
         logoutButton.addTarget(self, action: #selector(logout), for: .touchUpInside)
@@ -58,7 +69,7 @@ open class HomeIndexViewController: BaseViewController<HomeIndexViewModelProtoco
         view.addSubview(logoutButton)
         
         logoutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        logoutButton.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 16.0).isActive = true
+        logoutButton.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 50.0).isActive = true
 
     }
     
@@ -66,6 +77,10 @@ open class HomeIndexViewController: BaseViewController<HomeIndexViewModelProtoco
     
     @objc private func openProfile() {
         viewModel?.openProfile(in: self)
+    }
+    
+    @objc private func openTask() {
+        viewModel?.openTask(in: self)
     }
     
     @objc private func logout() {
