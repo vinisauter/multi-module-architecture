@@ -7,10 +7,16 @@ pushd "modules" > /dev/null
 
     function build_lib() {
         pushd "${directory}" > /dev/null
-            echo "Building ${PWD}"
-            echo "Module will be save in: {$LIBFOLDER}"
+            MODULE_NAME="${directory/_business_module/}"
+            echo "Module $MODULE_NAME will be save in: {$LIBFOLDER}"
 
-            flutter build aar --output-dir=${LIBFOLDER}
+            if [ "$BUILD_ANDROID" = true ]; then
+                flutter build aar --output-dir=${LIBFOLDER}
+            fi
+
+            if [ "$BUILD_IOS" = true ]; then
+                flutter build ios-framework --cocoapods --output="${LIBFOLDER}/ios/${MODULE_NAME}"
+            fi
         popd > /dev/null
     }
 
@@ -25,6 +31,12 @@ pushd "modules" > /dev/null
             --separate-flutter)
                 SEPARATE_FLUTTER=true
                 ;;
+            --ios)
+                BUILD_IOS=true
+                ;;
+            --android)
+                BUILD_ANDROID=true
+                ;;
             *)
                 if [ -n "$MODULE_DEFINED" ]; then
                     echo "Unknown option ${i}"
@@ -36,6 +48,11 @@ pushd "modules" > /dev/null
         esac
         MODULE_DEFINED=true
     done
+
+    if [ -z "$BUILD_IOS" ] && [ -z "$BUILD_ANDROID" ]; then
+        BUILD_IOS=true
+        BUILD_ANDROID=true
+    fi
 
     if [ -z "$MODULE" ]
     then
@@ -52,7 +69,7 @@ pushd "modules" > /dev/null
 
 popd > /dev/null
 
-if [ "${SEPARATE_FLUTTER}" = "true" ]; then
+if [ "$BUILD_ANDROID" = true ] && [ "$SEPARATE_FLUTTER" = true ]; then
     pushd "${SUBFOLDER}" > /dev/null
         echo "POMS in ${PWD}"
         if [ -z "$MODULE" ]
