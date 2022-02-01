@@ -9,7 +9,6 @@ import Foundation
 import NetworkingInterfaces
 
 class LoginAPI: LoginRepositoryProtocol {
-    // Não tem como testar
     private let secureHttpClient: HTTPClientProtocol
     private let insecureHttpClient: HTTPClientProtocol
     
