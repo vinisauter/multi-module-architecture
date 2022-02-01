@@ -46,7 +46,7 @@ android {
 
             ':modules:structural:networking',
             ':modules:structural:networkingsecure',
-            ':modules:structural:networkingsecurev2',
+//            ':modules:structural:networkingsecurev2',
             ':modules:structural:storage',
             ':modules:structural:tagging',
             ':modules:structural:security',

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:note_business_module/main.dart' deferred as note;
-import 'package:task_business_module/main.dart' deferred as task;
 
 import 'deferred_widget.dart';
+import 'package:note_business_module/main.dart' deferred as note;
+import 'package:task_business_module/main.dart' deferred as task;
 
 typedef PathWidgetBuilder = Widget Function(BuildContext, String);
 

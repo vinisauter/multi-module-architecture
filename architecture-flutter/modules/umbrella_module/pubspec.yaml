@@ -15,7 +15,6 @@ dependencies:
   shrine_images: ^2.0.1
   google_fonts: ^2.2.0
   url_launcher: ^6.0.18
-
   cupertino_icons: ^1.0.4
 
 dev_dependencies:
