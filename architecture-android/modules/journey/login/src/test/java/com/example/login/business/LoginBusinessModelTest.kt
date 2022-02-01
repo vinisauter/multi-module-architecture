@@ -15,7 +15,7 @@ import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 
 @RunWith(JUnit4::class)
-internal class LoginBusinessModelTest() {
+internal class LoginBusinessModelTest {
 
     private val unsecureExecutorMockk: RequestExecutor = mockk()
     private val secureExecutorMockk: RequestExecutor = mockk()
@@ -45,6 +45,5 @@ internal class LoginBusinessModelTest() {
     fun login_WhenReturnName() = runBlocking {
         coEvery { unsecureExecutorMockk.get() } returns "João da Silva"
         Assert.assertEquals(unsecureExecutorMockk.get(), "João da Silva")
-
     }
 }
