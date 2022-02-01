@@ -1,5 +1,6 @@
 package com.example.login.business
 
+import android.util.Log
 import com.example.login.business.repository.local.LoginStorage
 import com.example.login.business.repository.remote.LoginApi
 import com.example.networking.RequestExecutor
@@ -29,12 +30,15 @@ internal class LoginBusinessModelTest() {
     @Test
     fun login_WhenSuccess() = runBlocking {
 
-        val username = coEvery { unsecureExecutorMockk.get() }  returns "João da Silva"
+        coEvery { unsecureExecutorMockk.get() }  returns "João da Silva"
 
         val result = loginBusinessModel.login("João da Silva", "123D")
 
-        Assert.assertEquals(result,true)
+//        Assert.assertEquals(result,true)
+        Assert.assertEquals(unsecureExecutorMockk.get(),"João da Silva")
     }
+
+    fun login_When
 
 }
 
