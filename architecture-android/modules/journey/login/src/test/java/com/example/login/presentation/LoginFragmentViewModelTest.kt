@@ -1,27 +1,22 @@
 package com.example.login.presentation
 
-import androidx.lifecycle.Observer
+import android.app.Application
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.SavedStateHandle
-import com.core.extensions.State
 import com.example.journey.login.tracking.LoginTracking
-import com.example.login.TaskScopeExecutorRule
-import io.mockk.*
-import junit.framework.TestCase.assertEquals
-import kotlinx.coroutines.flow.single
+import com.example.tagging.TaggingExecutor
+import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
-import org.mockito.kotlin.any
-import org.mockito.kotlin.doReturn
 import org.mockito.kotlin.mock
-import org.mockito.kotlin.stub
 
 @RunWith(JUnit4::class)
 internal class LoginFragmentViewModelTest {
     @get:Rule
-    var rule = TaskScopeExecutorRule()
+    var rule = InstantTaskExecutorRule()
 
     //MOCK
     lateinit var useCase: LoginFragmentUseCase
@@ -32,45 +27,22 @@ internal class LoginFragmentViewModelTest {
     @Before
     fun setUp() {
         useCase = mock()
-        vm = LoginFragmentViewModel(mock(), SavedStateHandle(), mock(), useCase, LoginTracking())
+        val app: Application = mock()
+        val savedStateHandle = SavedStateHandle()
+        val tagging: TaggingExecutor = mock()
+        val tracking = LoginTracking()
+        vm = LoginFragmentViewModel(app, savedStateHandle, tagging, useCase, tracking)
+    }
+
+    @After
+    fun tearDown() {
     }
 
     @Test
-    fun `on login change loader state`() = rule.launchTest {
+    fun `on login change loader state`() {
         //GIVEN
-        val observer = mockk<Observer<State>> { every { onChanged(any()) } just Runs }
-        vm.onStateChanged.observeForever(observer)
-        useCase.stub { onBlocking { useCase.login(any(), any()) }.doReturn(true) }
         // WHEN
         vm.onLoginClicked()
         // THEN
-        verifySequence {
-            observer.onChanged(State.Idle)
-            observer.onChanged(State.Running)
-            observer.onChanged(State.Idle)
-        }
-    }
-
-    @Test
-    fun `on login succeed set action to direction login succeed`() = rule.launchTest {
-        //GIVEN
-        useCase.stub { onBlocking { useCase.login(any(), any()) }.doReturn(true) }
-        // WHEN
-        vm.onLoginClicked()
-        // THEN
-        vm.onActionCompleted.collect {
-            assertEquals(LoginFragmentDirections.actionLoginSucceed(), it)
-        }
-    }
-
-    @Test
-    fun `on login failed set action to direction login failed`() = rule.launchTest {
-        //GIVEN
-        useCase.stub { onBlocking { useCase.login(any(), any()) }.doReturn(false) }
-        // WHEN
-        vm.onLoginClicked()
-        // THEN
-        val result = vm.onActionCompleted.single()
-        assertEquals(LoginFragmentDirections.actionLoginFailed(), result)
     }
 }
