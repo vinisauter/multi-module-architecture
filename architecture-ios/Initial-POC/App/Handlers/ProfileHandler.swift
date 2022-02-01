@@ -50,6 +50,7 @@ class ProfileHandler: ModuleHandler {
 
 extension StructuralDependencyProvider: ProfileStructuralDependencies {}
 
+// navigation
 extension ProfileHandler: ProfileFlowDelegate {
     func goToHome(from flow: Flow, in controller: UIViewController, with value: Any?) {
         switch flow {

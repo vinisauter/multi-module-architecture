@@ -1,0 +1,37 @@
+{
+  "name": "LoginFramework",
+  "version": "1.0.0",
+  "summary": "The Login journey.",
+  "description": "The Login jorney of the app, where you can access all of features.",
+  "homepage": "https://github.com/nykolasmayko",
+  "license": {
+    "type": "Copyright",
+    "text": "                   Copyright 2022\n                   Permission is granted to...\n"
+  },
+  "authors": {
+    "Nykolas Mayko": "nykolas.m.barbosa@next.b.br"
+  },
+  "platforms": {
+    "ios": "14.1"
+  },
+  "source": {
+    "git": "https://github.com/vinisauter/multi-module-architecture.git",
+    "tag": "1.0.0"
+  },
+  "source_files": [
+    "Login",
+    "Login/**/*"
+  ],
+  "exclude_files": "Login/*.{plist}",
+  "dependencies": {
+    "CoreFramework": [
+
+    ],
+    "NetworkingInterfaces": [
+      "~> 1.0.0"
+    ],
+    "AnalyticsInterfacesFramework": [
+
+    ]
+  }
+}

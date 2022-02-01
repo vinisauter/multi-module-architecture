@@ -8,10 +8,10 @@
 import Foundation
 import NetworkingInterfaces
 
-class ProfileAPI: ProfileRepositoryProtocol {
-    private let httpClient: HTTPClientProtocol
+public class ProfileAPI: ProfileRepositoryProtocol {
+    public let httpClient: HTTPClientProtocol
     
-    init(httpClient: HTTPClientProtocol) {
+    public init(httpClient: HTTPClientProtocol) {
         self.httpClient = httpClient
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CAF50FF27A97AF000BD88A7 /* ProfileHomeViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF50FE27A97AF000BD88A7 /* ProfileHomeViewModelProtocol.swift */; };
 		593F25912739D3C600B34547 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593F25902739D3C600B34547 /* AppDelegate.swift */; };
 		593F259D2739D3C700B34547 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 593F259B2739D3C700B34547 /* LaunchScreen.storyboard */; };
 		593F25A72739D3D300B34547 /* Profile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59DC83892739D38A00466A21 /* Profile.framework */; };
@@ -80,6 +81,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0CAF50FE27A97AF000BD88A7 /* ProfileHomeViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHomeViewModelProtocol.swift; sourceTree = "<group>"; };
 		593F258E2739D3C600B34547 /* ProfileDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProfileDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		593F25902739D3C600B34547 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		593F259C2739D3C700B34547 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		596283D92757FA6F00EEA78C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				0CAF50FE27A97AF000BD88A7 /* ProfileHomeViewModelProtocol.swift */,
 				59AECDED273AB3FF00252E87 /* ProfileHomeViewModel.swift */,
 			);
 			path = ViewModel;
@@ -448,6 +451,7 @@
 				59AECDF4273AB42D00252E87 /* ProfileBusinessModel+Analytics.swift in Sources */,
 				59AECDFC273AB47C00252E87 /* ProfileViewControllerFactory.swift in Sources */,
 				59AECDEE273AB3FF00252E87 /* ProfileHomeViewModel.swift in Sources */,
+				0CAF50FF27A97AF000BD88A7 /* ProfileHomeViewModelProtocol.swift in Sources */,
 				59AECDF6273AB44D00252E87 /* ProfileRepositoryProtocol.swift in Sources */,
 				59AECDF0273AB40B00252E87 /* ProfileHomeViewController.swift in Sources */,
 				596283E12757FABE00EEA78C /* ProfileHomeBusinessModelProtocol.swift in Sources */,
@@ -569,7 +573,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -627,7 +631,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

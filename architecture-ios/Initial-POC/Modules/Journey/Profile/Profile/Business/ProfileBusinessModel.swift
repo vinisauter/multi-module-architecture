@@ -19,7 +19,7 @@ public class ProfileBusinessModel: ProfileAnalyticsProtocol {
     public var repository: ProfileRepositoryProtocol?
     public var structuralAnalytics: AnalyticsProtocol?
     
-    init(repository: ProfileRepositoryProtocol, structuralAnalytics: AnalyticsProtocol) {
+    public init(repository: ProfileRepositoryProtocol, structuralAnalytics: AnalyticsProtocol) {
         self.repository = repository
         self.structuralAnalytics = structuralAnalytics
     }

@@ -11,6 +11,7 @@ import Login
 import Profile
 
 class LoginAnalyticsProfileAdapter: LoginAnalyticsProtocol, LoginIndexAnalyticsProtocol, ForgotPasswordAnalyticsProtocol {
+    
     var structuralAnalytics: AnalyticsProtocol? {
         return profileAnalytics?.structuralAnalytics
     }

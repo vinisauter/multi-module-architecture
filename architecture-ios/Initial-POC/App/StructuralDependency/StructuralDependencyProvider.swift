@@ -10,16 +10,16 @@ import Networking
 import AnalyticsInterfaces
 import Analytics
 
-class StructuralDependencyProvider {
-    static let shared: StructuralDependencyProvider = StructuralDependencyProvider()
+public class StructuralDependencyProvider {
+    public static let shared: StructuralDependencyProvider = StructuralDependencyProvider()
     
     private init() {}
     
-    lazy var networkingProvider: NetworkingProviderProtocol = {
+    lazy public var networkingProvider: NetworkingProviderProtocol = {
         return NetworkingProvider()
     }()
     
-    lazy var analytics: AnalyticsProtocol = {
+    lazy public var analytics: AnalyticsProtocol = {
         return Analytics()
     }()
 }
