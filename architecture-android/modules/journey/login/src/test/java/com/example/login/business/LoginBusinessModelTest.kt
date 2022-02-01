@@ -38,7 +38,6 @@ internal class LoginBusinessModelTest() {
         Assert.assertEquals(unsecureExecutorMockk.get(),"João da Silva")
     }
 
-    fun login_When
 
 }
 
