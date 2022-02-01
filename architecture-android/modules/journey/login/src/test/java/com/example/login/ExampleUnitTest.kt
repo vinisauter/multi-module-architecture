@@ -8,7 +8,6 @@ import com.example.login.presentation.LoginFragmentUseCase
 import com.example.login.presentation.LoginFragmentViewModel
 import com.example.tagging.Tagging
 import com.example.tagging.TaggingExecutor
-import com.nhaarman.mockitokotlin2.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
@@ -18,7 +17,9 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.mockito.ArgumentMatchers.anyString
-import org.mockito.Mockito.`when`
+import org.mockito.Mockito.*
+import org.mockito.kotlin.argumentCaptor
+import org.mockito.kotlin.mock
 
 class ExampleUnitTest {
 
@@ -26,9 +27,9 @@ class ExampleUnitTest {
 
     private val tracking = LoginTracking()
 
-    private lateinit var tagging : TaggingExecutor
+    private lateinit var tagging: TaggingExecutor
 
-    private lateinit var useCase : LoginFragmentUseCase
+    private lateinit var useCase: LoginFragmentUseCase
 
     @DelicateCoroutinesApi
     private val mainThreadSurrogate = newSingleThreadContext("UI thread")
@@ -57,7 +58,8 @@ class ExampleUnitTest {
     @Test
     fun trackLoginScreenName_onLoginViewCreated_sendLoginScreenName() {
         val captor = argumentCaptor<Tagging.ScreenName>()
-        val loginFragmentViewModel = LoginFragmentViewModel(Application(), SavedStateHandle(), tagging, useCase, tracking)
+        val loginFragmentViewModel =
+            LoginFragmentViewModel(Application(), SavedStateHandle(), tagging, useCase, tracking)
         loginFragmentViewModel.onLoginViewCreated()
         verify(tagging, times(1)).send(captor.capture())
         assert(captor.firstValue.screenName == ((tracking.loginScreenName) as Tagging.ScreenName).screenName)
@@ -67,7 +69,8 @@ class ExampleUnitTest {
     @Test
     fun trackLoginClick_onLoginClick_sendLoginClickEvent() {
         val captor = argumentCaptor<Tagging.Event>()
-        val loginFragmentViewModel = LoginFragmentViewModel(Application(), SavedStateHandle(), tagging, useCase, tracking)
+        val loginFragmentViewModel =
+            LoginFragmentViewModel(Application(), SavedStateHandle(), tagging, useCase, tracking)
         return runTest {
             loginFragmentViewModel.onLoginClicked()
             delay(oneSecond)
@@ -80,7 +83,8 @@ class ExampleUnitTest {
     @Test
     fun trackLoginSuccess_onLoginSuccess_sendLoginSuccessEvent() {
         val captor = argumentCaptor<Tagging.Event>()
-        val loginFragmentViewModel = LoginFragmentViewModel(Application(), SavedStateHandle(), tagging, useCase, tracking)
+        val loginFragmentViewModel =
+            LoginFragmentViewModel(Application(), SavedStateHandle(), tagging, useCase, tracking)
         return runTest {
             `when`(useCase.login(anyString(), anyString())).thenReturn(true)
             loginFragmentViewModel.onLoginClicked()
@@ -94,7 +98,8 @@ class ExampleUnitTest {
     @Test
     fun trackLoginFail_onLoginFail_sendLoginFailEvent() {
         val captor = argumentCaptor<Tagging.Event>()
-        val loginFragmentViewModel = LoginFragmentViewModel(Application(), SavedStateHandle(), tagging, useCase, tracking)
+        val loginFragmentViewModel =
+            LoginFragmentViewModel(Application(), SavedStateHandle(), tagging, useCase, tracking)
         return runTest {
             `when`(useCase.login(anyString(), anyString())).thenReturn(false)
             loginFragmentViewModel.onLoginClicked()
@@ -109,7 +114,8 @@ class ExampleUnitTest {
     @ExperimentalCoroutinesApi
     @Test
     fun callUseCaseLogin_onLoginClick_callLoginOnce() {
-        val loginFragmentViewModel = LoginFragmentViewModel(Application(), SavedStateHandle(), tagging, useCase, tracking)
+        val loginFragmentViewModel =
+            LoginFragmentViewModel(Application(), SavedStateHandle(), tagging, useCase, tracking)
         runBlocking {
             loginFragmentViewModel.onLoginClicked()
             delay(oneSecond)
@@ -122,7 +128,13 @@ class ExampleUnitTest {
     @Test
     fun testLoginResult() {
         return runTest {
-            val loginFragmentViewModel = LoginFragmentViewModel(Application(), SavedStateHandle(), tagging, useCase, tracking)
+            val loginFragmentViewModel = LoginFragmentViewModel(
+                Application(),
+                SavedStateHandle(),
+                tagging,
+                useCase,
+                tracking
+            )
             loginFragmentViewModel.onLoginClicked()
             delay(oneSecond)
             //assert(loginFragmentViewModel.onStateChanged.value == StateResult.Initial)
