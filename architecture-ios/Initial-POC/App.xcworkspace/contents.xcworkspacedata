@@ -27,6 +27,9 @@
          location = "container:"
          name = "Structural">
          <FileRef
+            location = "group:Modules/Structural/FlutterManager/FlutterManager.xcodeproj">
+         </FileRef>
+         <FileRef
             location = "group:Modules/Structural/AppSecurity/AppSecurity.xcodeproj">
          </FileRef>
          <FileRef

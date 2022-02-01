@@ -15,7 +15,7 @@ pushd "modules" > /dev/null
             fi
 
             if [ "$BUILD_IOS" = true ]; then
-                flutter build ios-framework --cocoapods --output="${LIBFOLDER}/ios/${MODULE_NAME}"
+                flutter build ios-framework --output="${LIBFOLDER}/ios/${MODULE_NAME}"
             fi
         popd > /dev/null
     }

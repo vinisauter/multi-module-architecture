@@ -7,13 +7,16 @@
 
 import Core
 import UIKit
+import FlutterManagerInterfaces
 
 public class TaskViewControllerFactory {
+    let flutterManager: FlutterManagerProtocol
     
-    init() {
+    init(flutterManager: FlutterManagerProtocol) {
+        self.flutterManager = flutterManager
     }
     
     func makeTaskViewController(isIndex: Bool = false) -> UIViewController {
-        return TaskViewController()
+        return flutterManager.getViewController(from: Bundle(for: Self.self))
     }
 }

@@ -11,6 +11,8 @@ import AnalyticsInterfaces
 import Analytics
 import AppSecurityInterfaces
 import AppSecurity
+import FlutterManagerInterfaces
+import FlutterManager
 
 class StructuralDependencyProvider {
     static let shared: StructuralDependencyProvider = StructuralDependencyProvider()
@@ -27,5 +29,9 @@ class StructuralDependencyProvider {
     
     lazy var security: AppSecurityProviderProtocol = {
         return AppSecurityProvider()
+    }()
+    
+    lazy var flutterManager: FlutterManagerProtocol = {
+        return FlutterManager()
     }()
 }

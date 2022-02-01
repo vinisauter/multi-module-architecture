@@ -8,6 +8,7 @@
 import UIKit
 import NetworkingInterfaces
 import AnalyticsInterfaces
+import FlutterManagerInterfaces
 import Core
 
 public struct TaskDependencies {
@@ -27,11 +28,12 @@ public struct TaskDependencies {
 public protocol TaskStructuralDependencies {
     var networkingProvider: NetworkingProviderProtocol { get }
     var analytics: AnalyticsProtocol { get }
+    var flutterManager: FlutterManagerProtocol { get }
 }
 
 public class TaskLauncher {
     static public func start(with dependencies: TaskDependencies) -> UIViewController {
-        let factory = TaskViewControllerFactory()
+        let factory = TaskViewControllerFactory(flutterManager: dependencies.structuralDependencies.flutterManager)
         let mainFlow = TaskFlow(factory: factory, deeplink: Deeplink(value: TaskDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
         mainFlow.delegate = dependencies.flowDelegate
         
