@@ -40,7 +40,7 @@ internal class LoginFragmentViewModelTest {
 
     @Test
     fun `on login change loader state`() {
-        //GIVEN
+        // GIVEN
         // WHEN
         vm.onLoginClicked()
         // THEN
