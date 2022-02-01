@@ -1,5 +1,5 @@
 //
-//  SecureHttpClientDummy.swift
+//  InsecureHttpClientDummy.swift
 //  LoginTests
 //
 //  Created by ACT on 25/01/22.
@@ -7,9 +7,8 @@
 
 import Foundation
 import NetworkingInterfaces
-import CoreMedia
 
-class SecureHttpClientSpy: HTTPClientProtocol {
+class InsecureHttpClientFake: HTTPClientProtocol {
     var urls = [String]()
     var requestValue = [String]()
     var result = ""

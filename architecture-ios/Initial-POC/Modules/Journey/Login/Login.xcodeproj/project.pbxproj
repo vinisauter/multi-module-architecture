@@ -12,8 +12,8 @@
 		0CADCBF727A073A200515799 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CADCBF627A073A200515799 /* LoginTests.swift */; };
 		0CADCBF827A073A200515799 /* Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59DC83592739D35D00466A21 /* Login.framework */; };
 		0CADCC0027A0743C00515799 /* LoginAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CADCBFF27A0743C00515799 /* LoginAPITests.swift */; };
-		0CADCC0327A0790E00515799 /* SecureHttpClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CADCC0227A0790E00515799 /* SecureHttpClientSpy.swift */; };
-		0CADCC0527A0794B00515799 /* InsecureHttpClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CADCC0427A0794B00515799 /* InsecureHttpClientSpy.swift */; };
+		0CADCC0327A0790E00515799 /* SecureHttpClientFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CADCC0227A0790E00515799 /* SecureHttpClientFake.swift */; };
+		0CADCC0527A0794B00515799 /* InsecureHttpClientFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CADCC0427A0794B00515799 /* InsecureHttpClientFake.swift */; };
 		593F25AD2739D3E000B34547 /* Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59DC83592739D35D00466A21 /* Login.framework */; };
 		593F25AE2739D3E000B34547 /* Login.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59DC83592739D35D00466A21 /* Login.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		593F26372739D58C00B34547 /* NetworkingInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 593F26362739D58C00B34547 /* NetworkingInterfaces.framework */; };
@@ -115,8 +115,8 @@
 		0CADCBF427A073A200515799 /* LoginTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoginTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CADCBF627A073A200515799 /* LoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
 		0CADCBFF27A0743C00515799 /* LoginAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPITests.swift; sourceTree = "<group>"; };
-		0CADCC0227A0790E00515799 /* SecureHttpClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureHttpClientSpy.swift; sourceTree = "<group>"; };
-		0CADCC0427A0794B00515799 /* InsecureHttpClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsecureHttpClientSpy.swift; sourceTree = "<group>"; };
+		0CADCC0227A0790E00515799 /* SecureHttpClientFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureHttpClientFake.swift; sourceTree = "<group>"; };
+		0CADCC0427A0794B00515799 /* InsecureHttpClientFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsecureHttpClientFake.swift; sourceTree = "<group>"; };
 		593F26332739D58500B34547 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		593F26362739D58C00B34547 /* NetworkingInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkingInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		594380EB2739DE180001D840 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -213,8 +213,8 @@
 		0CADCC0127A0788A00515799 /* Fakes */ = {
 			isa = PBXGroup;
 			children = (
-				0CADCC0227A0790E00515799 /* SecureHttpClientSpy.swift */,
-				0CADCC0427A0794B00515799 /* InsecureHttpClientSpy.swift */,
+				0CADCC0227A0790E00515799 /* SecureHttpClientFake.swift */,
+				0CADCC0427A0794B00515799 /* InsecureHttpClientFake.swift */,
 			);
 			path = Fakes;
 			sourceTree = "<group>";
@@ -609,8 +609,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CADCC0327A0790E00515799 /* SecureHttpClientSpy.swift in Sources */,
-				0CADCC0527A0794B00515799 /* InsecureHttpClientSpy.swift in Sources */,
+				0CADCC0327A0790E00515799 /* SecureHttpClientFake.swift in Sources */,
+				0CADCC0527A0794B00515799 /* InsecureHttpClientFake.swift in Sources */,
 				0CADCC0027A0743C00515799 /* LoginAPITests.swift in Sources */,
 				0CADCBF727A073A200515799 /* LoginTests.swift in Sources */,
 			);

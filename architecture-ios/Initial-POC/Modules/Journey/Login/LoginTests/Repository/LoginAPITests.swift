@@ -13,7 +13,7 @@ final class LoginAPITests: XCTestCase {
     
     func test_sut_loadQuickly() {
         measure {
-            _ = LoginAPI(secureHttpClient: SecureHttpClientSpy(), insecureHttpClient: InsecureHttpClientSpy())
+            _ = LoginAPI(secureHttpClient: SecureHttpClientFake(), insecureHttpClient: InsecureHttpClientFake())
         }
     }
     
@@ -24,14 +24,14 @@ final class LoginAPITests: XCTestCase {
     }
     
     // MARK: - Login Tests
-    func test_login_integrityOfrequestURL() {
+    func test_login_requestURLIntegrity() {
         let (sut, secureClient, _) = makeSut()
         sut.login(with: "", and: "", completion: { _ in })
         
         XCTAssertEqual(secureClient.urls, ["http://www.example.com/"], "It Should be equal to array with 1 url elements")
     }
     
-    func test_loginTwice_integrityOfrequestURL() {
+    func test_loginTwice_requestURLIntegrity() {
         let (sut, secureClient, _) = makeSut()
         sut.login(with: "", and: "", completion: { _ in })
         sut.login(with: "", and: "", completion: { _ in })
@@ -39,11 +39,11 @@ final class LoginAPITests: XCTestCase {
         XCTAssertEqual(secureClient.urls, ["http://www.example.com/","http://www.example.com/"], "It Should be equal to array with 2 url elements")
     }
     
-    func test_login_integrityOfCredentials() {
+    func test_login_credentialsIntegrity() {
         let (sut, secureClient, _) = makeSut()
         sut.login(with: "username", and: "password", completion: { _ in })
         
-        XCTAssertEqual(secureClient.requestValue, ["username:password"], "It should have integrity of credentials")
+        XCTAssertEqual(secureClient.requestValue, ["username:password"], "It should have credentials integrity")
     }
     
     func test_login_validRequest() {
@@ -83,22 +83,74 @@ final class LoginAPITests: XCTestCase {
     }
     
     // MARK: - Change Password Tests
-//    func test_login_requestData() {
-//        let (sut, secureClient, _) = makeSut()
-//        sut.login(with: "", and: "", completion: { _ in })
-//
-//        XCTAssertEqual(secureClient.urls, ["http://www.example.com/"], "It Should be equal to array with 1 url elements")
-//    }
+    func test_changePassword_requestURLIntegrity() {
+        let (sut, _, insecureClient) = makeSut()
+        sut.changePassword(with: "", completion: { _ in })
+        
+        XCTAssertEqual(insecureClient.urls, ["http://www.example.com/"], "It Should be equal to array with 1 url elements")
+    }
+    
+    func test_changePasswordTwice_requestURLIntegrity() {
+        let (sut, _, insecureClient) = makeSut()
+        sut.changePassword(with: "", completion: { _ in })
+        sut.changePassword(with: "", completion: { _ in })
+
+        XCTAssertEqual(insecureClient.urls, ["http://www.example.com/","http://www.example.com/"], "It Should be equal to array with 2 url elements")
+    }
+    
+    func test_changePassword_newPasswordIntegrity() {
+        let (sut, _, insecureClient) = makeSut()
+        sut.changePassword(with: "password", completion: { _ in })
+
+        XCTAssertEqual(insecureClient.requestValue, ["password:password"], "It should have new password integrity")
+    }
+    
+    func test_changePassword_validRequest() {
+        let (sut, _, insecureClient) = makeSut()
+        var result = [Bool]()
+        insecureClient.result = "valid"
+        
+        sut.changePassword(with: "", completion: { response in
+            result.append(response)
+        })
+
+        XCTAssertEqual(result, [true], "It should have valid request")
+    }
+    
+    func test_changePassword_invalidPassword() {
+        let (sut, _, insecureClient) = makeSut()
+        var result = [Bool]()
+        insecureClient.result = "inValid"
+        
+        sut.changePassword(with: "", completion: { response in
+            result.append(response)
+        })
+        
+        XCTAssertEqual(result, [false], "It shouldn'r have been authenticated")
+    }
+    
+    func test_changePassword_errorFromClient() {
+        let (sut, _, insecureClient) = makeSut()
+        var result = [Bool]()
+        insecureClient.result = "error"
+        
+        sut.changePassword(with: "", completion: { response in
+            result.append(response)
+        })
+        
+        XCTAssertEqual(result, [false], "It shouldn't have been authenticated")
+    }
     
     // MARK: - Helpers
-    private func makeSut() -> (sut: LoginRepositoryProtocol, secureClient: SecureHttpClientSpy, insecureClient: InsecureHttpClientSpy) {
-        let secureHttpClientSpy: SecureHttpClientSpy = SecureHttpClientSpy()
-        let insecureHttpClientSpy: InsecureHttpClientSpy = InsecureHttpClientSpy()
+    /// Instantiates sut and clients
+    /// - Returns: LoginRepositoryProtocol, SecureHttpClientFake, InsecureHttpClientFake
+    private func makeSut() -> (sut: LoginRepositoryProtocol, secureClient: SecureHttpClientFake, insecureClient: InsecureHttpClientFake) {
+        let secureHttpClientSpy: SecureHttpClientFake = SecureHttpClientFake()
+        let insecureHttpClientSpy: InsecureHttpClientFake = InsecureHttpClientFake()
         
         let sut: LoginRepositoryProtocol = LoginAPI(secureHttpClient: secureHttpClientSpy, insecureHttpClient: insecureHttpClientSpy)
         
         return (sut, secureHttpClientSpy, insecureHttpClientSpy)
-
     }
 
 }
