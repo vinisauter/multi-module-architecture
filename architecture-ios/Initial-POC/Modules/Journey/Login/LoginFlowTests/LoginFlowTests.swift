@@ -12,7 +12,6 @@ import Core
 @testable import Login
 
 class LoginFlowTests: XCTestCase {
-
     func testStartShouldReturnLoginIndexViewController() {
         let sut = makeSUT()
         
@@ -23,7 +22,7 @@ class LoginFlowTests: XCTestCase {
         let sut = makeSUT(with: Deeplink<LoginDeeplink>(value: .index, url: URL(string: "app://")!))
         
         let someViewController = UIViewController()
-        let navigationController = UINavigationController(rootViewController: someViewController)
+        let navigationController = NonAnimatedNavigationController(rootViewController: someViewController)
         sut.resolveDeeplinkIfNeeded(from: someViewController)
         
         expect(navigationController.viewControllers.count).to(equal(1))
@@ -33,7 +32,7 @@ class LoginFlowTests: XCTestCase {
         let sut = makeSUT(with: Deeplink<LoginDeeplink>(value: .forgotPassword, url: URL(string: "app://")!))
         
         let someViewController = UIViewController()
-        let navigationController = NotAnimatedNavigationController(rootViewController: someViewController)
+        let navigationController = NonAnimatedNavigationController(rootViewController: someViewController)
         sut.resolveDeeplinkIfNeeded(from: someViewController)
         
         expect(navigationController.viewControllers.last).to(beAKindOf(ForgotPasswordViewController.self))
@@ -43,7 +42,7 @@ class LoginFlowTests: XCTestCase {
         let sut = makeSUT()
         
         let loginVC = LoginIndexViewController(viewModel: nil)
-        let navigationController = NotAnimatedNavigationController(rootViewController: loginVC)
+        let navigationController = NonAnimatedNavigationController(rootViewController: loginVC)
         
         sut.onForgotPasswordClick(in: loginVC)
         
@@ -55,7 +54,7 @@ class LoginFlowTests: XCTestCase {
         
         let loginVC = LoginIndexViewController(viewModel: nil)
         let forgotPasswordVC = ForgotPasswordViewController(viewModel: nil)
-        let navigationController = NotAnimatedNavigationController()
+        let navigationController = NonAnimatedNavigationController()
         navigationController.setViewControllers([loginVC, forgotPasswordVC], animated: false)
         
         
@@ -66,13 +65,13 @@ class LoginFlowTests: XCTestCase {
     
     // MARK: - Helpers
     
-    let mockLoginViewControllerFactory = LoginViewControllerFactory(businessModel: nil, defaultAnalytics: nil, customAnalytics: nil)
+    let loginViewControllerFactory = LoginViewControllerFactory(businessModel: nil, defaultAnalytics: nil, customAnalytics: nil)
     
     func makeSUT(with deeplink: Deeplink<LoginDeeplink>? = nil) -> LoginFlow {
-        return LoginFlow(factory: mockLoginViewControllerFactory, deeplink: deeplink)
+        return LoginFlow(factory: loginViewControllerFactory, deeplink: deeplink)
     }
     
-    class NotAnimatedNavigationController: UINavigationController {
+    class NonAnimatedNavigationController: UINavigationController {
         override func pushViewController(_ viewController: UIViewController, animated: Bool) {
             super.pushViewController(viewController, animated: false)
         }

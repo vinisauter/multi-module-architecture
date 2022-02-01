@@ -8,7 +8,7 @@
 import UIKit
 import Core
 
-class MockBaseFlowDataSource: BaseFlowDataSource {
+class FakeBaseFlowDataSource: BaseFlowDataSource {
     func get(_ journey: Journey, from currentJourney: Journey, with baseFlowDelegate: BaseFlowDelegate, customAnalytics: Any?) -> UIViewController {
         return UIViewController()
     }

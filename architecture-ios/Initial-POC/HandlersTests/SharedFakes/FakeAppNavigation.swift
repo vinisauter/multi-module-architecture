@@ -1,5 +1,5 @@
 //
-//  MockAppNavigation.swift
+//  FakeAppNavigation.swift
 //  HandlersTests
 //
 //  Created by Nykolas Mayko Maia Barbosa on 27/01/22.
@@ -8,7 +8,7 @@
 import UIKit
 import Core
 
-class MockAppNavigation: AppNavigationProtocol {
+class FakeAppNavigation: AppNavigationProtocol {
     private var handlers: Dictionary<Journey, ModuleHandler> = [:]
     
     func push(_ journey: Journey, from currentViewController: UIViewController?, animated: Bool) {}
@@ -31,7 +31,7 @@ class MockAppNavigation: AppNavigationProtocol {
     
     func getHandler(from jorney: Journey) -> ModuleHandler? { return handlers[jorney] }
     
-    func start(_ journey: Journey, to subJourney: Journey?, from currentJourney: Journey?, with url: URL?, baseFlowDelegate: BaseFlowDelegate?, baseFlowDataSource: BaseFlowDataSource?, customModuleAnalytics: Any?, value: Any?) -> UIViewController { return getHandler(from: journey)?.start(from: nil, with: baseFlowDelegate ?? MockBaseFlowDelegate(), baseFlowDataSource ?? MockBaseFlowDataSource(), customModuleAnalytics, subJourney, value) ?? UIViewController() }
+    func start(_ journey: Journey, to subJourney: Journey?, from currentJourney: Journey?, with url: URL?, baseFlowDelegate: BaseFlowDelegate?, baseFlowDataSource: BaseFlowDataSource?, customModuleAnalytics: Any?, value: Any?) -> UIViewController { return getHandler(from: journey)?.start(from: nil, with: baseFlowDelegate ?? FakeBaseFlowDelegate(), baseFlowDataSource ?? FakeBaseFlowDataSource(), customModuleAnalytics, subJourney, value) ?? UIViewController() }
     
     func show(_ journeys: Array<Journey>, from currentViewController: UIViewController?, animated: Bool) {}
 }

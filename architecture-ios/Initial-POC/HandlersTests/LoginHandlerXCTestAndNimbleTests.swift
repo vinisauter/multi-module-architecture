@@ -23,36 +23,36 @@ class LoginHandlerXCTestAndNimbleTests: XCTestCase {
     }
     
     func testStartWhenSubJorneyIsNilShouldReturnLoginIndexViewController() {
-        expect(self.makeSUT().start(from: nil, with: self.mockBaseFlowDelegate, self.mockBaseFlowDataSource, nil, nil, nil)).to(beAKindOf(LoginIndexViewController.self))
+        expect(self.makeSUT().start(from: nil, with: self.fakeBaseFlowDelegate, self.fakeBaseFlowDataSource, nil, nil, nil)).to(beAKindOf(LoginIndexViewController.self))
     }
     
     func testStartWhenSubJorneyIsFogotPasswordShouldReturnForgotPasswordViewController() {
-        expect(self.makeSUT().start(from: nil, with: self.mockBaseFlowDelegate, self.mockBaseFlowDataSource, nil, .forgotPassword, nil)).to(beAKindOf(ForgotPasswordViewController.self))
+        expect(self.makeSUT().start(from: nil, with: self.fakeBaseFlowDelegate, self.fakeBaseFlowDataSource, nil, .forgotPassword, nil)).to(beAKindOf(ForgotPasswordViewController.self))
     }
     
     func testHandleGetWhenIsFromProfileShouldReturnLoginIndexViewController() {
         let sut = makeSUT()
         
-        mockAppNavigation.register([.login], with: sut)
+        fakeAppNavigation.register([.login], with: sut)
         
-        expect(sut.handleGet(from: .profile, to: nil, with: self.mockBaseFlowDelegate, analytics: nil)).to(beAKindOf(LoginIndexViewController.self))
+        expect(sut.handleGet(from: .profile, to: nil, with: self.fakeBaseFlowDelegate, analytics: nil)).to(beAKindOf(LoginIndexViewController.self))
     }
     
     func testHandleGetWhenIsFromFakeJourneyShouldReturnLoginIndexViewController() {
         let sut = makeSUT()
         
-        mockAppNavigation.register([.login], with: sut)
+        fakeAppNavigation.register([.login], with: sut)
         
-        expect(sut.handleGet(from: .init(rawValue: "FakeJourney"), to: nil, with: self.mockBaseFlowDelegate, analytics: nil)).to(beAKindOf(LoginIndexViewController.self))
+        expect(sut.handleGet(from: .init(rawValue: "FakeJourney"), to: nil, with: self.fakeBaseFlowDelegate, analytics: nil)).to(beAKindOf(LoginIndexViewController.self))
     }
     
     // MARK: - Helpers
     
-    let mockBaseFlowDelegate = MockBaseFlowDelegate()
-    let mockBaseFlowDataSource = MockBaseFlowDataSource()
-    let mockAppNavigation = MockAppNavigation()
+    let fakeAppNavigation = FakeAppNavigation()
+    let fakeBaseFlowDelegate = FakeBaseFlowDelegate()
+    let fakeBaseFlowDataSource = FakeBaseFlowDataSource()
     
     func makeSUT() -> LoginHandler {
-        return LoginHandler(appNavigation: mockAppNavigation)
+        return LoginHandler(appNavigation: fakeAppNavigation)
     }
 }

@@ -14,7 +14,7 @@ import AnalyticsInterfaces
 
 class BusinessModelTests: XCTestCase {
     func testLoginWhShouldReturnSuccessTrueWhenIsPassedAValidUsernameAndPassword() {
-        let sut = makeSUT(loginRepository: mockSucessLoginRepository)
+        let sut = makeSUT(loginRepository: fakeSucessLoginRepository)
         
         var loginIsSuccess: Bool = false
         sut.login(with: "success_username", and: "success_password") { success in
@@ -25,7 +25,7 @@ class BusinessModelTests: XCTestCase {
     }
     
     func testLoginShoudReturnSucessFalseIsPassedAValidUsernameAndInvalidPassword() {
-        let sut = makeSUT(loginRepository: mockFailureLoginRepository)
+        let sut = makeSUT(loginRepository: fakeFailureLoginRepository)
         
         var loginIsSuccess: Bool = true
         sut.login(with: "valid_username", and: "invalid_password") { success in
@@ -36,7 +36,7 @@ class BusinessModelTests: XCTestCase {
     }
     
     func testLoginShoudReturnSucessFalseIsPassedAInvalidUsernameAndValidPassword() {
-        let sut = makeSUT(loginRepository: mockFailureLoginRepository)
+        let sut = makeSUT(loginRepository: fakeFailureLoginRepository)
         
         var loginIsSuccess: Bool = true
         sut.login(with: "invalid_username", and: "valid_password") { success in
@@ -47,7 +47,7 @@ class BusinessModelTests: XCTestCase {
     }
     
     func testLoginShoudReturnSucessFalseIsPassedAInvalidUsernameAndPassword() {
-        let sut = makeSUT(loginRepository: mockFailureLoginRepository)
+        let sut = makeSUT(loginRepository: fakeFailureLoginRepository)
         
         var loginIsSuccess: Bool = true
         sut.login(with: "invalid_username", and: "invalid_password") { success in
@@ -58,7 +58,7 @@ class BusinessModelTests: XCTestCase {
     }
     
     func testChangePasswordShouldReturnSuccessTrueWhenIsPassedAValidPassword() {
-        let sut = makeSUT(loginRepository: mockSucessLoginRepository)
+        let sut = makeSUT(loginRepository: fakeSucessLoginRepository)
         
         var hasChangedPassword: Bool = false
         sut.changePassword(with: "valid_new_password") { success in
@@ -69,7 +69,7 @@ class BusinessModelTests: XCTestCase {
     }
     
     func testChangePasswordShouldReturnSuccessFalseWhenIsPassedAInvalidPassword() {
-        let sut = makeSUT(loginRepository: mockFailureLoginRepository)
+        let sut = makeSUT(loginRepository: fakeFailureLoginRepository)
         
         var hasChangedPassword: Bool = true
         sut.changePassword(with: "invalid_new_password") { success in
@@ -80,7 +80,7 @@ class BusinessModelTests: XCTestCase {
     }
     
     func testOnForgotPasswordClickShouldSendOnForgotPassworTrackTag() {
-        let sut = makeSUT(loginRepository: mockSucessLoginRepository)
+        let sut = makeSUT(loginRepository: fakeSucessLoginRepository)
         
         sut.onForgotPasswordClick()
         
@@ -88,7 +88,7 @@ class BusinessModelTests: XCTestCase {
     }
     
     func testOnLoginClickShouldSendOnLoginTrackTag() {
-        let sut = makeSUT(loginRepository: mockSucessLoginRepository)
+        let sut = makeSUT(loginRepository: fakeSucessLoginRepository)
         
         sut.onLoginClick()
         
@@ -96,7 +96,7 @@ class BusinessModelTests: XCTestCase {
     }
     
     func testOnChangePasswordClickShouldSendOnChangePasswordTrackTag() {
-        let sut = makeSUT(loginRepository: mockSucessLoginRepository)
+        let sut = makeSUT(loginRepository: fakeSucessLoginRepository)
         
         sut.onChangePasswordClick()
         
@@ -105,15 +105,15 @@ class BusinessModelTests: XCTestCase {
     
     // MARK: - Helpers
     
-    let mockSucessLoginRepository = MockSucessLoginRepository()
-    let mockFailureLoginRepository = MockFailureLoginRepository()
-    let mockStructuralAnalytics = MockStructuralAnalytics()
+    let fakeSucessLoginRepository = FakeSucessLoginRepository()
+    let fakeFailureLoginRepository = FakeFailureLoginRepository()
+    let fakeStructuralAnalytics = FakeStructuralAnalytics()
     
     func makeSUT(loginRepository: LoginRepositoryProtocol) -> LoginBusinessModel {
         return LoginBusinessModel(repository: loginRepository, structuralAnalytics: mockStructuralAnalytics)
     }
 
-    class MockSucessLoginRepository: LoginRepositoryProtocol {
+    class FakeSucessLoginRepository: LoginRepositoryProtocol {
         func login(with username: String, and password: String, completion: @escaping (Bool) -> Void) {
             completion(true)
         }
@@ -123,7 +123,7 @@ class BusinessModelTests: XCTestCase {
         }
     }
     
-    class MockFailureLoginRepository: LoginRepositoryProtocol {
+    class FakeFailureLoginRepository: LoginRepositoryProtocol {
         func login(with username: String, and password: String, completion: @escaping (Bool) -> Void) {
             completion(false)
         }

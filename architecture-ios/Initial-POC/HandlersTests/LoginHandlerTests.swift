@@ -19,9 +19,9 @@ class LoginHandlerSpec: QuickSpec {
         describe("A Login Handler") {
             
             context("after being properly initialized") {
-                let mockAppNavigation = MockAppNavigation()
-                let mockBaseFlowDelegate = MockBaseFlowDelegate()
-                let mockBaseFlowDataSource = MockBaseFlowDataSource()
+                let fakeAppNavigation = FakeAppNavigation()
+                let fakeBaseFlowDelegate = FakeBaseFlowDelegate()
+                let fakeBaseFlowDataSource = FakeBaseFlowDataSource()
                 
                 it("should have name") {
                     let sut = LoginHandler(appNavigation: AppNavigation())
@@ -35,29 +35,29 @@ class LoginHandlerSpec: QuickSpec {
                 
                 it("should start and return the LoginIndexViewController") {
                     let sut = LoginHandler(appNavigation: AppNavigation())
-                    expect(sut.start(from: nil, with: mockBaseFlowDelegate, mockBaseFlowDataSource, nil, nil, nil)).to(beAKindOf(LoginIndexViewController.self))
+                    expect(sut.start(from: nil, with: fakeBaseFlowDelegate, fakeBaseFlowDataSource, nil, nil, nil)).to(beAKindOf(LoginIndexViewController.self))
                 }
                 
                 it("should start and return the ForgotPasswordViewController when subJourney is equal to .forgotPassword") {
                     let sut = LoginHandler(appNavigation: AppNavigation())
                     
-                    expect(sut.start(from: nil, with: mockBaseFlowDelegate, mockBaseFlowDataSource, nil, .forgotPassword, nil)).to(beAKindOf(ForgotPasswordViewController.self))
+                    expect(sut.start(from: nil, with: fakeBaseFlowDelegate, fakeBaseFlowDataSource, nil, .forgotPassword, nil)).to(beAKindOf(ForgotPasswordViewController.self))
                 }
                 
                 it("should handleGet from profile and return a LoginIndexViewController") {
-                    let sut = LoginHandler(appNavigation: mockAppNavigation)
+                    let sut = LoginHandler(appNavigation: fakeAppNavigation)
                     
-                    mockAppNavigation.register([.login], with: sut)
+                    fakeAppNavigation.register([.login], with: sut)
                     
-                    expect(sut.handleGet(from: .profile, to: nil, with: mockBaseFlowDelegate, analytics: nil)).to(beAKindOf(LoginIndexViewController.self))
+                    expect(sut.handleGet(from: .profile, to: nil, with: fakeBaseFlowDelegate, analytics: nil)).to(beAKindOf(LoginIndexViewController.self))
                 }
                 
                 it("should handleGet from FakeJourney and return a LoginIndexViewController") {
-                    let sut = LoginHandler(appNavigation: mockAppNavigation)
+                    let sut = LoginHandler(appNavigation: fakeAppNavigation)
                     
-                    mockAppNavigation.register([.login], with: sut)
+                    fakeAppNavigation.register([.login], with: sut)
                     
-                    expect(sut.handleGet(from: .init(rawValue: "FakeJourney"), to: nil, with: mockBaseFlowDelegate, analytics: nil)).to(beAKindOf(LoginIndexViewController.self))
+                    expect(sut.handleGet(from: .init(rawValue: "FakeJourney"), to: nil, with: fakeBaseFlowDelegate, analytics: nil)).to(beAKindOf(LoginIndexViewController.self))
                 }
             }
         }

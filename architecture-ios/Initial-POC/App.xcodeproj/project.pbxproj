@@ -28,9 +28,9 @@
 		5993F7AD273D85BE00B3A695 /* ProfileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5993F7AC273D85BE00B3A695 /* ProfileHandler.swift */; };
 		599E7DC327A1CADE0089A565 /* LoginHandlerXCTestAndNimbleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599E7DC227A1CADE0089A565 /* LoginHandlerXCTestAndNimbleTests.swift */; };
 		599E7DC627A1CBED0089A565 /* LoginHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599E7DB727A06E630089A565 /* LoginHandlerTests.swift */; };
-		599E7DCA27A2E1BC0089A565 /* MockAppNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599E7DC927A2E1BC0089A565 /* MockAppNavigation.swift */; };
-		599E7DCE27A2E1D20089A565 /* MockBaseFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599E7DCD27A2E1D20089A565 /* MockBaseFlowDelegate.swift */; };
-		599E7DD127A2E1E20089A565 /* MockBaseFlowDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599E7DD027A2E1E20089A565 /* MockBaseFlowDataSource.swift */; };
+		599E7DCA27A2E1BC0089A565 /* FakeAppNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599E7DC927A2E1BC0089A565 /* FakeAppNavigation.swift */; };
+		599E7DCE27A2E1D20089A565 /* FakeBaseFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599E7DCD27A2E1D20089A565 /* FakeBaseFlowDelegate.swift */; };
+		599E7DD127A2E1E20089A565 /* FakeBaseFlowDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599E7DD027A2E1E20089A565 /* FakeBaseFlowDataSource.swift */; };
 		59C82C45273BFF8D00E84149 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C82C44273BFF8D00E84149 /* Core.framework */; };
 		59C82C46273BFF8D00E84149 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59C82C44273BFF8D00E84149 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59D154472768DCD400459773 /* AppSecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D154452768DCD400459773 /* AppSecurity.framework */; };
@@ -99,9 +99,9 @@
 		5993F7AC273D85BE00B3A695 /* ProfileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHandler.swift; sourceTree = "<group>"; };
 		599E7DB727A06E630089A565 /* LoginHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHandlerTests.swift; sourceTree = "<group>"; };
 		599E7DC227A1CADE0089A565 /* LoginHandlerXCTestAndNimbleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHandlerXCTestAndNimbleTests.swift; sourceTree = "<group>"; };
-		599E7DC927A2E1BC0089A565 /* MockAppNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAppNavigation.swift; sourceTree = "<group>"; };
-		599E7DCD27A2E1D20089A565 /* MockBaseFlowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBaseFlowDelegate.swift; sourceTree = "<group>"; };
-		599E7DD027A2E1E20089A565 /* MockBaseFlowDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBaseFlowDataSource.swift; sourceTree = "<group>"; };
+		599E7DC927A2E1BC0089A565 /* FakeAppNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAppNavigation.swift; sourceTree = "<group>"; };
+		599E7DCD27A2E1D20089A565 /* FakeBaseFlowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeBaseFlowDelegate.swift; sourceTree = "<group>"; };
+		599E7DD027A2E1E20089A565 /* FakeBaseFlowDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeBaseFlowDataSource.swift; sourceTree = "<group>"; };
 		59A9DA772739DCB6003FA91D /* Storage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Storage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59A9DA782739DCB6003FA91D /* StorageInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StorageInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59C82C44273BFF8D00E84149 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,7 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				599E7DBB27A06E700089A565 /* Config */,
-				599E7DC827A2E1930089A565 /* SharedStubs */,
+				599E7DC827A2E1930089A565 /* SharedFakes */,
 				599E7DB727A06E630089A565 /* LoginHandlerTests.swift */,
 				599E7DC227A1CADE0089A565 /* LoginHandlerXCTestAndNimbleTests.swift */,
 			);
@@ -249,14 +249,14 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
-		599E7DC827A2E1930089A565 /* SharedStubs */ = {
+		599E7DC827A2E1930089A565 /* SharedFakes */ = {
 			isa = PBXGroup;
 			children = (
-				599E7DC927A2E1BC0089A565 /* MockAppNavigation.swift */,
-				599E7DCD27A2E1D20089A565 /* MockBaseFlowDelegate.swift */,
-				599E7DD027A2E1E20089A565 /* MockBaseFlowDataSource.swift */,
+				599E7DC927A2E1BC0089A565 /* FakeAppNavigation.swift */,
+				599E7DCD27A2E1D20089A565 /* FakeBaseFlowDelegate.swift */,
+				599E7DD027A2E1E20089A565 /* FakeBaseFlowDataSource.swift */,
 			);
-			path = SharedStubs;
+			path = SharedFakes;
 			sourceTree = "<group>";
 		};
 		59D1544B2768DD1800459773 /* DependenciesImplementations */ = {
@@ -383,10 +383,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				599E7DCA27A2E1BC0089A565 /* MockAppNavigation.swift in Sources */,
-				599E7DCE27A2E1D20089A565 /* MockBaseFlowDelegate.swift in Sources */,
+				599E7DCA27A2E1BC0089A565 /* FakeAppNavigation.swift in Sources */,
+				599E7DCE27A2E1D20089A565 /* FakeBaseFlowDelegate.swift in Sources */,
 				599E7DC627A1CBED0089A565 /* LoginHandlerTests.swift in Sources */,
-				599E7DD127A2E1E20089A565 /* MockBaseFlowDataSource.swift in Sources */,
+				599E7DD127A2E1E20089A565 /* FakeBaseFlowDataSource.swift in Sources */,
 				599E7DC327A1CADE0089A565 /* LoginHandlerXCTestAndNimbleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

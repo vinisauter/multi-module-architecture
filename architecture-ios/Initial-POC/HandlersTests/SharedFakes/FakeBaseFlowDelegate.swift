@@ -8,6 +8,6 @@
 import UIKit
 import Core
 
-class MockBaseFlowDelegate: BaseFlowDelegate {
+class FakeBaseFlowDelegate: BaseFlowDelegate {
     func perform(_ action: BaseFlowDelegateAction, in viewController: UIViewController, with value: Any?) {}
 }
