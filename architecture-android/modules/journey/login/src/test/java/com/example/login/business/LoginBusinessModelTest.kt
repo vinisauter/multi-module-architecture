@@ -29,13 +29,16 @@ internal class LoginBusinessModelTest() {
 
     @Test
     fun login_WhenSuccess() = runBlocking {
-
-        coEvery { unsecureExecutorMockk.get() }  returns "João da Silva"
-
+        coEvery { unsecureExecutorMockk.get() } returns "João da Silva"
         val result = loginBusinessModel.login("João da Silva", "123D")
+        Assert.assertEquals(result, true)
+    }
 
-//        Assert.assertEquals(result,true)
-        Assert.assertEquals(unsecureExecutorMockk.get(),"João da Silva")
+    @Test
+    fun login_WhenReturnName() = runBlocking {
+        coEvery { unsecureExecutorMockk.get() } returns "João da Silva"
+        Assert.assertEquals(unsecureExecutorMockk.get(), "João da Silva")
+
     }
 
 
