@@ -27,7 +27,14 @@ extension LoginBusinessModel: LoginIndexBusinessModelProtocol {
     public func login(with username: String, and password: String, completion: @escaping (Bool) -> Void) {
         repository?.login(with: username, and: password, completion: { result in
             DispatchQueue.main.async {
-                completion(result)
+                switch result {
+                case .success( _):
+                    // TODO
+                    break
+                case .failure( _):
+                    // TODO
+                    break
+                }
             }
         })
     }
@@ -36,8 +43,13 @@ extension LoginBusinessModel: LoginIndexBusinessModelProtocol {
 extension LoginBusinessModel: ForgotPasswordBusinessModelProtocol {
     public func changePassword(with newPassword: String, completion: @escaping (Bool) -> Void) {
         repository?.changePassword(with: newPassword, completion: { result in
-            DispatchQueue.main.async {
-                completion(result)
+            switch result {
+            case .success( _):
+                // TODO
+                break
+            case .failure( _):
+                // TODO
+                break
             }
         })
     }

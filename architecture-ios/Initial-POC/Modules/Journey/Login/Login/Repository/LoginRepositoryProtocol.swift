@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import NetworkingInterfaces
 
 public protocol LoginRepositoryProtocol: AnyObject {
-    func login(with username: String, and password: String, completion: @escaping (_ success: Bool) -> Void)
-    func changePassword(with newPassword: String, completion: @escaping (Bool) -> Void)
+    func login(with username: String, and password: String, completion: @escaping (Result<String, NetworkError>) -> Void)
+    func changePassword(with newPassword: String, completion: @escaping (Result<String, NetworkError>) -> Void)
 }

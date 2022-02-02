@@ -8,7 +8,7 @@
 import Foundation
 import NetworkingInterfaces
 
-class LoginAPI: LoginRepositoryProtocol {
+class LoginAPI: LoginRepositoryProtocol {    
     private let secureHttpClient: HTTPClientProtocol
     private let insecureHttpClient: HTTPClientProtocol
     
@@ -22,25 +22,25 @@ class LoginAPI: LoginRepositoryProtocol {
         print(" >>>> DEINIT from \(self)")
     }
     
-    func login(with username: String, and password: String, completion: @escaping (Bool) -> Void) {
+    func login(with username: String, and password: String, completion: @escaping (Result<String, NetworkError>) -> Void) {
         var request: URLRequest = URLRequest(url: URL(string: "http://www.example.com/")!)
         request.httpMethod = "POST"
         request.addValue("\(username):\(password)", forHTTPHeaderField: "Authorization")
         
         secureHttpClient.post(request) { result in
-            completion(result == "valid")
+            completion(result)
         }
         
         print(" >>>> METHOD 1 from \(self)")
     }
     
-    func changePassword(with newPassword: String, completion: @escaping (Bool) -> Void) {
+    func changePassword(with newPassword: String, completion: @escaping (Result<String, NetworkError>) -> Void) {
         var request: URLRequest = URLRequest(url: URL(string: "http://www.example.com/")!)
         request.httpMethod = "POST"
         request.addValue("password:\(newPassword)", forHTTPHeaderField: "Authorization")
         
         insecureHttpClient.post(request) { result in
-            completion(result == "valid")
+            completion(result)
         }
         print(" >>>> METHOD 2 from \(self)")
     }

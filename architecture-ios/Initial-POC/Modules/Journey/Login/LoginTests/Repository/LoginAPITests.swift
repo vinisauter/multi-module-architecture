@@ -51,38 +51,42 @@ final class LoginAPITests: XCTestCase {
     
     func test_login_validRequest() {
         let (sut, secureClient, _) = makeSut()
-        var result = [Bool]()
+        var result = [Result<String, NetworkError>]()
         secureClient.result = "valid"
         
         sut.login(with: "username", and: "password", completion: { loginResult in
+            
             result.append(loginResult)
         })
         
-        expect(result).toEventually(equal([true]), description: "It should have been authenticated")
+        let reference: [Result<String, NetworkError>] = [.success("valid")]
+        expect(result).toEventually(equal(reference), description: "It should have been authenticated")
     }
     
     func test_login_invalidAutentication() {
         let (sut, secureClient, _) = makeSut()
-        var result = [Bool]()
+        var result = [Result<String, NetworkError>]()
         secureClient.result = "inValid"
         
         sut.login(with: "username", and: "password", completion: { loginResult in
             result.append(loginResult)
         })
         
-        expect(result).toEventually(equal([false]), description: "It shouldn't have been authenticated")
+        let reference: [Result<String, NetworkError>] = [.success("inValid")]
+        expect(result).toEventually(equal(reference), description: "It shouldn't have been authenticated")
     }
     
     func test_login_errorFromClient() {
         let (sut, secureClient, _) = makeSut()
-        var result = [Bool]()
+        var result = [Result<String, NetworkError>]()
         secureClient.result = "error"
         
         sut.login(with: "", and: "", completion: { loginResult in
             result.append(loginResult)
         })
         
-        expect(result).toEventually(equal([false]), description: "It shouldn't have been authenticated")
+        let reference: [Result<String, NetworkError>] = [.failure(.error)]
+        expect(result).toEventually(equal(reference), description: "It shouldn't have been authenticated")
     }
     
     // MARK: - Change Password Tests
@@ -110,38 +114,41 @@ final class LoginAPITests: XCTestCase {
     
     func test_changePassword_validRequest() {
         let (sut, _, insecureClient) = makeSut()
-        var result = [Bool]()
+        var result = [Result<String, NetworkError>]()
         insecureClient.result = "valid"
         
         sut.changePassword(with: "", completion: { response in
             result.append(response)
         })
 
-        expect(result).toEventually(equal([true]), description: "It should have valid request")
+        let reference: [Result<String, NetworkError>] = [.success("valid")]
+        expect(result).toEventually(equal(reference), description: "It should have valid request")
     }
     
     func test_changePassword_invalidPassword() {
         let (sut, _, insecureClient) = makeSut()
-        var result = [Bool]()
+        var result = [Result<String, NetworkError>]()
         insecureClient.result = "inValid"
         
         sut.changePassword(with: "", completion: { response in
             result.append(response)
         })
         
-        expect(result).toEventually(equal([false]), description: "It shouldn'r have been authenticated")
+        let reference: [Result<String, NetworkError>] = [.success("inValid")]
+        expect(result).toEventually(equal(reference), description: "It shouldn't have been authenticated")
     }
     
     func test_changePassword_errorFromClient() {
         let (sut, _, insecureClient) = makeSut()
-        var result = [Bool]()
+        var result = [Result<String, NetworkError>]()
         insecureClient.result = "error"
         
         sut.changePassword(with: "", completion: { response in
             result.append(response)
         })
         
-        expect(result).toEventually(equal([false]), description: "It shouldn't have been authenticated")
+        let reference: [Result<String, NetworkError>] = [.failure(.error)]
+        expect(result).toEventually(equal(reference), description: "It shouldn't have been authenticated")
     }
     
     // MARK: - Helpers
@@ -155,5 +162,6 @@ final class LoginAPITests: XCTestCase {
         
         return (sut, secureHttpClientSpy, insecureHttpClientSpy)
     }
+
 
 }

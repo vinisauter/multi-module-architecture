@@ -17,11 +17,15 @@ class SecureHttpClientFake: HTTPClientProtocol {
     func get(_ url: String, completion: @escaping (String) -> Void) {
     }
     
-    func post(_ request: URLRequest, completion: @escaping (String) -> Void) {
+    func post(_ request: URLRequest, completion: @escaping (Result<String, NetworkError>) -> Void) {
         urls.append(request.url?.absoluteString ?? "")
         requestValue.append(request.value(forHTTPHeaderField: "Authorization") ?? "")
         
-        completion(result)
+        if result == "error" {
+            completion(.failure(.error))
+        } else {
+            completion(.success(result))
+        }
     }
     
     func put(_ url: String, completion: @escaping (String) -> Void) {
