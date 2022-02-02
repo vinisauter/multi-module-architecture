@@ -22,6 +22,9 @@
          <FileRef
             location = "group:Modules/Journey/Task/Task.xcodeproj">
          </FileRef>
+         <FileRef
+            location = "group:Modules/Journey/Note/Note.xcodeproj">
+         </FileRef>
       </Group>
       <Group
          location = "container:"

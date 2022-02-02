@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Flutter
 
 class FlutterBaseViewController: UIViewController {
     let bundle: Bundle

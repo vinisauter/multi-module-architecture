@@ -17,7 +17,8 @@ protocol HomeFlowProtocol: AnyObject {
 
 public protocol HomeFlowDelegate: AnyObject {
     func goToProfile(from flow: Flow, in controller: UIViewController, with value: Any?)
-	func goToTask(from flow: Flow, in controller: UIViewController, with value: Any?)
+    func goToTask(from flow: Flow, in controller: UIViewController, with value: Any?)
+    func goToNote(from flow: Flow, in controller: UIViewController, with value: Any?)
     func goToLogin(from flow: Flow, in controller: UIViewController, with value: Any?)
 }
 
@@ -56,9 +57,13 @@ extension HomeFlow: HomeIndexFlowDelegate {
     
     func openProfile(in controller: HomeIndexViewController) {
         delegate?.goToProfile(from: .main, in: controller, with: nil)
-    }    
+    }
     
     func openTask(in controller: HomeIndexViewController) {
         delegate?.goToTask(from: .main, in: controller, with: nil)
+    }
+    
+    func openNote(in controller: HomeIndexViewController) {
+        delegate?.goToNote(from: .main, in: controller, with: nil)
     }
 }

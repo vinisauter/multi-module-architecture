@@ -1,8 +1,8 @@
 //
-//  DependencyProvider.swift
-//  App
+//  StructuralDependencyProvider.swift
+//  NoteDemo
 //
-//  Created by Nykolas Mayko Maia Barbosa on 09/11/21.
+//  Created by Ailton Vieira Pinto Filho on 02/02/22.
 //
 
 import NetworkingInterfaces

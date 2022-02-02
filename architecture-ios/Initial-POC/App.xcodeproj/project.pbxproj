@@ -38,6 +38,13 @@
 		59FAED79273D9E2B00C18E6E /* Analytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED76273D9E2B00C18E6E /* Analytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59FAED7A273D9E2B00C18E6E /* AnalyticsInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED77273D9E2B00C18E6E /* AnalyticsInterfaces.framework */; };
 		59FAED7B273D9E2B00C18E6E /* AnalyticsInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59FAED77273D9E2B00C18E6E /* AnalyticsInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5ED2722627A9B22500009F87 /* Note.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ED2722527A9B22500009F87 /* Note.framework */; };
+		5ED2722727A9B22500009F87 /* Note.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5ED2722527A9B22500009F87 /* Note.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5ED2722927A9B23E00009F87 /* NoteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED2722827A9B23E00009F87 /* NoteHandler.swift */; };
+		5ED2722C27A9B4D000009F87 /* FlutterManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ED2722A27A9B4D000009F87 /* FlutterManager.framework */; };
+		5ED2722D27A9B4D000009F87 /* FlutterManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5ED2722A27A9B4D000009F87 /* FlutterManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5ED2722E27A9B4D000009F87 /* FlutterManagerInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ED2722B27A9B4D000009F87 /* FlutterManagerInterfaces.framework */; };
+		5ED2722F27A9B4D000009F87 /* FlutterManagerInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5ED2722B27A9B4D000009F87 /* FlutterManagerInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5EF4C67427A868620052086C /* TaskHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF4C67327A868620052086C /* TaskHandler.swift */; };
 		5EF4C68427A8750D0052086C /* Task.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF4C68327A8750D0052086C /* Task.framework */; };
 		5EF4C68527A8750D0052086C /* Task.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF4C68327A8750D0052086C /* Task.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -50,10 +57,13 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				5ED2722D27A9B4D000009F87 /* FlutterManager.framework in Embed Frameworks */,
+				5ED2722F27A9B4D000009F87 /* FlutterManagerInterfaces.framework in Embed Frameworks */,
 				593F26402739D63000B34547 /* Home.framework in Embed Frameworks */,
 				593F26482739D63000B34547 /* Profile.framework in Embed Frameworks */,
 				59C82C46273BFF8D00E84149 /* Core.framework in Embed Frameworks */,
 				59FAED79273D9E2B00C18E6E /* Analytics.framework in Embed Frameworks */,
+				5ED2722727A9B22500009F87 /* Note.framework in Embed Frameworks */,
 				593F26462739D63000B34547 /* NetworkingInterfaces.framework in Embed Frameworks */,
 				59D154482768DCD400459773 /* AppSecurity.framework in Embed Frameworks */,
 				59D1544A2768DCD400459773 /* AppSecurityInterfaces.framework in Embed Frameworks */,
@@ -93,6 +103,10 @@
 		59EABE5327466FB4007E653F /* LoginAnalyticsProfileAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAnalyticsProfileAdapter.swift; sourceTree = "<group>"; };
 		59FAED76273D9E2B00C18E6E /* Analytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Analytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59FAED77273D9E2B00C18E6E /* AnalyticsInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AnalyticsInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5ED2722527A9B22500009F87 /* Note.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Note.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5ED2722827A9B23E00009F87 /* NoteHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteHandler.swift; sourceTree = "<group>"; };
+		5ED2722A27A9B4D000009F87 /* FlutterManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FlutterManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5ED2722B27A9B4D000009F87 /* FlutterManagerInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FlutterManagerInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EF4C67327A868620052086C /* TaskHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskHandler.swift; sourceTree = "<group>"; };
 		5EF4C67527A868760052086C /* Task.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Task.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EF4C68327A8750D0052086C /* Task.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Task.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,10 +117,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ED2722C27A9B4D000009F87 /* FlutterManager.framework in Frameworks */,
+				5ED2722E27A9B4D000009F87 /* FlutterManagerInterfaces.framework in Frameworks */,
 				593F263F2739D63000B34547 /* Home.framework in Frameworks */,
 				593F26472739D63000B34547 /* Profile.framework in Frameworks */,
 				59C82C45273BFF8D00E84149 /* Core.framework in Frameworks */,
 				59FAED78273D9E2B00C18E6E /* Analytics.framework in Frameworks */,
+				5ED2722627A9B22500009F87 /* Note.framework in Frameworks */,
 				593F26452739D63000B34547 /* NetworkingInterfaces.framework in Frameworks */,
 				5EF4C68427A8750D0052086C /* Task.framework in Frameworks */,
 				59D154472768DCD400459773 /* AppSecurity.framework in Frameworks */,
@@ -157,6 +174,9 @@
 		421ED0C12739758400BD353C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5ED2722A27A9B4D000009F87 /* FlutterManager.framework */,
+				5ED2722B27A9B4D000009F87 /* FlutterManagerInterfaces.framework */,
+				5ED2722527A9B22500009F87 /* Note.framework */,
 				5EF4C68327A8750D0052086C /* Task.framework */,
 				5EF4C67527A868760052086C /* Task.framework */,
 				59D154452768DCD400459773 /* AppSecurity.framework */,
@@ -182,6 +202,7 @@
 				5993F7AA273D856C00B3A695 /* HomeHandler.swift */,
 				5993F7AC273D85BE00B3A695 /* ProfileHandler.swift */,
 				5EF4C67327A868620052086C /* TaskHandler.swift */,
+				5ED2722827A9B23E00009F87 /* NoteHandler.swift */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -289,6 +310,7 @@
 				59D1544D2768DD5700459773 /* NetworkingDependency.swift in Sources */,
 				421ECFC527396FBA00BD353C /* WelcomeViewController.swift in Sources */,
 				421ECFC127396FBA00BD353C /* AppDelegate.swift in Sources */,
+				5ED2722927A9B23E00009F87 /* NoteHandler.swift in Sources */,
 				5993F7AD273D85BE00B3A695 /* ProfileHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

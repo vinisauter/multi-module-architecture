@@ -1,29 +1,22 @@
 //
 //  AppDelegate.swift
-//  Initial-POC
+//  NoteDemo
 //
-//  Created by Felippe Matos on 08/11/21.
+//  Created by Ailton Vieira Pinto Filho on 02/02/22.
 //
 
 import UIKit
 import Core
 
-var isUserLoggedIn: Bool = false
-var isAppLaunched: Bool = false
-
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        AppNavigation.shared.register([.welcome], with: WelcomeHandler())
         AppNavigation.shared.register([.login, .forgotPassword], with: LoginHandler())
-        AppNavigation.shared.register([.home], with: HomeHandler())
-        AppNavigation.shared.register([.profile], with: ProfileHandler())
-        AppNavigation.shared.register([.task], with: TaskHandler())
         AppNavigation.shared.register([.note], with: NoteHandler())
-                
+        
         setupRootViewController()
         
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -43,22 +36,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setupRootViewController(with deeplink: String? = nil) {
         if !isAppLaunched {
-            AppNavigation.shared.show([.welcome], animated: true)
+            AppNavigation.shared.show([.login], animated: true)
             isAppLaunched = true
         } else if isAppLaunched && !isUserLoggedIn {
-            if !AppNavigation.shared.resolve(deeplink) { AppNavigation.shared.show([.welcome, .login], animated: true) }
+            if !AppNavigation.shared.resolve(deeplink) { AppNavigation.shared.show([.login], animated: true) }
         } else {
             AppNavigation.shared.resolve(deeplink)
         }
     }
-}
-
-extension Journey {
-    static let welcome: Journey = Journey(rawValue: "welcome")
-    static let login: Journey = Journey(rawValue: "login")
-    static let forgotPassword: Journey = Journey(rawValue: "forgotPassword")
-    static let home: Journey = Journey(rawValue: "home")
-	static let profile: Journey = Journey(rawValue: "profile")
-    static let task: Journey = Journey(rawValue: "task")
-    static let note: Journey = Journey(rawValue: "note")
 }

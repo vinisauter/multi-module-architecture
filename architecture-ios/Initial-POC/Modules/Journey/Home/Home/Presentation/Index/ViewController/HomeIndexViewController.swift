@@ -11,23 +11,26 @@ import Core
 open class HomeIndexViewController: BaseViewController<HomeIndexViewModelProtocol> {
     // MARK: - Private Properties
     
-    private let button: UIButton = UIButton()
-    private let taskButton: UIButton = UIButton()
-    private let logoutButton: UIButton = UIButton()
+    private let stackView = UIStackView()
     
     // MARK: - Life Cycle
     
-    open override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    open override func viewDidLoad() {
+        super.viewDidLoad()
         
         setupUI()
+    }
+    
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigation()
     }
     
     // MARK: - Setup Functions
     
     private func setupUI() {
         setupView()
-        setupNavigation()
+        setupStackView()
         setupButton()
     }
     
@@ -40,37 +43,31 @@ open class HomeIndexViewController: BaseViewController<HomeIndexViewModelProtoco
         navigationController?.navigationBar.isHidden = false
     }
     
-    private func setupButton() {
-        button.setTitleColor(.blue, for: .normal)
-        button.setTitle("Open Profile", for: .normal)
-        button.addTarget(self, action: #selector(openProfile), for: .touchUpInside)
-        
-        button.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(button)
-        
-        button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        
-        taskButton.setTitleColor(.blue, for: .normal)
-        taskButton.setTitle("Open Task", for: .normal)
-        taskButton.addTarget(self, action: #selector(openTask), for: .touchUpInside)
-        
-        taskButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(taskButton)
-        
-        taskButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        taskButton.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 10).isActive = true
-        
-        logoutButton.setTitleColor(.blue, for: .normal)
-        logoutButton.setTitle("Logout", for: .normal)
-        logoutButton.addTarget(self, action: #selector(logout), for: .touchUpInside)
-        
-        logoutButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(logoutButton)
-        
-        logoutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        logoutButton.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 50.0).isActive = true
+    private func setupStackView() {
+        stackView.axis = .vertical
+        stackView.spacing = 20
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(stackView)
 
+        stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+    
+    private func setupButton() {
+        addButton(title: "Open Profile", action: #selector(openProfile))
+        addButton(title: "Open Task", action: #selector(openTask))
+        addButton(title: "Open Note", action: #selector(openNote))
+        
+        addButton(title: "Logout", action: #selector(logout))
+    }
+    
+    private func addButton(title: String, action: Selector) {
+        let button = UIButton()
+        button.setTitleColor(.blue, for: .normal)
+        button.setTitle(title, for: .normal)
+        button.addTarget(self, action: action, for: .touchUpInside)
+        
+        stackView.addArrangedSubview(button)
     }
     
     // MARK: - Private Functions
@@ -81,6 +78,10 @@ open class HomeIndexViewController: BaseViewController<HomeIndexViewModelProtoco
     
     @objc private func openTask() {
         viewModel?.openTask(in: self)
+    }
+    
+    @objc private func openNote() {
+        viewModel?.openNote(in: self)
     }
     
     @objc private func logout() {

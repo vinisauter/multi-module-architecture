@@ -10,5 +10,6 @@ import Foundation
 public protocol HomeIndexAnalyticsProtocol {
     func onOpenProfileClick()
     func onOpenTaskClick()
+    func onOpenNoteClick()
     func onLogoutClick()
 }

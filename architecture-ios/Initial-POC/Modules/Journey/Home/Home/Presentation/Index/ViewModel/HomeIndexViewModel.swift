@@ -20,6 +20,10 @@ class HomeIndexViewModel: BaseViewModel<HomeIndexBusinessModelProtocol, HomeInde
         flowDelegate?.openTask(in: controller)
     }
     
+    func openNote(in controller: HomeIndexViewController) {
+        analytics?.onOpenNoteClick()
+        flowDelegate?.openNote(in: controller)
+    }
     
     func logout(in controller: HomeIndexViewController) {
         analytics?.onLogoutClick()

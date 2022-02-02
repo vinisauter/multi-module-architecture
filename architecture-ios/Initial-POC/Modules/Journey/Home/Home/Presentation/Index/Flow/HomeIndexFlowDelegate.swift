@@ -10,5 +10,6 @@ import Foundation
 public protocol HomeIndexFlowDelegate: AnyObject {
     func openProfile(in controller: HomeIndexViewController)
     func openTask(in controller: HomeIndexViewController)
+    func openNote(in controller: HomeIndexViewController)
     func logout(in controller: HomeIndexViewController)
 }

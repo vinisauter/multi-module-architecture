@@ -36,7 +36,7 @@ class HomeHandler: ModuleHandler {
             AppNavigation.shared.push(journey, from: viewController)
             break
             
-        case .task:
+        case .task, .note:
             AppNavigation.shared.push(journey, from: viewController)
             break
             
@@ -63,6 +63,10 @@ extension HomeHandler: HomeFlowDelegate {
     
     func goToTask(from flow: Flow, in controller: UIViewController, with value: Any?) {
         baseFlowDelegate?.perform(.goTo(.task, currentJourney: .home), in: controller, with: value)
+    }
+    
+    func goToNote(from flow: Flow, in controller: UIViewController, with value: Any?) {
+        baseFlowDelegate?.perform(.goTo(.note, currentJourney: .home), in: controller, with: value)
     }
     
     func goToLogin(from flow: Flow, in controller: UIViewController, with value: Any?) {
