@@ -1,19 +1,24 @@
 package com.example.login.presentation
 
 import android.app.Application
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import androidx.lifecycle.SavedStateHandle
 import com.core.extensions.State
 import com.example.journey.login.tracking.LoginTracking
+import com.example.login.InstantExecutorRule
+import com.example.login.test
 import com.example.tagging.TaggingExecutor
 import io.mockk.*
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.*
-import org.junit.*
+import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.runTest
+import org.junit.After
+import org.junit.Before
+import org.junit.Rule
+import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
+import org.mockito.Mockito.`when`
 import org.mockito.kotlin.any
 import org.mockito.kotlin.doReturn
 import org.mockito.kotlin.mock
@@ -23,24 +28,7 @@ import org.mockito.kotlin.stub
 @RunWith(JUnit4::class)
 internal class LoginFragmentViewModelTest {
     @get:Rule
-    var rule = InstantTaskExecutorRule()
-
-    companion object {
-        private val testDispatcher by lazy { UnconfinedTestDispatcher() }
-        private val testScope by lazy { TestScope(testDispatcher) }
-
-        @JvmStatic
-        @BeforeClass
-        fun prepare() {
-            Dispatchers.setMain(testDispatcher)
-        }
-
-        @JvmStatic
-        @AfterClass
-        fun cleanup() {
-            Dispatchers.resetMain()
-        }
-    }
+    var rule = InstantExecutorRule()
 
     //MOCK
     lateinit var useCase: LoginFragmentUseCase
@@ -62,8 +50,9 @@ internal class LoginFragmentViewModelTest {
     fun tearDown() {
     }
 
+    //TODO: Run class test in parallel not working
     @Test
-    fun `onLoginClicked() - change loader state`() = testScope.runTest {
+    fun `onLoginClicked() - change loader state`() = runTest {
         //GIVEN
         val observer = mockk<Observer<State>> { every { onChanged(any()) } just Runs }
         vm.onStateChanged.observeForever(observer)
@@ -76,5 +65,34 @@ internal class LoginFragmentViewModelTest {
             observer.onChanged(State.Running)
             observer.onChanged(State.Idle)
         }
+        println("onLoginClicked() - change loader state")
+    }
+
+    //TODO: Run class test in parallel not working
+    @Test
+    fun `onLoginClicked() - on succeed set direction`() = runBlockingTest {
+        //GIVEN
+        val observer = vm.onActionCompleted.test(this)
+        useCase.stub { onBlocking { useCase.login(any(), any()) }.doReturn(true) }
+        // WHEN
+        vm.onLoginClicked()
+        // THEN
+        observer.assertValues(LoginFragmentDirections.actionLoginSucceed())
+        observer.finish()
+        println("onLoginClicked() - on succeed set direction")
+    }
+
+    //TODO: Run class test in parallel not working
+    @Test
+    fun `onLoginClicked() - on failed set direction`() = runBlockingTest {
+        //GIVEN
+        val observer = vm.onActionCompleted.test(this)
+        `when`(useCase.login(any(), any())).thenReturn(false)
+        // WHEN
+        vm.onLoginClicked()
+        // THEN
+        observer.assertValues(LoginFragmentDirections.actionLoginFailed())
+        observer.finish()
+        println("onLoginClicked() - on succeed set direction")
     }
 }
