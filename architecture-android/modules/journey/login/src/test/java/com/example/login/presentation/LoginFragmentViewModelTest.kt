@@ -90,4 +90,17 @@ internal class LoginFragmentViewModelTest {
         observer.finish()
         println("onLoginClicked() - on succeed set direction")
     }
+
+    @Test
+    fun `onLoginClicked() - on exception set direction`() = rule.testScope.runTest {
+        //GIVEN
+        val observer = vm.onActionCompleted.test(this)
+        whenever(useCase.login(any(), any())).thenThrow(NullPointerException("Exception message"))
+        // WHEN
+        vm.onLoginClicked()
+        // THEN
+        observer.assertValues(LoginFragmentDirections.actionLoginFailed())
+        observer.finish()
+        println("onLoginClicked() - on succeed set direction")
+    }
 }
