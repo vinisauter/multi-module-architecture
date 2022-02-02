@@ -27,6 +27,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
         }
     }
     compileOptions {
@@ -46,12 +47,18 @@ android {
 
             ':modules:structural:networking',
             ':modules:structural:networkingsecure',
-//            ':modules:structural:networkingsecurev2',
+            ':modules:structural:networkingsecurev2',
             ':modules:structural:storage',
             ':modules:structural:tagging',
             ':modules:structural:security',
             ':modules:structural:flutter',
     ]
+    lintOptions {
+//        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
 }
 
 dependencies {

@@ -1,6 +1,5 @@
 package com.example.flutter
 
-import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.view.View

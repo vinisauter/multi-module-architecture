@@ -11,4 +11,10 @@
         </dist:delivery>
         <dist:fusing dist:include="true" />
     </dist:module>
+
+
+<!--    <application-->
+<!--        android:name="io.flutter.embedding.engine.deferredcomponents.PlayStoreDeferredComponentManager">-->
+<!--        -->
+<!--    </application>-->
 </manifest>
