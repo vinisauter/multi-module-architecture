@@ -65,10 +65,20 @@ class LoginFlowTests: XCTestCase {
     
     // MARK: - Helpers
     
-    let loginViewControllerFactory = LoginViewControllerFactory(businessModel: nil, defaultAnalytics: nil, customAnalytics: nil)
+    let fakeLoginViewControllerFactory = FakeLoginViewControllerFactory()
     
     func makeSUT(with deeplink: Deeplink<LoginDeeplink>? = nil) -> LoginFlow {
-        return LoginFlow(factory: loginViewControllerFactory, deeplink: deeplink)
+        return LoginFlow(factory: fakeLoginViewControllerFactory, deeplink: deeplink)
+    }
+    
+    class FakeLoginViewControllerFactory: LoginViewControllerFactoryProtocol {
+        func makeLoginViewController(isIndex: Bool) -> LoginIndexViewController {
+            return LoginIndexViewController(viewModel: nil)
+        }
+        
+        func makeForgotPasswordViewController(isIndex: Bool) -> ForgotPasswordViewController {
+            return ForgotPasswordViewController(viewModel: nil)
+        }
     }
     
     class NonAnimatedNavigationController: UINavigationController {

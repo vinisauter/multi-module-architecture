@@ -7,8 +7,12 @@
 
 import Core
 
+protocol LoginViewControllerFactoryProtocol {
+    func makeLoginViewController(isIndex: Bool) -> LoginIndexViewController
+    func makeForgotPasswordViewController(isIndex: Bool) -> ForgotPasswordViewController
+}
 
-public class LoginViewControllerFactory: BaseViewControllerFactory<LoginBusinessModel, LoginAnalyticsProtocol> {
+public class LoginViewControllerFactory: BaseViewControllerFactory<LoginBusinessModel, LoginAnalyticsProtocol>, LoginViewControllerFactoryProtocol {
     weak var flow: LoginFlowProtocol?
     
     func makeLoginViewController(isIndex: Bool = false) -> LoginIndexViewController {

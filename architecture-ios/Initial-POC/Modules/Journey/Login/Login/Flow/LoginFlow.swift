@@ -9,7 +9,7 @@ import UIKit
 import Core
 
 protocol LoginFlowProtocol: AnyObject {
-    var factory: LoginViewControllerFactory { get }
+    var factory: LoginViewControllerFactoryProtocol { get }
     var delegate: LoginFlowDelegate? { get set }
     var deeplink: Deeplink<LoginDeeplink>? { get set }
     func start() -> UIViewController
@@ -22,13 +22,13 @@ public protocol LoginFlowDelegate: AnyObject {
 }
 
 class LoginFlow: LoginFlowProtocol, Deeplinkable {
-    var factory: LoginViewControllerFactory
+    var factory: LoginViewControllerFactoryProtocol
     
     var deeplink: Deeplink<LoginDeeplink>?
     
     weak var delegate: LoginFlowDelegate?
     
-    init(factory: LoginViewControllerFactory, deeplink: Deeplink<LoginDeeplink>?) {
+    init(factory: LoginViewControllerFactoryProtocol, deeplink: Deeplink<LoginDeeplink>?) {
         self.factory = factory
         self.deeplink = deeplink
     }
@@ -47,7 +47,7 @@ class LoginFlow: LoginFlowProtocol, Deeplinkable {
             let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
             let userName = urlComponents?.queryItems?.first{ $0.name == "userName" }
             debugPrint(userName ?? "")
-            controller.show(factory.makeForgotPasswordViewController(), sender: nil)
+            controller.show(factory.makeForgotPasswordViewController(isIndex: false), sender: nil)
             break
         }
     }
@@ -65,7 +65,7 @@ extension LoginFlow: LoginIndexFlowDelegate {
     }
     
     func onForgotPasswordClick(in controller: LoginIndexViewController) {
-        controller.show(factory.makeForgotPasswordViewController(), sender: nil)
+        controller.show(factory.makeForgotPasswordViewController(isIndex: false), sender: nil)
     }
     
     func onLoginSuccess(in controller: LoginIndexViewController) {
