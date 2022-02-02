@@ -45,7 +45,6 @@ internal class LoginFragmentViewModelTest {
     fun tearDown() {
     }
 
-    //TODO: Run class test in parallel not working
     @Test
     fun `onLoginClicked() - change loader state`() = rule.testScope.runTest {
         //GIVEN
@@ -63,7 +62,6 @@ internal class LoginFragmentViewModelTest {
         println("onLoginClicked() - change loader state")
     }
 
-    //TODO: Run class test in parallel not working
     @Test
     fun `onLoginClicked() - on succeed set direction`() = rule.testScope.runTest {
         //GIVEN
@@ -77,7 +75,6 @@ internal class LoginFragmentViewModelTest {
         println("onLoginClicked() - on succeed set direction")
     }
 
-    //TODO: Run class test in parallel not working
     @Test
     fun `onLoginClicked() - on failed set direction`() = rule.testScope.runTest {
         //GIVEN
