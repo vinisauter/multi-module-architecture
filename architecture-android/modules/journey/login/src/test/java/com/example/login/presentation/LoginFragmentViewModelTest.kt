@@ -10,7 +10,6 @@ import com.example.login.test
 import com.example.tagging.TaggingExecutor
 import io.mockk.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.runBlockingTest
 import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Before
@@ -52,7 +51,7 @@ internal class LoginFragmentViewModelTest {
 
     //TODO: Run class test in parallel not working
     @Test
-    fun `onLoginClicked() - change loader state`() = runTest {
+    fun `onLoginClicked() - change loader state`() = rule.testScope.runTest {
         //GIVEN
         val observer = mockk<Observer<State>> { every { onChanged(any()) } just Runs }
         vm.onStateChanged.observeForever(observer)
@@ -70,7 +69,7 @@ internal class LoginFragmentViewModelTest {
 
     //TODO: Run class test in parallel not working
     @Test
-    fun `onLoginClicked() - on succeed set direction`() = runBlockingTest {
+    fun `onLoginClicked() - on succeed set direction`() = rule.testScope.runTest {
         //GIVEN
         val observer = vm.onActionCompleted.test(this)
         useCase.stub { onBlocking { useCase.login(any(), any()) }.doReturn(true) }
@@ -84,7 +83,7 @@ internal class LoginFragmentViewModelTest {
 
     //TODO: Run class test in parallel not working
     @Test
-    fun `onLoginClicked() - on failed set direction`() = runBlockingTest {
+    fun `onLoginClicked() - on failed set direction`() = rule.testScope.runTest {
         //GIVEN
         val observer = vm.onActionCompleted.test(this)
         `when`(useCase.login(any(), any())).thenReturn(false)
