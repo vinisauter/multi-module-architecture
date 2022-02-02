@@ -58,7 +58,7 @@ final class LoginAPITests: XCTestCase {
             result.append(loginResult)
         })
         
-        expect(result).to(equal([true]), description: "It should have been authenticated")
+        expect(result).toEventually(equal([true]), description: "It should have been authenticated")
     }
     
     func test_login_invalidAutentication() {
@@ -70,7 +70,7 @@ final class LoginAPITests: XCTestCase {
             result.append(loginResult)
         })
         
-        expect(result).to(equal([false]), description: "It shouldn't have been authenticated")
+        expect(result).toEventually(equal([false]), description: "It shouldn't have been authenticated")
     }
     
     func test_login_errorFromClient() {
@@ -82,7 +82,7 @@ final class LoginAPITests: XCTestCase {
             result.append(loginResult)
         })
         
-        expect(result).to(equal([false]), description: "It shouldn't have been authenticated")
+        expect(result).toEventually(equal([false]), description: "It shouldn't have been authenticated")
     }
     
     // MARK: - Change Password Tests
@@ -117,7 +117,7 @@ final class LoginAPITests: XCTestCase {
             result.append(response)
         })
 
-        expect(result).to(equal([true]), description: "It should have valid request")
+        expect(result).toEventually(equal([true]), description: "It should have valid request")
     }
     
     func test_changePassword_invalidPassword() {
@@ -129,7 +129,7 @@ final class LoginAPITests: XCTestCase {
             result.append(response)
         })
         
-        expect(result).to(equal([false]), description: "It shouldn'r have been authenticated")
+        expect(result).toEventually(equal([false]), description: "It shouldn'r have been authenticated")
     }
     
     func test_changePassword_errorFromClient() {
@@ -141,7 +141,7 @@ final class LoginAPITests: XCTestCase {
             result.append(response)
         })
         
-        expect(result).to(equal([false]), description: "It shouldn't have been authenticated")
+        expect(result).toEventually(equal([false]), description: "It shouldn't have been authenticated")
     }
     
     // MARK: - Helpers
