@@ -100,4 +100,19 @@ internal class LoginFragmentViewModelTest {
         observer.finish()
         println("onLoginClicked() - on succeed set direction")
     }
+
+    @Test
+    fun `onForgotPasswordClicked() - on succeed set direction`() = rule.testScope.runTest {
+        //GIVEN
+        val observer = vm.onActionCompleted.test(this)
+        useCase.stub { onBlocking { useCase.login(any(), any()) }.doReturn(true) }
+        // WHEN
+        vm.onForgotPasswordClicked()
+        // THEN
+        observer.assertValues(LoginFragmentDirections.actionForgotPassword())
+        observer.finish()
+        println("onForgotPasswordClicked() - on succeed set direction")
+    }
+
+
 }
