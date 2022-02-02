@@ -68,6 +68,10 @@ dependencies {
     api 'com.google.android.material:material'
     api 'com.google.android.play:core-ktx'
 
+    api "androidx.lifecycle:lifecycle-livedata-ktx"
+    api "androidx.lifecycle:lifecycle-runtime-ktx"
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx"
+
 //    api libs.navigation.fragment
 //    api libs.navigation.ui
 //    api libs.navigation.dynamic

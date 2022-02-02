@@ -2,8 +2,8 @@ plugins {
     id 'java-platform'
     id 'maven-publish'
 }
-group = "com.github.vinisauter.app-bom"
-version = "1.0-SNAPSHOT"
+group = 'com.github.vinisauter.app-bom'
+version = '1.0-SNAPSHOT'
 dependencies {
     constraints {
         // Option to declined any dependency
@@ -21,6 +21,7 @@ dependencies {
         api 'androidx.customview:customview:1.1.0'//1.0.0, 1.1.0
         api 'androidx.lifecycle:lifecycle-common:2.4.0'//2.0.0, 2.3.1, 2.4.0
         api 'androidx.lifecycle:lifecycle-livedata-core-ktx:2.4.0'
+        api 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0'
         api 'androidx.lifecycle:lifecycle-livedata:2.4.0'//2.0.0, 2.2.0
         api 'androidx.lifecycle:lifecycle-process:2.4.0'//2.2.0, 2.4.0
         api 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
