@@ -21,13 +21,10 @@ internal class LoginStorageTest : TestCase() {
     @get:Rule
     val rule = InstantExecutorRule()
 
-    //mockar storage executor
     private val executor = mockk<StorageExecutor>(relaxed = true)
 
-    //class que sera testada - declara
     private lateinit var storage: LoginStorage
 
-    //before é um setup do teste - inicializa
     @Before
     fun setup() {
         storage = LoginStorage(executor)
@@ -35,11 +32,7 @@ internal class LoginStorageTest : TestCase() {
 
     @Test
     fun `should save string when receives string`() {
-
-        //estamos executando uma coroutine por isso usamos no runblock
         rule.testScope.runTest { storage.save("name") }
-
-        //verificação
         coVerify {
             executor.put("user", "name")
         }
