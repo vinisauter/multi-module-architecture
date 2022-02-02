@@ -17,11 +17,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
-import org.mockito.Mockito.`when`
-import org.mockito.kotlin.any
-import org.mockito.kotlin.doReturn
-import org.mockito.kotlin.mock
-import org.mockito.kotlin.stub
+import org.mockito.kotlin.*
 
 @ExperimentalCoroutinesApi
 @RunWith(JUnit4::class)
@@ -86,7 +82,7 @@ internal class LoginFragmentViewModelTest {
     fun `onLoginClicked() - on failed set direction`() = rule.testScope.runTest {
         //GIVEN
         val observer = vm.onActionCompleted.test(this)
-        `when`(useCase.login(any(), any())).thenReturn(false)
+        whenever(useCase.login(any(), any())).thenReturn(false)
         // WHEN
         vm.onLoginClicked()
         // THEN
