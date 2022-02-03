@@ -151,6 +151,29 @@ final class LoginAPITests: XCTestCase {
         expect(result).toEventually(equal(reference), description: "It shouldn't have been authenticated")
     }
     
+    // MARK: - Save Login Tests - ThirdPartyLibrary
+    func test_saveLogin_success() {
+        let (sut, _, _) = makeSut()
+        var result = [Result<String, ThirdPartyLibraryError>]()
+        sut.saveLogin(username: "username", password: "password") { response in
+            result.append(response)
+        }
+             
+        let reference: [Result<String, ThirdPartyLibraryError>] = [.success("success")]
+        expect(result).to(equal(reference), description: "It Should be successful")
+    }
+    
+    func test_saveLogin_failure() {
+        let (sut, _, _) = makeSut()
+        var result = [Result<String, ThirdPartyLibraryError>]()
+        sut.saveLogin(username: "", password: "") { response in
+            result.append(response)
+        }
+             
+        let reference: [Result<String, ThirdPartyLibraryError>] = [.failure(.error)]
+        expect(result).to(equal(reference), description: "It should fail")
+    }
+    
     // MARK: - Helpers
     /// Instantiates sut and clients
     /// - Returns: LoginRepositoryProtocol, SecureHttpClientFake, InsecureHttpClientFake

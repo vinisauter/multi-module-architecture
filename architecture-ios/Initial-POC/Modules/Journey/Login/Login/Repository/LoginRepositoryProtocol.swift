@@ -11,4 +11,5 @@ import NetworkingInterfaces
 public protocol LoginRepositoryProtocol: AnyObject {
     func login(with username: String, and password: String, completion: @escaping (Result<String, NetworkError>) -> Void)
     func changePassword(with newPassword: String, completion: @escaping (Result<String, NetworkError>) -> Void)
+    func saveLogin(username: String, password: String, completion: @escaping (Result<String, ThirdPartyLibraryError>) -> Void)
 }

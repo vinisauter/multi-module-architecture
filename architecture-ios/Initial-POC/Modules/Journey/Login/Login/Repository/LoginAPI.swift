@@ -44,4 +44,16 @@ class LoginAPI: LoginRepositoryProtocol {
         }
         print(" >>>> METHOD 2 from \(self)")
     }
+    
+    func saveLogin(username: String, password: String, completion: @escaping (Result<String, ThirdPartyLibraryError>) -> Void) {
+        if username.count > 0 && password.count > 0 {
+            completion(.success("success"))
+        } else {
+            completion(.failure(.error))
+        }
+    }
+}
+
+public enum ThirdPartyLibraryError: Error, Equatable {
+    case error
 }
