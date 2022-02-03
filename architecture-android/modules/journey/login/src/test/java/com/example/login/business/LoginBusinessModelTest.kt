@@ -98,8 +98,7 @@ internal class LoginBusinessModelTest {
     fun callsSave_onStorage_savedNameIsTheSameReceivedFromApi_withMockk() = runTest {
         lateinit var name : String
         coEvery { loginApiMockk.login(anyString(), anyString()) } returns NAME
-        //It does not work with anyString() and i don't know why
-        coEvery { loginStorageMockk.save(any()) } answers { name = firstArg() }
+        coEvery { loginStorageMockk.save(NAME) } answers { name = firstArg() }
         loginBusinessModelWithMockk.login(anyString(), anyString())
         assertEquals(NAME, name)
     }
