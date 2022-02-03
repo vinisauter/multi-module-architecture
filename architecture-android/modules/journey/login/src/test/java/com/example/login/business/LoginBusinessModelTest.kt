@@ -54,7 +54,7 @@ internal class LoginBusinessModelTest {
 
     @ExperimentalCoroutinesApi
     @Test
-    fun callsLogin_OnLoginBusinessModel_returnsTrue_withMockk() = runTest {
+    fun callsLogin_onLoginBusinessModel_returnsTrue_withMockk() = runTest {
         coEvery { loginApiMockk.login(anyString(), anyString()) } returns anyString()
         coEvery { loginStorageMockk.save(anyString()) } returns Unit
         val result = loginBusinessModelWithMockk.login(anyString(), anyString())
