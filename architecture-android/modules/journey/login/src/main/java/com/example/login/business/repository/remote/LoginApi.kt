@@ -6,8 +6,8 @@ import com.example.networking.RequestExecutor
 class LoginApi (
     private val unsecureRequestExecutor: RequestExecutor,
     private val secureRequestExecutor: RequestExecutor
-)  {
-     suspend fun login(user: String, password: String): String {
+) {
+    suspend fun login(user: String, password: String): String {
         unsecureRequestExecutor.get()
         secureRequestExecutor.post()
         return "João da Silva"

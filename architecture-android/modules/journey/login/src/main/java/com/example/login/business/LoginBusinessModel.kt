@@ -12,7 +12,7 @@ class LoginBusinessModel(
     override suspend fun login(user: String, password: String): Boolean {
         val username = api.login(user, password)
         storage.save(username)
-        //Thread.sleep(3_000)
+        Thread.sleep(3_000)
         return true
     }
 }
