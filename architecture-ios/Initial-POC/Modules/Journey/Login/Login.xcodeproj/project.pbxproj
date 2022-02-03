@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		593F25AD2739D3E000B34547 /* Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59DC83592739D35D00466A21 /* Login.framework */; };
-		593F25AE2739D3E000B34547 /* Login.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59DC83592739D35D00466A21 /* Login.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0CAF510C27A9CB0800BD88A7 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF510B27A9CB0800BD88A7 /* LoginTests.swift */; };
+		0CAF511527A9CBE600BD88A7 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CAF511427A9CBE600BD88A7 /* Core.framework */; };
+		0CAF511627A9CBE600BD88A7 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0CAF511427A9CBE600BD88A7 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0CAF511927A9CC2600BD88A7 /* App.app in Resources */ = {isa = PBXBuildFile; fileRef = 0CAF511827A9CC2600BD88A7 /* App.app */; };
+		0CAF511B27A9CC2C00BD88A7 /* App.app in Resources */ = {isa = PBXBuildFile; fileRef = 0CAF511A27A9CC2C00BD88A7 /* App.app */; };
+		0CAF512F27A9D36E00BD88A7 /* App.app in Resources */ = {isa = PBXBuildFile; fileRef = 0CAF512E27A9D36E00BD88A7 /* App.app */; };
 		593F26372739D58C00B34547 /* NetworkingInterfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 593F26362739D58C00B34547 /* NetworkingInterfaces.framework */; };
 		593F26382739D58C00B34547 /* NetworkingInterfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 593F26362739D58C00B34547 /* NetworkingInterfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		594380EC2739DE180001D840 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594380EB2739DE180001D840 /* Networking.framework */; };
@@ -30,7 +34,7 @@
 		597555862757F8370001C15D /* LoginIndexFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597555852757F8370001C15D /* LoginIndexFlowDelegate.swift */; };
 		597F1C4227564395006320C9 /* Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 597F1C4127564395006320C9 /* Home.framework */; };
 		597F1C4327564395006320C9 /* Home.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 597F1C4127564395006320C9 /* Home.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		597F1C46275643D6006320C9 /* LoginStarter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F1C45275643D6006320C9 /* LoginStarter.swift */; };
+		597F1C46275643D6006320C9 /* LoginHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F1C45275643D6006320C9 /* LoginHandler.swift */; };
 		597F1C492756442D006320C9 /* StructuralDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F1C482756442D006320C9 /* StructuralDependency.swift */; };
 		597F1C4C2756449B006320C9 /* HomeStarter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F1C4B2756449B006320C9 /* HomeStarter.swift */; };
 		5999E0C42747EF920044427F /* ForgotPasswordFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5999E0C32747EF920044427F /* ForgotPasswordFlow.swift */; };
@@ -48,7 +52,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		593F25AF2739D3E000B34547 /* PBXContainerItemProxy */ = {
+		0CAF510E27A9CB0800BD88A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 59DC83502739D35D00466A21 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 59DC83682739D37000466A21;
+			remoteInfo = LoginDemo;
+		};
+		0CAF512727A9D2D600BD88A7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 59DC83502739D35D00466A21 /* Project object */;
 			proxyType = 1;
@@ -65,8 +76,8 @@
 			dstSubfolderSpec = 10;
 			files = (
 				594380ED2739DE180001D840 /* Networking.framework in Embed Frameworks */,
-				593F25AE2739D3E000B34547 /* Login.framework in Embed Frameworks */,
 				59FAED7E273D9E3D00C18E6E /* Analytics.framework in Embed Frameworks */,
+				0CAF511627A9CBE600BD88A7 /* Core.framework in Embed Frameworks */,
 				597F1C4327564395006320C9 /* Home.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -88,6 +99,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0CAF510927A9CB0800BD88A7 /* LoginTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoginTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CAF510B27A9CB0800BD88A7 /* LoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
+		0CAF510D27A9CB0800BD88A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CAF511427A9CBE600BD88A7 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CAF511827A9CC2600BD88A7 /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CAF511A27A9CC2C00BD88A7 /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CAF512E27A9D36E00BD88A7 /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		593F26332739D58500B34547 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		593F26362739D58C00B34547 /* NetworkingInterfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkingInterfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		594380EB2739DE180001D840 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,7 +126,7 @@
 		597555832757F81A0001C15D /* LoginIndexBusinessModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginIndexBusinessModelProtocol.swift; sourceTree = "<group>"; };
 		597555852757F8370001C15D /* LoginIndexFlowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginIndexFlowDelegate.swift; sourceTree = "<group>"; };
 		597F1C4127564395006320C9 /* Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		597F1C45275643D6006320C9 /* LoginStarter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStarter.swift; sourceTree = "<group>"; };
+		597F1C45275643D6006320C9 /* LoginHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHandler.swift; sourceTree = "<group>"; };
 		597F1C482756442D006320C9 /* StructuralDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructuralDependency.swift; sourceTree = "<group>"; };
 		597F1C4B2756449B006320C9 /* HomeStarter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStarter.swift; sourceTree = "<group>"; };
 		5999E0C32747EF920044427F /* ForgotPasswordFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordFlow.swift; sourceTree = "<group>"; };
@@ -129,6 +147,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0CAF510627A9CB0800BD88A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		59DC83562739D35D00466A21 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -144,8 +169,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				594380EC2739DE180001D840 /* Networking.framework in Frameworks */,
-				593F25AD2739D3E000B34547 /* Login.framework in Frameworks */,
 				59FAED7D273D9E3D00C18E6E /* Analytics.framework in Frameworks */,
+				0CAF511527A9CBE600BD88A7 /* Core.framework in Frameworks */,
 				597F1C4227564395006320C9 /* Home.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,9 +178,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CAF510A27A9CB0800BD88A7 /* LoginTests */ = {
+			isa = PBXGroup;
+			children = (
+				0CAF510B27A9CB0800BD88A7 /* LoginTests.swift */,
+				0CAF510D27A9CB0800BD88A7 /* Info.plist */,
+			);
+			path = LoginTests;
+			sourceTree = "<group>";
+		};
 		593F25AC2739D3E000B34547 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0CAF512E27A9D36E00BD88A7 /* App.app */,
+				0CAF511A27A9CC2C00BD88A7 /* App.app */,
+				0CAF511827A9CC2600BD88A7 /* App.app */,
+				0CAF511427A9CBE600BD88A7 /* Core.framework */,
 				597F1C4127564395006320C9 /* Home.framework */,
 				59FAED8B273D9EA800C18E6E /* AnalyticsInterfaces.framework */,
 				59FAED7C273D9E3D00C18E6E /* Analytics.framework */,
@@ -317,7 +355,7 @@
 		597F1C44275643AE006320C9 /* Starters */ = {
 			isa = PBXGroup;
 			children = (
-				597F1C45275643D6006320C9 /* LoginStarter.swift */,
+				597F1C45275643D6006320C9 /* LoginHandler.swift */,
 				597F1C4B2756449B006320C9 /* HomeStarter.swift */,
 			);
 			path = Starters;
@@ -348,6 +386,7 @@
 			children = (
 				59DC836A2739D37000466A21 /* LoginDemo */,
 				59DC835B2739D35D00466A21 /* Login */,
+				0CAF510A27A9CB0800BD88A7 /* LoginTests */,
 				59DC835A2739D35D00466A21 /* Products */,
 				593F25AC2739D3E000B34547 /* Frameworks */,
 			);
@@ -358,6 +397,7 @@
 			children = (
 				59DC83592739D35D00466A21 /* Login.framework */,
 				59DC83692739D37000466A21 /* LoginDemo.app */,
+				0CAF510927A9CB0800BD88A7 /* LoginTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -403,6 +443,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		0CAF510827A9CB0800BD88A7 /* LoginTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0CAF511027A9CB0800BD88A7 /* Build configuration list for PBXNativeTarget "LoginTests" */;
+			buildPhases = (
+				0CAF510527A9CB0800BD88A7 /* Sources */,
+				0CAF510627A9CB0800BD88A7 /* Frameworks */,
+				0CAF510727A9CB0800BD88A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0CAF510F27A9CB0800BD88A7 /* PBXTargetDependency */,
+			);
+			name = LoginTests;
+			productName = LoginTests;
+			productReference = 0CAF510927A9CB0800BD88A7 /* LoginTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		59DC83582739D35D00466A21 /* Login */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 59DC83612739D35D00466A21 /* Build configuration list for PBXNativeTarget "Login" */;
@@ -434,7 +492,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				593F25B02739D3E000B34547 /* PBXTargetDependency */,
+				0CAF512827A9D2D600BD88A7 /* PBXTargetDependency */,
 			);
 			name = LoginDemo;
 			productName = LoginDemo;
@@ -450,6 +508,10 @@
 				LastSwiftUpdateCheck = 1210;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
+					0CAF510827A9CB0800BD88A7 = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 59DC83682739D37000466A21;
+					};
 					59DC83582739D35D00466A21 = {
 						CreatedOnToolsVersion = 12.1;
 						LastSwiftMigration = 1210;
@@ -474,11 +536,19 @@
 			targets = (
 				59DC83682739D37000466A21 /* LoginDemo */,
 				59DC83582739D35D00466A21 /* Login */,
+				0CAF510827A9CB0800BD88A7 /* LoginTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0CAF510727A9CB0800BD88A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		59DC83572739D35D00466A21 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -490,13 +560,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CAF511B27A9CC2C00BD88A7 /* App.app in Resources */,
 				59DC83782739D37200466A21 /* LaunchScreen.storyboard in Resources */,
+				0CAF511927A9CC2600BD88A7 /* App.app in Resources */,
+				0CAF512F27A9D36E00BD88A7 /* App.app in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0CAF510527A9CB0800BD88A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CAF510C27A9CB0800BD88A7 /* LoginTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		59DC83552739D35D00466A21 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -529,17 +610,22 @@
 				59DC836C2739D37000466A21 /* AppDelegate.swift in Sources */,
 				597F1C492756442D006320C9 /* StructuralDependency.swift in Sources */,
 				597F1C4C2756449B006320C9 /* HomeStarter.swift in Sources */,
-				597F1C46275643D6006320C9 /* LoginStarter.swift in Sources */,
+				597F1C46275643D6006320C9 /* LoginHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		593F25B02739D3E000B34547 /* PBXTargetDependency */ = {
+		0CAF510F27A9CB0800BD88A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 59DC83682739D37000466A21 /* LoginDemo */;
+			targetProxy = 0CAF510E27A9CB0800BD88A7 /* PBXContainerItemProxy */;
+		};
+		0CAF512827A9D2D600BD88A7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 59DC83582739D35D00466A21 /* Login */;
-			targetProxy = 593F25AF2739D3E000B34547 /* PBXContainerItemProxy */;
+			targetProxy = 0CAF512727A9D2D600BD88A7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -555,6 +641,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0CAF511127A9CB0800BD88A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9FQ9WC8677;
+				INFOPLIST_FILE = LoginTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.next.LoginTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LoginDemo.app/LoginDemo";
+			};
+			name = Debug;
+		};
+		0CAF511227A9CB0800BD88A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9FQ9WC8677;
+				INFOPLIST_FILE = LoginTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.next.LoginTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LoginDemo.app/LoginDemo";
+			};
+			name = Release;
+		};
 		59DC835F2739D35D00466A21 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -733,7 +859,6 @@
 		59DC837B2739D37200466A21 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CWQ8X44CMX;
@@ -752,7 +877,6 @@
 		59DC837C2739D37200466A21 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CWQ8X44CMX;
@@ -771,6 +895,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0CAF511027A9CB0800BD88A7 /* Build configuration list for PBXNativeTarget "LoginTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0CAF511127A9CB0800BD88A7 /* Debug */,
+				0CAF511227A9CB0800BD88A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		59DC83532739D35D00466A21 /* Build configuration list for PBXProject "Login" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

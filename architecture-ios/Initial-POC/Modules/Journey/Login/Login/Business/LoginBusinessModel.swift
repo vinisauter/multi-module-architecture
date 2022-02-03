@@ -17,7 +17,7 @@ public class LoginBusinessModel: LoginAnalyticsProtocol {
     public var repository: LoginRepositoryProtocol?
     public var structuralAnalytics: AnalyticsProtocol?
     
-    init(repository: LoginRepositoryProtocol, structuralAnalytics: AnalyticsProtocol) {
+    public init(repository: LoginRepositoryProtocol, structuralAnalytics: AnalyticsProtocol) {
         self.repository = repository
         self.structuralAnalytics = structuralAnalytics
     }
