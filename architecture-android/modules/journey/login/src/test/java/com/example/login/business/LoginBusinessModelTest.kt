@@ -23,11 +23,11 @@ internal class LoginBusinessModelTest {
     private val NAME = "João da Silva"
     private val PASSWORD = "123D"
 
-    private lateinit var secureExecutorMockk: RequestExecutor //Mockk
-    private lateinit var unsecureExecutorMockk: RequestExecutor //Mockk
+    private lateinit var secureExecutorMockk: RequestExecutor
+    private lateinit var unsecureExecutorMockk: RequestExecutor
 
-    private lateinit var loginApiMockk: LoginApi  //Mockk
-    private lateinit var loginStorageMockk: LoginStorage  //Mockk
+    private lateinit var loginApiMockk: LoginApi
+    private lateinit var loginStorageMockk: LoginStorage
 
     private lateinit var loginApiImplMockk: LoginApi //Concrete impl, mocked args
 
@@ -36,12 +36,11 @@ internal class LoginBusinessModelTest {
 
     @Before
     fun setUp() {
+        secureExecutorMockk = mockk()
+        unsecureExecutorMockk = mockk()
 
-        secureExecutorMockk = mockk() //Mockk
-        unsecureExecutorMockk = mockk() //Mockk
-
-        loginApiMockk = mockk() //Mockk
-        loginStorageMockk = mockk() //Mockk
+        loginApiMockk = mockk()
+        loginStorageMockk = mockk()
 
         loginApiImplMockk = LoginApi(unsecureExecutorMockk, secureExecutorMockk) //Concrete impl, mocked args
 
