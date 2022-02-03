@@ -3,7 +3,7 @@ package com.example.login.business.repository.remote
 import com.example.networking.RequestExecutor
 
 @Suppress("UNUSED_PARAMETER")
-class LoginApi (
+class LoginApi(
     private val unsecureRequestExecutor: RequestExecutor,
     private val secureRequestExecutor: RequestExecutor
 ) {
