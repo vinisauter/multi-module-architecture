@@ -11,18 +11,18 @@ import Core
 open class LoginIndexViewController: BaseViewController<LoginIndexViewModelProtocol>  {
     // MARK: - Private Properties
     
-    private let button: UIButton = UIButton()
-    private let forgotPasswordbutton: UIButton = UIButton()
-    private let loadingContainer: UIView = UIView()
+    let button: UIButton = UIButton()
+    let forgotPasswordbutton: UIButton = UIButton()
+    let loadingContainer: UIView = UIView()
     
     // MARK: - Life Cycle
-    
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        setupUI()
     }
     
+    open override func viewDidLoad() {
+        setupUI()
+    }
     // MARK: - Setup Functions
     
     private func setupUI() {

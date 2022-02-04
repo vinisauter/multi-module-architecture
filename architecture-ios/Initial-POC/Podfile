@@ -1,0 +1,28 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+workspace 'App.xcworkspace'
+
+def pod_tests
+  pod 'Nimble', '~> 9.2.1'
+end
+
+target 'App' do
+  project 'App.xcodeproj'
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for App
+
+end
+
+target 'Login' do
+  project 'Modules/Journey/Login/Login.xcodeproj'
+  use_frameworks!
+  
+  abstract_target 'Tests' do
+    target "LoginTests"
+    
+    pod_tests
+  end
+end

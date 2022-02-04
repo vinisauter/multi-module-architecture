@@ -10,14 +10,17 @@ import Core
 
 open class ForgotPasswordViewController: BaseViewController<ForgotPasswordViewModelProtocol> {
     // MARK: - Private Properties
-    private let button: UIButton = UIButton()
+    public let button: UIButton = UIButton()
     private let loadingContainer: UIView = UIView()
     
     // MARK: - Life Cycle
     
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
+    }
+    
+    open override func viewDidLoad() {
         setupUI()
     }
     
