@@ -26,89 +26,85 @@ object StrictModeManager {
             vmPolicyBuilder.setClassInstanceLimit(entry.key, entry.value)
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            threadPolicyBuilder.penaltyListener(
-                Executors.newFixedThreadPool(5),
-                { v: Violation ->
-                    val stackTrace = v.stackTrace
-                    var isCodeFromApp = false
-                    for (stackTraceElement in stackTrace) {
-                        if (stackTraceElement.toString().contains(APPLICATION_ID)) {
-                            isCodeFromApp = true
-                            break
-                        }
+            threadPolicyBuilder.penaltyListener(Executors.newFixedThreadPool(5)) { v: Violation ->
+                val stackTrace = v.stackTrace
+                var isCodeFromApp = false
+                for (stackTraceElement in stackTrace) {
+                    if (stackTraceElement.toString().contains(APPLICATION_ID)) {
+                        isCodeFromApp = true
+                        break
                     }
-                    val error = v.fillInStackTrace()
-                    error.stackTrace = stackTrace
-                    val bug: Bug
-                    when {
-                        isCodeFromApp -> {
-                            bug = Bug("THREAD POLICY BUG FOUND", error)
-                            bug.stackTrace = arrayOfNulls(0)
-                            LOGGER?.log(Level.SEVERE, "" + bug.localizedMessage, bug)
-                        }
-                        enableForThirdParties -> {
-                            bug = Bug("THREAD POLICY BUG FOUND FROM LIB", error)
-                            bug.stackTrace = arrayOfNulls(0)
-                            LOGGER?.log(Level.SEVERE, "" + bug.localizedMessage, bug)
-                        }
-                        else -> {
-                            return@penaltyListener
-                        }
+                }
+                val error = v.fillInStackTrace()
+                error.stackTrace = stackTrace
+                val bug: Bug
+                when {
+                    isCodeFromApp -> {
+                        bug = Bug("THREAD POLICY BUG FOUND", error)
+                        bug.stackTrace = arrayOfNulls(0)
+                        LOGGER?.log(Level.SEVERE, "" + bug.localizedMessage, bug)
                     }
-                    if (penaltyDialog) {
-                        val message = bug.messageStackTrace
-                        onMainThread {
-                            AlertDialog.Builder(application)
-                                .setMessage(message)
-                                .setPositiveButton("Ok", null)
-                                .show()
-                        }
+                    enableForThirdParties -> {
+                        bug = Bug("THREAD POLICY BUG FOUND FROM LIB", error)
+                        bug.stackTrace = arrayOfNulls(0)
+                        LOGGER?.log(Level.SEVERE, "" + bug.localizedMessage, bug)
                     }
-                })
+                    else -> {
+                        return@penaltyListener
+                    }
+                }
+                if (penaltyDialog) {
+                    val message = bug.messageStackTrace
+                    onMainThread {
+                        AlertDialog.Builder(application)
+                            .setMessage(message)
+                            .setPositiveButton("Ok", null)
+                            .show()
+                    }
+                }
+            }
         } else {
             threadPolicyBuilder.penaltyLog()
             threadPolicyBuilder.penaltyDropBox()
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            vmPolicyBuilder.penaltyListener(
-                Executors.newFixedThreadPool(5),
-                { v: Violation ->
-                    val stackTrace = v.stackTrace
-                    var isCodeFromApp = false
-                    for (stackTraceElement in stackTrace) {
-                        if (stackTraceElement.toString().contains(APPLICATION_ID)) {
-                            isCodeFromApp = true
-                            break
-                        }
+            vmPolicyBuilder.penaltyListener(Executors.newFixedThreadPool(5)) { v: Violation ->
+                val stackTrace = v.stackTrace
+                var isCodeFromApp = false
+                for (stackTraceElement in stackTrace) {
+                    if (stackTraceElement.toString().contains(APPLICATION_ID)) {
+                        isCodeFromApp = true
+                        break
                     }
-                    val error = v.fillInStackTrace()
-                    error.stackTrace = stackTrace
-                    val bug: Bug
-                    when {
-                        isCodeFromApp -> {
-                            bug = Bug("VIRTUAL MACHINE POLICY BUG FOUND", error)
-                            bug.stackTrace = arrayOfNulls(0)
-                            LOGGER?.log(Level.SEVERE, "" + bug.localizedMessage, bug)
-                        }
-                        enableForThirdParties -> {
-                            bug = Bug("VIRTUAL MACHINE POLICY BUG FOUND FROM LIB", error)
-                            bug.stackTrace = arrayOfNulls(0)
-                            LOGGER?.log(Level.SEVERE, "" + bug.localizedMessage, bug)
-                        }
-                        else -> {
-                            return@penaltyListener
-                        }
+                }
+                val error = v.fillInStackTrace()
+                error.stackTrace = stackTrace
+                val bug: Bug
+                when {
+                    isCodeFromApp -> {
+                        bug = Bug("VIRTUAL MACHINE POLICY BUG FOUND", error)
+                        bug.stackTrace = arrayOfNulls(0)
+                        LOGGER?.log(Level.SEVERE, "" + bug.localizedMessage, bug)
                     }
-                    if (penaltyDialog) {
-                        val message = bug.messageStackTrace
-                        onMainThread {
-                            AlertDialog.Builder(application)
-                                .setMessage(message)
-                                .setPositiveButton("Ok", null)
-                                .show()
-                        }
+                    enableForThirdParties -> {
+                        bug = Bug("VIRTUAL MACHINE POLICY BUG FOUND FROM LIB", error)
+                        bug.stackTrace = arrayOfNulls(0)
+                        LOGGER?.log(Level.SEVERE, "" + bug.localizedMessage, bug)
                     }
-                })
+                    else -> {
+                        return@penaltyListener
+                    }
+                }
+                if (penaltyDialog) {
+                    val message = bug.messageStackTrace
+                    onMainThread {
+                        AlertDialog.Builder(application)
+                            .setMessage(message)
+                            .setPositiveButton("Ok", null)
+                            .show()
+                    }
+                }
+            }
         } else {
             vmPolicyBuilder.penaltyLog()
             vmPolicyBuilder.penaltyDropBox()

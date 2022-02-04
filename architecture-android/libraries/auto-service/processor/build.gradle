@@ -1,18 +1,29 @@
 plugins {
     id 'kotlin'
     id 'com.google.devtools.ksp'
+    id 'maven-publish'
 }
 
-group = "com.auto.service"
+group = "com.github.vinisauter.auto-service"
 version = "1.0-SNAPSHOT"
 
 dependencies {
+//    implementation platform(project(path: ':app-bom'))
     implementation project(path: ':libraries:auto-service:annotations')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.5.31"
-    implementation "com.squareup:javapoet:1.13.0"
-    implementation "com.google.devtools.ksp:symbol-processing-api:1.6.0-M1-1.0.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation "com.squareup:javapoet"
+    implementation "com.google.devtools.ksp:symbol-processing-api"
 }
 
 sourceSets {
     main.java.srcDirs += 'src/main/kotlin'
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.github.vinisauter.auto-service'
+            from components.java
+        }
+    }
 }

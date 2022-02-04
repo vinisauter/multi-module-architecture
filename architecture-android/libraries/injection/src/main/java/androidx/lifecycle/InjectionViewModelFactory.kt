@@ -38,7 +38,7 @@ class InjectionViewModelFactory @SuppressLint("LambdaLast") constructor(
     private val savedStateRegistry: SavedStateRegistry = savedStateRegistryOwner.savedStateRegistry
 
     @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return try {
             newInstanceOf(modelClass) as T
         } catch (e: IllegalAccessException) {

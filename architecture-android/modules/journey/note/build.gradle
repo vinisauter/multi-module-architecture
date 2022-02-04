@@ -40,8 +40,8 @@ dependencies {
     implementation project(":app")
     ksp project(path: ':libraries:auto-service:processor')
 
-    debugImplementation('com.example.note_business_module:flutter_debug:1.0@aar')
-    profileImplementation 'com.example.note_business_module:flutter_profile:1.0@aar'
+//    debugImplementation('com.example.note_business_module:flutter_debug:1.0@aar')
+//    profileImplementation 'com.example.note_business_module:flutter_profile:1.0@aar'
     releaseImplementation 'com.example.note_business_module:flutter_release:1.0@aar'
 
     testImplementation 'junit:junit:4.13.2'

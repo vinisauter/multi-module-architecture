@@ -4,10 +4,7 @@ plugins {
     id 'com.google.devtools.ksp'
 }
 android {
-    compileSdk 31
-
     defaultConfig {
-        minSdk 21
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -17,19 +14,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    sourceSets.all {
-        it.java.srcDir("build/generated/ksp/${it.name}/kotlin/")
-        it.res.srcDirs("build/generated/ksp/${it.name}/resources/")
-    }
 }
 
 dependencies {
     implementation project(path: ':app')
-    implementation project(path: ':engineering:implementations:networkingsecurev2')
-    ksp project(path: ':libraries:auto-service:processor')
+    implementation project(path: ':engineering:implementations:networking-impl-v2')
 
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4-alpha03'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    androidTestImplementation 'androidx.annotation:annotation:1.3.0'
 }

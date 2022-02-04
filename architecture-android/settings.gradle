@@ -8,6 +8,7 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        mavenLocal()
         google()
         mavenCentral()
         maven { url "https://artifactory.it4ng.eu/virtual" }
@@ -16,8 +17,14 @@ dependencyResolutionManagement {
         maven { url "https://storage.googleapis.com/download.flutter.io" }
     }
 }
+
+enableFeaturePreview("VERSION_CATALOGS")
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 rootProject.name = "ModularFeatureArchitecture"
 include ':app'
+include ':app-bom'
+include ':app-catalog'
 include ':libraries'
 include ':libraries:bug-finder'
 include ':libraries:injection'
@@ -32,9 +39,10 @@ include ':engineering:interfaces:networking-interface'
 include ':engineering:interfaces:storage-interface'
 include ':engineering:interfaces:tagging-interface'
 include ':engineering:interfaces:security-interface'
+include ':engineering:provider'
 include ':engineering:interfaces:flutter-interface'
 include ':engineering:implementations'
-include ':engineering:implementations:networkingsecurev2'
+include ':engineering:implementations:networking-impl-v2'
 
 include ':modules'
 include ':modules:structural'

@@ -1,0 +1,27 @@
+plugins {
+    id 'version-catalog'
+    id 'maven-publish'
+}
+group = "com.github.vinisauter.app-catalog"
+version = "1.0-SNAPSHOT"
+catalog {
+    // declare the aliases, bundles and versions in this block
+    versionCatalog {
+        alias('androidx-core').to('androidx.core:core-ktx:1.7.0')
+        version('androidx-navigation-version', '2.4.0-rc01')
+        alias('navigation-fragment').to('androidx.navigation', 'navigation-fragment-ktx').versionRef('androidx-navigation-version')
+        alias('navigation-ui').to('androidx.navigation', 'navigation-ui-ktx').versionRef('androidx-navigation-version')
+        alias('navigation-dynamic').to('androidx.navigation', 'navigation-dynamic-features-fragment').versionRef('androidx-navigation-version')
+        bundle('navigation', ['navigation-fragment', 'navigation-ui', 'navigation-dynamic'])
+    }
+}
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.github.vinisauter'
+            artifactId = 'app-catalog'
+            version = '1.0.0'
+            from components.versionCatalog
+        }
+    }
+}

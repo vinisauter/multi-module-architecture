@@ -1,14 +1,75 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
     id 'com.google.devtools.ksp' version '1.6.10-1.0.2'
+    id 'org.jetbrains.kotlin.android' version '1.6.10' apply false
+    id 'org.jetbrains.kotlin.kapt' version '1.6.10' apply false
+
     id 'com.android.application' version '7.0.4' apply false
     id 'com.android.library' version '7.0.4' apply false
-    id 'org.jetbrains.kotlin.android' version '1.6.10' apply false
     id 'com.android.dynamic-feature' version '7.0.4' apply false
-    id 'androidx.navigation.safeargs.kotlin' version '2.4.0-beta02' apply false
-    id "org.jetbrains.kotlin.kapt" version "1.6.10" apply false
+
+    id 'androidx.navigation.safeargs.kotlin' version '2.4.0-rc01' apply false
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+subprojects {
+//    println('>' + it.identityPath + '->' + it.pluginManager.hasPlugin('com.android.dynamic-feature'))
+//    it.class.properties.each { println('      ' + it.key + ': ' + it.value) }
+//    beforeEvaluate {
+//        println('beforeEvaluate->' + it.name + '->' + it.pluginManager.hasPlugin('com.android.dynamic-feature'))
+//    }
+    afterEvaluate {
+//        println('afterEvaluate->' + it.name + '->' + it.pluginManager.hasPlugin('com.android.dynamic-feature'))
+//        it.properties.each { println('      ' + it.key + ': ' + it.value) }
+
+        if (it.hasProperty('android')) {
+            android {
+                compileSdk 31
+                defaultConfig {
+                    minSdk 21
+                    targetSdk 31
+                }
+            }
+            dependencies {
+                 implementation enforcedPlatform(project(path: ':app-bom'))
+//                implementation enforcedPlatform('com.github.vinisauter.multi-module-architecture:app-bom:android-1.0.0')
+            }
+            if (it.pluginManager.hasPlugin('com.google.devtools.ksp')) {
+                android {
+                    sourceSets.all {
+                        it.java.srcDir("build/generated/ksp/${it.name}/kotlin/")
+                        it.res.srcDirs("build/generated/ksp/${it.name}/resources/")
+                    }
+                }
+                dependencies {
+                    implementation project(path: ':libraries:auto-service:android')
+                    ksp project(path: ':libraries:auto-service:processor')
+                }
+            }
+        } else if (it.hasProperty('java')) {
+            dependencies {
+                 implementation platform(project(path: ':app-bom'))
+//                implementation platform('com.github.vinisauter.multi-module-architecture:app-bom:android-1.0.0')
+            }
+        }
+    }
+}
+
+//subprojects {
+//    apply plugin: 'java'
+//    apply plugin: 'maven-publish'
+//
+//    publishing {
+//        publications {
+//            beta(MavenPublication) {
+//                from components.java
+////                from components.release
+//            }
+//        }
+//    }
+//
+//    // Alias for the task publishBetaPublicationToMavenLocal that publishes the individual integration jars to the local Maven repo
+//    task install(dependsOn: 'publishBetaPublicationToMavenLocal') {}
+//}

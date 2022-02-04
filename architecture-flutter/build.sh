@@ -12,14 +12,14 @@ pushd "modules" > /dev/null
             echo "Module $MODULE_NAME will be save in: {$LIBFOLDER}"
 
             if [ "$BUILD_ANDROID" = true ]; then
-                flutter build aar --no-profile --no-release --output-dir=${LIBFOLDER}
+                flutter build aar --no-profile --output-dir=${LIBFOLDER}
             fi
 
             if [ "$BUILD_IOS" = true ]; then
                 flutter build ios-framework --output="${LIBFOLDER}/ios/${MODULE_NAME}"
             fi
 
-            find "${LIBFOLDER}/host" -name "*debug*.aar" | while read line; do
+            find "${LIBFOLDER}/host" -name "*.aar" | while read line; do
                 echo "Copying ${line}"
                 rename_assets_folder "${line}" "${MODULE_NAME}"
             done

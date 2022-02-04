@@ -1,0 +1,48 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    defaultConfig {
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+//  TODO: export to app
+//        maybe kotlin
+//        maybe script
+//        maybe plugin import
+//    dynamicFeatures = [
+//            ':modules:structural:networking',
+//            ':modules:structural:networkingsecure',
+//            ':modules:structural:networkingsecurev2',
+//            ':modules:structural:storage',
+//            ':modules:structural:tagging',
+//            ':modules:structural:security',
+//    ]
+}
+
+dependencies {
+//    implementation enforcedPlatform(project(path: ':app-bom'))
+    api 'androidx.core:core-ktx'
+    api 'com.google.android.play:core-ktx'
+
+    api project(path: ':libraries:auto-service:android')
+    api project(path: ':libraries:injection')
+
+    api project(path: ':engineering:interfaces:networking-interface')
+    api project(path: ':engineering:interfaces:storage-interface')
+    api project(path: ':engineering:interfaces:tagging-interface')
+    api project(path: ':engineering:interfaces:security-interface')
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4-alpha03'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
