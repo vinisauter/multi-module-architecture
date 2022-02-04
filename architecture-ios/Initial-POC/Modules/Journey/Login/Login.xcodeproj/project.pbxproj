@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C05CA6327AD59260075E8F8 /* ForgotPasswordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C05CA6227AD59260075E8F8 /* ForgotPasswordTests.swift */; };
 		0C2588C627ACA2DE00DC9CBC /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2588C527ACA2DE00DC9CBC /* LoginTests.swift */; };
 		0C2588C727ACA2DE00DC9CBC /* Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59DC83592739D35D00466A21 /* Login.framework */; };
 		51E1344AD3FD42D62D4E5B68 /* Pods_Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E09CAEFCD9993E293D94AD0 /* Pods_Login.framework */; };
@@ -100,6 +101,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0C05CA6227AD59260075E8F8 /* ForgotPasswordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordTests.swift; sourceTree = "<group>"; };
 		0C2588C327ACA2DE00DC9CBC /* LoginTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoginTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C2588C527ACA2DE00DC9CBC /* LoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
 		29E03617A73B714E0361E0F7 /* Pods-Login.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Login.debug.xcconfig"; path = "Target Support Files/Pods-Login/Pods-Login.debug.xcconfig"; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				0C2588C527ACA2DE00DC9CBC /* LoginTests.swift */,
+				0C05CA6227AD59260075E8F8 /* ForgotPasswordTests.swift */,
 			);
 			path = LoginTests;
 			sourceTree = "<group>";
@@ -663,6 +666,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C2588C627ACA2DE00DC9CBC /* LoginTests.swift in Sources */,
+				0C05CA6327AD59260075E8F8 /* ForgotPasswordTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

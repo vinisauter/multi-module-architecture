@@ -10,14 +10,13 @@ import Core
 
 open class ForgotPasswordViewController: BaseViewController<ForgotPasswordViewModelProtocol> {
     // MARK: - Private Properties
-    public let button: UIButton = UIButton()
-    private let loadingContainer: UIView = UIView()
+     let button: UIButton = UIButton()
+     let loadingContainer: UIView = UIView()
     
     // MARK: - Life Cycle
     
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
     }
     
     open override func viewDidLoad() {
@@ -49,7 +48,6 @@ open class ForgotPasswordViewController: BaseViewController<ForgotPasswordViewMo
         
         button.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button)
-        
         button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }

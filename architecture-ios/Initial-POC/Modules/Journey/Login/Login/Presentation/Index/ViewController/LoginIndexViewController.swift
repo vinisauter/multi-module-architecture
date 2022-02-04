@@ -18,10 +18,10 @@ open class LoginIndexViewController: BaseViewController<LoginIndexViewModelProto
     // MARK: - Life Cycle
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupUI()
     }
     
     open override func viewDidLoad() {
-        setupUI()
     }
     // MARK: - Setup Functions
     

@@ -6,50 +6,51 @@
 //
 
 import XCTest
-import Nimble
-import Core
-
 @testable import Login
 
 final class LoginTests: XCTestCase {
 
-    var loginViewController : LoginIndexViewController?
-    var forgotviewController : ForgotPasswordViewController?
+    var sut : LoginIndexViewController?
     var loginButton: UIButton?
     var forgotButton: UIButton?
     
     override func setUpWithError() throws {
-        self.loginViewController = LoginIndexViewController(viewModel: nil)
-        self.forgotviewController = ForgotPasswordViewController(viewModel: nil)
-    
-        self.loginViewController?.loadViewIfNeeded()
-        self.forgotviewController?.loadViewIfNeeded()
-        
-        self.loginButton = self.loginViewController!.button
-        self.forgotButton = self.loginViewController!.forgotPasswordbutton
+        self.sut = LoginIndexViewController(viewModel: nil)
+        self.sut?.loadViewIfNeeded()
+        self.sut?.viewWillAppear(true)
+        self.loginButton = self.sut?.button
+        self.forgotButton = self.sut?.forgotPasswordbutton
     }
 
     override func tearDownWithError() throws {
-        self.loginViewController = nil
-        self.forgotviewController = nil
+        self.sut = nil
     }
     
-    func testIfHasButtons() {
+    func testIfHasLoginNotReturnNil() {
         XCTAssertNotNil(self.loginButton, "O ViewController não possui a propriedade LoginButton")
+    }
+    
+    func testIfHasForgotButtonNotReturnNil(){
         XCTAssertNotNil(self.forgotButton, "O ViewController não possui a propriedade ForgotPassword")
     }
     
-    func testRenderLogin() {
-        XCTAssertEqual(self.loginViewController!.title, "Login")
-        XCTAssertEqual(self.loginButton?.titleLabel?.text, "Login")
-        XCTAssertEqual(self.forgotButton?.titleLabel?.text, "Forgot Password")
-        XCTAssertEqual(self.loginViewController?.navigationItem.leftBarButtonItem?.title, "Fechar")
-        
-        XCTAssertTrue(((self.loginViewController?.loadingContainer.isHidden) != nil))
+    func testRenderTitleShouldReturnString() {
+        XCTAssertEqual(self.sut?.title, "Login")
     }
     
-    func testRenderForgotPassword() {
-        XCTAssertEqual(self.forgotviewController!.title, "Forgot Password")
-        XCTAssertEqual(self.forgotviewController!.button.titleLabel?.text, "Change Password")
+    func testRenderLoginButtonTitleShouldReturnString(){
+        XCTAssertEqual(self.loginButton?.titleLabel?.text, "Login")
+    }
+    
+    func testRenderForgotButtonTitleShouldReturnString(){
+        XCTAssertEqual(self.forgotButton?.titleLabel?.text, "Forgot Password")
+    }
+    
+    func testRenderLeftBarButtonTitleReturnString(){
+        XCTAssertEqual(self.sut?.navigationItem.leftBarButtonItem?.title, "Fechar")
+    }
+    
+    func testRenderLoadingContainerIsHidden(){
+        XCTAssertTrue(((self.sut?.loadingContainer.isHidden) != nil))
     }
 }
