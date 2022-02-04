@@ -1,7 +1,6 @@
 package com.example.structural.flutter
 
 import android.content.Context
-import android.content.res.AssetManager
 import android.net.Uri
 import androidx.fragment.app.Fragment
 import com.example.flutter.FlutterExecutor
@@ -10,24 +9,26 @@ import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
 import io.flutter.embedding.engine.FlutterJNI
 import io.flutter.embedding.engine.dart.DartExecutor
+import io.flutter.embedding.engine.loader.ApplicationInfoLoader
 import io.flutter.embedding.engine.loader.FlutterLoader
-import io.flutter.view.FlutterMain
 
 class FlutterExecutorImpl : FlutterExecutor {
     private val engineCache: FlutterEngineCache = FlutterEngineCache.getInstance()
 
     private var fragments: MutableMap<String, FlutterFragment> = mutableMapOf()
 
-    override fun getFragment(context: Context, engineId: String): Fragment {
-//        val jni = FlutterJNI()
-//        jni.attachToNative()
-//        jni.init(context, emptyArray(), "flutter_assets", "", "", 0)
+    override fun getFragment(context: Context, moduleName: String, engineId: String): Fragment {
+//            val engine = FlutterEngine(context)
 
-        val engine = FlutterEngine(context)
-//        val engine = FlutterEngine(context, null, jni)
+        val jni = FlutterJNI()
+        val loader = FlutterLoader(jni)
+        loader.startInitialization(context)
+        val engine = FlutterEngine(context, loader, jni)
+//        FlutterLoader
+//        context.packageManager.getActivityInfo((context as ModuleControllerActivity).componentName, PackageManager.GET_META_DATA).metaData.getString("io.flutter.embedding.engine.loader.FlutterLoader.flutter-assets-dir")
 
-        val entrypoint = DartExecutor.DartEntrypoint.createDefault()
-//        val entrypoint = DartExecutor.DartEntrypoint("", "")
+//        val entrypoint = DartExecutor.DartEntrypoint.createDefault()
+        val entrypoint = DartExecutor.DartEntrypoint("flutter_assets_$moduleName", "main")
 
         engine.dartExecutor.executeDartEntrypoint(entrypoint)
         engineCache.put(engineId, engine)
@@ -46,7 +47,10 @@ class FlutterExecutorImpl : FlutterExecutor {
     }
 
     override fun destroyEngine(engineId: String) {
-        fragments[engineId]?.detachFromFlutterEngine()
+        fragments[engineId]?.let {
+            it.detachFromFlutterEngine()
+            fragments.remove(engineId)
+        }
 
         engineCache.get(engineId)?.let {
             it.destroy()

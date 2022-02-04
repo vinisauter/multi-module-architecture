@@ -7,18 +7,18 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import java.util.*
 
-abstract class BaseFlutterFragment(private val engineIdPrefix: String): Fragment() {
+abstract class BaseFlutterFragment(private val moduleName: String): Fragment() {
     abstract val flutter: FlutterExecutor
     abstract val fragmentContainerId: Int
 
     private val engineId: String by lazy {
-        "${engineIdPrefix}_${Calendar.getInstance().timeInMillis}"
+        "${moduleName}_${Calendar.getInstance().timeInMillis}"
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val childFragment = flutter.getFragment(requireContext(), engineId)
+        val childFragment = flutter.getFragment(requireContext(), moduleName, engineId)
 
         childFragmentManager
             .beginTransaction()

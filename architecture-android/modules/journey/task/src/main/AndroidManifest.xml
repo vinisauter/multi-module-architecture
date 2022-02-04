@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.task">
 
     <dist:module
@@ -12,6 +13,10 @@
         <dist:fusing dist:include="true" />
     </dist:module>
     <application>
-        <activity android:name=".TaskControllerActivity" />
+        <activity android:name=".TaskControllerActivity" >
+            <meta-data
+                android:name="io.flutter.embedding.engine.loader.FlutterLoader.flutter-assets-dir"
+                android:value="flutter_assets_task" />
+        </activity>
     </application>
 </manifest>
