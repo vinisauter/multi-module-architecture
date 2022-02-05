@@ -11,7 +11,8 @@ abstract class BaseFlutterFragment(private val engineIdPrefix: String): Fragment
     abstract val fragmentContainerId: Int
 
     private val engineId: String by lazy {
-        "${engineIdPrefix}_${Calendar.getInstance().timeInMillis}"
+//        "${engineIdPrefix}_${Calendar.getInstance().timeInMillis}"
+        engineIdPrefix
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

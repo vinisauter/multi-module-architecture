@@ -4,14 +4,10 @@ import android.content.Context
 import android.net.Uri
 import androidx.fragment.app.Fragment
 import com.example.flutter.FlutterExecutor
-import com.google.android.play.core.splitinstall.SplitInstallHelper
-import io.flutter.FlutterInjector
 import io.flutter.embedding.android.FlutterFragment
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
-import io.flutter.embedding.engine.FlutterJNI
 import io.flutter.embedding.engine.dart.DartExecutor
-import io.flutter.embedding.engine.deferredcomponents.PlayStoreDeferredComponentManager
 
 class FlutterExecutorImpl : FlutterExecutor {
     private val engineCache: FlutterEngineCache = FlutterEngineCache.getInstance()
@@ -19,28 +15,24 @@ class FlutterExecutorImpl : FlutterExecutor {
     private var fragments: MutableMap<String, FlutterFragment> = mutableMapOf()
 
     override fun getFragment(context: Context, engineId: String): Fragment {
-//        SplitInstallHelper.loadLibrary(context, "app.so-${extractLoadingUnitId(engineId)}.part");
+        if (!engineCache.contains(engineId)) {
+            val flutterLoader = CustomFlutterInjector.instance().flutterLoader()
+            val jni = CustomFlutterInjector.instance().flutterJNIFactory.provideFlutterJNI()
+            val engine = CustomFlutterEngine(context, flutterLoader, jni)
 
-        val jni = FlutterJNI()
-        val deferredComponentManager = PlayStoreDeferredComponentManager(context, jni)
-        val engine = FlutterEngine(context, null, jni)
-        deferredComponentManager.loadDartLibrary(
-            extractLoadingUnitId(engineId),
-            "split_" + extractModule(engineId)
-        );
+            val entrypoint =
+                DartExecutor.DartEntrypoint("flutter_assets_${extractModule(engineId)}", "main")
 
-//        FlutterInjector.instance().deferredComponentManager()
-//            ?.loadAssets(extractLoadingUnitId(engineId), "");
+            engine.dartExecutor.executeDartEntrypoint(entrypoint)
 
-        val entrypoint = DartExecutor.DartEntrypoint.createDefault()
-//        val entrypoint = DartExecutor.DartEntrypoint("","")
+            val newFlutterEngine = FlutterEngine(context, flutterLoader, jni, null, false)
 
-        engine.dartExecutor.executeDartEntrypoint(entrypoint)
-        engineCache.put(engineId, engine)
+            engineCache.put(engineId, newFlutterEngine)
+        }
 
         val fragment = FlutterFragment
             .withCachedEngine(engineId)
-            .destroyEngineWithFragment(true)
+            .destroyEngineWithFragment(false)
             .build<FlutterFragment>()
 
         fragments[engineId] = fragment
@@ -64,11 +56,11 @@ class FlutterExecutorImpl : FlutterExecutor {
     }
 
     override fun destroyEngine(engineId: String) {
-        fragments[engineId]?.detachFromFlutterEngine()
+//        fragments[engineId]?.detachFromFlutterEngine()
 
-        engineCache.get(engineId)?.let {
-            it.destroy()
-            engineCache.remove(engineId)
-        }
+//        engineCache.get(engineId)?.let {
+//            it.destroy()
+//            engineCache.remove(engineId)
+//        }
     }
 }

@@ -12,6 +12,13 @@
         <dist:fusing dist:include="true" />
     </dist:module>
     <application>
-        <activity android:name=".NoteControllerActivity" />
+        <activity android:name=".NoteControllerActivity">
+            <meta-data
+                android:name="com.example.structural.flutter.CustomFlutterLoader.aot-shared-library-name"
+                android:value="libnoteapp.so" />
+            <meta-data
+                android:name="com.example.structural.flutter.CustomFlutterLoader.flutter-assets-dir"
+                android:value="flutter_assets_note" />
+        </activity>
     </application>
 </manifest>

@@ -25,6 +25,7 @@ android {
     }
     buildTypes {
         release {
+            debuggable true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.debug
@@ -47,7 +48,7 @@ android {
 
             ':modules:structural:networking',
             ':modules:structural:networkingsecure',
-            ':modules:structural:networkingsecurev2',
+//            ':modules:structural:networkingsecurev2',
             ':modules:structural:storage',
             ':modules:structural:tagging',
             ':modules:structural:security',

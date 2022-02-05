@@ -29,6 +29,7 @@ android {
         it.java.srcDir("build/generated/ksp/${it.name}/kotlin/")
         it.res.srcDirs("build/generated/ksp/${it.name}/resources/")
     }
+    buildTypes.release.debuggable = true
 }
 
 dependencies {

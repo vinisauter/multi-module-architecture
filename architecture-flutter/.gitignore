@@ -7,7 +7,7 @@ build/com/*
 !build/com/example/
 
 build/com/example/*
-!build/com/example/flutter_module/
+!build/com/example/*_module/
 
 **/.android
 **/.dart_tool

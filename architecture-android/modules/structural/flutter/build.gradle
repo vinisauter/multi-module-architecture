@@ -24,6 +24,7 @@ android {
         it.java.srcDir("build/generated/ksp/${it.name}/kotlin/")
         it.res.srcDirs("build/generated/ksp/${it.name}/resources/")
     }
+    buildTypes.release.debuggable = true
 }
 
 dependencies {
@@ -32,8 +33,8 @@ dependencies {
 
 //    implementation fileTree(include: ['flutter.jar'], dir: 'libs')
     debugApi 'com.example.flutter_module:flutter_debug:1.0'
-//    profileApi 'com.example.flutter_module:flutter_profile:1.0'
-//    releaseApi 'com.example.flutter_module:flutter_release:1.0'
+    profileApi 'com.example.flutter_module:flutter_profile:1.0'
+    releaseApi 'com.example.flutter_module:flutter_release:1.0'
 
 //    implementation ...core download play sotore
 
