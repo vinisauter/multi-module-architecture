@@ -114,5 +114,21 @@ internal class LoginFragmentViewModelTest {
         println("onForgotPasswordClicked() - on succeed set direction")
     }
 
-
+//    @Test
+//    fun `requestUserData() - update user data`() = rule.testScope.runTest {
+//        //GIVEN
+//        val observerName = mockk<Observer<String>> { every { onChanged(any()) } just Runs }
+//        val observerEmail = mockk<Observer<String>> { every { onChanged(any()) } just Runs }
+//        vm.onNameChanged.observeForever(observerName)// val onNameChanged: LiveData<String>
+//        vm.onEmailChanged.observeForever(observerEmail)// val onEmailChanged: LiveData<String>
+//        whenever(useCase.requestUserData())// mocking useCase.requestUserData()
+//            .thenReturn(User(name = "John Doe", email = "john_doe@email.com"))
+//        // WHEN
+//        vm.requestUserData()
+//        // THEN
+//        verify { observerName.onChanged("John Doe") }
+//        verify { observerEmail.onChanged("john_doe@email.com") }
+//
+//        println("onStart() - update user data")
+//    }
 }

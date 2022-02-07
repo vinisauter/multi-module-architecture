@@ -60,6 +60,10 @@ object StructuralProvider {
         }
     }
 
+//    fun notSingleInstanceExecutor(): AlwaysNewInstanceExecutor {
+//        return load<AlwaysNewProvider>().executor(get())
+//    }
+
     fun start(app: Application) {
         provides {
             declare<Application> { app }
@@ -72,6 +76,7 @@ object StructuralProvider {
 
             declare<RequestExecutor>(qualifier = "secure") { secureRequestExecutor }
             declare<RequestExecutor>(qualifier = "unsecure") { unsecureRequestExecutor }
+//            declare<AlwaysNewInstanceExecutor>() { notSingleInstanceExecutor() }
         }
     }
 }
