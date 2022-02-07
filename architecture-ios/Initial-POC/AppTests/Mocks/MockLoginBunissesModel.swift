@@ -5,10 +5,10 @@ import AnalyticsInterfaces
 
 class MockBunissesModel: LoginIndexBusinessModelProtocol, ForgotPasswordBusinessModelProtocol, LoginAnalyticsProtocol, LoginIndexAnalyticsProtocol{
 
-    public var repository: MockLoginRepository?
+    public var repository: LoginRepositoryProtocol?
     public var structuralAnalytics: AnalyticsProtocol?
     
-    public init(repository: MockLoginRepository,structuralAnalytics: AnalyticsProtocol){
+    public init(repository: LoginRepositoryProtocol,structuralAnalytics: AnalyticsProtocol){
         self.repository = repository
         self.structuralAnalytics = structuralAnalytics
     }

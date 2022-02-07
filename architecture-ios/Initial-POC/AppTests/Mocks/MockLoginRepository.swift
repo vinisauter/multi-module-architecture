@@ -21,6 +21,4 @@ class MockLoginRepository: LoginRepositoryProtocol{
             completion(true)
         }
     }
-    
-    
 }

@@ -144,8 +144,8 @@
 			children = (
 				0CAF515327AABEFE00BD88A7 /* MockLoginAnalytics.swift */,
 				0CAF514F27AAB2CD00BD88A7 /* MockLoginRepository.swift */,
-				0CAF514B27AA13AA00BD88A7 /* MockLoginBunissesModel.swift */,
 				0CAF515727AAF27800BD88A7 /* MockLoginFlow.swift */,
+				0CAF514B27AA13AA00BD88A7 /* MockLoginBunissesModel.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";

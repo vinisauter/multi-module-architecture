@@ -1,90 +1,143 @@
-//
-//  AppTests.swift
-//  AppTests
-//
-//  Created by ACT on 01/02/22.
-//
-
 import XCTest
+import Nimble
+@testable import Login
 
-import App
+class LoginIndexViewModelTests: XCTestCase {
 
-import Login
+    func testLoginWhenIsPassedAValidUsernameAndPasswordShouldReturnTrue() {
+        let sut = makeSUT(with: FakeSuccessLoginIndexBusinessModel())
 
-import Networking
-import NetworkingInterfaces
-import Core
-import Analytics
-import AnalyticsInterfaces
+        var wasLoginSuccess = false
 
-class AppTests: XCTestCase {
-
-    private var mockLoginRepository:MockLoginRepository?
-    private var mockLoginStructuralAnalytics:MockLoginStructuralAnaltytics?
-    private var mockLoginBunissesModel:MockBunissesModel?
-    
-    override func setUpWithError() throws {
-        self.mockLoginRepository = MockLoginRepository()
-        self.mockLoginStructuralAnalytics = MockLoginStructuralAnaltytics()
-        self.mockLoginBunissesModel = MockBunissesModel(repository: self.mockLoginRepository!, structuralAnalytics: self.mockLoginStructuralAnalytics!)
+        sut.login(with: "valid_username", and: "valid_password") { isSuccess in
+            wasLoginSuccess = isSuccess
+        }
+        expect(wasLoginSuccess).to(beTrue())
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    func testLoginWhenIsPassedAValidUsernameAndInvalidPasswordShouldReturnFalse() {
+        let sut = makeSUT(with: FakeFailureLoginIndexBusinessModel())
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+        var wasLoginSuccess = true
 
-    func testAllParametersOfTheViewModelReceiveSuccessfully() throws {
-        //  mock flow
-        let mockFLow = MockLoginFlow()
-        
-        // error converte analytics LoginIndex Analytics Protocol
-        let viewModel = LoginIndexViewModel(businessModel: self.mockLoginBunissesModel, analytics: self.mockLoginBunissesModel, flowDelegate: mockFLow)
-        
-        XCTAssertNotNil(viewModel.businessModel)
-        XCTAssertNotNil(viewModel.flowDelegate)
-        XCTAssertNotNil(viewModel.analytics)
+        sut.login(with: "valid_username", and: "invalid_password") { isSuccess in
+            wasLoginSuccess = isSuccess
+        }
+        expect(wasLoginSuccess).to(beFalse())
     }
     
-    func testAllParametersAreNotreceivedSucessfully() throws{
-        
-        let viewModel = LoginIndexViewModel(businessModel: nil, analytics: nil, flowDelegate: nil)
-        
-        XCTAssertNil(viewModel.businessModel)
-        XCTAssertNil(viewModel.flowDelegate)
-        XCTAssertNil(viewModel.analytics)
+    func testOnForgotPasswordClickShouldCallOnForgotPasswordClickFromAnalytics() {
+        let sut = makeSUT(with: FakeSuccessLoginIndexBusinessModel())
+        sut.onForgotPasswordClick(in: LoginIndexViewController(viewModel: nil))
+        expect(self.fakeLoginIndexAnalytics.isValid(methods: .onForgotPasswordClick)).to(beTrue())
     }
     
-    func testClassTypeIsMatches() throws{
-        
-        let mockFLow = MockLoginFlow()
-        
-        let viewModel = LoginIndexViewModel(businessModel: self.mockLoginBunissesModel, analytics: self.mockLoginBunissesModel, flowDelegate: mockFLow)
-        
-        guard (type(of: viewModel.businessModel!) == type(of:self.mockLoginBunissesModel!)) else {
-            XCTFail("Not Match BuninessModel type")
-            return
+    // Teste Navigation Flow
+    func testAllLoginNavigationMethodOnLoginSucess(){
+        let sut = makeSUT(with: FakeSuccessLoginIndexBusinessModel())
+        sut.onLoginSuccess(in: LoginIndexViewController(viewModel: nil))
+        expect(self.fakeLoginIndexFlow.isValid(methods: .onLoginSuccess)).to(beTrue())
+    }
+    
+    func testLoginNavigationMethodOnBackClick(){
+        let sut = makeSUT(with: FakeSuccessLoginIndexBusinessModel())
+        sut.onLoginSuccess(in: LoginIndexViewController(viewModel: nil))
+        expect(self.fakeLoginIndexFlow.isValid(methods: .onBackClick)).to(beTrue())
+    }
+    
+    func testLoginNavigationMethodOnForgetPassword(){
+        let sut = makeSUT(with: FakeSuccessLoginIndexBusinessModel())
+        sut.onLoginSuccess(in: LoginIndexViewController(viewModel: nil))
+        expect(self.fakeLoginIndexFlow.isValid(methods: .onForgetPassword)).to(beTrue())
+    }
+    
+    func testLoginNavigationMethodOnCloseClick(){
+        let sut = makeSUT(with: FakeSuccessLoginIndexBusinessModel())
+        sut.onLoginSuccess(in: LoginIndexViewController(viewModel: nil))
+        expect(self.fakeLoginIndexFlow.isValid(methods: .onForgetPassword)).to(beTrue())
+    }
+
+    
+    
+    // MARK: - Helpers
+    let fakeLoginIndexAnalytics = FakeLoginIndexAnalytics()
+    let fakeLoginIndexFlow = FakeLoginIndexFlow()
+
+    func makeSUT(with businessModel: LoginIndexBusinessModelProtocol) -> LoginIndexViewModel {
+        return LoginIndexViewModel(businessModel: businessModel, analytics: fakeLoginIndexAnalytics, flowDelegate: fakeLoginIndexFlow)
+    }
+
+    class FakeSuccessLoginIndexBusinessModel: LoginIndexBusinessModelProtocol {
+
+        func login(with username: String, and password: String, completion: @escaping (Bool) -> Void) {
+            completion(true)
+        }
+    }
+
+
+    class FakeFailureLoginIndexBusinessModel: LoginIndexBusinessModelProtocol {
+
+        func login(with username: String, and password: String, completion: @escaping (Bool) -> Void) {
+            completion(false)
+        }
+    }
+    
+    enum AnalyticLoginCallMethod{
+        case onLoginClick
+        case onForgotPasswordClick
+    }
+
+    class FakeLoginIndexAnalytics: LoginIndexAnalyticsProtocol {
+
+        var calledFunctions = [AnalyticLoginCallMethod]()
+
+        func onLoginClick() {
+            calledFunctions.append(.onLoginClick)
         }
         
-        guard (type(of: viewModel.analytics!) == type(of:self.mockLoginBunissesModel!)) else {
-            XCTFail("Not Match BuninessModel type")
-            return
+        func onForgotPasswordClick() {
+            calledFunctions.append(.onForgotPasswordClick)
         }
         
-        guard (type(of: viewModel.flowDelegate!) == type(of:mockFLow)) else {
-            XCTFail("Not Match FLow Delegate type")
-            return
-        }
         
+        func isValid(methods: AnalyticLoginCallMethod...) -> Bool{
+            let valid = called.elementsEqual(methods)
+            called = []
+            return valid
+        }
+
     }
     
-    
-//    func assertEqual<T:BidirectionalCollection>(_ first: T){
-//        first.difference(from: <#T##BidirectionalCollection#>, by: <#T##(BidirectionalCollection.Element, T.Element) -> Bool#>)
-//    }
-    
+    enum FlowLoginCallMethod{
+        case onLoginSuccess
+        case onForgetPassword
+        case onClose
+        case onBackClick
+    }
+
+    class FakeLoginIndexFlow: LoginIndexFlowDelegate {
+        
+        let called = [FlowCallMethod]()
+
+        func onLoginSuccess(in controller: LoginIndexViewController) {
+            called.append(.onLoginSuccess)
+        }
+        func onForgotPasswordClick(in controller: LoginIndexViewController) {
+            called.append(.onForgetPassword)
+        }
+        func onCloseClick(in controller: LoginIndexViewController) {
+            called.append(.onClose)
+        }
+        func onBackClick(in controller: LoginIndexViewController) {
+            called.append(.onBackClick)
+        }
+        
+        func isValid(methods: FlowCallMethod...) -> Bool{
+            let valid = called.elementsEqual(methods)
+            called = []
+            return valid
+        }
+
+    }
+
 }

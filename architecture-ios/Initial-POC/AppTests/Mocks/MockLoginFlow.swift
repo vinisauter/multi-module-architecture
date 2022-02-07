@@ -25,6 +25,4 @@ class MockLoginFlow: LoginIndexFlowDelegate{
     func onBackClick(in controller: LoginIndexViewController) {
         print("on Back Click")
     }
-    
-    
 }
