@@ -3,47 +3,121 @@ package com.example.login.business
 import com.example.login.business.repository.local.LoginStorage
 import com.example.login.business.repository.remote.LoginApi
 import com.example.networking.RequestExecutor
-import com.example.storage.StorageExecutor
 import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.coVerifySequence
 import io.mockk.mockk
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.runTest
 import org.junit.After
-import org.junit.Assert
+import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
+import org.mockito.Mockito.*
 
 @RunWith(JUnit4::class)
 internal class LoginBusinessModelTest {
 
-    private val unsecureExecutorMockk: RequestExecutor = mockk()
-    private val secureExecutorMockk: RequestExecutor = mockk()
-    private val storageExecutorMockk: StorageExecutor = mockk()
+    private val NAME = "João da Silva"
+    private val PASSWORD = "123D"
 
-    private val loginApi: LoginApi = LoginApi(unsecureExecutorMockk, secureExecutorMockk)
-    private val loginStorage: LoginStorage = LoginStorage(storageExecutorMockk)
+    private lateinit var secureExecutorMockk: RequestExecutor
+    private lateinit var unsecureExecutorMockk: RequestExecutor
 
-    private val loginBusinessModel: LoginBusinessModel = LoginBusinessModel(loginApi, loginStorage)
+    private lateinit var loginApiMockk: LoginApi
+    private lateinit var loginStorageMockk: LoginStorage
+
+    private lateinit var loginApiImplMockk: LoginApi //Concrete impl, mocked args
+
+    private lateinit var loginBusinessModelWithMockk: LoginBusinessModel
+    private lateinit var loginBusinessModelConcreteMockk: LoginBusinessModel
 
     @Before
     fun setUp() {
+        secureExecutorMockk = mockk()
+        unsecureExecutorMockk = mockk()
+
+        loginApiMockk = mockk()
+        loginStorageMockk = mockk()
+
+        loginApiImplMockk = LoginApi(unsecureExecutorMockk, secureExecutorMockk) //Concrete impl, mocked args
+
+        loginBusinessModelWithMockk = LoginBusinessModel(loginApiMockk, loginStorageMockk)
+        loginBusinessModelConcreteMockk = LoginBusinessModel(loginApiImplMockk, loginStorageMockk)
     }
 
     @After
     fun tearDown() {
     }
 
+    @ExperimentalCoroutinesApi
     @Test
-    fun login_WhenSuccess() = runBlocking {
-        coEvery { unsecureExecutorMockk.get() } returns "João da Silva"
-        val result = loginBusinessModel.login("João da Silva", "123D")
-        Assert.assertEquals(result, true)
+    fun callsLogin_onLoginBusinessModel_returnsTrue_withMockk() = runTest {
+        coEvery { loginApiMockk.login(anyString(), anyString()) } returns anyString()
+        coEvery { loginStorageMockk.save(anyString()) } returns Unit
+        val result = loginBusinessModelWithMockk.login(anyString(), anyString())
+        assertEquals(result, true)
     }
 
+    @ExperimentalCoroutinesApi
     @Test
-    fun login_WhenReturnName() = runBlocking {
-        coEvery { unsecureExecutorMockk.get() } returns "João da Silva"
-        Assert.assertEquals(unsecureExecutorMockk.get(), "João da Silva")
+    fun callsSave_onStorage_savedNameIsTheSameReceivedFromApi_withMockk() = runTest {
+        lateinit var name : String
+        coEvery { loginApiMockk.login(anyString(), anyString()) } returns NAME
+        coEvery { loginStorageMockk.save(NAME) } answers { name = firstArg() }
+        loginBusinessModelWithMockk.login(anyString(), anyString())
+        assertEquals(NAME, name)
+    }
+
+    @ExperimentalCoroutinesApi
+    @Test
+    fun callsLogin_onApi_apiMethodIsCalledOnce_withMockk() = runTest {
+        coEvery { loginApiMockk.login(anyString(), anyString()) } returns NAME
+        coEvery { loginStorageMockk.save(NAME) } returns Unit
+        loginBusinessModelWithMockk.login(anyString(), anyString())
+        coVerify(exactly = 1) { loginApiMockk.login(anyString(), anyString()) }
+    }
+
+    @ExperimentalCoroutinesApi
+    @Test
+    fun callsSave_onStorage_storageMethodIsCalledOnce_withMockk() = runTest {
+        coEvery { loginApiMockk.login(NAME, PASSWORD) } returns NAME
+        coEvery { loginStorageMockk.save(NAME) } returns Unit
+        loginBusinessModelWithMockk.login(NAME, PASSWORD)
+        coVerify(exactly = 1) { loginStorageMockk.save(NAME) }
+    }
+
+    @ExperimentalCoroutinesApi
+    @Test
+    fun callsLogin_onBusinessModel_apiMethodCalledFirstStorageMethodCalledSecond_withMockk() = runTest {
+        coEvery { loginApiMockk.login(NAME, PASSWORD) } returns NAME
+        coEvery { loginStorageMockk.save(NAME) } returns Unit
+        loginBusinessModelWithMockk.login(NAME, PASSWORD)
+        coVerifySequence {
+            loginApiMockk.login(NAME, PASSWORD)
+            loginStorageMockk.save(NAME)
+        }
+    }
+
+    @ExperimentalCoroutinesApi
+    @Test
+    fun callsLogin_onBusinessModel_unsecureExecutorMethodIsCalled_withMockk() = runTest {
+        coEvery { unsecureExecutorMockk.get() } answers { anyString() }
+        coEvery { secureExecutorMockk.post() } answers { NAME }
+        coEvery { loginStorageMockk.save(NAME) } returns Unit
+        loginBusinessModelConcreteMockk.login(anyString(), anyString())
+        coVerify(exactly = 1) { unsecureExecutorMockk.get() }
+    }
+
+    @ExperimentalCoroutinesApi
+    @Test
+    fun callsLogin_onBusinessModel_secureExecutorMethodIsCalledOnce_withMockk() = runTest {
+        coEvery { unsecureExecutorMockk.get() } returns NAME
+        coEvery { secureExecutorMockk.post() } returns NAME
+        coEvery { loginStorageMockk.save(NAME) } returns Unit
+        loginBusinessModelConcreteMockk.login(anyString(), anyString())
+        coVerify(exactly = 1) { secureExecutorMockk.post() }
     }
 }

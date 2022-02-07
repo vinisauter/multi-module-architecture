@@ -9,7 +9,7 @@ class LoginApi(
 ) {
     suspend fun login(user: String, password: String): String {
         unsecureRequestExecutor.get()
-//        secureRequestExecutor.post()
+        secureRequestExecutor.post()
         return "João da Silva"
     }
 }
