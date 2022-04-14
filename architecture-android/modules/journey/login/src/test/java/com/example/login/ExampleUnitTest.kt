@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.SavedStateHandle
 import com.example.journey.login.tracking.LoginTracking
-import com.example.login.presentation.LoginFragmentUseCase
+import com.example.login.presentation.LoginFragmentUseCases
 import com.example.login.presentation.LoginFragmentViewModel
 import com.example.tagging.Tagging
 import com.example.tagging.TaggingExecutor
@@ -29,7 +29,7 @@ class ExampleUnitTest {
 
     private lateinit var tagging: TaggingExecutor
 
-    private lateinit var useCase: LoginFragmentUseCase
+    private lateinit var useCase: LoginFragmentUseCases
 
     @DelicateCoroutinesApi
     private val mainThreadSurrogate = newSingleThreadContext("UI thread")

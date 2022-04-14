@@ -18,7 +18,7 @@ class LoginFragmentViewModel(
     private val app: Application,
     private val savedStateHandle: SavedStateHandle,
     private val tagging: TaggingExecutor,
-    private val useCase: LoginFragmentUseCase,
+    private val useCase: LoginFragmentUseCases,
     private val tracking: LoginTracking
 ) : BaseViewModel(app, savedStateHandle) {
     //https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/

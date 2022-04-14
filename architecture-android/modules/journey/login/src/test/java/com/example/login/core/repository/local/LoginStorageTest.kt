@@ -1,12 +1,12 @@
-package com.example.login.business.repository.local
+package com.example.login.core.repository.local
 
 
 import com.example.login.InstantExecutorRule
 import com.example.storage.StorageExecutor
-import io.mockk.*
+import io.mockk.coVerify
+import io.mockk.mockk
 import junit.framework.TestCase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Rule

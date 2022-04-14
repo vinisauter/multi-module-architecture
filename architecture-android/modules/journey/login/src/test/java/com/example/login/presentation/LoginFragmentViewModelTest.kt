@@ -26,7 +26,7 @@ internal class LoginFragmentViewModelTest {
     var rule = InstantExecutorRule()
 
     //MOCK
-    lateinit var useCase: LoginFragmentUseCase
+    lateinit var useCase: LoginFragmentUseCases
 
     //SUBJECT
     lateinit var vm: LoginFragmentViewModel

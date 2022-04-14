@@ -1,4 +1,7 @@
 package com.example.login.presentation.forgotpassword
 
-interface ForgotPasswordFragmentUseCase {
-}
+import com.example.login.core.ForgotPassword
+
+data class ForgotPasswordFragmentUseCase(
+    val forgotPassword: ForgotPassword
+)

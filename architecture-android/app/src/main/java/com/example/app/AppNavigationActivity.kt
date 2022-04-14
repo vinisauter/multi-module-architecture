@@ -2,9 +2,9 @@ package com.example.app
 
 import android.injection.Module
 import android.os.Bundle
-import com.core.base.ModuleControllerActivity
+import com.core.base.ModuleHostActivity
 
-class AppNavigationActivity : ModuleControllerActivity(
+class AppNavigationActivity : ModuleHostActivity(
     graphResId = R.navigation.app_navigation_graph,
     startDestination = R.id.splash
 ) {

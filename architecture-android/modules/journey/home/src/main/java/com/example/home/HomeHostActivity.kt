@@ -2,9 +2,9 @@ package com.example.home
 
 import android.injection.Module
 import android.os.Bundle
-import com.core.base.ModuleControllerActivity
+import com.core.base.ModuleHostActivity
 
-class HomeControllerActivity : ModuleControllerActivity(R.navigation.home_navigation_graph) {
+class HomeHostActivity : ModuleHostActivity(R.navigation.home_navigation_graph) {
     override fun Module.dependencies() {}
 
     override fun onCreate(savedInstanceState: Bundle?) {

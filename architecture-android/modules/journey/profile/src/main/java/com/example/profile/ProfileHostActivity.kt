@@ -2,9 +2,9 @@ package com.example.profile
 
 import android.injection.Module
 import android.os.Bundle
-import com.core.base.ModuleControllerActivity
+import com.core.base.ModuleHostActivity
 
-class ProfileControllerActivity : ModuleControllerActivity(R.navigation.profile_navigation_graph) {
+class ProfileHostActivity : ModuleHostActivity(R.navigation.profile_navigation_graph) {
     override fun Module.dependencies() {}
 
     override fun onCreate(savedInstanceState: Bundle?) {

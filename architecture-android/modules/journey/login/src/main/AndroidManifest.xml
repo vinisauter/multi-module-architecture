@@ -12,6 +12,6 @@
         <dist:fusing dist:include="true" />
     </dist:module>
     <application>
-        <activity android:name=".LoginControllerActivity" />
+        <activity android:name=".LoginHostActivity" />
     </application>
 </manifest>

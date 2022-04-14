@@ -12,7 +12,7 @@ import androidx.navigation.Navigator
 import com.example.app.R
 import com.example.journey.JourneyNavigator
 
-abstract class ModuleControllerActivity(
+abstract class ModuleHostActivity(
     @NavigationRes override val graphResId: Int,
     @IdRes override val startDestination: Int = DEFAULT_START_DESTINATION
 ) : NavigationActivity(graphResId, startDestination) {
