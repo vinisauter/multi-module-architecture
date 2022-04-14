@@ -12,15 +12,15 @@ import androidx.navigation.Navigator
 import com.example.app.R
 import com.example.journey.JourneyNavigator
 
-abstract class ModuleHostActivity(
+abstract class BaseHostActivity(
     @NavigationRes override val graphResId: Int,
     @IdRes override val startDestination: Int = DEFAULT_START_DESTINATION
-) : NavigationActivity(graphResId, startDestination) {
+) : BaseNavigationActivity(graphResId, startDestination) {
 
     abstract fun Module.dependencies()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        module(lifecycle = lifecycle, activity = this) {
+        module(lifecycle = lifecycle) {
             dependencies()
         }
     }
@@ -38,6 +38,8 @@ abstract class ModuleHostActivity(
     }
 
     override fun customNavigators(): List<Navigator<out NavDestination>> {
+        // enable TAG journey to navigation of the module host activity
+        // to enable back navigation to R.navigation.app_navigation_graph
         val launcherNavigator = JourneyNavigator(
             navController.context,
             navController.navigatorProvider,

@@ -2,12 +2,30 @@ package android.injection
 
 import android.app.Activity
 import android.util.Log
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 
 val provider = InjectionProvider
 
 inline fun provides(block: InjectionProvider.() -> Unit) = provider.apply(block)
+
+inline fun Activity.module(
+    moduleName: String = this::class.java.simpleName,
+    lifecycle: Lifecycle,
+    block: Module.() -> Unit
+) {
+    module(moduleName, lifecycle, this, block)
+}
+
+inline fun Fragment.module(
+    moduleName: String = this::class.java.simpleName,
+    lifecycle: Lifecycle,
+    block: Module.() -> Unit
+) {
+    module(moduleName, lifecycle, this.requireActivity(), block)
+}
+
 inline fun Any.module(
     moduleName: String = this::class.java.simpleName,
     lifecycle: Lifecycle,

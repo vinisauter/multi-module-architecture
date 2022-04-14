@@ -11,7 +11,7 @@ import androidx.navigation.Navigator
 import androidx.navigation.fragment.NavHostFragment
 import com.example.app.R
 
-abstract class NavigationActivity(
+abstract class BaseNavigationActivity(
     @NavigationRes open val graphResId: Int,
     @IdRes open val startDestination: Int = DEFAULT_START_DESTINATION
 ) : AppCompatActivity(R.layout.navigation_activity) {
@@ -21,7 +21,7 @@ abstract class NavigationActivity(
 
     open lateinit var navController: NavController
     open lateinit var navGraph: NavGraph
-    private val navHostFragment: NavHostFragment by lazy {
+    open val navHostFragment: NavHostFragment by lazy {
         supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
     }
 

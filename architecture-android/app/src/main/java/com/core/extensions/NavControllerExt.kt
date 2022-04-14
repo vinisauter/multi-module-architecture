@@ -12,7 +12,7 @@ import androidx.navigation.*
 import androidx.navigation.dynamicfeatures.DynamicExtras
 import androidx.navigation.dynamicfeatures.DynamicInstallMonitor
 import androidx.navigation.fragment.findNavController
-import com.core.base.NavigationActivity
+import com.core.base.BaseNavigationActivity
 import com.google.android.play.core.splitinstall.SplitInstallSessionState
 import com.google.android.play.core.splitinstall.model.SplitInstallSessionStatus
 import kotlinx.parcelize.Parcelize
@@ -91,7 +91,7 @@ fun Fragment.navigate(
     )
 }
 
-fun NavigationActivity.navigate(
+fun BaseNavigationActivity.navigate(
     @IdRes destinationId: Int,
     args: Bundle? = null,
     navOptions: NavOptions? = null,
@@ -107,7 +107,7 @@ fun NavigationActivity.navigate(
     )
 }
 
-fun NavigationActivity.navigate(
+fun BaseNavigationActivity.navigate(
     destination: NavDirections,
     navOptions: NavOptions? = null,
     statusObserver: SplitInstallStatusObserver? = null
