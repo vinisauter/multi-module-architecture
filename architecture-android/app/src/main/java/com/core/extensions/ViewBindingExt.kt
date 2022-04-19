@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
 
-fun <T : ViewBinding> viewBindingInflate(
+fun <T : ViewBinding> inflateViewBinding(
     clazz: Class<T>,
     inflater: LayoutInflater,
     parent: ViewGroup?

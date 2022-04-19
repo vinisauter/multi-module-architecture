@@ -1,5 +1,6 @@
 package com.core.base
 
+import android.injection.Module
 import android.injection.module
 import android.os.Bundle
 import androidx.annotation.IdRes
@@ -18,10 +19,12 @@ abstract class BaseHostActivity<BP : BaseProvider>(
 
     abstract val dependenciesProvider: BP?
 
+    fun Module.dependencies() {}
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         module(lifecycle = lifecycle) {
-            dependenciesProvider?.applyTo(this)
+            dependencies()
+            dependenciesProvider?.applyTo(this)// TODO: use block
         }
     }
 

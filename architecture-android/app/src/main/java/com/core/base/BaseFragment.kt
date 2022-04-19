@@ -14,7 +14,7 @@ import androidx.lifecycle.InjectionViewModelFactory
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.core.extensions.getClassTypeAt
-import com.core.extensions.viewBindingInflate
+import com.core.extensions.inflateViewBinding
 
 /**
  * Base Fragment
@@ -56,18 +56,26 @@ abstract class BaseFragment<ViewBindingType : ViewBinding, ViewModelType : BaseV
         return mDefaultFactory
     }
 
-    override fun onCreateView(
+    open fun inflateViewBinding(
         inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+        container: ViewGroup?
+    ): ViewBindingType {
         val viewBindingClass: Class<ViewBindingType> = getClassTypeAt(0)
-        binding = viewBindingInflate(viewBindingClass, inflater, container)
+        binding = inflateViewBinding(viewBindingClass, inflater, container)
         if (binding is ViewDataBinding) {
             val viewDataBinding = (binding as ViewDataBinding)
             viewDataBinding.lifecycleOwner = viewLifecycleOwner
             viewDataBinding.executePendingBindings()
         }
+        return binding
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = inflateViewBinding(inflater, container)
         afterViews(binding)
         return binding.root
     }
