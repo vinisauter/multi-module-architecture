@@ -13,7 +13,7 @@ import com.example.networking.RequestExecutor
 import com.example.storage.StorageExecutor
 
 class LoginHostActivity : BaseHostActivity(R.navigation.login_navigation_graph) {
-    private val args: LoginControllerActivityArgs by navArgs()
+    private val args: LoginHostActivityArgs by navArgs()
     private val tracking: LoginTracking by lazy { args.tracking ?: LoginTracking() }
 
     //Module declare dependencies as singles associated with lifecycle of the Host Activity
