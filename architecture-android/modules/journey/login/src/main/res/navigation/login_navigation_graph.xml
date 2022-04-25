@@ -7,7 +7,7 @@
     app:startDestination="@+id/login_fragment">
     <fragment
         android:id="@+id/login_fragment"
-        android:name="com.example.login.presentation.LoginFragment"
+        android:name="com.example.login.presentation.view.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
         <argument
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/forgot_password_fragment"
-        android:name="com.example.login.presentation.forgotpassword.ForgotPasswordFragment"
+        android:name="com.example.forgotpassword.presentation.view.ForgotPasswordFragment"
         android:label="forgot_password"
         tools:layout="@layout/fragment_forgot_password">
         <action
@@ -38,7 +38,7 @@
     </fragment>
     <dialog
         android:id="@+id/reauthentication"
-        android:name="com.example.login.presentation.reauthentication.ReauthenticationDialog"
+        android:name="com.example.reauthentication.presentation.view.ReauthenticationDialog"
         android:label="reauthentication"
         tools:layout="@layout/reauthentication_dialog">
         <argument
