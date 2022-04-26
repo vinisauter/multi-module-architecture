@@ -3,9 +3,6 @@
 package com.example.structural
 
 import android.app.Application
-import android.content.Context
-import android.injection.get
-import android.injection.provides
 import com.auto.service.load
 import com.example.networking.RequestExecutor
 import com.example.security.SecurityExecutor
@@ -27,56 +24,36 @@ import com.example.tagging.TaggingExecutor
 
 //  TODO: Can be auto generated (KSP)? maybe generate interfaces?
 object StructuralProvider {
+    private lateinit var app: Application
+
     private fun featureFlag(flag: String): Boolean {
         return false// TODO: MOCK to structural FeatureFlag module
     }
 
     val defaultStorageExecutor: StorageExecutor by lazy {
-//        val provider = ServiceLoader.load(
-//            StorageProvider::class.java,
-//            StorageProvider::class.java.classLoader
-//        )
         val provider = load<StorageProvider>()
-        val app: Application = get()
         provider.executor(app)
-//        load<StorageProvider>().executor(get())
     }
     val defaultTaggingExecutor: TaggingExecutor by lazy {
-        load<TaggingProvider>().executor(get())
+        load<TaggingProvider>().executor(app)
     }
     val defaultSecurityExecutor: SecurityExecutor by lazy {
-        load<SecurityProvider>().executor(get())
+        load<SecurityProvider>().executor(app)
     }
     val defaultRequestExecutor: RequestExecutor by lazy {
         secureRequestExecutor
     }
     val unsecureRequestExecutor: RequestExecutor by lazy {
-        load<NetworkingProvider>().executor(get())
+        load<NetworkingProvider>().executor(app)
     }
     val secureRequestExecutor: RequestExecutor by lazy {
         when {
-            featureFlag("networking-version-1") -> load<NetworkingSecureProvider>().executor(get())
-            else -> load<NetworkingSecureProviderV2>().executor(get())
+            featureFlag("networking-version-1") -> load<NetworkingSecureProvider>().executor(app)
+            else -> load<NetworkingSecureProviderV2>().executor(app)
         }
     }
 
-//    fun notSingleInstanceExecutor(): AlwaysNewInstanceExecutor {
-//        return load<AlwaysNewProvider>().executor(get())
-//    }
-
-    fun start(app: Application) {
-        provides {
-            declare<Application> { app }
-            declare<Context> { app }
-
-            declare<StorageExecutor> { defaultStorageExecutor }
-            declare<TaggingExecutor> { defaultTaggingExecutor }
-            declare<RequestExecutor> { defaultRequestExecutor }
-            declare<SecurityExecutor> { defaultSecurityExecutor }
-
-            declare<RequestExecutor>(qualifier = "secure") { secureRequestExecutor }
-            declare<RequestExecutor>(qualifier = "unsecure") { unsecureRequestExecutor }
-//            declare<AlwaysNewInstanceExecutor>() { notSingleInstanceExecutor() }
-        }
+    fun start(application: Application) {
+        app = application
     }
 }

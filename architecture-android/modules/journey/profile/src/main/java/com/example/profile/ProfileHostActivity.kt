@@ -2,11 +2,9 @@ package com.example.profile
 
 import android.os.Bundle
 import com.core.base.BaseHostActivity
-import com.core.base.BaseProvider
+import com.core.base.BaseViewModelFactory
 
-class ProfileHostActivity : BaseHostActivity<BaseProvider>(R.navigation.profile_navigation_graph) {
-    override val dependenciesProvider: BaseProvider?
-        get() = null
+class ProfileHostActivity : BaseHostActivity<BaseViewModelFactory.Provider>(R.navigation.profile_navigation_graph) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,5 +14,9 @@ class ProfileHostActivity : BaseHostActivity<BaseProvider>(R.navigation.profile_
     override fun onDestroy() {
         super.onDestroy()
         // TODO REMOVE MODULES DEPENDENCIES
+    }
+
+    override fun getDependencyProvider(): BaseViewModelFactory.Provider {
+        return BaseViewModelFactory.Provider()
     }
 }

@@ -1,14 +1,14 @@
-package androidx.lifecycle
+package com.core.base
 
-import android.annotation.SuppressLint
 import android.app.Application
-import android.injection.InjectionProvider
-import android.injection.QualifierValue
-import android.injection.annotation.Qualifier
 import android.os.Bundle
-import androidx.savedstate.SavedStateRegistry
+import androidx.lifecycle.AbstractSavedStateViewModelFactory
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
 import androidx.savedstate.SavedStateRegistryOwner
 import java.lang.reflect.InvocationTargetException
+import java.util.concurrent.ConcurrentHashMap
+import kotlin.collections.set
 import kotlin.reflect.KClass
 import kotlin.reflect.KParameter
 import kotlin.reflect.full.createType
@@ -29,18 +29,21 @@ import kotlin.reflect.jvm.isAccessible
  * [androidx.lifecycle.AndroidViewModel] is only supported if you pass a non-null
  * [Application] instance.
  */
-class InjectionViewModelFactory @SuppressLint("LambdaLast") constructor(
-    private val application: Application? = null,
-    private val savedStateRegistryOwner: SavedStateRegistryOwner,
-    private val defaultArgs: Bundle? = null,
-) : ViewModelProvider.Factory {
-    private val lifecycle: Lifecycle = savedStateRegistryOwner.lifecycle
-    private val savedStateRegistry: SavedStateRegistry = savedStateRegistryOwner.savedStateRegistry
+@Suppress("UNCHECKED_CAST")
+class BaseViewModelFactory constructor(
+    private val application: Application,
+    savedStateRegistryOwner: SavedStateRegistryOwner,
+    defaultArgs: Bundle? = null,
+    private val provider: Provider = Provider()
+) : AbstractSavedStateViewModelFactory(savedStateRegistryOwner, defaultArgs) {
 
-    @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+    override fun <T : ViewModel> create(
+        key: String,
+        modelClass: Class<T>,
+        handle: SavedStateHandle
+    ): T {
         return try {
-            newInstanceOf(modelClass) as T
+            newInstanceOf(modelClass, handle) as T
         } catch (e: IllegalAccessException) {
             throw RuntimeException("Failed to access $modelClass", e)
                 .filterStackTrace("android")
@@ -66,9 +69,8 @@ class InjectionViewModelFactory @SuppressLint("LambdaLast") constructor(
         return this
     }
 
-    private fun newInstanceOf(clazz: Class<*>): Any {
+    private fun newInstanceOf(clazz: Class<*>, handle: SavedStateHandle): Any {
         val kClass = clazz.kotlin
-        var controller: SavedStateHandleController? = null
         val kFunction = kClass.primaryConstructor ?: kClass.constructors.first()
         try {
             kFunction.isAccessible = true
@@ -82,21 +84,17 @@ class InjectionViewModelFactory @SuppressLint("LambdaLast") constructor(
                     args[parameterType] = application
                 }
                 parameterType.type.isSupertypeOf(SavedStateHandle::class.createType()) -> {
-                    val canonicalName = clazz.canonicalName
-                    controller = SavedStateHandleController.create(
-                        savedStateRegistry, lifecycle, canonicalName, defaultArgs
-                    )
-                    args[parameterType] = controller?.handle
+                    args[parameterType] = handle
                 }
                 else -> {
-                    var qualifier: QualifierValue? = null
+                    var qualifier: String? = null
                     for (annotation in parameterType.annotations) {
                         if (annotation is Qualifier) {
                             qualifier = (parameterType.annotations[0] as Qualifier).value
                             break
                         }
                     }
-                    val value = InjectionProvider.getDefinition(
+                    val value = provider.getDefinition(
                         parameterType.type.classifier as KClass<*>,
                         qualifier
                     )
@@ -104,13 +102,56 @@ class InjectionViewModelFactory @SuppressLint("LambdaLast") constructor(
                 }
             }
         }
-        val instance = kFunction.callBy(args)
-        if (controller != null) {
-            (instance as ViewModel).setTagIfAbsent(
-                AbstractSavedStateViewModelFactory.TAG_SAVED_STATE_HANDLE_CONTROLLER,
-                controller
-            )
+        return kFunction.callBy(args)
+    }
+
+    @MustBeDocumented
+    @kotlin.annotation.Retention(AnnotationRetention.RUNTIME)
+    @Target(AnnotationTarget.VALUE_PARAMETER)
+    annotation class Qualifier(
+        val value: String
+    )
+
+    open class Provider(block: Provider.() -> Unit = {}) {
+        val definitionRegistry: MutableMap<String, () -> Any> = ConcurrentHashMap()
+
+        init {
+            this.apply(block)
         }
-        return instance
+
+        fun <T : Any> key(kClass: KClass<T>, qualifier: String?): String {
+            return """(${kClass.qualifiedName}${qualifier?.let { " - $qualifier" } ?: ""})"""
+        }
+
+        inline fun <reified T : Any> declare(
+            qualifier: String? = null,
+            noinline definition: () -> T,
+        ) {
+            definitionRegistry[key(T::class, qualifier)] = definition
+        }
+
+        fun <T : Any> getDefinition(clazz: KClass<T>, qualifier: String? = null): T {
+            val declaration = definitionRegistry[key(clazz, qualifier)]
+            val instance = declaration?.invoke()
+            instance ?: run {
+                var keys = "["
+                for (entry in definitionRegistry.keys.sorted()) {
+                    keys += "\n   $entry"
+                }
+                keys += "\n]"
+                val error = IllegalStateException(
+                    "Unable to find declaration of type ${clazz.qualifiedName} " +
+                            (qualifier?.let { "with qualifier: \"$qualifier\"" } ?: "") +
+                            "\n   Please declare:\n" +
+                            "        provides {\n" +
+                            "            declare<${clazz.simpleName}>${qualifier?.let { "(qualifier = \"$qualifier\")" } ?: ""} { TheImplementationOf${clazz.simpleName}() }\n" +
+                            "        }" +
+                            "\n\n" +
+                            "Definitions: $keys"
+                )
+                throw error
+            }
+            return instance as T
+        }
     }
 }

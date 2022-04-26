@@ -6,7 +6,6 @@ import androidx.lifecycle.SavedStateHandle
 import com.core.extensions.State
 import com.example.journey.login.tracking.LoginTracking
 import com.example.login.InstantExecutorRule
-import com.example.login.test
 import com.example.tagging.TaggingExecutor
 import io.mockk.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -52,7 +51,7 @@ internal class LoginFragmentViewModelTest {
         vm.onStateChanged.observeForever(observer)
         useCase.stub { onBlocking { useCase.login(any(), any()) }.doReturn(true) }
         // WHEN
-        vm.onLoginClicked()
+        vm.processEvent(LoginFragmentEvent.OnLogin)
         // THEN
         verifySequence {
             observer.onChanged(State.Idle)
@@ -68,7 +67,7 @@ internal class LoginFragmentViewModelTest {
         val observer = vm.onActionCompleted.test(this)
         useCase.stub { onBlocking { useCase.login(any(), any()) }.doReturn(true) }
         // WHEN
-        vm.onLoginClicked()
+        vm.processEvent(LoginFragmentEvent.OnLogin)
         // THEN
         observer.assertValues(LoginFragmentDirections.actionLoginSucceed())
         observer.finish()
@@ -81,7 +80,7 @@ internal class LoginFragmentViewModelTest {
         val observer = vm.onActionCompleted.test(this)
         whenever(useCase.login(any(), any())).thenReturn(false)
         // WHEN
-        vm.onLoginClicked()
+        vm.processEvent(LoginFragmentEvent.OnLogin)
         // THEN
         observer.assertValues(LoginFragmentDirections.actionLoginFailed())
         observer.finish()
@@ -94,7 +93,7 @@ internal class LoginFragmentViewModelTest {
         val observer = vm.onActionCompleted.test(this)
         whenever(useCase.login(any(), any())).thenThrow(NullPointerException("Exception message"))
         // WHEN
-        vm.onLoginClicked()
+        vm.processEvent(LoginFragmentEvent.OnLogin)
         // THEN
         observer.assertValues(LoginFragmentDirections.actionLoginFailed())
         observer.finish()
@@ -107,7 +106,7 @@ internal class LoginFragmentViewModelTest {
         val observer = vm.onActionCompleted.test(this)
         useCase.stub { onBlocking { useCase.login(any(), any()) }.doReturn(true) }
         // WHEN
-        vm.onForgotPasswordClicked()
+        vm.processEvent(LoginFragmentEvent.OnForgotPassword)
         // THEN
         observer.assertValues(LoginFragmentDirections.actionForgotPassword())
         observer.finish()

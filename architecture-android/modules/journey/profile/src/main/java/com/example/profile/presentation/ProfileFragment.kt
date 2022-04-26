@@ -5,9 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.injectViewModel
+import androidx.fragment.app.viewModels
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.navArgs
+import com.core.base.BaseViewModelFactory
 import com.core.extensions.consume
 import com.core.extensions.deepLinkIntent
 import com.core.extensions.navigate
@@ -16,7 +17,14 @@ import com.example.profile.databinding.FragmentProfileBinding
 class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
     private val args: ProfileFragmentArgs by navArgs()
-    private val viewModel: ProfileFragmentViewModel by injectViewModel()
+    private val viewModel: ProfileFragmentViewModel by viewModels {
+        BaseViewModelFactory(
+            application = requireActivity().application,
+            savedStateRegistryOwner = this,
+            defaultArgs = arguments,
+            provider = BaseViewModelFactory.Provider()
+        )
+    }
     private val deepLink by lazy { deepLinkIntent?.data }
 
     override fun onCreateView(

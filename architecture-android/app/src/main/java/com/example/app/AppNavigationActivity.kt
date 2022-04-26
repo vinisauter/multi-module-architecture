@@ -2,9 +2,9 @@ package com.example.app
 
 import android.os.Bundle
 import com.core.base.BaseHostActivity
-import com.core.base.BaseProvider
+import com.core.base.BaseViewModelFactory
 
-class AppNavigationActivity : BaseHostActivity<BaseProvider>(
+class AppNavigationActivity : BaseHostActivity<BaseViewModelFactory.Provider>(
     graphResId = R.navigation.app_navigation_graph,
     startDestination = R.id.splash
 ) {
@@ -15,7 +15,6 @@ class AppNavigationActivity : BaseHostActivity<BaseProvider>(
         //TODO handle deepLink
     }
 
-    override val dependenciesProvider: BaseProvider?
-        get() = null
-
+    override fun getDependencyProvider(): BaseViewModelFactory.Provider =
+        BaseViewModelFactory.Provider()
 }

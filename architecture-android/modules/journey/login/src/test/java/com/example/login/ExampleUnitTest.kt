@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.SavedStateHandle
 import com.example.journey.login.tracking.LoginTracking
+import com.example.login.presentation.LoginFragmentEvent
 import com.example.login.presentation.LoginFragmentUseCases
 import com.example.login.presentation.LoginFragmentViewModel
 import com.example.tagging.Tagging
@@ -60,7 +61,7 @@ class ExampleUnitTest {
         val captor = argumentCaptor<Tagging.ScreenName>()
         val loginFragmentViewModel =
             LoginFragmentViewModel(Application(), SavedStateHandle(), tagging, useCase, tracking)
-        loginFragmentViewModel.onLoginViewCreated()
+        loginFragmentViewModel.processEvent(LoginFragmentEvent.OnScreenLoad)
         verify(tagging, times(1)).send(captor.capture())
         assert(captor.firstValue.screenName == ((tracking.loginScreenName) as Tagging.ScreenName).screenName)
     }
@@ -72,7 +73,7 @@ class ExampleUnitTest {
         val loginFragmentViewModel =
             LoginFragmentViewModel(Application(), SavedStateHandle(), tagging, useCase, tracking)
         return runTest {
-            loginFragmentViewModel.onLoginClicked()
+            loginFragmentViewModel.processEvent(LoginFragmentEvent.OnLogin)
             delay(oneSecond)
             verify(tagging, atLeastOnce()).send(captor.capture())
             assert(captor.firstValue.label == ((tracking.loginClickAuthEvent) as Tagging.Event).label)
@@ -87,7 +88,7 @@ class ExampleUnitTest {
             LoginFragmentViewModel(Application(), SavedStateHandle(), tagging, useCase, tracking)
         return runTest {
             `when`(useCase.login(anyString(), anyString())).thenReturn(true)
-            loginFragmentViewModel.onLoginClicked()
+            loginFragmentViewModel.processEvent(LoginFragmentEvent.OnLogin)
             delay(oneSecond)
             verify(tagging, atLeastOnce()).send(captor.capture())
             assert(captor.secondValue.label == ((tracking.loginAuthSucceededEvent) as Tagging.Event).label)
@@ -102,7 +103,7 @@ class ExampleUnitTest {
             LoginFragmentViewModel(Application(), SavedStateHandle(), tagging, useCase, tracking)
         return runTest {
             `when`(useCase.login(anyString(), anyString())).thenReturn(false)
-            loginFragmentViewModel.onLoginClicked()
+            loginFragmentViewModel.processEvent(LoginFragmentEvent.OnLogin)
             delay(oneSecond)
             verify(tagging, atLeastOnce()).send(captor.capture())
             assert(captor.secondValue.label == ((tracking.loginAuthFailedEvent) as Tagging.Event).label)
@@ -117,7 +118,7 @@ class ExampleUnitTest {
         val loginFragmentViewModel =
             LoginFragmentViewModel(Application(), SavedStateHandle(), tagging, useCase, tracking)
         runBlocking {
-            loginFragmentViewModel.onLoginClicked()
+            loginFragmentViewModel.processEvent(LoginFragmentEvent.OnLogin)
             delay(oneSecond)
             verify(useCase, times(1)).login(anyString(), anyString())
         }
@@ -135,7 +136,7 @@ class ExampleUnitTest {
                 useCase,
                 tracking
             )
-            loginFragmentViewModel.onLoginClicked()
+            loginFragmentViewModel.processEvent(LoginFragmentEvent.OnLogin)
             delay(oneSecond)
             //assert(loginFragmentViewModel.onStateChanged.value == StateResult.Initial)
             //assert(loginFragmentViewModel.onStateChanged.value == StateResult.Loading)

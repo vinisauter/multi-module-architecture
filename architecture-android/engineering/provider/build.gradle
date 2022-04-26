@@ -35,7 +35,7 @@ dependencies {
     api 'com.google.android.play:core-ktx'
 
     api project(path: ':libraries:auto-service:android')
-    api project(path: ':libraries:injection')
+//    api project(path: ':libraries:injection')
 
     api project(path: ':engineering:interfaces:networking-interface')
     api project(path: ':engineering:interfaces:storage-interface')

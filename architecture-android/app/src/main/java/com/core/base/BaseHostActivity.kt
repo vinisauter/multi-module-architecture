@@ -1,46 +1,28 @@
 package com.core.base
 
-import android.injection.Module
-import android.injection.module
-import android.os.Bundle
 import androidx.annotation.IdRes
 import androidx.annotation.NavigationRes
-import androidx.lifecycle.InjectionViewModelFactory
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavDestination
 import androidx.navigation.Navigator
 import com.example.app.R
 import com.example.journey.JourneyNavigator
 
-abstract class BaseHostActivity<BP : BaseProvider>(
+abstract class BaseHostActivity<BP : BaseViewModelFactory.Provider>(
     @NavigationRes override val graphResId: Int,
     @IdRes override val startDestination: Int = DEFAULT_START_DESTINATION
 ) : BaseNavigationActivity(graphResId, startDestination) {
 
-    abstract val dependenciesProvider: BP?
-
-    fun Module.dependencies() {}
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        module(lifecycle = lifecycle) {
-            dependencies()
-            dependenciesProvider?.applyTo(this)// TODO: use block
-        }
-    }
-
-//    abstract fun getViewModelProviderFactory(
-//        application: Application,
-//        savedStateRegistryOwner: SavedStateRegistryOwner,
-//        defaultArgs: Bundle? = null,
-//    ): InjectionViewModelFactory
+    abstract fun getDependencyProvider(): BP
 
     private lateinit var mDefaultFactory: ViewModelProvider.Factory
     override fun getDefaultViewModelProviderFactory(): ViewModelProvider.Factory {
         if (!::mDefaultFactory.isInitialized) {
-            mDefaultFactory = InjectionViewModelFactory(
-                application,
-                this,
-                if (intent != null) intent.extras else null
+            mDefaultFactory = BaseViewModelFactory(
+                application = application,
+                savedStateRegistryOwner = this,
+                defaultArgs = if (intent != null) intent.extras else null,
+                provider = getDependencyProvider()
             )
         }
         return mDefaultFactory

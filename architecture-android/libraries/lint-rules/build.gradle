@@ -1,0 +1,16 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+}
+
+dependencies {
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:1.6.10"
+    compileOnly "com.android.tools.lint:lint-api:27.2.1"
+    compileOnly "com.android.tools.lint:lint-checks:27.2.1"
+}
+
+jar {
+    manifest {
+        attributes("Lint-Registry-v2": "com.hddroid.lintrules.registry.CustomIssueRegistry")
+    }
+}

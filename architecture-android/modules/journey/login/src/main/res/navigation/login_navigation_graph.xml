@@ -29,13 +29,7 @@
         android:id="@+id/forgot_password_fragment"
         android:name="com.example.login.presentation.forgotpassword.ForgotPasswordFragment"
         android:label="forgot_password"
-        tools:layout="@layout/fragment_forgot_password">
-        <action
-            android:id="@+id/action_exit"
-            app:destination="@id/exit"
-            app:popUpTo="@id/exit"
-            app:popUpToInclusive="true" />
-    </fragment>
+        tools:layout="@layout/fragment_forgot_password" />
     <dialog
         android:id="@+id/reauthentication"
         android:name="com.example.login.presentation.reauthentication.ReauthenticationDialog"
@@ -47,6 +41,11 @@
             app:argType="com.core.extensions.Direction"
             app:nullable="true" />
     </dialog>
+    <action
+        android:id="@+id/action_exit"
+        app:destination="@id/exit"
+        app:popUpTo="@id/exit"
+        app:popUpToInclusive="true" />
     <action
         android:id="@+id/action_show_error"
         app:destination="@id/error">

@@ -5,15 +5,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.injectViewModel
+import androidx.fragment.app.viewModels
 import androidx.navigation.NavDirections
+import com.core.base.BaseViewModelFactory
 import com.core.extensions.consume
 import com.core.extensions.navigate
 import com.example.home.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
-    private val viewModel: HomeFragmentViewModel by injectViewModel()
+    private val viewModel: HomeFragmentViewModel by viewModels {
+        BaseViewModelFactory(
+            application = requireActivity().application,
+            savedStateRegistryOwner = this,
+            defaultArgs = arguments,
+            provider = BaseViewModelFactory.Provider()
+        )
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

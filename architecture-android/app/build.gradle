@@ -54,9 +54,11 @@ dependencies {
 //    api enforcedPlatform('com.github.vinisauter:app-bom:1.0.0')
 //    api enforcedPlatform('com.github.vinisauter.multi-module-architecture:app-bom:android-1.0.0')
 
+//    lintChecks project(':libraries:lint-rules')
     api project(path: ':libraries:bug-finder')
 
     api project(path: ':engineering:provider')
+    api 'org.jetbrains.kotlin:kotlin-reflect'
 
 //    api libs.androidx.core
     api 'androidx.core:core-ktx'

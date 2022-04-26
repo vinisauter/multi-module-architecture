@@ -5,15 +5,22 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.core.base.BaseViewModelFactory
 import com.core.base.NavigationCommand
 import com.example.login.R
 import com.example.login.databinding.ReauthenticationDialogBinding
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class ReauthenticationDialog : DialogFragment(R.layout.reauthentication_dialog) {
     private val args: ReauthenticationDialogArgs by navArgs()
-    private val viewModel: ReauthenticationDialogViewModel by viewModels()
+    private val viewModel: ReauthenticationDialogViewModel by viewModels {
+        BaseViewModelFactory(
+            application = requireActivity().application,
+            savedStateRegistryOwner = this,
+            defaultArgs = arguments,
+            provider = BaseViewModelFactory.Provider()
+        )
+    }
     private val viewBinding: ReauthenticationDialogBinding by lazy {
         ReauthenticationDialogBinding.bind(requireView())
     }
