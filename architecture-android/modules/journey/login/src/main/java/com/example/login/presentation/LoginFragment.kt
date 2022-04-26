@@ -22,10 +22,16 @@ class LoginFragment :
     }
 
     override fun processEffect(effect: LoginFragmentEffect) {
-        // TODO: make effect for each direction? or keep direction from xml?
         when (effect) {
             LoginFragmentEffect.Exit -> navigate(LoginFragmentDirections.actionExit())
-            is LoginFragmentEffect.Direction -> navigate(effect.direction)
+            LoginFragmentEffect.ForgotPassword -> navigate(LoginFragmentDirections.actionForgotPassword())
+            LoginFragmentEffect.LoginSucceed -> navigate(LoginFragmentDirections.actionLoginSucceed())
+            LoginFragmentEffect.LoginFailed -> navigate(LoginFragmentDirections.actionLoginFailed())
+            is LoginFragmentEffect.Error -> navigate(
+                LoginFragmentDirections.actionShowError(
+                    effect.message
+                )
+            )
         }
     }
 

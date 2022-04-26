@@ -1,17 +1,25 @@
 package com.example.login.presentation
 
-import androidx.navigation.NavDirections
 import com.core.base.BaseViewEffect
 import com.core.base.BaseViewEvent
 
+/**
+ * Event  = EVENT where the screen interacts with a use case
+ * */
 sealed class LoginFragmentEvent : BaseViewEvent {
     object OnScreenLoad : LoginFragmentEvent()
     object OnLogin : LoginFragmentEvent()
     object OnForgotPassword : LoginFragmentEvent()
     object OnBackPressed : LoginFragmentEvent()
 }
-// TODO: make effect for each direction? or keep direction from Safe Args?
+
+/**
+ * Effect = EFFECT that a use case has on the screen
+ * */
 sealed class LoginFragmentEffect : BaseViewEffect {
     object Exit : LoginFragmentEffect()
-    data class Direction(val direction: NavDirections) : LoginFragmentEffect()
+    object LoginSucceed : LoginFragmentEffect()
+    object LoginFailed : LoginFragmentEffect()
+    object ForgotPassword : LoginFragmentEffect()
+    data class Error(val message: String) : LoginFragmentEffect()
 }
