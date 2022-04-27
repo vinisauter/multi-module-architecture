@@ -10,6 +10,7 @@ import com.example.login.domain.usecase.LoginUseCase
 import com.example.login.data.repository.ForgotPasswordImpl
 import com.example.login.domain.repository.ForgotPassword
 import com.example.login.domain.repository.Login
+import com.example.login.domain.usecase.ForgotPasswordUseCase
 import com.example.networking.RequestExecutor
 import com.example.storage.StorageExecutor
 import com.example.structural.StructuralProvider
@@ -30,12 +31,14 @@ class LoginProvider(private val tracking: LoginTracking) : BaseProvider {
     private val forgotPassword = ForgotPasswordImpl()
 
     //Usecase
-    private val loginFragmentUseCase = LoginUseCase(login)
+    private val forgotPasswordUseCase = ForgotPasswordUseCase.Impl(forgotPassword)
+    private val loginUseCase = LoginUseCase.Impl(login)
 
 
     override fun Module.dependencies() {
         shared<LoginTracking> { tracking }
-        shared<LoginUseCase> { loginFragmentUseCase }
+        shared<LoginUseCase> { loginUseCase }
+        shared<ForgotPasswordUseCase> { forgotPasswordUseCase }
         shared<Login> { login }
         shared<ForgotPassword> { forgotPassword }
     }

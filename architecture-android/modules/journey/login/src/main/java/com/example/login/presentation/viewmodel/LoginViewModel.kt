@@ -41,7 +41,7 @@ class LoginViewModel(
     fun onLoginClicked() = runTask(onStateChangedMutable) {
         tagging.send(tracking.loginClickAuthEvent)
         try {
-            when (useCase.login("user", "password")) {
+            when (useCase.execute("user", "password")) {
                 true -> {
                     onActionCompletedSharedFlow.emit(LoginFragmentDirections.actionLoginSucceed())
                     tagging.send(tracking.loginAuthSucceededEvent)
