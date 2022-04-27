@@ -8,10 +8,10 @@ import com.core.extensions.State
 import com.core.extensions.consume
 import com.core.extensions.navigate
 import com.example.login.databinding.FragmentLoginBinding
-import com.example.login.presentation.viewmodel.LoginFragmentViewModel
+import com.example.login.presentation.viewmodel.LoginViewModel
 
-class LoginFragment : BaseFragment<FragmentLoginBinding, LoginFragmentViewModel>() {
-    override val viewModel: LoginFragmentViewModel by injectViewModel()
+class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
+    override val viewModel: LoginViewModel by injectViewModel()
 
     override fun afterViews(binding: FragmentLoginBinding) {
         viewModel.onLoginViewCreated()

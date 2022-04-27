@@ -36,7 +36,7 @@ todo: navigation documentation:
     </dialog>
     <dialog
         android:id="@+id/reauthentication_navigation"
-        android:name="com.example.reauthentication.presentation.view.ReauthenticationDialog"
+        android:name="com.example.login.presentation.view.ReauthenticationDialog"
         android:label="reauthentication"
         app:moduleName="login"
         tools:layout="@layout/reauthentication_dialog">

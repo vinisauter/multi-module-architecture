@@ -1,4 +1,4 @@
-package com.example.reauthentication.presentation.view
+package com.example.login.presentation.view
 
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
@@ -8,12 +8,12 @@ import androidx.navigation.fragment.navArgs
 import com.core.base.NavigationCommand
 import com.example.login.R
 import com.example.login.databinding.ReauthenticationDialogBinding
-import com.example.reauthentication.presentation.viewmodel.ReauthenticationDialogViewModel
+import com.example.login.presentation.viewmodel.ReauthenticationViewModel
 import kotlinx.coroutines.launch
 
 class ReauthenticationDialog : DialogFragment(R.layout.reauthentication_dialog) {
     private val args: ReauthenticationDialogArgs by navArgs()
-    private val viewModel: ReauthenticationDialogViewModel by viewModels()
+    private val viewModel: ReauthenticationViewModel by viewModels()
     private val viewBinding: ReauthenticationDialogBinding by lazy {
         ReauthenticationDialogBinding.bind(requireView())
     }

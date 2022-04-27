@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/forgot_password_fragment"
-        android:name="com.example.forgotpassword.presentation.view.ForgotPasswordFragment"
+        android:name="com.example.login.presentation.view.ForgotPasswordFragment"
         android:label="forgot_password"
         tools:layout="@layout/fragment_forgot_password">
         <action
@@ -38,7 +38,7 @@
     </fragment>
     <dialog
         android:id="@+id/reauthentication"
-        android:name="com.example.reauthentication.presentation.view.ReauthenticationDialog"
+        android:name="com.example.login.presentation.view.ReauthenticationDialog"
         android:label="reauthentication"
         tools:layout="@layout/reauthentication_dialog">
         <argument

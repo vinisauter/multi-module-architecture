@@ -9,7 +9,7 @@
 
         <variable
             name="view_model"
-            type="com.example.login.presentation.viewmodel.LoginFragmentViewModel" />
+            type="com.example.login.presentation.viewmodel.LoginViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

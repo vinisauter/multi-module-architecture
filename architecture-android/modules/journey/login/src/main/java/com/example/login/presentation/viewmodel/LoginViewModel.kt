@@ -10,17 +10,17 @@ import com.core.extensions.State
 import com.core.extensions.default
 import com.core.extensions.runTask
 import com.example.journey.login.tracking.LoginTracking
-import com.example.login.domain.usecase.LoginFragmentUseCase
+import com.example.login.domain.usecase.LoginUseCase
 import com.example.login.presentation.view.LoginFragmentDirections
 import com.example.tagging.TaggingExecutor
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 
-class LoginFragmentViewModel(
+class LoginViewModel(
     private val app: Application,
     private val savedStateHandle: SavedStateHandle,
     private val tagging: TaggingExecutor,
-    private val useCase: LoginFragmentUseCase,
+    private val useCase: LoginUseCase,
     private val tracking: LoginTracking
 ) : BaseViewModel(app, savedStateHandle) {
     //https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/
