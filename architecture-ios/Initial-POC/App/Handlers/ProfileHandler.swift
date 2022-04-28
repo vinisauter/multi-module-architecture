@@ -10,17 +10,21 @@ import Core
 import Profile
 
 class ProfileHandler: ModuleHandler {
+    var baseFlowDataSource: BaseFlowDataSource?
     
-    private weak var baseFlowDelegate: BaseFlowDelegate?
-    private weak var baseFlowDataSource: BaseFlowDataSource?
+    var baseFlowDelegate: BaseFlowDelegate?
     
-    init() {}
+    var appNavigation: AppNavigationProtocol
+    
+    init(appNavigation: AppNavigationProtocol) {
+        self.appNavigation = appNavigation
+    }
     
     func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: Journey?, _ value: Any?) -> UIViewController {
         self.baseFlowDelegate = baseFlowDelegate
         self.baseFlowDataSource = baseFlowDataSource
         
-        let profileDependencies = ProfileDependencies(url, self, self, StructuralDependencyProvider.shared, customModuleAnalytics as? ProfileAnalyticsProtocol, value)
+        let profileDependencies = ProfileDependencies(url, self, self, DIContainer.shared, customModuleAnalytics as? ProfileAnalyticsProtocol, value)
         
         return ProfileLauncher.start(with: profileDependencies)
     }
@@ -36,7 +40,7 @@ class ProfileHandler: ModuleHandler {
     func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?) {
         switch journey {
         case .home:
-            AppNavigation.shared.show([.home], from: viewController, animated: true)
+            appNavigation.show([.home], from: viewController)
             break
             
         default: break
@@ -44,11 +48,20 @@ class ProfileHandler: ModuleHandler {
     }
     
     func handleGet(from journey: Journey, to subJourney: Journey?, with baseFlowDelegate: BaseFlowDelegate, analytics: Any?) -> UIViewController {
-        return start(from: nil, with: baseFlowDelegate, AppNavigation.shared, analytics, subJourney, nil)
+        return start(from: nil, with: appNavigation as! BaseFlowDelegate, appNavigation as! BaseFlowDataSource, analytics, subJourney, nil)
+    }
+    
+    func handleFinish(in viewController: UIViewController, with value: Any?) {
+        debugPrint("++++++++ \(#fileID) - \(#function)")
+    }
+    
+    func handleDeeplink(_ url: URL) -> Bool {
+        debugPrint("Chamou o \(#fileID) - \(#function)")
+        return false
     }
 }
 
-extension StructuralDependencyProvider: ProfileStructuralDependencies {}
+extension DIContainer: ProfileStructuralDependencies {}
 
 extension ProfileHandler: ProfileFlowDelegate {
     func goToHome(from flow: Flow, in controller: UIViewController, with value: Any?) {

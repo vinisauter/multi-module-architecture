@@ -47,9 +47,15 @@ public protocol BaseFlowDataSource: AnyObject {
 }
 
 public protocol ModuleHandler {
+    var appNavigation: AppNavigationProtocol { get }
+    var baseFlowDelegate: BaseFlowDelegate? { get }
+    var baseFlowDataSource: BaseFlowDataSource? { get }
+    
     func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: Journey?, _ value: Any?) -> UIViewController
     func canStart() -> Bool
     func getName() -> String
     func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?)
     func handleGet(from journey: Journey, to subJourney: Journey?, with baseFlowDelegate: BaseFlowDelegate, analytics: Any?) -> UIViewController
+    func handleFinish(in viewController: UIViewController, with value: Any?)
+    func handleDeeplink(_ url: URL) -> Bool
 }

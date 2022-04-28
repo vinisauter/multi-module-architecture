@@ -12,8 +12,8 @@ import Analytics
 import AppSecurityInterfaces
 import AppSecurity
 
-class StructuralDependencyProvider {
-    static let shared: StructuralDependencyProvider = StructuralDependencyProvider()
+class DIContainer {
+    static let shared: DIContainer = DIContainer()
     
     private init() {}
     

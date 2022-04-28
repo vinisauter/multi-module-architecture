@@ -10,20 +10,29 @@ import Core
 import Login
 
 class LoginHandler: ModuleHandler {
-    private weak var baseFlowDelegate: BaseFlowDelegate?
+    var baseFlowDataSource: BaseFlowDataSource?
     
-    init() {}
+    var baseFlowDelegate: BaseFlowDelegate?
+    
+    var appNavigation: AppNavigationProtocol
+    
+    private var launcher: LoginLauncher?
+    
+    init(appNavigation: AppNavigationProtocol) {
+        self.appNavigation = appNavigation
+    }
     
     func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: Journey?, _ value: Any?) -> UIViewController {
+        launcher = LoginLauncher()
         self.baseFlowDelegate = baseFlowDelegate
-        let loginDependencies = LoginDependencies(url, self, StructuralDependencyProvider.shared, customModuleAnalytics as? LoginAnalyticsProtocol, value)
+        let loginDependencies = LoginDependencies(url, self, DIContainer.shared, customModuleAnalytics as? LoginAnalyticsProtocol, value)
         
-        var startViewController: UIViewController = LoginLauncher.start(with: loginDependencies)
+        var startViewController: UIViewController = launcher!.start(with: loginDependencies)
         
         if let subJourney = subJourney {
             switch subJourney {
             case .forgotPassword:
-                startViewController = LoginLauncher.startForgotPassword(with: loginDependencies)
+                startViewController = launcher!.startForgotPassword(with: loginDependencies)
             default: break
             }
         }
@@ -43,12 +52,12 @@ class LoginHandler: ModuleHandler {
         isUserLoggedIn = journey == .home
         switch journey {
         case .home:
-            AppNavigation.shared.show([.home], from: viewController, animated: true)
-            AppNavigation.shared.resolveDeeplinkIfNeeded()
+            appNavigation.show([.home], from: viewController)
+            appNavigation.resolveDeeplinkIfNeeded()
             break
             
         case .welcome:
-            AppNavigation.shared.show([.welcome], from: viewController, animated: true)
+            appNavigation.show([.welcome], from: viewController)
             break
             
         default: break
@@ -57,13 +66,27 @@ class LoginHandler: ModuleHandler {
     
     func handleGet(from journey: Journey, to subJourney: Journey?, with baseFlowDelegate: BaseFlowDelegate, analytics: Any?) -> UIViewController {
         switch journey {
-        case .profile: return AppNavigation.shared.start(.login, to: subJourney, from: journey, baseFlowDelegate: baseFlowDelegate, customModuleAnalytics: analytics != nil ? LoginAnalyticsProfileAdapter(profileAnalytics: analytics) : nil)
-        default: return AppNavigation.shared.start(.login, from: journey, baseFlowDelegate: baseFlowDelegate)
+        case .profile:
+            return appNavigation.start(journey: .login, fromCurrentJourney: journey, withSubJourney: subJourney, url: nil, baseFlowDelegate: baseFlowDelegate, baseFlowDataSource: appNavigation as! BaseFlowDataSource, customModuleAnalytics: analytics != nil ? LoginAnalyticsProfileAdapter(profileAnalytics: analytics) : nil, andValue: nil)
+        default:
+            return appNavigation.start(journey: .login, fromCurrentJourney: journey, withSubJourney: nil, url: nil, baseFlowDelegate: baseFlowDelegate, baseFlowDataSource: appNavigation as! BaseFlowDataSource, customModuleAnalytics: nil, andValue: nil)
         }
+    }
+    
+    func handleFinish(in viewController: UIViewController, with value: Any?) {
+        viewController.isModal ? viewController.dismiss(animated: true, completion: nil) : viewController.pop(animated: true)
+        launcher?.dispose()
+        launcher = nil
+        debugPrint("++++++++ \(#fileID) - \(#function)")
+    }
+    
+    func handleDeeplink(_ url: URL) -> Bool {
+        debugPrint("Chamou o \(#fileID) - \(#function)")
+        return false
     }
 }
 
-extension StructuralDependencyProvider: LoginStructuralDependencies {}
+extension DIContainer: LoginStructuralDependencies {}
 
 extension LoginHandler: LoginFlowDelegate {
     func didFinish(_ flow: Flow, in controller: UIViewController, with value: Any?) {
