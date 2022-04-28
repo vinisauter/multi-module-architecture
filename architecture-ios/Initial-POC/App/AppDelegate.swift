@@ -5,8 +5,10 @@
 //  Created by Felippe Matos on 08/11/21.
 //
 
+import Foundation
 import UIKit
 import Core
+import os
 
 var isUserLoggedIn: Bool = false
 var isAppLaunched: Bool = false
@@ -16,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        let log = Logger(subsystem: "app.appdelegate", category: "Application")
+        log.warning("⚠️ Warn : this application is starting")
         
         AppNavigation.shared.register([.welcome], with: WelcomeHandler())
         AppNavigation.shared.register([.login, .forgotPassword], with: LoginHandler())

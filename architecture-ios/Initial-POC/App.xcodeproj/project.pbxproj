@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0CAF50FB27A8781200BD88A7 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF50FA27A8781200BD88A7 /* GeneratedMocks.swift */; };
-		0CB32E9B27A4656B00A527B8 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB32E9A27A4656B00A527B8 /* AppTests.swift */; };
+		0C205A0F27B14AAE0041BD01 /* WelcomeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C205A0E27B14AAE0041BD01 /* WelcomeHandler.swift */; };
+		0C205A2727B15D1E0041BD01 /* WelcomeHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C205A2627B15D1E0041BD01 /* WelcomeHandlerTests.swift */; };
+		0C205A3827B1DF6A0041BD01 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C205A3727B1DF690041BD01 /* GeneratedMocks.swift */; };
+		0C205A3C27B2A47F0041BD01 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C205A3B27B2A47F0041BD01 /* LoginViewModel.swift */; };
 		0CB32EBE27A467C900A527B8 /* Pods_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CB32EBD27A467C900A527B8 /* Pods_App.framework */; };
 		0CB32EBF27A467C900A527B8 /* Pods_App.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0CB32EBD27A467C900A527B8 /* Pods_App.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0CB32F1E27A4793500A527B8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CB32F1D27A4793500A527B8 /* Foundation.framework */; };
@@ -75,10 +77,12 @@
 
 /* Begin PBXFileReference section */
 		005B5BF9C938E3273C7EA84C /* Pods_App_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0CAF50FA27A8781200BD88A7 /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
+		0C205A0E27B14AAE0041BD01 /* WelcomeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeHandler.swift; sourceTree = "<group>"; };
+		0C205A2627B15D1E0041BD01 /* WelcomeHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeHandlerTests.swift; sourceTree = "<group>"; };
+		0C205A3727B1DF690041BD01 /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
+		0C205A3B27B2A47F0041BD01 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0CB32E9127A464E200A527B8 /* Cuckoo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Cuckoo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CB32E9827A4656B00A527B8 /* AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0CB32E9A27A4656B00A527B8 /* AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTests.swift; sourceTree = "<group>"; };
 		0CB32E9C27A4656B00A527B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CB32EA427A4657900A527B8 /* CuckooScript.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = CuckooScript.sh; sourceTree = "<group>"; };
 		0CB32EB127A467AA00A527B8 /* Cuckoo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Cuckoo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,7 +149,7 @@
 		0CAF50F327A876DC00BD88A7 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				0CAF50FA27A8781200BD88A7 /* GeneratedMocks.swift */,
+				0C205A3727B1DF690041BD01 /* GeneratedMocks.swift */,
 			);
 			path = Generated;
 			sourceTree = "<group>";
@@ -155,7 +159,8 @@
 			children = (
 				0CAF50F327A876DC00BD88A7 /* Generated */,
 				0CB32EA327A4656F00A527B8 /* Script */,
-				0CB32E9A27A4656B00A527B8 /* AppTests.swift */,
+				0C205A2627B15D1E0041BD01 /* WelcomeHandlerTests.swift */,
+				0C205A3B27B2A47F0041BD01 /* LoginViewModel.swift */,
 				0CB32E9C27A4656B00A527B8 /* Info.plist */,
 			);
 			path = AppTests;
@@ -245,6 +250,7 @@
 				5993F7A8273D852E00B3A695 /* LoginHandler.swift */,
 				5993F7AA273D856C00B3A695 /* HomeHandler.swift */,
 				5993F7AC273D85BE00B3A695 /* ProfileHandler.swift */,
+				0C205A0E27B14AAE0041BD01 /* WelcomeHandler.swift */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -382,7 +388,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n$SRCROOT/AppTests/Script/CuckooScript.sh\n";
 		};
 		0CB32F0227A470A200A527B8 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -469,8 +475,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CB32E9B27A4656B00A527B8 /* AppTests.swift in Sources */,
-				0CAF50FB27A8781200BD88A7 /* GeneratedMocks.swift in Sources */,
+				0C205A2727B15D1E0041BD01 /* WelcomeHandlerTests.swift in Sources */,
+				0C205A3827B1DF6A0041BD01 /* GeneratedMocks.swift in Sources */,
+				0C205A3C27B2A47F0041BD01 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +486,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59EABE5427466FB4007E653F /* LoginAnalyticsProfileAdapter.swift in Sources */,
+				0C205A0F27B14AAE0041BD01 /* WelcomeHandler.swift in Sources */,
 				59644E22273AA19000B3A865 /* StructuralDependencyProvider.swift in Sources */,
 				5993F7A9273D852E00B3A695 /* LoginHandler.swift in Sources */,
 				5993F7AB273D856C00B3A695 /* HomeHandler.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import UIKit
 
-public final class AppNavigation {
+open class AppNavigation {
     public static let shared: AppNavigation = AppNavigation()
     
     public let navigationController: UINavigationController = UINavigationController()
@@ -17,11 +17,11 @@ public final class AppNavigation {
     
     // MARK: - Initializer
     
-    private init () {}
+    public init () {}
     
     // MARK: - Action Functions
     
-    func setRootViewController(_ viewController: UIViewController, from currentViewController: UIViewController? = nil, animated: Bool = false) {
+    open func setRootViewController(_ viewController: UIViewController, from currentViewController: UIViewController? = nil, animated: Bool = false) {
         if currentViewController?.navigationController != navigationController { currentViewController?.dismiss(animated: animated) }
         
         if let rootVC = navigationController.viewControllers.first, type(of: rootVC) == type(of: viewController) {
@@ -31,30 +31,30 @@ public final class AppNavigation {
         }
     }
     
-    func push(_ viewController: UIViewController, from currrentViewController: UIViewController? = nil, animated: Bool = true) {
+    open func push(_ viewController: UIViewController, from currrentViewController: UIViewController? = nil, animated: Bool = true) {
         if currrentViewController?.navigationController != navigationController { currrentViewController?.dismiss(animated: animated) }
         
         if let currrentViewController = currrentViewController { popToViewControllerWithType(type(of: currrentViewController)) }
         navigationController.pushViewController(viewController, animated: animated)
     }
     
-    public func push(_ journey: Journey, from currentViewController: UIViewController?, animated: Bool = true) {
+    open func push(_ journey: Journey, from currentViewController: UIViewController?, animated: Bool = true) {
         push(start(journey), from: currentViewController, animated: animated)
     }
     
-    public func popViewController(animated: Bool = true) {
+    open func popViewController(animated: Bool = true) {
         navigationController.popViewController(animated: animated)
     }
     
-    @discardableResult public func popToViewControllerWithType<T: UIViewController>(_ type: T.Type) -> Array<UIViewController>? {
+    @discardableResult open func popToViewControllerWithType<T: UIViewController>(_ type: T.Type) -> Array<UIViewController>? {
         return navigationController.popToViewControllerWithType(T.self)
     }
     
-    public func present(_ viewController: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil) {
+    open func present(_ viewController: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil) {
         navigationController.present(viewController, animated: animated, completion: completion)
     }
     
-    @discardableResult public func resolve(_ rawDeeplink: String?) -> Bool {
+    @discardableResult open func resolve(_ rawDeeplink: String?) -> Bool {
         guard let rawDeeplink = rawDeeplink, let deeplink = getDeeplink(from: rawDeeplink), let destinationJourney = deeplink.value, let url = deeplink.url, let handler = getHandler(from: destinationJourney) else { return false }
         
         guard handler.canStart() else {
@@ -75,19 +75,19 @@ public final class AppNavigation {
         }
     }
     
-    public func resolveDeeplinkIfNeeded() {
+    open func resolveDeeplinkIfNeeded() {
         resolve(rawDeeplink)
     }
     
-    public func register(_ jorneys: Array<Journey>, with stater: ModuleHandler) {
+    open func register(_ jorneys: Array<Journey>, with stater: ModuleHandler) {
         jorneys.forEach{ [weak self] jorney in self?.handlers[jorney] = stater }
     }
     
-    public func getHandler(from jorney: Journey) -> ModuleHandler? {
+    open func getHandler(from jorney: Journey) -> ModuleHandler? {
         return handlers[jorney]
     }
     
-    public func start(_ journey: Journey, to subJourney: Journey? = nil, from currentJourney: Journey? = nil, with url: URL? = nil, baseFlowDelegate: BaseFlowDelegate = AppNavigation.shared, baseFlowDataSource: BaseFlowDataSource = AppNavigation.shared, customModuleAnalytics: Any? = nil, value: Any? = nil) -> UIViewController {
+    open func start(_ journey: Journey, to subJourney: Journey? = nil, from currentJourney: Journey? = nil, with url: URL? = nil, baseFlowDelegate: BaseFlowDelegate = AppNavigation.shared, baseFlowDataSource: BaseFlowDataSource = AppNavigation.shared, customModuleAnalytics: Any? = nil, value: Any? = nil) -> UIViewController {
         
         guard let handler = getHandler(from: journey) else { return UIViewController() }
 
@@ -96,7 +96,7 @@ public final class AppNavigation {
         return handler.start(from: url, with: baseFlowDelegate, baseFlowDataSource, customModuleAnalytics, subJourney, value)
     }
     
-    public func show(_ journeys: Array<Journey>, from currentViewController: UIViewController? = nil, animated: Bool) {
+    open func show(_ journeys: Array<Journey>, from currentViewController: UIViewController? = nil, animated: Bool) {
         let journeysControllers = journeys.compactMap{ [weak self] journey -> UIViewController? in
             let firstModuleVC = self?.start(journey)
             firstModuleVC?.loadViewIfNeeded()
@@ -128,7 +128,7 @@ public final class AppNavigation {
 // MARK: - BaseFlowDelegate
 
 extension AppNavigation: BaseFlowDelegate {
-    public func perform(_ action: BaseFlowDelegateAction, in viewController: UIViewController, with value: Any?) {
+    open func perform(_ action: BaseFlowDelegateAction, in viewController: UIViewController, with value: Any?) {
         switch action {
         case .finish(let journey):
             debugPrint("====== AppNavigation didFinish: \(journey.rawValue)")
@@ -154,7 +154,7 @@ extension AppNavigation: BaseFlowDelegate {
 // MARK: - BaseFlowDataSource
 
 extension AppNavigation: BaseFlowDataSource {
-    public func get(_ journey: Journey, from currentJourney: Journey, with baseFlowDelegate: BaseFlowDelegate, customAnalytics: Any?) -> UIViewController {
+    open func get(_ journey: Journey, from currentJourney: Journey, with baseFlowDelegate: BaseFlowDelegate, customAnalytics: Any?) -> UIViewController {
         guard let handler = getHandler(from: journey) else { return UIViewController() }
         return handler.handleGet(from: currentJourney, to: journey, with: baseFlowDelegate, analytics: customAnalytics)
     }

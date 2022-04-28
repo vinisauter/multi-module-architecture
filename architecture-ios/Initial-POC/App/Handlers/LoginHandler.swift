@@ -12,7 +12,9 @@ import Login
 class LoginHandler: ModuleHandler {
     private weak var baseFlowDelegate: BaseFlowDelegate?
     
-    init() {}
+    init() {
+        
+    }
     
     func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: Journey?, _ value: Any?) -> UIViewController {
         self.baseFlowDelegate = baseFlowDelegate
