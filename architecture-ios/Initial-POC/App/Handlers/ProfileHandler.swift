@@ -54,11 +54,6 @@ class ProfileHandler: ModuleHandler {
     func handleFinish(in viewController: UIViewController, with value: Any?) {
         debugPrint("++++++++ \(#fileID) - \(#function)")
     }
-    
-    func handleDeeplink(_ url: URL) -> Bool {
-        debugPrint("Chamou o \(#fileID) - \(#function)")
-        return false
-    }
 }
 
 extension DIContainer: ProfileStructuralDependencies {}

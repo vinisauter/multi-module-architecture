@@ -1,0 +1,9 @@
+${PODS_ROOT}/Target Support Files/Pods-App/Pods-App-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AnalyticsFramework/AnalyticsFramework.framework
+${BUILT_PRODUCTS_DIR}/AnalyticsInterfacesFramework/AnalyticsInterfacesFramework.framework
+${BUILT_PRODUCTS_DIR}/CoreFramework/CoreFramework.framework
+${BUILT_PRODUCTS_DIR}/HomeFramework/HomeFramework.framework
+${BUILT_PRODUCTS_DIR}/LoginFramework/LoginFramework.framework
+${BUILT_PRODUCTS_DIR}/ProfileFramework/ProfileFramework.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/Networking/Networking.framework/Networking
+${PODS_XCFRAMEWORKS_BUILD_DIR}/NetworkingInterfaces/NetworkingInterfaces.framework/NetworkingInterfaces

@@ -119,7 +119,8 @@ public final class AppNavigation: AppNavigationProtocol {
             present(deeplinkNavigation)
             return true
         } else {
-            return handler.handleDeeplink(url)
+            // TODO: Push when the module is started
+            return false
         }
     }
     

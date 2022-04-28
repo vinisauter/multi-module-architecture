@@ -57,5 +57,4 @@ public protocol ModuleHandler {
     func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?)
     func handleGet(from journey: Journey, to subJourney: Journey?, with baseFlowDelegate: BaseFlowDelegate, analytics: Any?) -> UIViewController
     func handleFinish(in viewController: UIViewController, with value: Any?)
-    func handleDeeplink(_ url: URL) -> Bool
 }

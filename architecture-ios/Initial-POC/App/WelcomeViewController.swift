@@ -63,9 +63,4 @@ class WelcomeHandler: ModuleHandler {
     }
     
     func handleFinish(in viewController: UIViewController, with value: Any?) {}
-    
-    func handleDeeplink(_ url: URL) -> Bool {
-        debugPrint("Chamou o \(#fileID) - \(#function)")
-        return false
-    }
 }

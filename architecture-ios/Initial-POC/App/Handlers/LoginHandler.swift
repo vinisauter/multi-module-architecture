@@ -15,24 +15,21 @@ class LoginHandler: ModuleHandler {
     var baseFlowDelegate: BaseFlowDelegate?
     
     var appNavigation: AppNavigationProtocol
-    
-    private var launcher: LoginLauncher?
-    
+        
     init(appNavigation: AppNavigationProtocol) {
         self.appNavigation = appNavigation
     }
     
     func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: Journey?, _ value: Any?) -> UIViewController {
-        launcher = LoginLauncher()
         self.baseFlowDelegate = baseFlowDelegate
         let loginDependencies = LoginDependencies(url, self, DIContainer.shared, customModuleAnalytics as? LoginAnalyticsProtocol, value)
         
-        var startViewController: UIViewController = launcher!.start(with: loginDependencies)
+        var startViewController: UIViewController = LoginLauncher.start(with: loginDependencies)
         
         if let subJourney = subJourney {
             switch subJourney {
             case .forgotPassword:
-                startViewController = launcher!.startForgotPassword(with: loginDependencies)
+                startViewController = LoginLauncher.startForgotPassword(with: loginDependencies)
             default: break
             }
         }
@@ -75,14 +72,7 @@ class LoginHandler: ModuleHandler {
     
     func handleFinish(in viewController: UIViewController, with value: Any?) {
         viewController.isModal ? viewController.dismiss(animated: true, completion: nil) : viewController.pop(animated: true)
-        launcher?.dispose()
-        launcher = nil
         debugPrint("++++++++ \(#fileID) - \(#function)")
-    }
-    
-    func handleDeeplink(_ url: URL) -> Bool {
-        debugPrint("Chamou o \(#fileID) - \(#function)")
-        return false
     }
 }
 

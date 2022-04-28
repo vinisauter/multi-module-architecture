@@ -1,0 +1,8 @@
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AnalyticsFramework.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AnalyticsInterfacesFramework.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CoreFramework.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HomeFramework.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LoginFramework.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProfileFramework.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Networking.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NetworkingInterfaces.framework

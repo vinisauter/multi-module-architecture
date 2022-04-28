@@ -13,7 +13,6 @@ protocol LoginFlowProtocol: AnyObject {
     var delegate: LoginFlowDelegate? { get set }
     var deeplink: Deeplink<LoginDeeplink>? { get set }
     func start() -> UIViewController
-    func dispose()
 }
 
 public protocol LoginFlowDelegate: AnyObject {
@@ -29,20 +28,13 @@ class LoginFlow: LoginFlowProtocol, Deeplinkable {
     
     weak var delegate: LoginFlowDelegate?
     
-    var currentViewController: UIViewController?
-    
     init(factory: LoginViewControllerFactory, deeplink: Deeplink<LoginDeeplink>?) {
         self.factory = factory
         self.deeplink = deeplink
     }
     
-    func dispose() {
-        currentViewController = nil
-    }
-    
     func start() -> UIViewController {
-        currentViewController = factory.makeLoginViewController(isIndex: true)
-        return currentViewController!
+        return factory.makeLoginViewController(isIndex: true)
     }
     
     func resolveDeeplinkIfNeeded(from controller: UIViewController) {

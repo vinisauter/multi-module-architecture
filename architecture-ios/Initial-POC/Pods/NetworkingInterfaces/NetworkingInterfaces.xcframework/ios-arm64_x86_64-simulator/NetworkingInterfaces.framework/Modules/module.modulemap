@@ -1,0 +1,11 @@
+framework module NetworkingInterfaces {
+  umbrella header "NetworkingInterfaces.h"
+
+  export *
+  module * { export * }
+}
+
+module NetworkingInterfaces.Swift {
+    header "NetworkingInterfaces-Swift.h"
+    requires objc
+}
