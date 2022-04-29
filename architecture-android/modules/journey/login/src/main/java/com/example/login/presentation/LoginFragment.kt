@@ -1,5 +1,6 @@
 package com.example.login.presentation
 
+import android.view.View
 import androidx.fragment.app.viewModels
 import com.core.base.BaseFragment
 import com.core.base.LoaderDialog
@@ -8,10 +9,12 @@ import com.core.extensions.navigate
 import com.example.login.databinding.FragmentLoginBinding
 
 class LoginFragment :
-    BaseFragment<FragmentLoginBinding, LoginFragmentEvent, LoginFragmentEffect, LoginFragmentViewModel>() {
+    BaseFragment<LoginFragmentEvent, LoginFragmentEffect, LoginFragmentViewModel>() {
+    private lateinit var binding: FragmentLoginBinding
     override val viewModel: LoginFragmentViewModel by viewModels()
 
-    override fun afterViews(binding: FragmentLoginBinding) {
+    override fun afterViews(view: View) {
+        binding = FragmentLoginBinding.bind(view)
         viewModel.processEvent(LoginFragmentEvent.OnScreenLoad)
         binding.forgotPasswordButton.setOnClickListener {
             viewModel.processEvent(LoginFragmentEvent.OnForgotPassword)
