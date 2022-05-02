@@ -73,6 +73,15 @@ class LoginHandler: ModuleHandler {
     func handleFinish(in viewController: UIViewController, with value: Any?) {
         viewController.isModal ? viewController.dismiss(animated: true, completion: nil) : viewController.pop(animated: true)
         debugPrint("++++++++ \(#fileID) - \(#function)")
+        LoginLauncher.dispose()
+    }
+    
+    func getViewController(from url: URL) -> UIViewController? {
+        return LoginLauncher.getViewController(from: url)
+    }
+    
+    static func dispose() {
+        LoginLauncher.dispose()
     }
 }
 

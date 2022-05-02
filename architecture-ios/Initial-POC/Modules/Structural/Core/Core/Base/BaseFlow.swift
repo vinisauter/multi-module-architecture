@@ -22,6 +22,12 @@ public struct Journey: Hashable, RawRepresentable {
     static let unkown: Journey = Journey(rawValue: "unkown")
     
     public var rawValue: String
+    public var isSubJourney: Bool = false
+    
+    public init(rawValue: String, isSubJourney: Bool) {
+        self.rawValue = rawValue
+        self.isSubJourney = isSubJourney
+    }
     
     public init(rawValue: String) {
         self.rawValue = rawValue
@@ -57,4 +63,5 @@ public protocol ModuleHandler {
     func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?)
     func handleGet(from journey: Journey, to subJourney: Journey?, with baseFlowDelegate: BaseFlowDelegate, analytics: Any?) -> UIViewController
     func handleFinish(in viewController: UIViewController, with value: Any?)
+    func getViewController(from url: URL) -> UIViewController?
 }

@@ -63,4 +63,8 @@ class WelcomeHandler: ModuleHandler {
     }
     
     func handleFinish(in viewController: UIViewController, with value: Any?) {}
+    
+    func getViewController(from url: URL) -> UIViewController? {
+        return UIViewController()
+    }
 }

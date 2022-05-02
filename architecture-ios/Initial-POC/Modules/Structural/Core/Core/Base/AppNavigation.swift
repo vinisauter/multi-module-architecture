@@ -119,8 +119,9 @@ public final class AppNavigation: AppNavigationProtocol {
             present(deeplinkNavigation)
             return true
         } else {
-            // TODO: Push when the module is started
-            return false
+            guard let viewController = handler.getViewController(from: url) else { return true }
+            push(viewController)
+            return true
         }
     }
     
@@ -177,7 +178,7 @@ public final class AppNavigation: AppNavigationProtocol {
     }
     
     private func getJorneyModule(from name: String) -> Journey? {
-        return handlers.first{ $0.value.getName().lowercased() == name.lowercased() }?.key
+        return handlers.first{ $0.value.getName().lowercased() == name.lowercased() && !$0.key.isSubJourney }?.key
     }
 }
 

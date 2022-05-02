@@ -24,6 +24,10 @@ class ForgotPasswordFlow: LoginFlowProtocol, Deeplinkable {
         return factory.makeForgotPasswordViewController(isIndex: true)
     }
     
+    func getViewController(fromDeeplink deeplink: Deeplink<LoginDeeplink>) -> UIViewController? {
+        return nil
+    }
+    
     func resolveDeeplinkIfNeeded(from controller: UIViewController) {
         guard let deeplink = deeplink, let screen = deeplink.value, let _ = deeplink.url else { return }
         self.deeplink = nil

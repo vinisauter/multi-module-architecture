@@ -53,6 +53,11 @@ class ProfileHandler: ModuleHandler {
     
     func handleFinish(in viewController: UIViewController, with value: Any?) {
         debugPrint("++++++++ \(#fileID) - \(#function)")
+        ProfileLauncher.dispose()
+    }
+    
+    func getViewController(from url: URL) -> UIViewController? {
+        return ProfileLauncher.getViewController(from: url)
     }
 }
 
@@ -94,10 +99,12 @@ extension ProfileHandler: BaseFlowDelegate {
     private func handleDidFinish(_ journey: Journey, in viewController: UIViewController, with value: Any?) {
         switch journey {
         case .login:
+            LoginHandler.dispose()
             viewController.dismiss(animated: true)
             break
             
         case .forgotPassword:
+            LoginHandler.dispose()
             viewController.pop(animated: true)
             
         default: break

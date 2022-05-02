@@ -34,16 +34,27 @@ public protocol ProfileStructuralDependencies {
 }
 
 public class ProfileLauncher {
+    static private var flow: ProfileFlowProtocol!
+    
     static public func start(with dependencies: ProfileDependencies) -> UIViewController {
         let profileAPI = ProfileAPI(httpClient: dependencies.structuralDependencies.networkingProvider.getSecureHttpClient())
         let businessModel = ProfileBusinessModel(repository: profileAPI, structuralAnalytics: dependencies.structuralDependencies.analytics)
         let factory = ProfileViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependencies.customProfileAnalytics)
-        let mainFlow = ProfileFlow(factory: factory, deeplink: Deeplink(value: ProfileDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
-        mainFlow.delegate = dependencies.flowDelegate
-        mainFlow.dataSource = dependencies.flowDataSource
-        factory.flow = mainFlow
+        flow = ProfileFlow(factory: factory, deeplink: Deeplink(value: ProfileDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
+        flow.delegate = dependencies.flowDelegate
+        flow.dataSource = dependencies.flowDataSource
+        factory.flow = flow
         
-        return mainFlow.start()
+        return flow.start()
+    }
+    
+    static public func getViewController(from url: URL) -> UIViewController? {
+        let deeplink = Deeplink(value: ProfileDeeplink(rawValue: url.path), url: url)
+        return flow.getViewController(fromDeeplink: deeplink)
+    }
+    
+    static public func dispose() {
+        flow = nil
     }
 }
 

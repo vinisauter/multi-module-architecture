@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension Journey {
     static let welcome: Journey = Journey(rawValue: "welcome")
     static let login: Journey = Journey(rawValue: "login")
-    static let forgotPassword: Journey = Journey(rawValue: "forgotPassword")
+    static let forgotPassword: Journey = Journey(rawValue: "forgotPassword", isSubJourney: true)
     static let home: Journey = Journey(rawValue: "home")
     static let profile: Journey = Journey(rawValue: "profile")
 }

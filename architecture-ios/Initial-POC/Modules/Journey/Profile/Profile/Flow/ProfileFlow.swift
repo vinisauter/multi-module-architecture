@@ -14,6 +14,7 @@ protocol ProfileFlowProtocol: AnyObject {
     var delegate: ProfileFlowDelegate? { get set }
     var dataSource: ProfileFlowDataSource? { get set }
     func start() -> UIViewController
+    func getViewController(fromDeeplink deeplink: Deeplink<ProfileDeeplink>) -> UIViewController?
 }
 
 public protocol ProfileFlowDelegate: AnyObject {
@@ -41,6 +42,15 @@ class ProfileFlow: ProfileFlowProtocol, Deeplinkable {
     
     func start() -> UIViewController {
         return factory.makeProfileHomeViewController(isIndex: true)
+    }
+    
+    func getViewController(fromDeeplink deeplink: Deeplink<ProfileDeeplink>) -> UIViewController? {
+        guard let screen = deeplink.value else { return nil }
+        
+        switch screen {
+        case .forgotPassword: return getForgotPassword()
+        default: return nil
+        }
     }
     
     func resolveDeeplinkIfNeeded(from controller: UIViewController) {

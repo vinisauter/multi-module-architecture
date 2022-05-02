@@ -13,6 +13,7 @@ protocol LoginFlowProtocol: AnyObject {
     var delegate: LoginFlowDelegate? { get set }
     var deeplink: Deeplink<LoginDeeplink>? { get set }
     func start() -> UIViewController
+    func getViewController(fromDeeplink deeplink: Deeplink<LoginDeeplink>) -> UIViewController?
 }
 
 public protocol LoginFlowDelegate: AnyObject {
@@ -35,6 +36,20 @@ class LoginFlow: LoginFlowProtocol, Deeplinkable {
     
     func start() -> UIViewController {
         return factory.makeLoginViewController(isIndex: true)
+    }
+    
+    func getViewController(fromDeeplink deeplink: Deeplink<LoginDeeplink>) -> UIViewController? {
+        guard let screen = deeplink.value, let url = deeplink.url else { return nil }
+        
+        switch screen {
+        case .forgotPassword:
+            let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
+            let userName = urlComponents?.queryItems?.first{ $0.name == "userName" }
+            debugPrint(userName ?? "")
+            return factory.makeForgotPasswordViewController()
+                                                            
+        default: return nil
+        }
     }
     
     func resolveDeeplinkIfNeeded(from controller: UIViewController) {

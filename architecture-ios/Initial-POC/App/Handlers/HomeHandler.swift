@@ -58,6 +58,10 @@ class HomeHandler: ModuleHandler {
     func handleFinish(in viewController: UIViewController, with value: Any?) {
         debugPrint("++++++++ \(#fileID) - \(#function)")
     }
+    
+    func getViewController(from url: URL) -> UIViewController? {
+        return UIViewController()
+    }
 }
 
 extension DIContainer: HomeStructuralDependencies {}

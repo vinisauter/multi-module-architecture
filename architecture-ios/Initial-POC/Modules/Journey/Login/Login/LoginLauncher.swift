@@ -32,26 +32,37 @@ public protocol LoginStructuralDependencies {
 }
 
 public class LoginLauncher {
+    static private var flow: LoginFlowProtocol!
+    
     static public func start(with dependencies: LoginDependencies) -> UIViewController {
         let loginAPI = LoginAPI(secureHttpClient: dependencies.structuralDependencies.networkingProvider.getSecureHttpClient(), insecureHttpClient: dependencies.structuralDependencies.networkingProvider.getInsecureHttpClient())
         let businessModel = LoginBusinessModel(repository: loginAPI, structuralAnalytics: dependencies.structuralDependencies.analytics)
         let factory = LoginViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependencies.customLoginAnalytics)
-        let mainFlow = LoginFlow(factory: factory, deeplink: Deeplink(value: LoginDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
-        mainFlow.delegate = dependencies.flowDelegate
-        factory.flow = mainFlow
+        flow = LoginFlow(factory: factory, deeplink: Deeplink(value: LoginDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
+        flow.delegate = dependencies.flowDelegate
+        factory.flow = flow
         
-        return mainFlow.start()
+        return flow.start()
     }
     
     static public func startForgotPassword(with dependencies: LoginDependencies) -> UIViewController {
         let loginAPI = LoginAPI(secureHttpClient: dependencies.structuralDependencies.networkingProvider.getSecureHttpClient(), insecureHttpClient: dependencies.structuralDependencies.networkingProvider.getInsecureHttpClient())
         let businessModel = LoginBusinessModel(repository: loginAPI, structuralAnalytics: dependencies.structuralDependencies.analytics)
         let factory = LoginViewControllerFactory(businessModel: businessModel, defaultAnalytics: businessModel, customAnalytics: dependencies.customLoginAnalytics)
-        let mainFlow = ForgotPasswordFlow(factory: factory, deeplink: Deeplink(value: LoginDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
-        mainFlow.delegate = dependencies.flowDelegate
-        factory.flow = mainFlow
+        flow = ForgotPasswordFlow(factory: factory, deeplink: Deeplink(value: LoginDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
+        flow.delegate = dependencies.flowDelegate
+        factory.flow = flow
         
-        return mainFlow.start()
+        return flow.start()
+    }
+    
+    static public func getViewController(from url: URL) -> UIViewController? {
+        let deeplink = Deeplink(value: LoginDeeplink(rawValue: url.path), url: url)
+        return flow.getViewController(fromDeeplink: deeplink)
+    }
+    
+    static public func dispose() {
+        flow = nil
     }
 }
 
