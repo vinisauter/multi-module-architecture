@@ -114,12 +114,18 @@ public final class AppNavigation: AppNavigationProtocol {
         self.rawDeeplink = nil
 
         if currentJourney != destinationJourney {
-            let deeplinkNavigation = UINavigationController(rootViewController: start(journey: destinationJourney, fromCurrentJourney: nil, withSubJourney: nil, url: url, baseFlowDelegate: self, baseFlowDataSource: self, customModuleAnalytics: nil, andValue: nil))
-            deeplinkNavigation.modalPresentationStyle = .fullScreen
-            present(deeplinkNavigation)
-            return true
+            if deeplink.isSubJourney {
+                let deeplinkNavigation = UINavigationController(rootViewController: start(journey: currentJourney!, fromCurrentJourney: nil, withSubJourney: destinationJourney, url: url, baseFlowDelegate: self, baseFlowDataSource: self, customModuleAnalytics: nil, andValue: nil))
+                deeplinkNavigation.modalPresentationStyle = .fullScreen
+                present(deeplinkNavigation)
+                return true
+            } else {
+                let deeplinkNavigation = UINavigationController(rootViewController: start(journey: destinationJourney, fromCurrentJourney: nil, withSubJourney: nil, url: url, baseFlowDelegate: self, baseFlowDataSource: self, customModuleAnalytics: nil, andValue: nil))
+                deeplinkNavigation.modalPresentationStyle = .fullScreen
+                present(deeplinkNavigation)
+                return true
+            }
         } else {
-            // TODO: Push when the module is started
             return false
         }
     }
@@ -168,16 +174,32 @@ public final class AppNavigation: AppNavigationProtocol {
     }
     
     private func getDeeplink(from rawDeeplink: String) -> Deeplink<Journey>? {
-        guard  let url = URL(string: rawDeeplink),
-               let host = url.host,
-               let jorneyModule = getJorneyModule(from: host)
-               else { return nil }
-
+        guard  let url = URL(string: rawDeeplink) else { return nil }
+        guard let host = url.host,
+           let jorneyModule = getJorneyModule(from: host)
+           else { return nil }
+        
+        if self.currentJourney == jorneyModule {
+            guard let subJourneyModule = getSubJorneyModule(from: url.pathComponents) else {
+                return nil
+            }
+            return .init(value: subJourneyModule, url: url, isSubJourney: true)
+        }
+        
         return .init(value: jorneyModule, url: url)
     }
     
     private func getJorneyModule(from name: String) -> Journey? {
-        return handlers.first{ $0.value.getName().lowercased() == name.lowercased() }?.key
+        return handlers.first{ $0.value.getName().lowercased() == name.lowercased() && $0.key.isSubJourney == false }?.key
+    }
+    
+    private func getSubJorneyModule(from pathComponent: [String]) -> Journey? {
+        for path in pathComponent {
+            guard let journeyKey = handlers.first(where: { $0.key.rawValue == path })?.key else { continue }
+            return journeyKey
+        }
+        
+        return nil
     }
 }
 

@@ -38,7 +38,7 @@ class LoginHandler: ModuleHandler {
     }
     
     func canStart() -> Bool {
-        return isAppLaunched && !isUserLoggedIn
+        return isAppLaunched
     }
     
     func getName() -> String {

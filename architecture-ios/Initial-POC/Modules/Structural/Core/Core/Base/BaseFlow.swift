@@ -10,21 +10,29 @@ import UIKit
 public struct Deeplink<T> {
     public let value: T?
     public let url: URL?
+    public var isSubJourney: Bool
     
-    public init(value: T?, url: URL?) {
+    public init(value: T?, url: URL?, isSubJourney: Bool = false) {
         self.value = value
         self.url = url
+        self.isSubJourney = isSubJourney
     }
 }
 
 
 public struct Journey: Hashable, RawRepresentable {
     static let unkown: Journey = Journey(rawValue: "unkown")
+    public var isSubJourney: Bool = false
     
     public var rawValue: String
     
     public init(rawValue: String) {
         self.rawValue = rawValue
+    }
+    
+    public init(rawValue: String, isSubJourney: Bool = false) {
+        self.rawValue = rawValue
+        self.isSubJourney = isSubJourney
     }
 }
 
