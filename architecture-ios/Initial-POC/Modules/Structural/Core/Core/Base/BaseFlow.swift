@@ -44,21 +44,13 @@ public protocol Deeplinkable: AnyObject {
     func resolveDeeplinkIfNeeded(from controller: UIViewController)
 }
 
-public protocol BaseFlowDelegate: AnyObject {
-    func perform(_ action: BaseFlowDelegateAction, in viewController: UIViewController, with value: Any?)
-}
-
-public protocol BaseFlowDataSource: AnyObject {
-    func get(_ journey: Journey, with baseFlowDelegate: BaseFlowDelegate, customAnalytics: Any?) -> UIViewController
-}
-
 public protocol ModuleHandler {
-    var baseFlowDelegate: BaseFlowDelegate? { get }
-    var baseFlowDataSource: BaseFlowDataSource? { get }
-    
-    func launch(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: Journey?, _ value: Any?) -> UIViewController
+    var appNavigation: AppNavigation? { get }
+    var completionHandler: ((BaseFlowDelegateAction, UIViewController, Any?) -> Void)? { get }
+     
+    func launch(fromURL url: URL?, withCustomAnalytics customAnalytics: Any?, subJourney: Journey?, value: Any?, appNavigation: AppNavigation, andCompletionHandler completion: ((BaseFlowDelegateAction, UIViewController, Any?) -> Void)?) -> UIViewController
     func canStart() -> Bool
     func getName() -> String
-    func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?, andAppNavigation appNavigation: AppNavigation)
-    func handleFinish(in viewController: UIViewController, with value: Any?, andAppNavigation appNavigation: AppNavigation)
+    func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?)
+    func handleFinish(in viewController: UIViewController, with value: Any?)
 }

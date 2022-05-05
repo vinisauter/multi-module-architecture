@@ -10,13 +10,13 @@ import Core
 import Home
 
 class HomeHandler: ModuleHandler {
-    var baseFlowDataSource: BaseFlowDataSource?
-    var baseFlowDelegate: BaseFlowDelegate?
-    
-    func launch(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: Journey?, _ value: Any?) -> UIViewController {
-        self.baseFlowDelegate = baseFlowDelegate
+    var appNavigation: AppNavigation?
+    var completionHandler: ((BaseFlowDelegateAction, UIViewController, Any?) -> Void)?
         
-        let homeDependencies = HomeDependencies(url, self, DIContainer.shared, customModuleAnalytics as? HomeAnalyticsProtocol, value)
+    func launch(fromURL url: URL?, withCustomAnalytics customAnalytics: Any?, subJourney: Journey?, value: Any?, appNavigation: AppNavigation, andCompletionHandler completion: ((BaseFlowDelegateAction, UIViewController, Any?) -> Void)?) -> UIViewController {
+        self.appNavigation = appNavigation
+        self.completionHandler = completion
+        let homeDependencies = HomeDependencies(url, self, DIContainer.shared, customAnalytics as? HomeAnalyticsProtocol, value)
         
         return HomeLauncher.start(with: homeDependencies)
     }
@@ -29,14 +29,14 @@ class HomeHandler: ModuleHandler {
         return Journey.home.rawValue
     }
     
-    func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?, andAppNavigation appNavigation: AppNavigation) {
+    func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?) {
         switch journey {
         case .profile:
-            appNavigation.push(journey: journey, fromCurrentViewController: viewController, animated: true)
+            appNavigation?.push(journey: journey, fromCurrentViewController: viewController, animated: true)
             break
             
         case .login:
-            appNavigation.show(journeys: [.welcome, .login], fromCurrentViewController: viewController, withValue: nil, animated: false)
+            appNavigation?.show(journeys: [.welcome, .login], fromCurrentViewController: viewController, withValue: nil, animated: false)
             isUserLoggedIn = false
             break
             
@@ -44,7 +44,7 @@ class HomeHandler: ModuleHandler {
         }
     }
     
-    func handleFinish(in viewController: UIViewController, with value: Any?, andAppNavigation appNavigation: AppNavigation) {
+    func handleFinish(in viewController: UIViewController, with value: Any?) {
         debugPrint("++++++++ \(#fileID) - \(#function)")
     }
 }
@@ -53,10 +53,10 @@ extension DIContainer: HomeStructuralDependencies {}
 
 extension HomeHandler: HomeFlowDelegate {
     func goToProfile(from flow: Flow, in controller: UIViewController, with value: Any?) {
-        baseFlowDelegate?.perform(.goTo(.profile, currentJourney: .home), in: controller, with: value)
+        appNavigation?.perform(.goTo(.profile, currentJourney: .home), in: controller, with: value)
     }
     
     func goToLogin(from flow: Flow, in controller: UIViewController, with value: Any?) {
-        baseFlowDelegate?.perform(.finishCurrentAndGoTo(.login, currentJourney: .home), in: controller, with: value)
+        appNavigation?.perform(.finishCurrentAndGoTo(.login, currentJourney: .home), in: controller, with: value)
     }
 }

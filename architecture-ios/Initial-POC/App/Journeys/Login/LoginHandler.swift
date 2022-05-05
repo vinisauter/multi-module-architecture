@@ -10,12 +10,14 @@ import Core
 import Login
 
 class LoginHandler: ModuleHandler {
-    var baseFlowDataSource: BaseFlowDataSource?
-    var baseFlowDelegate: BaseFlowDelegate?
+    var appNavigation: AppNavigation?
+    var completionHandler: ((BaseFlowDelegateAction, UIViewController, Any?) -> Void)?
     
-    func launch(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: Journey?, _ value: Any?) -> UIViewController {
-        self.baseFlowDelegate = baseFlowDelegate
-        let loginDependencies = LoginDependencies(url, self, DIContainer.shared, customModuleAnalytics as? LoginAnalyticsProtocol, value)
+    func launch(fromURL url: URL?, withCustomAnalytics customAnalytics: Any?, subJourney: Journey?, value: Any?, appNavigation: AppNavigation, andCompletionHandler completion: ((BaseFlowDelegateAction, UIViewController, Any?) -> Void)?) -> UIViewController {
+        self.appNavigation = appNavigation
+        self.completionHandler = completion
+        
+        let loginDependencies = LoginDependencies(url, self, DIContainer.shared, customAnalytics as? LoginAnalyticsProtocol, value)
         
         var startViewController: UIViewController = LoginLauncher.start(with: loginDependencies)
         
@@ -38,23 +40,23 @@ class LoginHandler: ModuleHandler {
         return Journey.login.rawValue
     }
     
-    func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?, andAppNavigation appNavigation: AppNavigation) {
+    func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?) {
         isUserLoggedIn = journey == .home
         switch journey {
         case .home:
-            appNavigation.show(journeys: [.home], fromCurrentViewController: viewController, animated: true)
-            appNavigation.resolveDeeplinkIfNeeded()
+            appNavigation?.show(journeys: [.home], fromCurrentViewController: viewController, animated: true)
+            appNavigation?.resolveDeeplinkIfNeeded()
             break
             
         case .welcome:
-            appNavigation.show(journeys: [.welcome], fromCurrentViewController: viewController, animated: true)
+            appNavigation?.show(journeys: [.welcome], fromCurrentViewController: viewController, animated: true)
             break
             
         default: break
         }
     }
     
-    func handleFinish(in viewController: UIViewController, with value: Any?, andAppNavigation appNavigation: AppNavigation) {
+    func handleFinish(in viewController: UIViewController, with value: Any?) {
         viewController.isModal ? viewController.dismiss(animated: true, completion: nil) : viewController.pop(animated: true)
         debugPrint("++++++++ \(#fileID) - \(#function)")
     }
@@ -66,19 +68,32 @@ extension LoginHandler: LoginFlowDelegate {
     func didFinish(_ flow: Flow, in controller: UIViewController, with value: Any?) {
         switch flow {
         case .main:
-            baseFlowDelegate?.perform(.finish(.login), in: controller, with: value)
+            if let completionHandler = completionHandler {
+                completionHandler(.finish(.login), controller, value)
+            } else {
+                appNavigation?.perform(.finish(.login), in: controller, with: value)
+            }
             break
             
         case .forgotPassword:
-            baseFlowDelegate?.perform(.finish(.forgotPassword), in: controller, with: value)
+            if let completionHandler = completionHandler {
+                completionHandler(.finish(.forgotPassword), controller, value)
+            } else {
+                appNavigation?.perform(.finish(.forgotPassword), in: controller, with: value)
+            }
             break
+            
         }
     }
     
     func onLoginSuccess(from flow: Flow, in controller: UIViewController, with value: Any?) {
         switch flow {
         case .main:
-            baseFlowDelegate?.perform(.finishCurrentAndGoTo(.home, currentJourney: .login), in: controller, with: nil)
+            if let completionHandler = completionHandler {
+                completionHandler(.finishCurrentAndGoTo(.home, currentJourney: .login), controller, value)
+            } else {
+                appNavigation?.perform(.finishCurrentAndGoTo(.home, currentJourney: .login), in: controller, with: value)
+            }
         default: break
         }
     }

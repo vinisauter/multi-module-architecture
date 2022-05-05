@@ -37,7 +37,7 @@ public final class AppNavigation {
     }
     
     public func push(journey: Journey, fromCurrentViewController currentViewController: UIViewController? = nil, withValue value: Any? = nil, animated: Bool) {
-        push(start(journey: journey, fromCurrentJourney: nil, withSubJourney: nil, url: nil, baseFlowDelegate: self, baseFlowDataSource: self, customModuleAnalytics: nil, andValue: value), animated: animated)
+        push(start(journey: journey, value: value), animated: animated)
     }
     
     private func popViewController(animated: Bool) {
@@ -63,7 +63,7 @@ public final class AppNavigation {
         self.rawDeeplink = nil
 
         if currentJourney != destinationJourney {
-            let deeplinkNavigation = UINavigationController(rootViewController: start(journey: destinationJourney, fromCurrentJourney: nil, withSubJourney: nil, url: url, baseFlowDelegate: self, baseFlowDataSource: self, customModuleAnalytics: nil, andValue: nil))
+            let deeplinkNavigation = UINavigationController(rootViewController: start(journey: destinationJourney, url: url))
             deeplinkNavigation.modalPresentationStyle = .fullScreen
             present(deeplinkNavigation)
             return true
@@ -91,19 +91,18 @@ public final class AppNavigation {
         return handlers[jorney]
     }
     
-    public func start(journey: Journey, fromCurrentJourney currentJourney: Journey? = nil, withSubJourney subJourney: Journey? = nil, url: URL? = nil, baseFlowDelegate: BaseFlowDelegate, baseFlowDataSource: BaseFlowDataSource, customModuleAnalytics: Any? = nil, andValue value: Any? = nil) -> UIViewController {
-        
+    public func start(journey: Journey, fromCurrentJourney currentJourney: Journey? = nil, withSubJourney subJourney: Journey? = nil, url: URL? = nil, customAnalytics: Any? = nil, value: Any? = nil, andCompletion completion: ((BaseFlowDelegateAction, UIViewController, Any?) -> Void)? = nil) -> UIViewController {
         guard let handler = getHandler(from: journey) else { return UIViewController() }
-
+        
         self.currentJourney = currentJourney ?? journey
         
-        return handler.launch(from: url, with: baseFlowDelegate, baseFlowDataSource, customModuleAnalytics, subJourney, value)
+        return handler.launch(fromURL: url, withCustomAnalytics: customAnalytics, subJourney: subJourney, value: value, appNavigation: self, andCompletionHandler: completion)
     }
     
     public func show(journeys: Array<Journey>, fromCurrentViewController currentViewController: UIViewController? = nil, withValue value: Dictionary<Journey, Any>? = nil, animated: Bool) {
         let journeysControllers = journeys.compactMap{ [weak self] journey -> UIViewController? in
             guard let self = self else { return UIViewController() }
-            let firstModuleVC = self.start(journey: journey, fromCurrentJourney: nil, withSubJourney: nil, url: nil, baseFlowDelegate: self, baseFlowDataSource: self, customModuleAnalytics: nil, andValue: value?[journey])
+            let firstModuleVC = self.start(journey: journey, value: value?[journey])
             firstModuleVC.loadViewIfNeeded()
             return firstModuleVC
         }
@@ -116,23 +115,11 @@ public final class AppNavigation {
         }
     }
     
-    private func getDeeplink(from rawDeeplink: String) -> Deeplink<Journey>? {
-        guard  let url = URL(string: rawDeeplink),
-               let host = url.host,
-               let jorneyModule = getJorneyModule(from: host)
-               else { return nil }
-
-        return .init(value: jorneyModule, url: url)
+    public func get(_ journey: Journey, customAnalytics: Any?, completion: @escaping (BaseFlowDelegateAction, UIViewController, Any?) -> Void) -> UIViewController {
+        guard let handler = getHandler(from: journey) else { return UIViewController() }
+        return handler.launch(fromURL: nil, withCustomAnalytics: customAnalytics, subJourney: journey, value: nil, appNavigation: self, andCompletionHandler: completion)
     }
     
-    private func getJorneyModule(from name: String) -> Journey? {
-        return handlers.first{ $0.value.getName().lowercased() == name.lowercased() && !$0.key.isSubJourney }?.key
-    }
-}
-
-// MARK: - BaseFlowDelegate
-
-extension AppNavigation: BaseFlowDelegate {
     public func perform(_ action: BaseFlowDelegateAction, in viewController: UIViewController, with value: Any?) {
         switch action {
         case .finish(let journey):
@@ -153,20 +140,24 @@ extension AppNavigation: BaseFlowDelegate {
     
     private func handleGo(to destinationJourney: Journey, from currentJourney: Journey, in viewController: UIViewController, with value: Any?) {
         guard let handler = getHandler(from: currentJourney) else { return }
-        handler.handleGo(to: destinationJourney, in: viewController, with: value, andAppNavigation: self)
+        handler.handleGo(to: destinationJourney, in: viewController, with: value)
     }
     
     private func handleFinish(_ jorney: Journey, in viewController: UIViewController, with value: Any?) {
         guard let handler = getHandler(from: jorney) else { return }
-        handler.handleFinish(in: viewController, with: value, andAppNavigation: self)
+        handler.handleFinish(in: viewController, with: value)
     }
-}
+    
+    private func getDeeplink(from rawDeeplink: String) -> Deeplink<Journey>? {
+        guard  let url = URL(string: rawDeeplink),
+               let host = url.host,
+               let jorneyModule = getJorneyModule(from: host)
+               else { return nil }
 
-// MARK: - BaseFlowDataSource
-
-extension AppNavigation: BaseFlowDataSource {
-    public func get(_ journey: Journey, with baseFlowDelegate: BaseFlowDelegate, customAnalytics: Any?) -> UIViewController {
-        guard let handler = getHandler(from: journey) else { return UIViewController() }
-        return handler.launch(from: nil, with: baseFlowDelegate, self, customAnalytics, journey, nil)
+        return .init(value: jorneyModule, url: url)
+    }
+    
+    private func getJorneyModule(from name: String) -> Journey? {
+        return handlers.first{ $0.value.getName().lowercased() == name.lowercased() && !$0.key.isSubJourney }?.key
     }
 }

@@ -10,14 +10,13 @@ import Core
 import Profile
 
 class ProfileHandler: ModuleHandler {
-    var baseFlowDataSource: BaseFlowDataSource?
-    var baseFlowDelegate: BaseFlowDelegate?
-    
-    func launch(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: Journey?, _ value: Any?) -> UIViewController {
-        self.baseFlowDelegate = baseFlowDelegate
-        self.baseFlowDataSource = baseFlowDataSource
+    var appNavigation: AppNavigation?
+    var completionHandler: ((BaseFlowDelegateAction, UIViewController, Any?) -> Void)?
         
-        let profileDependencies = ProfileDependencies(url, self, self, DIContainer.shared, customModuleAnalytics as? ProfileAnalyticsProtocol, value)
+    func launch(fromURL url: URL?, withCustomAnalytics customAnalytics: Any?, subJourney: Journey?, value: Any?, appNavigation: AppNavigation, andCompletionHandler completion: ((BaseFlowDelegateAction, UIViewController, Any?) -> Void)?) -> UIViewController {
+        self.appNavigation = appNavigation
+        self.completionHandler = completion
+        let profileDependencies = ProfileDependencies(url, self, self, DIContainer.shared, customAnalytics as? ProfileAnalyticsProtocol, value)
         
         return ProfileLauncher.start(with: profileDependencies)
     }
@@ -30,17 +29,17 @@ class ProfileHandler: ModuleHandler {
         return Journey.profile.rawValue
     }
     
-    func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?, andAppNavigation appNavigation: AppNavigation) {
+    func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?) {
         switch journey {
         case .home:
-            appNavigation.show(journeys: [.home], fromCurrentViewController: viewController, animated: true)
+            appNavigation?.show(journeys: [.home], fromCurrentViewController: viewController, animated: true)
             break
             
         default: break
         }
     }
     
-    func handleFinish(in viewController: UIViewController, with value: Any?, andAppNavigation appNavigation: AppNavigation) {
+    func handleFinish(in viewController: UIViewController, with value: Any?) {
         debugPrint("++++++++ \(#fileID) - \(#function)")
     }
 }
@@ -51,7 +50,11 @@ extension ProfileHandler: ProfileFlowDelegate {
     func goToHome(from flow: Flow, in controller: UIViewController, with value: Any?) {
         switch flow {
         case .main:
-            baseFlowDelegate?.perform(.finishCurrentAndGoTo(.home, currentJourney: .profile), in: controller, with: value)
+            if let completionHandler = completionHandler {
+                completionHandler(.finishCurrentAndGoTo(.home, currentJourney: .profile), controller, value)
+            } else {
+                appNavigation?.perform(.finishCurrentAndGoTo(.home, currentJourney: .profile), in: controller, with: value)
+            }
             break
             
         default: break
@@ -61,34 +64,38 @@ extension ProfileHandler: ProfileFlowDelegate {
 
 extension ProfileHandler: ProfileFlowDataSource {
     func getLogin(from flow: Flow, with customAnalytics: Any?) -> UIViewController? {
-        return baseFlowDataSource?.get(.login, with: self, customAnalytics: LoginAnalyticsProfileAdapter(profileAnalytics: customAnalytics))
+        return appNavigation?.get(.login, customAnalytics: LoginAnalyticsProfileAdapter(profileAnalytics: customAnalytics), completion: { [weak self] action, viewController, value in
+            switch action {
+            case .finish(let journey), .finishCurrentAndGoTo(_, let journey):
+                self?.handleDidFinish(journey, in: viewController, with: value)
+                break
+
+            default: break
+            }
+        })
     }
     
     func getForgotPassword(from flow: Flow, with customAnalytics: Any?) -> UIViewController? {
-        return baseFlowDataSource?.get(.forgotPassword, with: self, customAnalytics: LoginAnalyticsProfileAdapter(profileAnalytics: customAnalytics))
-    }
-}
+        return appNavigation?.get(.forgotPassword, customAnalytics: LoginAnalyticsProfileAdapter(profileAnalytics: customAnalytics), completion: { [weak self] action, viewController, value in
+            switch action {
+            case .finish(let journey), .finishCurrentAndGoTo(_, let journey):
+                self?.handleDidFinish(journey, in: viewController, with: value)
+                break
 
-extension ProfileHandler: BaseFlowDelegate {
-    func perform(_ action: BaseFlowDelegateAction, in viewController: UIViewController, with value: Any?) {
-        switch action {
-        case .finish(let journey), .finishCurrentAndGoTo(_, let journey):
-            handleDidFinish(journey, in: viewController, with: value)
-            break
-            
-        default: break
-        }
+            default: break
+            }
+        })
     }
     
-    private func handleDidFinish(_ journey: Journey, in viewController: UIViewController, with value: Any?) {
+    fileprivate func handleDidFinish(_ journey: Journey, in viewController: UIViewController, with value: Any?) {
         switch journey {
         case .login:
             viewController.dismiss(animated: true)
             break
-            
+
         case .forgotPassword:
             viewController.pop(animated: true)
-            
+
         default: break
         }
     }
