@@ -14,14 +14,14 @@ var isAppLaunched: Bool = false
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    let appNavigation: AppNavigationProtocol = AppNavigation()
+    let appNavigation: AppNavigation = AppNavigation()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        appNavigation.register(jorneys: [.welcome], withStater: WelcomeHandler(appNavigation: appNavigation))
-        appNavigation.register(jorneys: [.login, .forgotPassword], withStater: LoginHandler(appNavigation: appNavigation))
-        appNavigation.register(jorneys: [.home], withStater: HomeHandler(appNavigation: appNavigation))
-        appNavigation.register(jorneys: [.profile], withStater: ProfileHandler(appNavigation: appNavigation))
+        appNavigation.register(jorneys: [.welcome], withStater: WelcomeHandler())
+        appNavigation.register(jorneys: [.login, .forgotPassword], withStater: LoginHandler())
+        appNavigation.register(jorneys: [.home], withStater: HomeHandler())
+        appNavigation.register(jorneys: [.profile], withStater: ProfileHandler())
                 
         setupRootViewController()
         
@@ -42,10 +42,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setupRootViewController(with deeplink: String? = nil) {
         if !isAppLaunched {
-            appNavigation.show([.welcome])
+            appNavigation.show(journeys: [.welcome], animated: false)
             isAppLaunched = true
         } else if isAppLaunched && !isUserLoggedIn {
-            if !appNavigation.resolve(deeplink) { appNavigation.show([.welcome, .login]) }
+            if !appNavigation.resolve(deeplink) { appNavigation.show(journeys: [.welcome, .login], animated: false) }
         } else {
             appNavigation.resolve(deeplink)
         }

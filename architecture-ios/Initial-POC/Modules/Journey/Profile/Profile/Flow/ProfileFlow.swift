@@ -41,7 +41,7 @@ class ProfileFlow: ProfileFlowProtocol, Deeplinkable {
     }
     
     func start() -> UIViewController {
-        return factory.makeProfileHomeViewController(isIndex: true)
+        return factory.makeProfileHomeViewController(flow: self, isIndex: true)
     }
     
     func getViewController(fromDeeplink deeplink: Deeplink<ProfileDeeplink>) -> UIViewController? {
@@ -66,7 +66,7 @@ class ProfileFlow: ProfileFlowProtocol, Deeplinkable {
     }
     
     private func getForgotPassword() -> UIViewController? {
-        guard let forgotPassswordVC = dataSource?.getForgotPassword(from: .main, with: factory.defaultAnalytics) else { return nil }
+        guard let forgotPassswordVC = dataSource?.getForgotPassword(from: .main, with: factory.analytics) else { return nil }
         return forgotPassswordVC
     }
 }
@@ -79,7 +79,7 @@ extension ProfileFlow: ProfileHomeFlowDelegate {
     }
     
     func callLogin(in controller: ProfileHomeViewController) {
-        guard let loginVC = dataSource?.getLogin(from: .main, with: factory.defaultAnalytics) else { return }
+        guard let loginVC = dataSource?.getLogin(from: .main, with: factory.analytics) else { return }
         
         
         let navigationController = UINavigationController(rootViewController: loginVC)

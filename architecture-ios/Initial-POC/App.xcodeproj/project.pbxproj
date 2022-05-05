@@ -138,10 +138,8 @@
 				421ECFC927396FBC00BD353C /* Assets.xcassets */,
 				421ECFCB27396FBC00BD353C /* LaunchScreen.storyboard */,
 				421ECFCE27396FBC00BD353C /* Info.plist */,
-				597F1C3D27556AC1006320C9 /* Handlers */,
+				59F628062824048500E87B93 /* Journeys */,
 				5993F7A7273D850900B3A695 /* DIContainer */,
-				59D1544B2768DD1800459773 /* DependenciesImplementations */,
-				5999E0C22747D71A0044427F /* AnalyticsAdapters */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -165,30 +163,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		597F1C3D27556AC1006320C9 /* Handlers */ = {
-			isa = PBXGroup;
-			children = (
-				5993F7A8273D852E00B3A695 /* LoginHandler.swift */,
-				5993F7AA273D856C00B3A695 /* HomeHandler.swift */,
-				5993F7AC273D85BE00B3A695 /* ProfileHandler.swift */,
-			);
-			path = Handlers;
-			sourceTree = "<group>";
-		};
 		5993F7A7273D850900B3A695 /* DIContainer */ = {
 			isa = PBXGroup;
 			children = (
+				59D1544B2768DD1800459773 /* DependenciesImplementations */,
 				59644E21273AA19000B3A865 /* DIContainer.swift */,
 			);
 			path = DIContainer;
-			sourceTree = "<group>";
-		};
-		5999E0C22747D71A0044427F /* AnalyticsAdapters */ = {
-			isa = PBXGroup;
-			children = (
-				59EABE5327466FB4007E653F /* LoginAnalyticsProfileAdapter.swift */,
-			);
-			path = AnalyticsAdapters;
 			sourceTree = "<group>";
 		};
 		59D1544B2768DD1800459773 /* DependenciesImplementations */ = {
@@ -197,6 +178,49 @@
 				59D1544C2768DD5700459773 /* NetworkingDependency.swift */,
 			);
 			path = DependenciesImplementations;
+			sourceTree = "<group>";
+		};
+		59F628062824048500E87B93 /* Journeys */ = {
+			isa = PBXGroup;
+			children = (
+				59F628072824049A00E87B93 /* Login */,
+				59F62808282404A300E87B93 /* Home */,
+				59F62809282404A800E87B93 /* Profile */,
+			);
+			path = Journeys;
+			sourceTree = "<group>";
+		};
+		59F628072824049A00E87B93 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				5993F7A8273D852E00B3A695 /* LoginHandler.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		59F62808282404A300E87B93 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				5993F7AA273D856C00B3A695 /* HomeHandler.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		59F62809282404A800E87B93 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				5993F7AC273D85BE00B3A695 /* ProfileHandler.swift */,
+				59F6280A282404C100E87B93 /* AnalyticsAdapters */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		59F6280A282404C100E87B93 /* AnalyticsAdapters */ = {
+			isa = PBXGroup;
+			children = (
+				59EABE5327466FB4007E653F /* LoginAnalyticsProfileAdapter.swift */,
+			);
+			path = AnalyticsAdapters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

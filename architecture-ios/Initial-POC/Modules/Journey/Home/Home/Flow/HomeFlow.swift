@@ -33,7 +33,7 @@ class HomeFlow: HomeFlowProtocol, Deeplinkable {
     }
     
     func start() -> UIViewController {
-        return factory.makeHomeIndexViewController()
+        return factory.makeHomeIndexViewController(flow: self)
     }
     
     func resolveDeeplinkIfNeeded(from controller: UIViewController) {

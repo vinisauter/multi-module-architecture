@@ -11,16 +11,9 @@ import Home
 
 class HomeHandler: ModuleHandler {
     var baseFlowDataSource: BaseFlowDataSource?
-    
     var baseFlowDelegate: BaseFlowDelegate?
     
-    var appNavigation: AppNavigationProtocol
-    
-    init(appNavigation: AppNavigationProtocol) {
-        self.appNavigation = appNavigation
-    }
-    
-    func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: Journey?, _ value: Any?) -> UIViewController {
+    func launch(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: Journey?, _ value: Any?) -> UIViewController {
         self.baseFlowDelegate = baseFlowDelegate
         
         let homeDependencies = HomeDependencies(url, self, DIContainer.shared, customModuleAnalytics as? HomeAnalyticsProtocol, value)
@@ -36,14 +29,14 @@ class HomeHandler: ModuleHandler {
         return Journey.home.rawValue
     }
     
-    func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?) {
+    func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?, andAppNavigation appNavigation: AppNavigation) {
         switch journey {
         case .profile:
-            appNavigation.push(journey, from: viewController)
+            appNavigation.push(journey: journey, fromCurrentViewController: viewController, animated: true)
             break
             
         case .login:
-            appNavigation.show(journeys: [.welcome, .login], fromCurrentViewController: viewController, animated: false)
+            appNavigation.show(journeys: [.welcome, .login], fromCurrentViewController: viewController, withValue: nil, animated: false)
             isUserLoggedIn = false
             break
             
@@ -51,16 +44,8 @@ class HomeHandler: ModuleHandler {
         }
     }
     
-    func handleGet(from journey: Journey, to subJourney: Journey?, with baseFlowDelegate: BaseFlowDelegate, analytics: Any?) -> UIViewController {
-        return start(from: nil, with: appNavigation as! BaseFlowDelegate, appNavigation as! BaseFlowDataSource, analytics, subJourney, nil)
-    }
-    
-    func handleFinish(in viewController: UIViewController, with value: Any?) {
+    func handleFinish(in viewController: UIViewController, with value: Any?, andAppNavigation appNavigation: AppNavigation) {
         debugPrint("++++++++ \(#fileID) - \(#function)")
-    }
-    
-    func getViewController(from url: URL) -> UIViewController? {
-        return UIViewController()
     }
 }
 

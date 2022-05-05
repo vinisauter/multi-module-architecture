@@ -11,16 +11,9 @@ import Profile
 
 class ProfileHandler: ModuleHandler {
     var baseFlowDataSource: BaseFlowDataSource?
-    
     var baseFlowDelegate: BaseFlowDelegate?
     
-    var appNavigation: AppNavigationProtocol
-    
-    init(appNavigation: AppNavigationProtocol) {
-        self.appNavigation = appNavigation
-    }
-    
-    func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: Journey?, _ value: Any?) -> UIViewController {
+    func launch(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: Journey?, _ value: Any?) -> UIViewController {
         self.baseFlowDelegate = baseFlowDelegate
         self.baseFlowDataSource = baseFlowDataSource
         
@@ -37,27 +30,18 @@ class ProfileHandler: ModuleHandler {
         return Journey.profile.rawValue
     }
     
-    func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?) {
+    func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?, andAppNavigation appNavigation: AppNavigation) {
         switch journey {
         case .home:
-            appNavigation.show([.home], from: viewController)
+            appNavigation.show(journeys: [.home], fromCurrentViewController: viewController, animated: true)
             break
             
         default: break
         }
     }
     
-    func handleGet(from journey: Journey, to subJourney: Journey?, with baseFlowDelegate: BaseFlowDelegate, analytics: Any?) -> UIViewController {
-        return start(from: nil, with: appNavigation as! BaseFlowDelegate, appNavigation as! BaseFlowDataSource, analytics, subJourney, nil)
-    }
-    
-    func handleFinish(in viewController: UIViewController, with value: Any?) {
+    func handleFinish(in viewController: UIViewController, with value: Any?, andAppNavigation appNavigation: AppNavigation) {
         debugPrint("++++++++ \(#fileID) - \(#function)")
-        ProfileLauncher.dispose()
-    }
-    
-    func getViewController(from url: URL) -> UIViewController? {
-        return ProfileLauncher.getViewController(from: url)
     }
 }
 
@@ -77,11 +61,11 @@ extension ProfileHandler: ProfileFlowDelegate {
 
 extension ProfileHandler: ProfileFlowDataSource {
     func getLogin(from flow: Flow, with customAnalytics: Any?) -> UIViewController? {
-        return baseFlowDataSource?.get(.login, from: .profile, with: self, customAnalytics: customAnalytics)
+        return baseFlowDataSource?.get(.login, with: self, customAnalytics: LoginAnalyticsProfileAdapter(profileAnalytics: customAnalytics))
     }
     
     func getForgotPassword(from flow: Flow, with customAnalytics: Any?) -> UIViewController? {
-        return baseFlowDataSource?.get(.forgotPassword, from: .profile, with: self, customAnalytics: customAnalytics)
+        return baseFlowDataSource?.get(.forgotPassword, with: self, customAnalytics: LoginAnalyticsProfileAdapter(profileAnalytics: customAnalytics))
     }
 }
 
@@ -99,12 +83,10 @@ extension ProfileHandler: BaseFlowDelegate {
     private func handleDidFinish(_ journey: Journey, in viewController: UIViewController, with value: Any?) {
         switch journey {
         case .login:
-            LoginHandler.dispose()
             viewController.dismiss(animated: true)
             break
             
         case .forgotPassword:
-            LoginHandler.dispose()
             viewController.pop(animated: true)
             
         default: break

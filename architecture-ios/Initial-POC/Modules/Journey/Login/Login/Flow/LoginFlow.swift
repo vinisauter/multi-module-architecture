@@ -18,8 +18,7 @@ protocol LoginFlowProtocol: AnyObject {
 
 public protocol LoginFlowDelegate: AnyObject {
     func didFinish(_ flow: Flow, in controller: UIViewController, with value: Any?)
-    func goToHome(from flow: Flow, in controller: UIViewController, with value: Any?)
-    func goToWelcome(from flow: Flow, in controller: UIViewController, with value: Any?)
+    func onLoginSuccess(from flow: Flow, in controller: UIViewController, with value: Any?)
 }
 
 class LoginFlow: LoginFlowProtocol, Deeplinkable {
@@ -35,7 +34,7 @@ class LoginFlow: LoginFlowProtocol, Deeplinkable {
     }
     
     func start() -> UIViewController {
-        return factory.makeLoginViewController(isIndex: true)
+        return factory.makeLoginViewController(flow: self, isIndex: true)
     }
     
     func getViewController(fromDeeplink deeplink: Deeplink<LoginDeeplink>) -> UIViewController? {
@@ -46,7 +45,7 @@ class LoginFlow: LoginFlowProtocol, Deeplinkable {
             let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
             let userName = urlComponents?.queryItems?.first{ $0.name == "userName" }
             debugPrint(userName ?? "")
-            return factory.makeForgotPasswordViewController()
+            return factory.makeForgotPasswordViewController(flow: self)
                                                             
         default: return nil
         }
@@ -62,7 +61,7 @@ class LoginFlow: LoginFlowProtocol, Deeplinkable {
             let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
             let userName = urlComponents?.queryItems?.first{ $0.name == "userName" }
             debugPrint(userName ?? "")
-            controller.show(factory.makeForgotPasswordViewController(), sender: nil)
+            controller.show(factory.makeForgotPasswordViewController(flow: self), sender: nil)
             break
         }
     }
@@ -72,7 +71,7 @@ class LoginFlow: LoginFlowProtocol, Deeplinkable {
 
 extension LoginFlow: LoginIndexFlowDelegate {
     func onBackClick(in controller: LoginIndexViewController) {
-        delegate?.goToWelcome(from: .main, in: controller, with: nil)
+        delegate?.didFinish(.main, in: controller, with: nil)
     }
     
     func onCloseClick(in controller: LoginIndexViewController) {
@@ -80,11 +79,11 @@ extension LoginFlow: LoginIndexFlowDelegate {
     }
     
     func onForgotPasswordClick(in controller: LoginIndexViewController) {
-        controller.show(factory.makeForgotPasswordViewController(), sender: nil)
+        controller.show(factory.makeForgotPasswordViewController(flow: self), sender: nil)
     }
     
     func onLoginSuccess(in controller: LoginIndexViewController) {
-        delegate?.goToHome(from: .main, in: controller, with: nil)
+        delegate?.onLoginSuccess(from: .main, in: controller, with: nil)
     }
 }
 

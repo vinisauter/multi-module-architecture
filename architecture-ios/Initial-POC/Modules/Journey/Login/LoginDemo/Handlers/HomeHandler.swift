@@ -14,7 +14,7 @@ class HomeHandler: ModuleHandler {
     
     init() {}
     
-    func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: Journey?, _ value: Any?) -> UIViewController {
+    func launch(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: Journey?, _ value: Any?) -> UIViewController {
         self.baseFlowDelegate = baseFlowDelegate
         
         let homeDependencies = HomeDependencies(url, self, StructuralDependencyProvider.shared, customModuleAnalytics as? HomeAnalyticsProtocol, value)
@@ -42,7 +42,7 @@ class HomeHandler: ModuleHandler {
     }
     
     func handleGet(from journey: Journey, to subJourney: Journey?, with baseFlowDelegate: BaseFlowDelegate, analytics: Any?) -> UIViewController {
-        return start(from: nil, with: baseFlowDelegate, AppNavigation.shared, analytics, subJourney, nil)
+        return launch(from: nil, with: baseFlowDelegate, AppNavigation.shared, analytics, subJourney, nil)
     }
 }
 

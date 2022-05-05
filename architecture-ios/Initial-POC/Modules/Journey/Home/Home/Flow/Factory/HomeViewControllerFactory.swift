@@ -7,10 +7,9 @@
 
 import Core
 
-public class HomeViewControllerFactory: BaseViewControllerFactory<HomeBusinessModel, HomeAnalyticsProtocol> {
-    weak var flow: HomeFlowProtocol?
+class HomeViewControllerFactory: BaseViewControllerFactory<HomeBusinessModel, HomeAnalyticsProtocol> {
     
-    func makeHomeIndexViewController() -> HomeIndexViewController {
-        return HomeIndexViewController(viewModel: HomeIndexViewModel(businessModel: businessModel, analytics: customAnalytics as? HomeIndexAnalyticsProtocol ?? defaultAnalytics as? HomeIndexAnalyticsProtocol, flowDelegate: flow as? HomeIndexFlowDelegate))
+    func makeHomeIndexViewController(flow: HomeFlowProtocol) -> HomeIndexViewController {
+        return HomeIndexViewController(viewModel: HomeIndexViewModel(businessModel: businessModel, analytics: analytics as? HomeIndexAnalyticsProtocol, flowDelegate: flow as? HomeIndexFlowDelegate))
     }
 }

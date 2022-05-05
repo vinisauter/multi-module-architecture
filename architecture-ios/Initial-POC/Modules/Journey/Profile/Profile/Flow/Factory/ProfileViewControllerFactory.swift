@@ -7,11 +7,9 @@
 
 import Core
 
-public class ProfileViewControllerFactory: BaseViewControllerFactory<ProfileBusinessModel, ProfileAnalyticsProtocol> {
-    weak var flow: ProfileFlowProtocol?
-    
-    func makeProfileHomeViewController(isIndex: Bool = false) -> ProfileHomeViewController {
-        let viewModel = ProfileHomeViewModel(businessModel: businessModel, analytics: defaultAnalytics as? ProfileHomeAnalyticsProtocol, flowDelegate: flow as? ProfileHomeFlowDelegate)
+public class ProfileViewControllerFactory: BaseViewControllerFactory<ProfileBusinessModel, ProfileAnalyticsProtocol> {    
+    func makeProfileHomeViewController(flow: ProfileFlowProtocol, isIndex: Bool = false) -> ProfileHomeViewController {
+        let viewModel = ProfileHomeViewModel(businessModel: businessModel, analytics: analytics as? ProfileHomeAnalyticsProtocol, flowDelegate: flow as? ProfileHomeFlowDelegate)
         viewModel.isIndex = isIndex
         return ProfileHomeViewController(viewModel: viewModel)
     }

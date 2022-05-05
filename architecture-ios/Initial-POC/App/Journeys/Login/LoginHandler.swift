@@ -11,16 +11,9 @@ import Login
 
 class LoginHandler: ModuleHandler {
     var baseFlowDataSource: BaseFlowDataSource?
-    
     var baseFlowDelegate: BaseFlowDelegate?
     
-    var appNavigation: AppNavigationProtocol
-        
-    init(appNavigation: AppNavigationProtocol) {
-        self.appNavigation = appNavigation
-    }
-    
-    func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: Journey?, _ value: Any?) -> UIViewController {
+    func launch(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: Journey?, _ value: Any?) -> UIViewController {
         self.baseFlowDelegate = baseFlowDelegate
         let loginDependencies = LoginDependencies(url, self, DIContainer.shared, customModuleAnalytics as? LoginAnalyticsProtocol, value)
         
@@ -38,50 +31,32 @@ class LoginHandler: ModuleHandler {
     }
     
     func canStart() -> Bool {
-        return isAppLaunched && !isUserLoggedIn
+        return isAppLaunched
     }
     
     func getName() -> String {
         return Journey.login.rawValue
     }
     
-    func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?) {
+    func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?, andAppNavigation appNavigation: AppNavigation) {
         isUserLoggedIn = journey == .home
         switch journey {
         case .home:
-            appNavigation.show([.home], from: viewController)
+            appNavigation.show(journeys: [.home], fromCurrentViewController: viewController, animated: true)
             appNavigation.resolveDeeplinkIfNeeded()
             break
             
         case .welcome:
-            appNavigation.show([.welcome], from: viewController)
+            appNavigation.show(journeys: [.welcome], fromCurrentViewController: viewController, animated: true)
             break
             
         default: break
         }
     }
     
-    func handleGet(from journey: Journey, to subJourney: Journey?, with baseFlowDelegate: BaseFlowDelegate, analytics: Any?) -> UIViewController {
-        switch journey {
-        case .profile:
-            return appNavigation.start(journey: .login, fromCurrentJourney: journey, withSubJourney: subJourney, url: nil, baseFlowDelegate: baseFlowDelegate, baseFlowDataSource: appNavigation as! BaseFlowDataSource, customModuleAnalytics: analytics != nil ? LoginAnalyticsProfileAdapter(profileAnalytics: analytics) : nil, andValue: nil)
-        default:
-            return appNavigation.start(journey: .login, fromCurrentJourney: journey, withSubJourney: nil, url: nil, baseFlowDelegate: baseFlowDelegate, baseFlowDataSource: appNavigation as! BaseFlowDataSource, customModuleAnalytics: nil, andValue: nil)
-        }
-    }
-    
-    func handleFinish(in viewController: UIViewController, with value: Any?) {
+    func handleFinish(in viewController: UIViewController, with value: Any?, andAppNavigation appNavigation: AppNavigation) {
         viewController.isModal ? viewController.dismiss(animated: true, completion: nil) : viewController.pop(animated: true)
         debugPrint("++++++++ \(#fileID) - \(#function)")
-        LoginLauncher.dispose()
-    }
-    
-    func getViewController(from url: URL) -> UIViewController? {
-        return LoginLauncher.getViewController(from: url)
-    }
-    
-    static func dispose() {
-        LoginLauncher.dispose()
     }
 }
 
@@ -100,18 +75,10 @@ extension LoginHandler: LoginFlowDelegate {
         }
     }
     
-    func goToHome(from flow: Flow, in controller: UIViewController, with value: Any?) {
+    func onLoginSuccess(from flow: Flow, in controller: UIViewController, with value: Any?) {
         switch flow {
         case .main:
             baseFlowDelegate?.perform(.finishCurrentAndGoTo(.home, currentJourney: .login), in: controller, with: nil)
-        default: break
-        }
-    }
-    
-    func goToWelcome(from flow: Flow, in controller: UIViewController, with value: Any?) {
-        switch flow {
-        case .main:
-            baseFlowDelegate?.perform(.finishCurrentAndGoTo(.welcome, currentJourney: .login), in: controller, with: nil)
         default: break
         }
     }

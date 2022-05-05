@@ -13,7 +13,7 @@ public protocol BaseViewControllerProtocol {
 }
 
 open class BaseViewController<ViewModel>: UIViewController, BaseViewControllerProtocol {
-    public var viewModel: ViewModel?
+    open var viewModel: ViewModel?
     
     public init(viewModel: ViewModel?) {
         self.viewModel = viewModel
@@ -30,8 +30,8 @@ open class BaseViewController<ViewModel>: UIViewController, BaseViewControllerPr
     }
     
     open func checkDeeplinkIfNeeded() {
-        if let viewModel = viewModel as? BaseViewModelProtocol, let flowDelegate: Deeplinkable = viewModel.getFlow(), viewModel.isIndex {
-            flowDelegate.resolveDeeplinkIfNeeded(from: self)
+        if let viewModel = viewModel as? BaseViewModelProtocol {
+            viewModel.checkDeeplinkIfNeeded(fromViewController: self)
         }
     }
 }

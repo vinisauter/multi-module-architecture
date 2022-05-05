@@ -49,19 +49,16 @@ public protocol BaseFlowDelegate: AnyObject {
 }
 
 public protocol BaseFlowDataSource: AnyObject {
-    func get(_ journey: Journey, from currentJourney: Journey, with baseFlowDelegate: BaseFlowDelegate, customAnalytics: Any?) -> UIViewController
+    func get(_ journey: Journey, with baseFlowDelegate: BaseFlowDelegate, customAnalytics: Any?) -> UIViewController
 }
 
 public protocol ModuleHandler {
-    var appNavigation: AppNavigationProtocol { get }
     var baseFlowDelegate: BaseFlowDelegate? { get }
     var baseFlowDataSource: BaseFlowDataSource? { get }
     
-    func start(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: Journey?, _ value: Any?) -> UIViewController
+    func launch(from url: URL?, with baseFlowDelegate: BaseFlowDelegate, _ baseFlowDataSource: BaseFlowDataSource, _ customModuleAnalytics: Any?, _ subJourney: Journey?, _ value: Any?) -> UIViewController
     func canStart() -> Bool
     func getName() -> String
-    func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?)
-    func handleGet(from journey: Journey, to subJourney: Journey?, with baseFlowDelegate: BaseFlowDelegate, analytics: Any?) -> UIViewController
-    func handleFinish(in viewController: UIViewController, with value: Any?)
-    func getViewController(from url: URL) -> UIViewController?
+    func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?, andAppNavigation appNavigation: AppNavigation)
+    func handleFinish(in viewController: UIViewController, with value: Any?, andAppNavigation appNavigation: AppNavigation)
 }
