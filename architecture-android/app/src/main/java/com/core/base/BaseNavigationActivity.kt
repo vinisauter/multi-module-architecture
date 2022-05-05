@@ -10,6 +10,7 @@ import androidx.navigation.NavGraph
 import androidx.navigation.Navigator
 import androidx.navigation.fragment.NavHostFragment
 import com.example.app.R
+import com.example.journey.JourneyNavigator
 
 abstract class BaseNavigationActivity(
     @NavigationRes open val graphResId: Int,
@@ -19,13 +20,24 @@ abstract class BaseNavigationActivity(
         const val DEFAULT_START_DESTINATION: Int = -1
     }
 
+    abstract val appNavigationGraph: Int
     open lateinit var navController: NavController
     open lateinit var navGraph: NavGraph
     open val navHostFragment: NavHostFragment by lazy {
         supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
     }
 
-    open fun customNavigators(): List<Navigator<out NavDestination>> = listOf()
+    open fun customNavigators(): List<Navigator<out NavDestination>> {
+        // enable TAG journey to navigation of the module host activity
+        // to enable back navigation to R.navigation.app_navigation_graph
+        val launcherNavigator = JourneyNavigator(
+            navController.context,
+            navController.navigatorProvider,
+            navController.navInflater,
+            appNavigationGraph
+        )
+        return listOf(launcherNavigator)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

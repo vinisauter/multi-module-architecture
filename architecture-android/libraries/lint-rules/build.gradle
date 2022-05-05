@@ -4,7 +4,7 @@ plugins {
 }
 
 dependencies {
-    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:1.6.10"
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:1.6.21"
     compileOnly "com.android.tools.lint:lint-api:27.2.1"
     compileOnly "com.android.tools.lint:lint-checks:27.2.1"
 }

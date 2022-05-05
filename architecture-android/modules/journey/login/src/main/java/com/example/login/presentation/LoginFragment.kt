@@ -6,10 +6,11 @@ import com.core.base.BaseFragment
 import com.core.base.LoaderDialog
 import com.core.extensions.State
 import com.core.extensions.navigate
+import com.example.login.R
 import com.example.login.databinding.FragmentLoginBinding
 
-class LoginFragment :
-    BaseFragment<LoginFragmentEvent, LoginFragmentEffect, LoginFragmentViewModel>() {
+class LoginFragment : BaseFragment<LoginFragmentEvent, LoginFragmentEffect, LoginFragmentViewModel>
+    (R.layout.fragment_login) {
     private lateinit var binding: FragmentLoginBinding
     override val viewModel: LoginFragmentViewModel by viewModels()
 
@@ -27,7 +28,8 @@ class LoginFragment :
     override fun processEffect(effect: LoginFragmentEffect) {
         when (effect) {
             LoginFragmentEffect.Exit -> navigate(LoginFragmentDirections.actionExit())
-            LoginFragmentEffect.ForgotPassword -> navigate(LoginFragmentDirections.actionForgotPassword())
+            LoginFragmentEffect.ForgotPassword -> navigate(R.id.action_forgot_password)
+//            LoginFragmentEffect.ForgotPassword -> navigate(LoginFragmentDirections.actionForgotPassword())
             LoginFragmentEffect.LoginSucceed -> navigate(LoginFragmentDirections.actionLoginSucceed())
             LoginFragmentEffect.LoginFailed -> navigate(LoginFragmentDirections.actionLoginFailed())
             is LoginFragmentEffect.Error -> navigate(
