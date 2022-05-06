@@ -34,7 +34,7 @@ public protocol HomeStructuralDependencies {
 public class HomeLauncher {
     static public func start(with dependencies: HomeDependencies) -> UIViewController {
         let homeAPI = HomeAPI(secureHttpClient: dependencies.structuralDependencies.networkingProvider.getSecureHttpClient())
-        let businessModel = HomeBusinessModel(repository: homeAPI, structuralAnalytics: dependencies.structuralDependencies.analytics)
+        let businessModel = HomeBusinessModel(repository: homeAPI, structuralAnalytics: dependencies.structuralDependencies.analytics, value: dependencies.value as? Dictionary<String, Any>)
         let factory = HomeViewControllerFactory(businessModel: businessModel, analytics: dependencies.customHomeAnalytics ?? businessModel)
         let mainFlow = HomeFlow(factory: factory, deeplink: Deeplink(value: HomeDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
         mainFlow.delegate = dependencies.flowDelegate

@@ -83,7 +83,7 @@ extension LoginFlow: LoginIndexFlowDelegate {
     }
     
     func onLoginSuccess(in controller: LoginIndexViewController) {
-        delegate?.onLoginSuccess(from: .main, in: controller, with: nil)
+        delegate?.onLoginSuccess(from: .main, in: controller, with: ["username": "John Doe"])
     }
 }
 

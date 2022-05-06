@@ -9,7 +9,7 @@ import UIKit
 import Core
 import Login
 
-class LoginStarter: ModuleHandler {
+class LoginStarter: ModuleHandlerProtocol {
     
     init() {}
     

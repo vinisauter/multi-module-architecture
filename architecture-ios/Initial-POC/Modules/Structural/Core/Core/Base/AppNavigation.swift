@@ -7,11 +7,21 @@
 
 import UIKit
 
-public final class AppNavigation {
+public protocol AppNavigationProtocol {
+    func push(journey: Journey, fromCurrentViewController currentViewController: UIViewController?, withValue value: Any?, animated: Bool)
+    func resolve(_ rawDeeplink: String?) -> Bool
+    func resolveDeeplinkIfNeeded()
+    func show(journeys: Array<Journey>, fromCurrentViewController currentViewController: UIViewController?, withValue value: Dictionary<Journey, Any?>?, animated: Bool)
+    func register(jorneys: Array<Journey>, withStater stater: ModuleHandlerProtocol)
+    func getHandler(from jorney: Journey) -> ModuleHandlerProtocol?
+    func start(journey: Journey, fromCurrentJourney currentJourney: Journey?, withSubJourney subJourney: Journey?, url: URL?, customAnalytics: Any?, value: Any?, andCompletion completion: ((BaseFlowDelegateAction, UIViewController, Any?) -> Void)?) -> UIViewController
+}
+
+public final class AppNavigation: AppNavigationProtocol, AppNavigationDataSource, ModuleHandlerNavigationDelegate {
     public var navigationController: UINavigationController = UINavigationController()
     private var currentJourney: Journey = .unkown
     private var rawDeeplink: String?
-    private var handlers: Dictionary<Journey, ModuleHandler> = [:]
+    private var handlers: Dictionary<Journey, ModuleHandlerProtocol> = [:]
     
     // MARK: - Initializer
     
@@ -77,7 +87,7 @@ public final class AppNavigation {
         resolve(rawDeeplink)
     }
     
-    public func register(jorneys: Array<Journey>, withStater stater: ModuleHandler) {
+    public func register(jorneys: Array<Journey>, withStater stater: ModuleHandlerProtocol) {
         jorneys.forEach{ [weak self] jorney in self?.handlers[jorney] = stater }
     }
     
@@ -87,7 +97,7 @@ public final class AppNavigation {
         }
     }
     
-    public func getHandler(from jorney: Journey) -> ModuleHandler? {
+    public func getHandler(from jorney: Journey) -> ModuleHandlerProtocol? {
         return handlers[jorney]
     }
     
@@ -96,13 +106,17 @@ public final class AppNavigation {
         
         self.currentJourney = currentJourney ?? journey
         
-        return handler.launch(fromURL: url, withCustomAnalytics: customAnalytics, subJourney: subJourney, value: value, appNavigation: self, andCompletionHandler: completion)
+        handler.completionHandler = completion
+        handler.navigationDelegate = self
+        handler.navigationDataSource = self
+        
+        return handler.launch(fromURL: url, withCustomAnalytics: customAnalytics, subJourney: subJourney, andValue: value)
     }
     
-    public func show(journeys: Array<Journey>, fromCurrentViewController currentViewController: UIViewController? = nil, withValue value: Dictionary<Journey, Any>? = nil, animated: Bool) {
+    public func show(journeys: Array<Journey>, fromCurrentViewController currentViewController: UIViewController? = nil, withValue value: Dictionary<Journey, Any?>? = nil, animated: Bool) {
         let journeysControllers = journeys.compactMap{ [weak self] journey -> UIViewController? in
             guard let self = self else { return UIViewController() }
-            let firstModuleVC = self.start(journey: journey, value: value?[journey])
+            let firstModuleVC = self.start(journey: journey, value: value?[journey] as Any?)
             firstModuleVC.loadViewIfNeeded()
             return firstModuleVC
         }
@@ -116,8 +130,7 @@ public final class AppNavigation {
     }
     
     public func get(_ journey: Journey, customAnalytics: Any?, completion: @escaping (BaseFlowDelegateAction, UIViewController, Any?) -> Void) -> UIViewController {
-        guard let handler = getHandler(from: journey) else { return UIViewController() }
-        return handler.launch(fromURL: nil, withCustomAnalytics: customAnalytics, subJourney: journey, value: nil, appNavigation: self, andCompletionHandler: completion)
+        return start(journey: journey, fromCurrentJourney: nil, withSubJourney: journey.isSubJourney ? journey : nil, url: nil, customAnalytics: customAnalytics, value: nil, andCompletion: completion)
     }
     
     public func perform(_ action: BaseFlowDelegateAction, in viewController: UIViewController, with value: Any?) {
@@ -140,12 +153,18 @@ public final class AppNavigation {
     
     private func handleGo(to destinationJourney: Journey, from currentJourney: Journey, in viewController: UIViewController, with value: Any?) {
         guard let handler = getHandler(from: currentJourney) else { return }
-        handler.handleGo(to: destinationJourney, in: viewController, with: value)
+        if let completionHandler = handler.completionHandler {
+            return completionHandler(.goTo(destinationJourney, currentJourney: currentJourney), viewController, value)
+        }
+        handler.handleGo(to: destinationJourney, in: viewController, with: value, andAppNavigation: self)
     }
     
     private func handleFinish(_ jorney: Journey, in viewController: UIViewController, with value: Any?) {
         guard let handler = getHandler(from: jorney) else { return }
-        handler.handleFinish(in: viewController, with: value)
+        if let completionHandler = handler.completionHandler {
+            return completionHandler(.finish(jorney), viewController, value)
+        }
+        handler.handleFinish(in: viewController, with: value, andAppNavigation: self)
     }
     
     private func getDeeplink(from rawDeeplink: String) -> Deeplink<Journey>? {

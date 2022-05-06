@@ -9,7 +9,7 @@ import UIKit
 import Core
 import Home
 
-class HomeHandler: ModuleHandler {
+class HomeHandler: ModuleHandlerProtocol {
     private weak var baseFlowDelegate: BaseFlowDelegate?
     
     init() {}

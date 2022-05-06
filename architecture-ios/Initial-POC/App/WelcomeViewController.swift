@@ -9,7 +9,7 @@ import UIKit
 import Core
 
 class WelcomeViewController: UIViewController {
-    weak var appNavigation: AppNavigation?
+    weak var navigationDelegate: ModuleHandlerNavigationDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,26 +23,24 @@ class WelcomeViewController: UIViewController {
     }
     
     @IBAction func goToLogin(_ sender: Any) {
-        appNavigation?.perform(.finishCurrentAndGoTo(.login, currentJourney: .welcome), in: self, with: nil)
+        navigationDelegate?.perform(.finishCurrentAndGoTo(.login, currentJourney: .welcome), in: self, with: nil)
     }
 }
 
 
-class WelcomeHandler: ModuleHandler {
-    var appNavigation: AppNavigation?
+class WelcomeHandler: ModuleHandlerProtocol {
+    var navigationDelegate: ModuleHandlerNavigationDelegate?
+    var navigationDataSource: AppNavigationDataSource?
     var completionHandler: ((BaseFlowDelegateAction, UIViewController, Any?) -> Void)?
         
-    func launch(fromURL url: URL?, withCustomAnalytics customAnalytics: Any?, subJourney: Journey?, value: Any?, appNavigation: AppNavigation, andCompletionHandler completion: ((BaseFlowDelegateAction, UIViewController, Any?) -> Void)?) -> UIViewController {
-        self.appNavigation = appNavigation
-        self.completionHandler = completion
-        
+    func launch(fromURL url: URL?, withCustomAnalytics customAnalytics: Any?, subJourney: Journey?, andValue value: Any?) -> UIViewController {
         let vc = UIViewController.instantiateViewController(ofType: WelcomeViewController.self)!
-        vc.appNavigation = appNavigation
+        vc.navigationDelegate = navigationDelegate
         return vc
     }
     
-    func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?) {
-        appNavigation?.push(journey: .login, animated: true)
+    func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?, andAppNavigation appNavigation: AppNavigationProtocol) {
+        appNavigation.push(journey: .login, fromCurrentViewController: viewController, withValue: nil, animated: true)
     }
     
     func canStart() -> Bool {
@@ -53,7 +51,7 @@ class WelcomeHandler: ModuleHandler {
         return Journey.welcome.rawValue
     }
     
-    func handleFinish(in viewController: UIViewController, with value: Any?) {
+    func handleFinish(in viewController: UIViewController, with value: Any?, andAppNavigation appNavigation: AppNavigationProtocol) {
         debugPrint("++++++++ \(#fileID) - \(#function)")
     }
     

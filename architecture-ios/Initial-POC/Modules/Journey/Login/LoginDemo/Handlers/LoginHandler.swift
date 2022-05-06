@@ -9,7 +9,7 @@ import UIKit
 import Core
 import Login
 
-class LoginHandler: ModuleHandler {
+class LoginHandler: ModuleHandlerProtocol {
     private weak var baseFlowDelegate: BaseFlowDelegate?
     
     init() {}

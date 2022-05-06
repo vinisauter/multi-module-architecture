@@ -7,4 +7,6 @@
 
 import Foundation
 
-public protocol HomeIndexBusinessModelProtocol {}
+public protocol HomeIndexBusinessModelProtocol {
+    func getUsername() -> String
+}

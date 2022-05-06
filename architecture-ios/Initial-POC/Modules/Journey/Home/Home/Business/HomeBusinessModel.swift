@@ -15,11 +15,17 @@ public protocol HomeAnalyticsProtocol {
 public class HomeBusinessModel: HomeAnalyticsProtocol {
     public var repository: HomeRepositoryProtocol?
     public var structuralAnalytics: AnalyticsProtocol?
+    private let value: Dictionary<String, Any>?
     
-    init(repository: HomeRepositoryProtocol, structuralAnalytics: AnalyticsProtocol) {
+    init(repository: HomeRepositoryProtocol, structuralAnalytics: AnalyticsProtocol, value: Dictionary<String, Any>?) {
         self.repository = repository
         self.structuralAnalytics = structuralAnalytics
+        self.value = value
     }
 }
 
-extension HomeBusinessModel: HomeIndexBusinessModelProtocol {}
+extension HomeBusinessModel: HomeIndexBusinessModelProtocol {
+    public func getUsername() -> String {
+        return value?["username"] as? String ?? ""
+    }
+}

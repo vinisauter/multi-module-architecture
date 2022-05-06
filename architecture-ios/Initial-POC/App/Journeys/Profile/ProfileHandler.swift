@@ -9,13 +9,12 @@ import UIKit
 import Core
 import Profile
 
-class ProfileHandler: ModuleHandler {
-    var appNavigation: AppNavigation?
+class ProfileHandler: ModuleHandlerProtocol {
+    var navigationDelegate: ModuleHandlerNavigationDelegate?
+    var navigationDataSource: AppNavigationDataSource?
     var completionHandler: ((BaseFlowDelegateAction, UIViewController, Any?) -> Void)?
         
-    func launch(fromURL url: URL?, withCustomAnalytics customAnalytics: Any?, subJourney: Journey?, value: Any?, appNavigation: AppNavigation, andCompletionHandler completion: ((BaseFlowDelegateAction, UIViewController, Any?) -> Void)?) -> UIViewController {
-        self.appNavigation = appNavigation
-        self.completionHandler = completion
+    func launch(fromURL url: URL?, withCustomAnalytics customAnalytics: Any?, subJourney: Journey?, andValue value: Any?) -> UIViewController {
         let profileDependencies = ProfileDependencies(url, self, self, DIContainer.shared, customAnalytics as? ProfileAnalyticsProtocol, value)
         
         return ProfileLauncher.start(with: profileDependencies)
@@ -29,17 +28,17 @@ class ProfileHandler: ModuleHandler {
         return Journey.profile.rawValue
     }
     
-    func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?) {
+    func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?, andAppNavigation appNavigation: AppNavigationProtocol) {
         switch journey {
         case .home:
-            appNavigation?.show(journeys: [.home], fromCurrentViewController: viewController, animated: true)
+            appNavigation.show(journeys: [.home], fromCurrentViewController: viewController, withValue: [.home: value], animated: true)
             break
             
         default: break
         }
     }
     
-    func handleFinish(in viewController: UIViewController, with value: Any?) {
+    func handleFinish(in viewController: UIViewController, with value: Any?, andAppNavigation appNavigation: AppNavigationProtocol) {
         debugPrint("++++++++ \(#fileID) - \(#function)")
     }
 }
@@ -50,11 +49,7 @@ extension ProfileHandler: ProfileFlowDelegate {
     func goToHome(from flow: Flow, in controller: UIViewController, with value: Any?) {
         switch flow {
         case .main:
-            if let completionHandler = completionHandler {
-                completionHandler(.finishCurrentAndGoTo(.home, currentJourney: .profile), controller, value)
-            } else {
-                appNavigation?.perform(.finishCurrentAndGoTo(.home, currentJourney: .profile), in: controller, with: value)
-            }
+            navigationDelegate?.perform(.finishCurrentAndGoTo(.home, currentJourney: .profile), in: controller, with: value)
             break
             
         default: break
@@ -64,9 +59,9 @@ extension ProfileHandler: ProfileFlowDelegate {
 
 extension ProfileHandler: ProfileFlowDataSource {
     func getLogin(from flow: Flow, with customAnalytics: Any?) -> UIViewController? {
-        return appNavigation?.get(.login, customAnalytics: LoginAnalyticsProfileAdapter(profileAnalytics: customAnalytics), completion: { [weak self] action, viewController, value in
+        return navigationDataSource?.get(.login, customAnalytics: LoginAnalyticsProfileAdapter(profileAnalytics: customAnalytics), completion: { [weak self] action, viewController, value in
             switch action {
-            case .finish(let journey), .finishCurrentAndGoTo(_, let journey):
+            case .finish(let journey), .goTo(_, let journey):
                 self?.handleDidFinish(journey, in: viewController, with: value)
                 break
 
@@ -76,9 +71,9 @@ extension ProfileHandler: ProfileFlowDataSource {
     }
     
     func getForgotPassword(from flow: Flow, with customAnalytics: Any?) -> UIViewController? {
-        return appNavigation?.get(.forgotPassword, customAnalytics: LoginAnalyticsProfileAdapter(profileAnalytics: customAnalytics), completion: { [weak self] action, viewController, value in
+        return navigationDataSource?.get(.forgotPassword, customAnalytics: LoginAnalyticsProfileAdapter(profileAnalytics: customAnalytics), completion: { [weak self] action, viewController, value in
             switch action {
-            case .finish(let journey), .finishCurrentAndGoTo(_, let journey):
+            case .finish(let journey), .goTo(_, let journey):
                 self?.handleDidFinish(journey, in: viewController, with: value)
                 break
 

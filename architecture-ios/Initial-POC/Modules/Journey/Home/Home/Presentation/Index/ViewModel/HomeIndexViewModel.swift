@@ -10,6 +10,10 @@ import Core
 public protocol HomeIndexViewModelProtocol: HomeIndexBusinessModelProtocol, HomeIndexFlowDelegate {}
 
 class HomeIndexViewModel: BaseViewModel<HomeIndexBusinessModelProtocol, HomeIndexAnalyticsProtocol, HomeIndexFlowDelegate>, HomeIndexViewModelProtocol {
+    func getUsername() -> String {
+        return businessModel?.getUsername() ?? ""
+    }
+    
     func openProfile(in controller: HomeIndexViewController) {
         analytics?.onOpenProfileClick()
         flowDelegate?.openProfile(in: controller)

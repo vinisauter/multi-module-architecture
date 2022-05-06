@@ -20,6 +20,7 @@ open class HomeIndexViewController: BaseViewController<HomeIndexViewModelProtoco
         super.viewWillAppear(animated)
         
         setupUI()
+        debugPrint("HOME - USERNAME - \(String(describing: viewModel?.getUsername()))")
     }
     
     // MARK: - Setup Functions
