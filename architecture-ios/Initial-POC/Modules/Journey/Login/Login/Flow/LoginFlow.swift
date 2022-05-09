@@ -11,6 +11,7 @@ import Core
 protocol LoginFlowProtocol: AnyObject {
     var factory: LoginViewControllerFactory { get }
     var delegate: LoginFlowDelegate? { get set }
+    var dataSource: LoginFlowDataSource? { get set }
     var deeplink: Deeplink<LoginDeeplink>? { get set }
     func start() -> UIViewController
     func getViewController(fromDeeplink deeplink: Deeplink<LoginDeeplink>) -> UIViewController?
@@ -21,12 +22,17 @@ public protocol LoginFlowDelegate: AnyObject {
     func onLoginSuccess(from flow: Flow, in controller: UIViewController, with value: Any?)
 }
 
+public protocol LoginFlowDataSource: AnyObject {
+    func getProfile(from flow: Flow, with customAnalytics: Any?) -> UIViewController?
+}
+
 class LoginFlow: LoginFlowProtocol, Deeplinkable {
     var factory: LoginViewControllerFactory
     
     var deeplink: Deeplink<LoginDeeplink>?
     
     weak var delegate: LoginFlowDelegate?
+    weak var dataSource: LoginFlowDataSource?
     
     init(factory: LoginViewControllerFactory, deeplink: Deeplink<LoginDeeplink>?) {
         self.factory = factory
@@ -70,6 +76,11 @@ class LoginFlow: LoginFlowProtocol, Deeplinkable {
 // MARK: - LoginIndexFlowDelegate
 
 extension LoginFlow: LoginIndexFlowDelegate {
+    func onGetProfileClick(in controller: LoginIndexViewController) {
+        guard let profile = dataSource?.getProfile(from: .main, with: nil) else { return }
+        controller.show(profile, sender: nil)
+    }
+    
     func onBackClick(in controller: LoginIndexViewController) {
         delegate?.didFinish(.main, in: controller, with: nil)
     }

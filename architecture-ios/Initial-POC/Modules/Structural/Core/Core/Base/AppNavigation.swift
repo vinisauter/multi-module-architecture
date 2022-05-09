@@ -18,9 +18,11 @@ public protocol AppNavigationProtocol {
 
 public final class AppNavigation: AppNavigationProtocol, AppNavigationDataSource, ModuleHandlerNavigationDelegate {
     public var navigationController: UINavigationController = UINavigationController()
+    
     private var currentJourney: Journey = .unkown
     private var rawDeeplink: String?
     private var handlers: Dictionary<Journey, ModuleHandlerProtocol> = [:]
+    private var getLinkedList: GetDoublyLinkedList?
     
     // MARK: - Initializer
     
@@ -68,7 +70,6 @@ public final class AppNavigation: AppNavigationProtocol, AppNavigationDataSource
         
         self.currentJourney = currentJourney ?? journey
         
-        handler.completionHandler = completion
         handler.navigationDelegate = self
         handler.navigationDataSource = self
         
@@ -96,10 +97,21 @@ public final class AppNavigation: AppNavigationProtocol, AppNavigationDataSource
     }
     
     public func get(_ journey: Journey, customAnalytics: Any?, completion: @escaping (BaseFlowDelegateAction, UIViewController, Any?) -> Void) -> UIViewController {
+        if getLinkedList == nil {
+            getLinkedList = GetDoublyLinkedList()
+        }
+        
+        getLinkedList?.addNode(GetNode(origin: .unkown, target: journey, completionHandler: completion))
         return start(journey: journey, fromCurrentJourney: nil, withSubJourney: journey.isSubJourney ? journey : nil, url: nil, customAnalytics: customAnalytics, value: nil, andCompletion: completion)
     }
     
     public func perform(_ action: BaseFlowDelegateAction, in viewController: UIViewController, with value: Any?) {
+        if let lastGetNode = getLinkedList?.popLastNode() {
+            return lastGetNode.completionHandler(action, viewController, value)
+        } else {
+            getLinkedList = nil
+        }
+        
         switch action {
         case .finish(let journey):
             handleFinish(journey, in: viewController, with: value)
@@ -148,21 +160,13 @@ public final class AppNavigation: AppNavigationProtocol, AppNavigationDataSource
         navigationController.present(viewController, animated: animated, completion: completion)
     }
     
-    
-    
     private func handleGo(to destinationJourney: Journey, from currentJourney: Journey, in viewController: UIViewController, with value: Any?) {
         guard let handler = getHandler(from: currentJourney) else { return }
-        if let completionHandler = handler.completionHandler {
-            return completionHandler(.goTo(destinationJourney, currentJourney: currentJourney), viewController, value)
-        }
         handler.handleGo(to: destinationJourney, in: viewController, with: value, andAppNavigation: self)
     }
     
     private func handleFinish(_ jorney: Journey, in viewController: UIViewController, with value: Any?) {
         guard let handler = getHandler(from: jorney) else { return }
-        if let completionHandler = handler.completionHandler {
-            return completionHandler(.finish(jorney), viewController, value)
-        }
         handler.handleFinish(in: viewController, with: value, andAppNavigation: self)
     }
     

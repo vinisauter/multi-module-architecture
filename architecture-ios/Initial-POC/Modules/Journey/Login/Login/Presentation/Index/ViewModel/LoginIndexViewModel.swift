@@ -10,6 +10,10 @@ import Core
 public protocol LoginIndexViewModelProtocol: LoginIndexBusinessModelProtocol, LoginIndexFlowDelegate {}
 
 class LoginIndexViewModel: BaseViewModel<LoginIndexBusinessModelProtocol, LoginIndexAnalyticsProtocol, LoginIndexFlowDelegate>, LoginIndexViewModelProtocol {
+    func onGetProfileClick(in controller: LoginIndexViewController) {
+        flowDelegate?.onGetProfileClick(in: controller)
+    }
+    
     
     func login(with username: String, and password: String, completion: @escaping (Bool) -> Void) {
         analytics?.onLoginClick()

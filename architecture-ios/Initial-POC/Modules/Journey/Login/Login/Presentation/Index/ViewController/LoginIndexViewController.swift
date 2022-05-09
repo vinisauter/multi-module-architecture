@@ -13,6 +13,7 @@ open class LoginIndexViewController: BaseViewController<LoginIndexViewModelProto
     
     private let button: UIButton = UIButton()
     private let forgotPasswordbutton: UIButton = UIButton()
+    private let getProfileButton: UIButton = UIButton()
     private let loadingContainer: UIView = UIView()
     
     // MARK: - Life Cycle
@@ -63,6 +64,18 @@ open class LoginIndexViewController: BaseViewController<LoginIndexViewModelProto
         
         forgotPasswordbutton.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 16.0).isActive = true
         forgotPasswordbutton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        view.addSubview(getProfileButton)
+        
+        getProfileButton.setTitleColor(.blue, for: .normal)
+        getProfileButton.setTitle("Get Profile", for: .normal)
+        getProfileButton.addTarget(self, action: #selector(getProfile), for: .touchUpInside)
+        
+        getProfileButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(forgotPasswordbutton)
+        
+        getProfileButton.topAnchor.constraint(equalTo: forgotPasswordbutton.bottomAnchor, constant: 16.0).isActive = true
+        getProfileButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
     private func setupLoadingContainer() {
@@ -102,6 +115,10 @@ open class LoginIndexViewController: BaseViewController<LoginIndexViewModelProto
     
     @objc private func forgotPassword() {
         viewModel?.onForgotPasswordClick(in: self)
+    }
+    
+    @objc private func getProfile() {
+        viewModel?.onGetProfileClick(in: self)
     }
     
     @objc private func back() {

@@ -12,10 +12,9 @@ import Login
 class LoginHandler: ModuleHandlerProtocol {
     var navigationDelegate: ModuleHandlerNavigationDelegate?
     var navigationDataSource: AppNavigationDataSource?
-    var completionHandler: ((BaseFlowDelegateAction, UIViewController, Any?) -> Void)?
     
     func launch(fromURL url: URL?, withCustomAnalytics customAnalytics: Any?, subJourney: Journey?, andValue value: Any?) -> UIViewController {        
-        let loginDependencies = LoginDependencies(url, self, DIContainer.shared, customAnalytics as? LoginAnalyticsProtocol, value)
+        let loginDependencies = LoginDependencies(url, self, self, DIContainer.shared, customAnalytics as? LoginAnalyticsProtocol, value)
         
         var startViewController: UIViewController = LoginLauncher.start(with: loginDependencies)
         
@@ -82,5 +81,18 @@ extension LoginHandler: LoginFlowDelegate {
             navigationDelegate?.perform(.finishCurrentAndGoTo(.home, currentJourney: .login), in: controller, with: value)
         default: break
         }
+    }
+}
+
+extension LoginHandler: LoginFlowDataSource {
+    func getProfile(from flow: Flow, with customAnalytics: Any?) -> UIViewController? {
+        return navigationDataSource?.get(.profile, customAnalytics: customAnalytics, completion: { action, controller, value in
+            switch action {
+            case .finish(_), .finishCurrentAndGoTo(_, _), .goTo(_, _):
+                controller.isModal ? controller.dismiss(animated: true, completion: nil) : controller.pop(animated: true)
+                
+            }
+            
+        })
     }
 }

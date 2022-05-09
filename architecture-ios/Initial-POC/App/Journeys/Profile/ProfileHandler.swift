@@ -61,11 +61,9 @@ extension ProfileHandler: ProfileFlowDataSource {
     func getLogin(from flow: Flow, with customAnalytics: Any?) -> UIViewController? {
         return navigationDataSource?.get(.login, customAnalytics: LoginAnalyticsProfileAdapter(profileAnalytics: customAnalytics), completion: { [weak self] action, viewController, value in
             switch action {
-            case .finish(let journey), .goTo(_, let journey):
+            case .finish(let journey), .goTo(_, let journey), .finishCurrentAndGoTo(_, let journey):
                 self?.handleDidFinish(journey, in: viewController, with: value)
                 break
-
-            default: break
             }
         })
     }

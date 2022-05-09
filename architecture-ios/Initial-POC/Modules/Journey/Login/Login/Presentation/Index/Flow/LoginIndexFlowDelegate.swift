@@ -12,4 +12,5 @@ public protocol LoginIndexFlowDelegate: AnyObject {
     func onForgotPasswordClick(in controller: LoginIndexViewController)
     func onCloseClick(in controller: LoginIndexViewController)
     func onBackClick(in controller: LoginIndexViewController)
+    func onGetProfileClick(in controller: LoginIndexViewController)
 }

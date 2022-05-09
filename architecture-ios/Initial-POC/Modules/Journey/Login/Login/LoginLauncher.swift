@@ -13,13 +13,15 @@ import Core
 public struct LoginDependencies {
     var deeplink: URL?
     var flowDelegate: LoginFlowDelegate?
+    var flowDataSource: LoginFlowDataSource?
     let structuralDependencies: LoginStructuralDependencies
     var customLoginAnalytics: LoginAnalyticsProtocol?
     var value: Any?
     
-    public init (_ deeplink: URL?, _ flowDelegate: LoginFlowDelegate?, _ structuralDependencies: LoginStructuralDependencies, _ customLoginAnalytics: LoginAnalyticsProtocol?, _ value: Any?) {
+    public init (_ deeplink: URL?, _ flowDelegate: LoginFlowDelegate?, _ flowDataSource: LoginFlowDataSource?, _ structuralDependencies: LoginStructuralDependencies, _ customLoginAnalytics: LoginAnalyticsProtocol?, _ value: Any?) {
         self.deeplink = deeplink
         self.flowDelegate = flowDelegate
+        self.flowDataSource = flowDataSource
         self.structuralDependencies = structuralDependencies
         self.customLoginAnalytics = customLoginAnalytics
         self.value = value
@@ -38,6 +40,7 @@ public class LoginLauncher {
         let factory = LoginViewControllerFactory(businessModel: businessModel, analytics: dependencies.customLoginAnalytics ?? businessModel)
         let flow = LoginFlow(factory: factory, deeplink: Deeplink(value: LoginDeeplink(rawValue: dependencies.deeplink?.path ?? "/"), url: dependencies.deeplink))
         flow.delegate = dependencies.flowDelegate
+        flow.dataSource = dependencies.flowDataSource
         
         return flow.start()
     }

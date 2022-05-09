@@ -9,6 +9,8 @@ import UIKit
 import Core
 
 class ForgotPasswordFlow: LoginFlowProtocol, Deeplinkable {
+    var dataSource: LoginFlowDataSource?
+    
     var factory: LoginViewControllerFactory
     
     var deeplink: Deeplink<LoginDeeplink>?

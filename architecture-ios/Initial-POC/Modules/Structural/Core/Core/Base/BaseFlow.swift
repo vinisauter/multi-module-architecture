@@ -34,6 +34,8 @@ public struct Journey: Hashable, RawRepresentable {
     }
 }
 
+public typealias CompletionHandler = (BaseFlowDelegateAction, UIViewController, Any?) -> Void
+
 public enum BaseFlowDelegateAction {
     case finish(_ currentJourney: Journey)
     case goTo(_ destinationJourney: Journey, currentJourney: Journey)
@@ -55,11 +57,47 @@ public protocol ModuleHandlerNavigationDelegate: AnyObject {
 public protocol ModuleHandlerProtocol: AnyObject {
     var navigationDelegate: ModuleHandlerNavigationDelegate? { get set }
     var navigationDataSource: AppNavigationDataSource? { get set }
-    var completionHandler: ((BaseFlowDelegateAction, UIViewController, Any?) -> Void)? { get set }
      
     func launch(fromURL url: URL?, withCustomAnalytics customAnalytics: Any?, subJourney: Journey?, andValue value: Any?) -> UIViewController
     func canStart() -> Bool
     func getName() -> String
     func handleGo(to journey: Journey, in viewController: UIViewController, with value: Any?, andAppNavigation appNavigation: AppNavigationProtocol)
     func handleFinish(in viewController: UIViewController, with value: Any?, andAppNavigation appNavigation: AppNavigationProtocol)
+}
+
+class GetNode {
+    let origin: Journey
+    let target: Journey
+    let completionHandler: CompletionHandler
+    var previousNode: GetNode? = nil
+    var nextNode: GetNode? = nil
+    
+    init(origin: Journey, target: Journey, completionHandler: @escaping CompletionHandler) {
+        self.origin = origin
+        self.target = target
+        self.completionHandler = completionHandler
+    }
+}
+
+class GetDoublyLinkedList {
+    var lastNode: GetNode?
+    
+    func addNode(_ newNode: GetNode) {
+        if let lastNode = lastNode {
+            lastNode.nextNode = newNode
+            newNode.previousNode = lastNode
+            self.lastNode = newNode
+        } else {
+            lastNode = newNode
+        }
+    }
+    
+    func popLastNode() -> GetNode? {
+        let poppedLastNode = lastNode
+        poppedLastNode?.previousNode?.nextNode = nil
+        lastNode = lastNode?.previousNode
+        poppedLastNode?.previousNode = nil
+
+        return poppedLastNode
+    }
 }
