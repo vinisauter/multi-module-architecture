@@ -1,9 +1,9 @@
-package com.example.login.core
+package com.example.login.domain
 
-import com.example.login.core.repository.local.LoginStorage
-import com.example.login.core.repository.remote.LoginApi
+import com.example.login.repository.local.LoginStorage
+import com.example.login.repository.remote.LoginApi
 
-class Login(
+class LoginUseCase(
     private val api: LoginApi,
     private val storage: LoginStorage
 ) {

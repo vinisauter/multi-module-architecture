@@ -1,4 +1,4 @@
-package com.example.login.core.repository.local
+package com.example.login.repository.local
 
 import com.example.storage.StorageExecutor
 

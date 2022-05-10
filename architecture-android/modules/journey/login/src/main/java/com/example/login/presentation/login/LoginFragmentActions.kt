@@ -1,4 +1,4 @@
-package com.example.login.presentation
+package com.example.login.presentation.login
 
 import com.core.base.BaseViewEffect
 import com.core.base.BaseViewEvent

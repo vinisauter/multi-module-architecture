@@ -1,7 +1,8 @@
-package com.example.login.core.repository.local
+package com.example.login.business.repository.local
 
 
 import com.example.login.InstantExecutorRule
+import com.example.login.repository.local.LoginStorage
 import com.example.storage.StorageExecutor
 import io.mockk.coVerify
 import io.mockk.mockk

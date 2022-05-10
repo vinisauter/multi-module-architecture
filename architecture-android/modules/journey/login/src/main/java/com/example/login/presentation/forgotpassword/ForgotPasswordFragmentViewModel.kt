@@ -6,13 +6,14 @@ import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavDirections
 import com.core.extensions.onCpu
 import com.example.journey.login.tracking.LoginTracking
+import com.example.login.domain.ForgotPasswordUseCase
 import com.example.tagging.TaggingExecutor
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 
 class ForgotPasswordFragmentViewModel(
     private val app: Application,
-    private val useCase: ForgotPasswordFragmentUseCase,
+    private val useCase: ForgotPasswordUseCase,
     private val tagging: TaggingExecutor,
     private val tracking: LoginTracking,
 ) : AndroidViewModel(app) {

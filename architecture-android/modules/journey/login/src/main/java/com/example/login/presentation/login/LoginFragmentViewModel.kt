@@ -1,17 +1,18 @@
-package com.example.login.presentation
+package com.example.login.presentation.login
 
 import android.app.Application
 import androidx.lifecycle.SavedStateHandle
 import com.core.base.BaseViewModel
 import com.core.extensions.default
 import com.example.journey.login.tracking.LoginTracking
+import com.example.login.domain.LoginUseCase
 import com.example.tagging.TaggingExecutor
 
 class LoginFragmentViewModel(
     private val app: Application,
     private val savedStateHandle: SavedStateHandle,
     private val tagging: TaggingExecutor,
-    private val useCase: LoginFragmentUseCases,
+    private val useCase: LoginUseCase,
     private val tracking: LoginTracking
 ) : BaseViewModel<LoginFragmentEvent, LoginFragmentEffect>(app, savedStateHandle) {
 
@@ -26,7 +27,7 @@ class LoginFragmentViewModel(
             LoginFragmentEvent.OnLogin -> {
                 tagging.send(tracking.loginClickAuthEvent)
                 try {
-                    when (useCase.login("user", "password")) {
+                    when (useCase.invoke("user", "password")) {
                         true -> {
                             emitEffect(LoginFragmentEffect.LoginSucceed)
                             tagging.send(tracking.loginAuthSucceededEvent)

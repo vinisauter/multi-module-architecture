@@ -1,6 +1,7 @@
-package com.example.login.core.repository.remote
+package com.example.login.business.repository.remote
 
 import com.example.login.InstantExecutorRule
+import com.example.login.repository.remote.LoginApi
 import com.example.networking.RequestExecutor
 import io.mockk.coJustRun
 import io.mockk.coVerify

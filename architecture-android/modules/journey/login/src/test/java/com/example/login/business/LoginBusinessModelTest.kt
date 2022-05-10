@@ -1,7 +1,7 @@
-package com.example.login.core
+package com.example.login.business
 
-import com.example.login.core.repository.local.LoginStorage
-import com.example.login.core.repository.remote.LoginApi
+import com.example.login.repository.local.LoginStorage
+import com.example.login.repository.remote.LoginApi
 import com.example.networking.RequestExecutor
 import io.mockk.coEvery
 import io.mockk.coVerify

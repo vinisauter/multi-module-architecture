@@ -1,4 +1,4 @@
-package com.example.login.core.repository.remote
+package com.example.login.repository.remote
 
 import com.example.networking.RequestExecutor
 

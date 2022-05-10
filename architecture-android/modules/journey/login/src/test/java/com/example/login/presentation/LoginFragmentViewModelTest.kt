@@ -6,6 +6,8 @@ import androidx.lifecycle.SavedStateHandle
 import com.core.extensions.State
 import com.example.journey.login.tracking.LoginTracking
 import com.example.login.InstantExecutorRule
+import com.example.login.presentation.login.LoginFragmentEvent
+import com.example.login.presentation.login.LoginFragmentViewModel
 import com.example.tagging.TaggingExecutor
 import io.mockk.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi

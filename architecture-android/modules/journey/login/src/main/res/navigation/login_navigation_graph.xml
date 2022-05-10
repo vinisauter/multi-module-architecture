@@ -7,7 +7,7 @@
     app:startDestination="@+id/login_fragment">
     <fragment
         android:id="@+id/login_fragment"
-        android:name="com.example.login.presentation.LoginFragment"
+        android:name="com.example.login.presentation.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
         <argument
